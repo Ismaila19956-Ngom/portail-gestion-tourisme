@@ -1,4 +1,4 @@
-﻿import { Component, inject, type OnInit } from '@angular/core';
+import { Component, inject, type OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import aos from 'aos';

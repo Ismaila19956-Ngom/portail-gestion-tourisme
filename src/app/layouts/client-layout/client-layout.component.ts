@@ -21,16 +21,16 @@ import { AuthService } from '../../services/auth.service';
             <!-- Logo + toggle -->
             <div class="sidebar-header">
                 <div class="sidebar-logo" *ngIf="sidebarOpen()">
-                    <img src="assets/images/logo/senegal-excursions-logo.jpg" alt="Sénégal Excursions">
+                    <img src="assets/images/logo/senegal-excursions-logo.jpg" alt="Sï¿½nï¿½gal Excursions">
                     <div class="sidebar-logo-text">
-                        <span class="sidebar-brand">Sénégal Excursions</span>
-                        <span class="sidebar-tagline">Espace Assuré</span>
+                        <span class="sidebar-brand">Sï¿½nï¿½gal Excursions</span>
+                        <span class="sidebar-tagline">Espace Assurï¿½</span>
                     </div>
                 </div>
                 <div class="sidebar-logo-icon" *ngIf="!sidebarOpen()">
-                    <img src="assets/images/logo/senegal-excursions-logo.jpg" alt="Sénégal Excursions">
+                    <img src="assets/images/logo/senegal-excursions-logo.jpg" alt="Sï¿½nï¿½gal Excursions">
                 </div>
-                <button class="hamburger-btn" (click)="toggle()" [title]="sidebarOpen() ? 'Réduire' : 'Développer'">
+                <button class="hamburger-btn" (click)="toggle()" [title]="sidebarOpen() ? 'Rï¿½duire' : 'Dï¿½velopper'">
                     <span class="ham-line" [class.open]="sidebarOpen()"></span>
                     <span class="ham-line" [class.open]="sidebarOpen()"></span>
                     <span class="ham-line" [class.open]="sidebarOpen()"></span>
@@ -83,11 +83,11 @@ import { AuthService } from '../../services/auth.service';
                 </a>
             </nav>
 
-            <!-- Déconnexion -->
+            <!-- Dï¿½connexion -->
             <div class="sidebar-footer">
-                <button (click)="logout()" class="logout-btn" [title]="!sidebarOpen() ? 'Déconnexion' : ''">
+                <button (click)="logout()" class="logout-btn" [title]="!sidebarOpen() ? 'Dï¿½connexion' : ''">
                     <i class="fa-solid fa-right-from-bracket"></i>
-                    <span *ngIf="sidebarOpen()">Déconnexion</span>
+                    <span *ngIf="sidebarOpen()">Dï¿½connexion</span>
                 </button>
             </div>
         </aside>
@@ -106,7 +106,7 @@ import { AuthService } from '../../services/auth.service';
                     </button>
                     <div class="topbar-breadcrumb">
                         <i class="fa-solid fa-shield-halved" style="color:#556B2F;font-size:0.8rem;"></i>
-                        <span>Espace assuré</span>
+                        <span>Espace assurï¿½</span>
                     </div>
                 </div>
                 <div class="topbar-right">
@@ -294,7 +294,7 @@ import { AuthService } from '../../services/auth.service';
             margin-left: 255px;
             flex: 1; display: flex; flex-direction: column;
             min-height: 100vh; transition: margin-left 0.28s cubic-bezier(.4,0,.2,1);
-            overflow-x: hidden; /* scroll horizontal contenu seulement, sidebar non affectée */
+            overflow-x: hidden; /* scroll horizontal contenu seulement, sidebar non affectï¿½e */
             min-width: 0;
         }
         .main-area.expanded { margin-left: 68px; }
@@ -310,7 +310,7 @@ import { AuthService } from '../../services/auth.service';
         }
         .topbar-left { display: flex; align-items: center; gap: 14px; }
         .topbar-ham {
-            display: none; /* caché sur desktop, visible mobile */
+            display: none; /* cachï¿½ sur desktop, visible mobile */
             width: 36px; height: 36px; background: #f0faf4;
             border: none; border-radius: 8px; cursor: pointer;
             align-items: center; justify-content: center;
@@ -343,7 +343,7 @@ import { AuthService } from '../../services/auth.service';
         /* Page content */
         .page-content { flex: 1; padding: 24px 28px; overflow-x: hidden; }
 
-        /* â”€â”€ Tablet (768–1024px) â”€â”€ */
+        /* â”€â”€ Tablet (768ï¿½1024px) â”€â”€ */
         @media (max-width: 1024px) and (min-width: 769px) {
             .sidebar { width: 220px; }
             .main-area { margin-left: 220px; }
@@ -361,7 +361,7 @@ import { AuthService } from '../../services/auth.service';
             }
             .sidebar.mobile-open { transform: translateX(0); }
 
-            /* Main occupe tout l'écran */
+            /* Main occupe tout l'ï¿½cran */
             .main-area, .main-area.expanded { margin-left: 0 !important; }
 
             /* Topbar */
@@ -373,7 +373,7 @@ import { AuthService } from '../../services/auth.service';
             .page-content { padding: 14px 12px; }
         }
 
-        /* â”€â”€ Très petit mobile (â‰¤480px) â”€â”€ */
+        /* â”€â”€ Trï¿½s petit mobile (â‰¤480px) â”€â”€ */
         @media (max-width: 480px) {
             .page-content { padding: 12px 10px; }
             .topbar { height: 54px; }

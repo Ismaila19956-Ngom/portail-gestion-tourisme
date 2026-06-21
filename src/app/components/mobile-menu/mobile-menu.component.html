@@ -13,6 +13,7 @@
   </div>
 </div>
 
+<div *ngIf="isMenuOpen" class="mobile-menu-overlay" (click)="closeMenu()" style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99;"></div>
 <div class="mobile-sidebar {{mobileSidebarClass}}" [ngClass]="{ 'mobile-menu-active': isMenuOpen }">
   <div class="logosicon-area" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
     <div class="logos">
@@ -40,7 +41,7 @@
         </div>
       </div>
 
-      <!-- Bouton Se connecter (doré, seul bouton) -->
+      <!-- Bouton Se connecter (dorï¿½, seul bouton) -->
       <a routerLink="/connexion" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 20px; background: #F1B53B; border-radius: 8px; color: #1a1a1a; font-weight: 700; font-size: 0.9rem; text-decoration: none; margin-bottom: 20px;">
         <i class="fa-solid fa-user"></i> Se connecter
       </a>
@@ -66,7 +67,7 @@
           </div>
 
           <div class="single-footer" style="margin-top: 20px;">
-            <h3>Notre Siège</h3>
+            <h3>Notre Siï¿½ge</h3>
 
             <div class="contact-info-single">
               <div class="contact-info-icon" style="background: rgba(241,181,59,0.1); color: #F1B53B;">
@@ -93,7 +94,7 @@
                   </li>
                 </ng-container>
                 
-                <!-- Fallback statique si aucun réseau configuré -->
+                <!-- Fallback statique si aucun rï¿½seau configurï¿½ -->
                 <ng-container *ngIf="reseauxSociaux.length === 0">
                   <li *ngFor="let lien of liensRapides">
                     <a [href]="lien.url" [title]="lien.nom" target="_blank"

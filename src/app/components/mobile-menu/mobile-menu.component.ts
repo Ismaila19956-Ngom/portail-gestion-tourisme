@@ -69,21 +69,7 @@ export class MobileMenuComponent implements OnInit {
         this.menuItems = menuItems.map(item => ({ ...item, subMenu: item.subMenu ? [...item.subMenu] : undefined }));
 
         /* Remplacer le sous-menu "Nos Destinations" avec les vrais produits */
-        this.api.getProduits().subscribe({
-            next: (produits) => {
-                const produitMenu = this.menuItems.find(m => m.title === 'Nos Destinations');
-                if (produitMenu) {
-                    produitMenu.subMenu = [
-                        { title: 'Toutes les destinations', link: '/excursions' },
-                        ...produits.map(p => ({
-                            title: p.nom,
-                            link: `/services/single/${btoa(String(p.id))}`
-                        }))
-                    ];
-                }
-            },
-            error: () => { /* Garder le sous-menu statique */ }
-        });
+        
 
         /* Charger contact et liens */
         this.api.getInformationContact().subscribe(data => {

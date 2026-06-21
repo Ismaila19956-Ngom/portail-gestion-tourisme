@@ -1,3 +1,4 @@
+import { serviceData } from '../../views/home-1/components/data';
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { StickyScrollDirective } from '@core/directives/sticky-scroll.directive';
@@ -17,8 +18,8 @@ interface ProduitMenu {
     image: string;
     desc: string;
     link: string;
-    category: string;      /* slug local (rétrocompat) */
-    categorieId: number | null;  /* ID réel depuis l'API */
+    category: string;      /* slug local (rï¿½trocompat) */
+    categorieId: number | null;  /* ID rï¿½el depuis l'API */
 }
 
 @Component({
@@ -175,7 +176,7 @@ export class TopbarComponent implements OnInit {
 
     get isLoggedIn() { return this.authService.isLogged(); }
 
-    /** Réseaux sociaux chargés depuis l'API publique */
+    /** Rï¿½seaux sociaux chargï¿½s depuis l'API publique */
     reseauxSociaux: ReseauSocialPortail[] = [];
 
     constructor(
@@ -192,8 +193,8 @@ export class TopbarComponent implements OnInit {
         email: 'contact@senegal-excursions.sn'
     };
     liensRapides: any[] = [
-        { nom: 'Facebook', url: 'https://www.facebook.com/Sénégal ExcursionsOFFICIELLE', icone: 'fa-brands fa-facebook-f' },
-        { nom: 'InstSénégal Découvertem', url: 'https://www.instagram.com/senegal-excursionsofficielle/reels/', icone: 'fa-brands fa-instagram' },
+        { nom: 'Facebook', url: 'https://www.facebook.com/Sï¿½nï¿½gal ExcursionsOFFICIELLE', icone: 'fa-brands fa-facebook-f' },
+        { nom: 'InstSï¿½nï¿½gal Dï¿½couvertem', url: 'https://www.instagram.com/senegal-excursionsofficielle/reels/', icone: 'fa-brands fa-instagram' },
         { nom: 'YouTube', url: 'https://www.youtube.com/@senegal-excursionsassurancelocauxene5540', icone: 'fa-brands fa-youtube' },
         { nom: 'LinkedIn', url: 'https://www.linkedin.com/company/compagnie-nationale-d-assurance-touristique-du-s%C3%A9n%C3%A9gal/?originalSubdomain=sn', icone: 'fa-brands fa-linkedin' }
     ];
@@ -205,28 +206,31 @@ export class TopbarComponent implements OnInit {
             this.currentUrl = event.urlAfterRedirects;
         });
 
-        /* Charger les réseaux sociaux depuis l'API publique */
+        /* Charger les rï¿½seaux sociaux depuis l'API publique */
         this.reseauxSvc.getActifs().subscribe(rs => {
             this.reseauxSociaux = rs;
         });
 
-        /* Charger les catégories */
+        /* Charger les catï¿½gories */
+        /* Charger les catgories */
         this.api.getCategories().subscribe(cats => {
             this.apiCategories = cats;
             this.buildCategoriesMenu(cats);
         });
 
         /* Charger les produits */
-        this.api.getProduits().subscribe({
-            next: (produits) => {
-                this.tousLesProduits    = produits.map(p => this.toMenuProduit(p));
-                this.displayedProducts  = this.tousLesProduits;   /* afficher tout au départ */
-                this.produitLoading     = false;
-            },
-            error: () => {
-                this.produitLoading = false;
-            }
-        });
+        this.tousLesProduits = serviceData.map(p => ({
+            id: p.id || 0,
+            title: p.title || '',
+            icon: p.icon || '',
+            image: p.image || '',
+            desc: p.description || '',
+            link: `/excursions/detail/${p.id}`,
+            category: 'Excursions',
+            categorieId: 1
+        }));
+        this.displayedProducts = this.tousLesProduits;
+        this.produitLoading = false;
 
         /* Charger contact et liens */
         this.api.getInformationContact().subscribe(data => {
@@ -242,7 +246,7 @@ export class TopbarComponent implements OnInit {
         });
     }
 
-    /** Retourne l'icône Font Awesome correspondant au réseau */
+    /** Retourne l'icï¿½ne Font Awesome correspondant au rï¿½seau */
     getSocialIcon(rs: ReseauSocialPortail): string {
         if (rs.icon) {
             return rs.icon;
@@ -274,10 +278,10 @@ export class TopbarComponent implements OnInit {
 
     private getIcon(p: Produit): string {
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('récolte') || n.includes('recolte')) return 'fa-solid fa-wheat-awn';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel')) return 'fa-solid fa-cow';
+        if (n.includes('rï¿½colte') || n.includes('recolte')) return 'fa-solid fa-wheat-awn';
+        if (n.includes('bï¿½tail') || n.includes('betail') || n.includes('cheptel')) return 'fa-solid fa-cow';
         if (n.includes('avicul') || n.includes('volaille')) return 'fa-solid fa-egg';
-        if (n.includes('matériel') || n.includes('materiel') || n.includes('équipement') || n.includes('equipement')) return 'fa-solid fa-tractor';
+        if (n.includes('matï¿½riel') || n.includes('materiel') || n.includes('ï¿½quipement') || n.includes('equipement')) return 'fa-solid fa-tractor';
         if (n.includes('indiciel') || n.includes('pluie')) return 'fa-solid fa-satellite-dish';
         if (n.includes('horticol') || n.includes('maraich') || n.includes('serre')) return 'fa-solid fa-seedling';
         if (n.includes('arboricul')) return 'fa-solid fa-tree';
@@ -287,13 +291,13 @@ export class TopbarComponent implements OnInit {
 
     private getImage(p: Produit): string {
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('récolte') || n.includes('recolte'))
+        if (n.includes('rï¿½colte') || n.includes('recolte'))
             return 'assets/images/produits/hf_20260311_162333_0b136c9f-1c67-4e61-978e-ab229d738d9d.jpeg';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel'))
+        if (n.includes('bï¿½tail') || n.includes('betail') || n.includes('cheptel'))
             return 'assets/images/produits/hf_20260311_162333_2c5dfd81-2a14-40ad-99fb-17207f71c1bb.jpeg';
         if (n.includes('avicul') || n.includes('volaille'))
             return 'assets/images/produits/hf_20260311_162333_01988b04-73a0-41b3-bffc-7087d47324a6.jpeg';
-        if (n.includes('matériel') || n.includes('materiel') || n.includes('équipement') || n.includes('equipement'))
+        if (n.includes('matï¿½riel') || n.includes('materiel') || n.includes('ï¿½quipement') || n.includes('equipement'))
             return 'assets/images/produits/hf_20260311_162925_871036b1-9cf1-4fdb-8480-7b3ce42bf7a7.jpeg';
         if (n.includes('indiciel') || n.includes('pluie'))
             return 'assets/images/produits/hf_20260311_164048_86f66af8-95f1-4418-b76a-4b4735fea65e.jpeg';
@@ -305,20 +309,20 @@ export class TopbarComponent implements OnInit {
     private getDesc(p: Produit): string {
         if (p.description) return p.description.slice(0, 50);
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('récolte') || n.includes('recolte')) return 'Protection cultures';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel')) return 'Protection cheptel';
+        if (n.includes('rï¿½colte') || n.includes('recolte')) return 'Protection cultures';
+        if (n.includes('bï¿½tail') || n.includes('betail') || n.includes('cheptel')) return 'Protection cheptel';
         if (n.includes('avicul') || n.includes('volaille')) return 'Protection volailles';
-        if (n.includes('matériel') || n.includes('materiel') || n.includes('équipement')) return 'Protection matériels';
-        if (n.includes('indiciel')) return 'Indice pluviométrique';
-        if (n.includes('horticol') || n.includes('maraich')) return 'Protection maraîchage';
+        if (n.includes('matï¿½riel') || n.includes('materiel') || n.includes('ï¿½quipement')) return 'Protection matï¿½riels';
+        if (n.includes('indiciel')) return 'Indice pluviomï¿½trique';
+        if (n.includes('horticol') || n.includes('maraich')) return 'Protection maraï¿½chage';
         if (n.includes('stock')) return 'Protection stocks';
-        return 'Assurance touristique Sénégal Excursions';
+        return 'Assurance touristique Sï¿½nï¿½gal Excursions';
     }
 
     private getCategory(p: Produit): string {
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel') || n.includes('avicul') || n.includes('volaille')) return 'animal';
-        if (n.includes('récolte') || n.includes('recolte') || n.includes('indiciel') || n.includes('horticol') || n.includes('maraich') || n.includes('arboricul')) return 'vegetaux';
+        if (n.includes('bï¿½tail') || n.includes('betail') || n.includes('cheptel') || n.includes('avicul') || n.includes('volaille')) return 'animal';
+        if (n.includes('rï¿½colte') || n.includes('recolte') || n.includes('indiciel') || n.includes('horticol') || n.includes('maraich') || n.includes('arboricul')) return 'vegetaux';
         return 'autres';
     }
 
@@ -334,20 +338,20 @@ export class TopbarComponent implements OnInit {
         return this.currentUrl.includes('/services');
     }
 
-    /* â”€â”€ Catégories â”€â”€ */
+    /* â”€â”€ Catï¿½gories â”€â”€ */
     activeCategoryId: number | null = null;
     apiCategories: CategorieProduit[] = [];
     categoriesMenu: { id: number | null; name: string; icon: string }[] = [
-        { id: null, name: 'Toutes les catégories', icon: 'fa-solid fa-layer-group' }
+        { id: null, name: 'Toutes les catï¿½gories', icon: 'fa-solid fa-layer-group' }
     ];
 
     tousLesProduits: ProduitMenu[] = [];
     displayedProducts: ProduitMenu[] = [];
-    activeCategoryName = 'Toutes les catégories';
+    activeCategoryName = 'Toutes les catï¿½gories';
 
     private buildCategoriesMenu(cats: CategorieProduit[]): void {
         this.categoriesMenu = [
-            { id: null, name: 'Toutes les catégories', icon: 'fa-solid fa-layer-group' },
+            { id: null, name: 'Toutes les catï¿½gories', icon: 'fa-solid fa-layer-group' },
             ...cats.map(c => ({
                 id:   c.id as number | null,
                 name: c.libelle || c.code,
@@ -380,21 +384,21 @@ export class TopbarComponent implements OnInit {
         event.stopPropagation();
         this.activeCategoryId = categoryId;
         this.activeCategoryName = categoryId === null
-            ? 'Toutes les catégories'
+            ? 'Toutes les catï¿½gories'
             : (this.apiCategories.find(c => c.id === categoryId)?.libelle ?? '');
         this.refreshDisplayedProducts();
     }
 
     pageMenuItems = [
-        { title: 'A propos de Sénégal Excursions', link: '/about'        },
+        { title: 'A propos de Sï¿½nï¿½gal Excursions', link: '/about'        },
         // { title: 'Notre equipe',       link: '/our-team'     },
         // { title: 'Temoignages',        link: '/testimonials' },
     ];
 
     blogMenuItems = [
-        { title: 'Toutes les actualités', link: '/blogs/one'     },
+        { title: 'Toutes les actualitï¿½s', link: '/blogs/one'     },
         { title: 'Conseils locaux',    link: '/blogs/sidebar' },
-        { title: 'Nouvelles Sénégal Excursions',       link: '/blogs/single'  },
+        { title: 'Nouvelles Sï¿½nï¿½gal Excursions',       link: '/blogs/single'  },
     ];
 
     searchOpen  = false;

@@ -1,3 +1,4 @@
+import { serviceData } from '../data';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -41,14 +42,13 @@ export class ContactComponent implements OnInit {
   }
 
   loadProduits(): void {
-    this.apiService.getProduits().subscribe({
-      next: (prods) => {
-        this.produits = prods;
-      },
-      error: (err) => {
-        console.error('Erreur lors du chargement des produits', err);
-      }
-    });
+    this.produits = serviceData.map(s => ({
+  id: s.id,
+  nom: s.title,
+  description: s.description,
+  image: s.image,
+  categoryId: 1
+})) as any;
   }
 
   onSubmit(): void {
@@ -63,8 +63,8 @@ export class ContactComponent implements OnInit {
     this.isSubmitting = true;
     const formValue = this.devisForm.value;
 
-    // Récupérer le nom du produit pour l'inclure dans le message
-    let nomProduit = 'Non précisé';
+    // Rï¿½cupï¿½rer le nom du produit pour l'inclure dans le message
+    let nomProduit = 'Non prï¿½cisï¿½';
     if (formValue.produitId) {
       const selectedProd = this.produits.find(p => p.id.toString() === formValue.produitId.toString());
       if (selectedProd) {
@@ -72,14 +72,14 @@ export class ContactComponent implements OnInit {
       }
     }
 
-    // On préfixe le message avec le produit souhaité
-    const messageComplet = `Produit souhaité : ${nomProduit}\n\n${formValue.message}`;
+    // On prï¿½fixe le message avec le produit souhaitï¿½
+    const messageComplet = `Produit souhaitï¿½ : ${nomProduit}\n\n${formValue.message}`;
 
-    // On utilise un objetDemandeId par défaut, par exemple 1 (Demande de devis)
-    // S'il n'existe pas, l'API le gèrera selon sa configuration.
+    // On utilise un objetDemandeId par dï¿½faut, par exemple 1 (Demande de devis)
+    // S'il n'existe pas, l'API le gï¿½rera selon sa configuration.
     const demandeContactDto = {
       nom: formValue.nomComplet,
-      prenom: '', // Laissé vide ou géré côté backend
+      prenom: '', // Laissï¿½ vide ou gï¿½rï¿½ cï¿½tï¿½ backend
       email: formValue.email,
       telephone: formValue.telephone,
       objetDemandeId: 1, 
@@ -89,12 +89,12 @@ export class ContactComponent implements OnInit {
     this.apiService.submitContact(demandeContactDto).subscribe({
       next: () => {
         this.isSubmitting = false;
-        this.successMessage = 'Votre demande de devis a été envoyée avec succès. Notre équipe vous contactera sous peu.';
+        this.successMessage = 'Votre demande de devis a ï¿½tï¿½ envoyï¿½e avec succï¿½s. Notre ï¿½quipe vous contactera sous peu.';
         this.devisForm.reset();
       },
       error: (err) => {
         this.isSubmitting = false;
-        this.errorMessage = 'Une erreur est survenue lors de l\'envoi. Veuillez réessayer plus tard.';
+        this.errorMessage = 'Une erreur est survenue lors de l\'envoi. Veuillez rï¿½essayer plus tard.';
         console.error('Erreur submitContact', err);
       }
     });
