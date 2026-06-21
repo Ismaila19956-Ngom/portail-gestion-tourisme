@@ -1,0 +1,265 @@
+<!-- ════════════════════════════════════════════
+   H�RO FAQ
+════════════════════════════════════════════ -->
+<div class="hero1-section-area about-bg-area"
+     style="background-image: url('assets/images/produits/hf_20260311_162925_fa56a58b-89f5-4b10-93ac-243916e02792.jpeg');
+            background-size: cover; background-position: center; position: relative;
+            padding: 90px 0 50px !important; overflow: hidden;">
+    <div style="position: absolute; inset: 0;
+                background: linear-gradient(135deg, rgba(241,181,59,0.1) 0%, rgba(13,51,32,0.96) 100%);"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="row">
+            <div class="col-lg-9 m-auto">
+                <div class="hero-heading-area heading1 text-center" data-aos="fade-up" data-aos-duration="1000">
+                    <span style="display: inline-flex; align-items: center; gap: 8px; background: rgba(241,181,59,0.15);
+                                 border: 1px solid rgba(241,181,59,0.35); color: #F1B53B; font-size: 0.78rem;
+                                 font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+                                 padding: 7px 18px; border-radius: 30px; margin-bottom: 20px;">
+                        <i class="fa-solid fa-circle-question"></i> Support & Aide
+                    </span>
+                    <h1 style="color: #fff; font-size: 2.6rem; font-weight: 900; line-height: 1.1;
+                               margin-bottom: 18px; text-shadow: 0 4px 14px rgba(0,0,0,0.3);">
+                        Questions Fr�quentes
+                    </h1>
+                    <div style="width: 64px; height: 3px; background: #F1B53B; margin: 0 auto 20px; border-radius: 2px;"></div>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 1rem; max-width: 560px;
+                              margin: 0 auto 30px; line-height: 1.65;">
+                        Trouvez rapidement des r�ponses à vos questions sur nos produits, la souscription, les sinistres et l'assurance touristique au S�n�gal.
+                    </p>
+                    <div style="display: flex; justify-content: center;">
+                        <app-breadcrumb title="FAQ" subTitle="Questions Fr�quentes" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+   BARRE CAT�GORIES
+════════════════════════════════════════════ -->
+<div style="background: #fff; border-bottom: 2px solid #e8f4ec; position: sticky; top: 0; z-index: 10;">
+    <div class="container">
+        <div style="display: flex; gap: 0; overflow-x: auto; scrollbar-width: none;">
+            <button *ngFor="let cat of categories"
+                    (click)="setCategory(cat.id)"
+                    [style.color]="activeCategory === cat.id ? '#556B2F' : '#666'"
+                    [style.border-bottom]="activeCategory === cat.id ? '3px solid #F1B53B' : '3px solid transparent'"
+                    [style.font-weight]="activeCategory === cat.id ? '800' : '500'"
+                    style="background: none; border: none; border-top: none; border-left: none; border-right: none;
+                           padding: 16px 24px; font-size: 0.86rem; cursor: pointer; white-space: nowrap;
+                           transition: all .25s; display: flex; align-items: center; gap: 8px;">
+                <i [class]="cat.icon" style="font-size: 0.82rem;"></i> {{ cat.label }}
+                <span [style.background]="activeCategory === cat.id ? '#556B2F' : '#e8f4ec'"
+                      [style.color]="activeCategory === cat.id ? '#fff' : '#666'"
+                      style="font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; transition: all .25s;">
+                    {{ cat.count }}
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+   SECTION PRINCIPALE FAQ
+════════════════════════════════════════════ -->
+<div style="background: #f5fdf7; padding: 64px 0;">
+    <div class="container">
+        <div class="row g-5">
+
+            <!-- ── Accord�on FAQ ── -->
+            <div class="col-lg-8">
+
+                <!-- Compteur -->
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px;">
+                    <p style="color: #666; font-size: 0.88rem; margin: 0;">
+                        <strong style="color: #3E4F22;">{{ filteredFaqs.length }}</strong> question{{ filteredFaqs.length > 1 ? 's' : '' }}
+                        <span *ngIf="activeCategory !== 'tous'" style="color: #556B2F;">— {{ activeCategoryLabel }}</span>
+                    </p>
+                </div>
+
+                <!-- Message vide -->
+                <div *ngIf="filteredFaqs.length === 0"
+                     style="background: #fff; border-radius: 16px; padding: 48px; text-align: center; box-shadow: 0 2px 16px rgba(85,107,47,0.05);">
+                    <i class="fa-solid fa-file-circle-question" style="font-size: 2.5rem; color: #d1e7dd; margin-bottom: 14px; display: block;"></i>
+                    <p style="color: #888; font-size: 0.95rem; margin: 0;">Aucune question dans cette cat�gorie pour l'instant.</p>
+                </div>
+
+                <!-- Liste FAQ -->
+                <div ngbAccordion [closeOthers]="true" style="display: flex; flex-direction: column; gap: 12px;">
+                    @for (faq of filteredFaqs; track $index; let first = $first) {
+                    <div ngbAccordionItem [collapsed]="!first"
+                         style="background: #fff; border-radius: 14px; overflow: hidden;
+                                box-shadow: 0 2px 14px rgba(85,107,47,0.06); border: 1px solid #e8f4ec;">
+                        <h2 ngbAccordionHeader style="margin: 0;">
+                            <button ngbAccordionButton
+                                    style="background: #fff; border: none; width: 100%; text-align: left;
+                                           padding: 18px 22px; display: flex; align-items: center; gap: 14px;
+                                           cursor: pointer; font-size: 0.91rem; color: #3E4F22; font-weight: 700;
+                                           box-shadow: none;">
+                                <div style="width: 38px; height: 38px; background: rgba(85,107,47,0.08); border-radius: 9px; flex-shrink: 0;
+                                            display: flex; align-items: center; justify-content: center;">
+                                    <i [class]="faq.icon" style="color: #556B2F; font-size: 0.88rem;"></i>
+                                </div>
+                                <span style="flex: 1;">{{ faq.question }}</span>
+                            </button>
+                        </h2>
+                        <div ngbAccordionCollapse>
+                            <div ngbAccordionBody>
+                                <div style="padding: 4px 6px 8px 54px; color: #555; font-size: 0.9rem; line-height: 1.8;">
+                                    {{ faq.answer }}
+                                    <div *ngIf="faq.link" style="margin-top: 14px;">
+                                        <a [routerLink]="faq.link"
+                                           style="display: inline-flex; align-items: center; gap: 7px; color: #556B2F;
+                                                  font-size: 0.83rem; font-weight: 700; text-decoration: none;
+                                                  background: #f0faf4; padding: 8px 18px; border-radius: 8px;
+                                                  border: 1px solid #d1e7dd; transition: all .2s;"
+                                           onmouseover="this.style.background='#556B2F';this.style.color='#fff';this.style.borderColor='#556B2F'"
+                                           onmouseout="this.style.background='#f0faf4';this.style.color='#556B2F';this.style.borderColor='#d1e7dd'">
+                                            {{ faq.linkLabel }} <i class="fa-solid fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <!-- ── Sidebar ── -->
+            <div class="col-lg-4">
+
+                <!-- Recherche rapide -->
+                <div style="background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 4px 20px rgba(85,107,47,0.07); margin-bottom: 22px;">
+                    <h5 style="color: #3E4F22; font-size: 0.9rem; font-weight: 800; margin-bottom: 14px;
+                                display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #F1B53B;"></i> Recherche rapide
+                    </h5>
+                    <div style="position: relative;">
+                        <input type="text" [(ngModel)]="searchQuery" (input)="onSearch()"
+                               placeholder="Ex : sinistre, prime, r�colte…"
+                               style="width: 100%; border: 1.5px solid #d1e7dd; border-radius: 10px;
+                                      padding: 11px 44px 11px 14px; font-size: 0.86rem; color: #333;
+                                      background: #f8fdf9; outline: none; transition: all .3s;"
+                               onfocus="this.style.borderColor='#556B2F';this.style.background='#fff'"
+                               onblur="this.style.borderColor='#d1e7dd';this.style.background='#f8fdf9'">
+                        <i class="fa-solid fa-magnifying-glass"
+                           style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #aaa; font-size: 0.82rem;"></i>
+                    </div>
+                </div>
+
+                <!-- Cat�gories -->
+                <div style="background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 4px 20px rgba(85,107,47,0.07); margin-bottom: 22px;">
+                    <h5 style="color: #3E4F22; font-size: 0.9rem; font-weight: 800; margin-bottom: 16px;
+                                padding-bottom: 12px; border-bottom: 2px solid #e8f4ec;
+                                display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-layer-group" style="color: #F1B53B;"></i> Cat�gories
+                    </h5>
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                        <button *ngFor="let cat of categories"
+                                (click)="setCategory(cat.id)"
+                                [style.background]="activeCategory === cat.id ? '#f0faf4' : 'transparent'"
+                                [style.color]="activeCategory === cat.id ? '#556B2F' : '#555'"
+                                [style.font-weight]="activeCategory === cat.id ? '700' : '500'"
+                                style="border: none; text-align: left; padding: 10px 12px; border-radius: 9px;
+                                       font-size: 0.86rem; cursor: pointer; display: flex; align-items: center;
+                                       justify-content: space-between; transition: all .2s; width: 100%;"
+                                onmouseover="this.style.background='#f0faf4'" onmouseout="">
+                            <span style="display: flex; align-items: center; gap: 9px;">
+                                <i [class]="cat.icon" style="font-size: 0.8rem; color: #556B2F;"></i>{{ cat.label }}
+                            </span>
+                            <span style="background: rgba(85,107,47,0.08); color: #556B2F; font-size: 0.7rem;
+                                         font-weight: 700; padding: 2px 9px; border-radius: 20px;">{{ cat.count }}</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Contacter un conseiller -->
+                <div style="background: linear-gradient(150deg, #3E4F22 0%, #556B2F 100%); border-radius: 16px;
+                            padding: 26px 22px; text-align: center; margin-bottom: 22px; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -20px; right: -20px; width: 90px; height: 90px;
+                                background: rgba(241,181,59,0.07); border-radius: 50%; pointer-events: none;"></div>
+                    <i class="fa-solid fa-headset" style="font-size: 2rem; color: #F1B53B; margin-bottom: 12px; display: block; position: relative; z-index: 1;"></i>
+                    <h5 style="color: #fff; font-size: 0.95rem; font-weight: 800; margin-bottom: 8px; position: relative; z-index: 1;">
+                        Vous n'avez pas trouv� votre r�ponse ?
+                    </h5>
+                    <p style="color: rgba(255,255,255,0.65); font-size: 0.82rem; margin-bottom: 18px; line-height: 1.6; position: relative; z-index: 1;">
+                        Nos conseillers sont disponibles du lundi au vendredi de 8h à 17h.
+                    </p>
+                    <a href="tel:+221338697800"
+                       style="display: block; background: #F1B53B; color: #1a1a1a; font-size: 0.86rem; font-weight: 800;
+                              padding: 11px 16px; border-radius: 9px; text-decoration: none; margin-bottom: 8px;
+                              transition: all .3s; position: relative; z-index: 1;"
+                       onmouseover="this.style.background='#e0a430'" onmouseout="this.style.background='#F1B53B'">
+                        <i class="fa-solid fa-phone" style="margin-right: 6px;"></i> (+221) 33 869 78 00
+                    </a>
+                    <a routerLink="/contact-us"
+                       style="display: block; background: rgba(255,255,255,0.1); color: #fff; font-size: 0.84rem;
+                              font-weight: 700; padding: 11px 16px; border-radius: 9px; text-decoration: none;
+                              border: 1px solid rgba(255,255,255,0.2); transition: all .3s; position: relative; z-index: 1;"
+                       onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+                        <i class="fa-solid fa-envelope" style="margin-right: 6px;"></i> Nous �crire
+                    </a>
+                </div>
+
+                <!-- T�l�charger brochure -->
+                <div style="background: #fff8e8; border: 2px solid #f5dfa0; border-radius: 16px; padding: 20px 18px; text-align: center;">
+                    <i class="fa-solid fa-file-pdf" style="font-size: 1.8rem; color: #556B2F; margin-bottom: 10px; display: block;"></i>
+                    <h6 style="color: #3E4F22; font-size: 0.88rem; font-weight: 800; margin-bottom: 6px;">Guide complet S�n�gal Excursions</h6>
+                    <p style="color: #888; font-size: 0.78rem; margin-bottom: 14px; line-height: 1.5;">
+                        T�l�chargez notre brochure produits et conditions g�n�rales.
+                    </p>
+                    <a href="javascript:void(0)"
+                       style="display: block; background: #556B2F; color: #fff; padding: 9px 14px; border-radius: 8px;
+                              font-size: 0.81rem; font-weight: 700; text-decoration: none; transition: all .3s;"
+                       onmouseover="this.style.background='#0a7a35'" onmouseout="this.style.background='#556B2F'">
+                        <i class="fa-solid fa-download" style="margin-right: 5px;"></i> T�l�charger le PDF
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+   CTA BAS DE PAGE
+════════════════════════════════════════════ -->
+<div style="background: #fff; padding: 56px 0;">
+    <div class="container">
+        <div style="background: linear-gradient(135deg, #3E4F22 0%, #556B2F 100%); border-radius: 24px;
+                    padding: 48px 44px; display: flex; align-items: center; justify-content: space-between;
+                    flex-wrap: wrap; gap: 28px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: -40px; right: -40px; width: 200px; height: 200px;
+                        background: rgba(241,181,59,0.06); border-radius: 50%; pointer-events: none;"></div>
+            <div style="position: absolute; bottom: -30px; left: 100px; width: 120px; height: 120px;
+                        background: rgba(255,255,255,0.03); border-radius: 50%; pointer-events: none;"></div>
+            <div style="position: relative; z-index: 1;">
+                <h3 style="color: #fff; font-size: 1.5rem; font-weight: 900; margin-bottom: 10px; line-height: 1.2;">
+                    Vous n'avez pas trouv�<br>votre r�ponse ?
+                </h3>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.92rem; margin: 0; max-width: 420px; line-height: 1.6;">
+                    Notre �quipe d'experts locaux est à votre �coute pour vous accompagner dans vos d�marches et trouver la solution adapt�e à votre exploitation.
+                </p>
+            </div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1;">
+                <a routerLink="/contact-us"
+                   style="display: inline-flex; align-items: center; gap: 8px; background: #F1B53B; color: #1a1a1a;
+                          font-size: 0.9rem; font-weight: 800; padding: 14px 28px; border-radius: 10px;
+                          text-decoration: none; transition: all .3s;"
+                   onmouseover="this.style.background='#e0a430';this.style.transform='translateY(-2px)'"
+                   onmouseout="this.style.background='#F1B53B';this.style.transform='translateY(0)'">
+                    <i class="fa-solid fa-paper-plane"></i> Nous contacter
+                </a>
+                <a href="tel:+221338697800"
+                   style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1);
+                          color: #fff; font-size: 0.9rem; font-weight: 700; padding: 14px 28px; border-radius: 10px;
+                          text-decoration: none; border: 1.5px solid rgba(255,255,255,0.25); transition: all .3s;"
+                   onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+                    <i class="fa-solid fa-phone"></i> Appeler maintenant
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

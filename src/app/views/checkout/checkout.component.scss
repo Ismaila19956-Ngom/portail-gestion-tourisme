@@ -1,0 +1,98 @@
+// Couleurs principales
+$color-primary: #1a7a3f;
+$color-primary-light: rgba(26, 122, 63, 0.1);
+$color-gray-border: #e9ecef;
+$color-wave: #17c0eb;
+$color-orange: #ff6600;
+
+.checkout-page {
+  font-family: 'Inter', sans-serif;
+}
+
+// Barre de progression
+.progress-steps {
+  .step {
+    width: 33.33%;
+  }
+  .step-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+}
+
+// Cartes de paiement
+.payment-card {
+  transition: all 0.2s ease-in-out;
+  border: 2px solid $color-gray-border !important;
+  background-color: #fff;
+  
+  &:hover {
+    border-color: rgba($color-primary, 0.3) !important;
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+  }
+
+  &.selected {
+    border-color: $color-primary !important;
+    background-color: $color-primary-light !important;
+    box-shadow: 0 4px 15px rgba($color-primary, 0.1);
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// Bouton principal
+.btn-success {
+  background-color: $color-primary;
+  border-color: $color-primary;
+  transition: all 0.3s ease;
+  
+  &:hover:not(:disabled) {
+    background-color: darken($color-primary, 10%);
+    border-color: darken($color-primary, 10%);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba($color-primary, 0.3) !important;
+  }
+  
+  &:disabled {
+    opacity: 0.7;
+  }
+}
+
+// Typographie
+.fs-sm {
+  font-size: 0.95rem;
+}
+
+// Animations personnalisées
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba($color-primary, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba($color-primary, 0); }
+  100% { box-shadow: 0 0 0 0 rgba($color-primary, 0); }
+}
+
+.badge-icon-anim {
+  transition: all 0.3s ease;
+  &:hover {
+    animation: float 2s ease-in-out infinite, pulse-green 1.5s infinite;
+    color: $color-primary !important;
+  }
+}
+
+.card {
+  transition: box-shadow 0.3s ease;
+  &:hover {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.08) !important;
+  }
+}

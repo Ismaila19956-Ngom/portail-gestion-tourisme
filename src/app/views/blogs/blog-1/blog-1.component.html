@@ -1,0 +1,74 @@
+﻿<div class="hero1-section-area about-bg-area"
+     style="background-image: url('assets/images/tourisme/senegal_hero_1781800514533.png');
+            background-size: cover; background-position: center; position: relative; padding: 80px 0 40px !important; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                background: linear-gradient(135deg, rgba(241,181,59,0.15) 0%, rgba(85,107,47,0.95) 100%);"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="row">
+            <div class="col-lg-10 m-auto">
+                <div class="hero-heading-area heading1 text-center" data-aos="fade-up" data-aos-duration="1000">
+                    <h5 style="color: #F1B53B; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin-bottom: 15px; font-size: 0.85rem;">Restez informé</h5>
+                    <h1 style="color: #fff; font-size: 2.4rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">Toutes nos Actualités</h1>
+                    <div style="width: 60px; height: 3px; background: #F1B53B; margin: 0 auto 20px; border-radius: 2px;"></div>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 1rem; max-width: 600px; margin: 0 auto 30px; line-height: 1.5; font-weight: 500;">
+                        Actualités, conseils de voyage et nouvelles de Sénégal Excursions pour préparer vos aventures.
+                    </p>
+                    <div style="display: flex; justify-content: center;">
+                        <app-breadcrumb title="Actualités" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="background: #f8fdf9; padding: 60px 0;">
+    <div class="container">
+        <!-- Titre de section -->
+        <div class="row mb-4">
+            <div class="col-lg-8 m-auto text-center">
+                <span style="display: inline-block; background: rgba(85,107,47,0.1); color: #556B2F; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px;">
+                    Actualités
+                </span>
+                <h2 style="color: #3E4F22; font-size: 2rem; font-weight: 800; line-height: 1.2; margin-bottom: 14px;">
+                    Informations &amp; Actualités Sénégal Excursions
+                </h2>
+                <p style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 28px; max-width: 560px; margin-left: auto; margin-right: auto;">
+                    Restez informé des dernières nouvelles, recommandations de guides et annonces pour sublimer vos excursions.
+                </p>
+                <!-- Filtres cliquables -->
+                <div style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+                    <button (click)="setTab('Toutes')"
+                        [style.background]="activeTab === 'Toutes' ? '#556B2F' : 'transparent'"
+                        [style.color]="activeTab === 'Toutes' ? '#fff' : '#556B2F'"
+                        style="border: 1.5px solid #556B2F; border-radius: 20px; padding: 7px 18px; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+                        Toutes
+                    </button>
+                    <button (click)="setTab('Conseils de voyage')"
+                        [style.background]="activeTab === 'Conseils de voyage' ? '#556B2F' : 'transparent'"
+                        [style.color]="activeTab === 'Conseils de voyage' ? '#fff' : '#556B2F'"
+                        style="border: 1.5px solid #556B2F; border-radius: 20px; padding: 7px 18px; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+                        Conseils de voyage
+                    </button>
+                    <button (click)="setTab('Actualités Sénégal Excursions')"
+                        [style.background]="activeTab === 'Actualités Sénégal Excursions' ? '#556B2F' : 'transparent'"
+                        [style.color]="activeTab === 'Actualités Sénégal Excursions' ? '#fff' : '#556B2F'"
+                        style="border: 1.5px solid #556B2F; border-radius: 20px; padding: 7px 18px; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+                        Nouvelles Sénégal Excursions
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid articles filtrée -->
+        <div class="row">
+            <div *ngFor="let blog of filteredBlogs" class="col-lg-4 col-md-6 mb-4">
+                <app-blog-card [blog]="blog" />
+            </div>
+            <div *ngIf="filteredBlogs.length === 0" class="col-12 text-center" style="padding: 60px 0;">
+                <i class="fa-solid fa-newspaper" style="font-size: 3rem; color: #d1e7dd; margin-bottom: 16px; display: block;"></i>
+                <p style="color: #888; font-size: 1rem;">Aucun article dans cette catégorie.</p>
+            </div>
+        </div>
+    </div>
+</div>

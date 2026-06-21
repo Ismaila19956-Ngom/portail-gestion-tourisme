@@ -1,0 +1,288 @@
+/* ════════════════════════════════════════════════════════════
+   CNAAS DESIGN SYSTEM — Variables et utilitaires globaux
+   ════════════════════════════════════════════════════════════ */
+
+:root {
+    /* ── Palette CNAAS ── */
+    --cnaas-primary:        #556B2F;
+    --cnaas-primary-dark:   #3E4F22;
+    --cnaas-primary-light:  #1a8a47;
+    --cnaas-accent:         #F1B53B;
+    --cnaas-accent-dark:    #d9a235;
+    --cnaas-accent-soft:    #fff8e8;
+
+    /* ── Neutres ── */
+    --cnaas-bg-soft:        #f5fdf7;
+    --cnaas-bg-warm:        #fffdf0;
+    --cnaas-bg-cream:       linear-gradient(135deg, #edf7f0 0%, #fffdf0 100%);
+    --cnaas-border:         #e8f4ec;
+    --cnaas-text:           #1a1a1a;
+    --cnaas-text-soft:      #555;
+    --cnaas-text-muted:     #888;
+
+    /* ── Espacements (syst�me 4px) ── */
+    --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+    --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+    --space-12: 48px; --space-16: 64px; --space-20: 80px;
+
+    /* ── Typo ── */
+    --font-display: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --weight-regular: 400; --weight-medium: 500;
+    --weight-semibold: 600; --weight-bold: 700; --weight-black: 900;
+
+    /* ── Radius ── */
+    --r-sm: 6px;  --r-md: 10px; --r-lg: 14px;
+    --r-xl: 20px; --r-2xl: 28px; --r-full: 9999px;
+
+    /* ── Ombres ── */
+    --shadow-sm:  0 2px 8px  rgba(85,107,47,0.06);
+    --shadow-md:  0 6px 20px rgba(85,107,47,0.10);
+    --shadow-lg:  0 14px 40px rgba(85,107,47,0.14);
+    --shadow-xl:  0 24px 60px rgba(85,107,47,0.18);
+
+    /* ── Transitions ── */
+    --tr-fast: 200ms ease;
+    --tr-med:  320ms cubic-bezier(.4,0,.2,1);
+    --tr-slow: 500ms cubic-bezier(.4,0,.2,1);
+}
+
+/* ── R�initialisation responsive globale ── */
+html, body { overflow-x: clip !important; max-width: 100vw; }
+img { max-width: 100%; height: auto; }
+
+/* ── Composants utilitaires ── */
+.cnaas-eyebrow {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    background: rgba(241,181,59,0.15);
+    border: 1px solid rgba(241,181,59,0.35);
+    color: var(--cnaas-accent);
+    font-size: 0.74rem; font-weight: var(--weight-black);
+    text-transform: uppercase; letter-spacing: 2px;
+    padding: 6px 14px; border-radius: var(--r-full);
+}
+.cnaas-eyebrow.dark {
+    background: rgba(85,107,47,0.08);
+    border-color: rgba(85,107,47,0.2);
+    color: var(--cnaas-primary);
+}
+
+.cnaas-section-title {
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+    font-weight: var(--weight-black);
+    color: var(--cnaas-primary-dark);
+    line-height: 1.2;
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.02em;
+}
+.cnaas-section-title .accent { color: var(--cnaas-accent); }
+
+.cnaas-section-subtitle {
+    color: var(--cnaas-text-soft);
+    font-size: 0.96rem;
+    line-height: 1.65;
+    max-width: 620px;
+}
+
+/* Boutons */
+.cnaas-btn {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: 12px 24px; border-radius: var(--r-md);
+    font-weight: var(--weight-bold); font-size: 0.92rem;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all var(--tr-med); white-space: nowrap;
+}
+.cnaas-btn-primary {
+    background: var(--cnaas-accent); color: #1a1a1a;
+    &:hover { background: var(--cnaas-accent-dark); transform: translateY(-2px); box-shadow: var(--shadow-md); color: #1a1a1a; }
+}
+.cnaas-btn-secondary {
+    background: var(--cnaas-primary); color: #fff;
+    &:hover { background: var(--cnaas-primary-light); transform: translateY(-2px); box-shadow: var(--shadow-md); color: #fff; }
+}
+.cnaas-btn-ghost {
+    background: rgba(255,255,255,0.1); color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(6px);
+    &:hover { background: rgba(255,255,255,0.2); color: #fff; }
+}
+
+/* Sections */
+.cnaas-section { padding: clamp(48px, 7vw, 80px) 0; }
+.cnaas-section-sm { padding: clamp(32px, 5vw, 56px) 0; }
+
+/* Banni�res r�duites (hero pages secondaires) */
+.cnaas-banner {
+    position: relative;
+    padding: 60px 0 50px;
+    background-size: cover; background-position: center;
+    overflow: hidden;
+    &::after {
+        content: ''; position: absolute; inset: 0;
+        background: linear-gradient(135deg, rgba(241,181,59,0.10) 0%, rgba(13,51,32,0.96) 100%);
+    }
+    .container { position: relative; z-index: 2; }
+    h1 { color: #fff; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: var(--weight-black);
+         line-height: 1.15; margin-bottom: 12px; letter-spacing: -0.02em; }
+    p  { color: rgba(255,255,255,0.85); font-size: 0.96rem; max-width: 580px; margin: 0 auto 18px; }
+    .divider { width: 56px; height: 3px; background: var(--cnaas-accent); border-radius: 2px; margin: 0 auto 16px; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   PREMIUM BACKGROUND — utilisable sur n'importe quelle section
+   Cream chaud + pattern de points + 2 blobs color�s + halo top
+   ════════════════════════════════════════════════════════════ */
+.cnaas-premium-bg {
+    background:
+        radial-gradient(ellipse 100% 50% at 50% 0%, rgba(85,107,47,0.18) 0%, transparent 65%),
+        radial-gradient(ellipse 80% 40% at 50% 100%, rgba(241,181,59,0.10) 0%, transparent 65%),
+        linear-gradient(180deg, #f0ede0 0%, #f5f1e3 50%, #faf6e8 100%);
+    position: relative;
+    overflow: hidden;
+    overflow: clip;         /* override hidden : clip n'emp�che pas position:sticky des descendants */
+}
+/* Pattern de points double (vert + or) */
+.cnaas-premium-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(rgba(85,107,47,0.16) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(241,181,59,0.11) 1px, transparent 1px);
+    background-size: 32px 32px, 64px 64px;
+    background-position: 0 0, 16px 16px;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 0;
+}
+/* Bande de transition haute */
+.cnaas-premium-bg::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 100px;
+    background: linear-gradient(180deg,
+        rgba(85,107,47,0.20) 0%,
+        rgba(85,107,47,0.05) 60%,
+        transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+/* Blobs flous (2 utilis�s via div) */
+.cnaas-premium-bg__blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+}
+.cnaas-premium-bg__blob.blob-top {
+    top: -100px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(85,107,47,0.18), transparent 70%);
+}
+.cnaas-premium-bg__blob.blob-bot {
+    bottom: -100px; left: -80px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(241,181,59,0.20), transparent 70%);
+}
+/* Tout contenu direct doit �tre au-dessus du fond */
+.cnaas-premium-bg > .container,
+.cnaas-premium-bg > .container-fluid,
+.cnaas-premium-bg > [class*="container"] {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .cnaas-banner { padding: 44px 0 36px; }
+    .cnaas-section { padding: 48px 0; }
+    .cnaas-premium-bg__blob.blob-top { width: 280px; height: 280px; }
+    .cnaas-premium-bg__blob.blob-bot { width: 240px; height: 240px; }
+}
+@media (max-width: 480px) {
+    .cnaas-banner { padding: 32px 0 28px; }
+    .cnaas-section { padding: 36px 0; }
+}
+
+/* ════════════════════════════════════════════════════════
+   GLOBAL : r�duction automatique des anciennes banni�res
+   (pages h�rit�es qui utilisent .hero1-section-area ou .about-bg-area)
+   ════════════════════════════════════════════════════════ */
+.about-bg-area,
+.hero1-section-area.about-bg-area {
+    padding: 60px 0 50px !important;
+    min-height: auto !important;
+    .hero-heading-area h1,
+    .hero-heading-area h1.main-heading {
+        font-size: clamp(1.6rem, 4vw, 2.2rem) !important;
+        line-height: 1.15 !important;
+        margin-bottom: 12px !important;
+    }
+    .hero-heading-area p,
+    .hero-heading-area p.pera {
+        font-size: 0.95rem !important;
+        max-width: 580px;
+        margin: 0 auto 18px !important;
+    }
+    .circle-arrow { display: none !important; }
+}
+
+@media (max-width: 768px) {
+    .about-bg-area,
+    .hero1-section-area.about-bg-area { padding: 44px 0 36px !important; }
+}
+@media (max-width: 480px) {
+    .about-bg-area,
+    .hero1-section-area.about-bg-area { padding: 32px 0 28px !important; }
+}
+
+/* Cards produits unifi�s */
+.cnaas-product-card {
+    background: #fff; border-radius: var(--r-xl); overflow: hidden;
+    box-shadow: var(--shadow-sm); border: 1px solid var(--cnaas-border);
+    transition: transform var(--tr-med), box-shadow var(--tr-med);
+    display: flex; flex-direction: column; height: 100%;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+        .cnaas-product-img img { transform: scale(1.05); }
+    }
+
+    .cnaas-product-img {
+        position: relative; height: 200px; overflow: hidden; flex-shrink: 0;
+        img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms ease; }
+        .overlay { position: absolute; inset: 0;
+                   background: linear-gradient(to bottom, transparent 50%, rgba(13,51,32,0.55)); }
+        .badge-branche {
+            position: absolute; top: 12px; left: 12px;
+            background: rgba(85,107,47,0.88); color: #fff;
+            font-size: 0.68rem; font-weight: var(--weight-bold);
+            padding: 4px 12px; border-radius: var(--r-full);
+            text-transform: uppercase; letter-spacing: 0.6px;
+            backdrop-filter: blur(6px);
+        }
+        .floating-icon {
+            position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%);
+            width: 48px; height: 48px; background: var(--cnaas-accent);
+            border-radius: var(--r-full); display: flex; align-items: center; justify-content: center;
+            border: 4px solid #fff; box-shadow: var(--shadow-md); z-index: 2;
+            i { color: #1a1a1a; font-size: 1rem; }
+        }
+    }
+
+    .cnaas-product-body {
+        padding: 36px var(--space-6) var(--space-6);
+        flex: 1; display: flex; flex-direction: column; text-align: center;
+        h3 {
+            font-size: 1.08rem; font-weight: var(--weight-black);
+            color: var(--cnaas-primary-dark); margin-bottom: 10px;
+            line-height: 1.3; transition: color var(--tr-fast);
+            text-decoration: none;
+        }
+        p { color: var(--cnaas-text-muted); font-size: 0.86rem; line-height: 1.65;
+            margin-bottom: 18px; flex: 1; }
+        .actions { display: flex; gap: var(--space-2); justify-content: center;
+                   flex-wrap: wrap; margin-top: auto; }
+    }
+}

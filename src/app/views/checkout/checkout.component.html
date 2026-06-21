@@ -1,0 +1,210 @@
+<div class="checkout-page bg-light py-5">
+  <div class="container">
+    <div *ngIf="loading" class="text-center py-5">
+      <div class="spinner-border text-success" role="status">
+        <span class="visually-hidden">Chargement...</span>
+      </div>
+    </div>
+
+    <div *ngIf="!loading && excursion">
+      <!-- Barre de progression -->
+      <div class="row mb-5 justify-content-center" data-aos="fade-down" data-aos-duration="600">
+        <div class="col-md-8 col-lg-6">
+          <div class="d-flex justify-content-between position-relative progress-steps">
+            <div class="progress position-absolute top-50 start-0 w-100 translate-middle-y" style="height: 4px; z-index: 0;">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            
+            <div class="step text-center position-relative z-1">
+              <div class="step-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2 shadow">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <span class="small fw-semibold text-success">Sélection</span>
+            </div>
+            
+            <div class="step text-center position-relative z-1">
+              <div class="step-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2 shadow">
+                2
+              </div>
+              <span class="small fw-bold text-dark">Paiement</span>
+            </div>
+            
+            <div class="step text-center position-relative z-1">
+              <div class="step-icon bg-white text-muted border border-2 rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2">
+                3
+              </div>
+              <span class="small text-muted">Confirmation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Colonne Gauche : Formulaire -->
+        <div class="col-lg-8" data-aos="fade-right" data-aos-duration="800">
+          
+          <!-- Détails et Quantité -->
+          <div class="card border-0 shadow-sm mb-4 rounded-4 overflow-hidden">
+            <div class="card-body p-4 p-md-5">
+              <h4 class="fw-bold mb-4 border-bottom pb-3">Détails de la réservation</h4>
+              
+              <div class="d-flex flex-column flex-md-row align-items-md-center gap-4 mb-4">
+                <img [src]="excursion.imageUrl" [alt]="excursion.titre" class="rounded-3 object-fit-cover shadow-sm" style="width: 120px; height: 90px;">
+                <div class="flex-grow-1">
+                  <h5 class="fw-bold text-dark mb-1">{{ excursion.titre }}</h5>
+                  <p class="text-muted small mb-0"><i class="fa-solid fa-location-dot me-1"></i> {{ excursion.localisation }} &nbsp; | &nbsp; <i class="fa-solid fa-clock me-1"></i> {{ excursion.dureeHeures }}h</p>
+                </div>
+              </div>
+
+              <div class="bg-light rounded-3 p-3 d-flex align-items-center justify-content-between">
+                <div>
+                  <h6 class="fw-bold mb-1">Nombre de participants</h6>
+                  <p class="text-muted small mb-0">Prix unitaire : {{ excursion.prix | number }} FCFA</p>
+                </div>
+                <div class="input-group" style="width: 130px;">
+                  <button class="btn btn-outline-secondary" type="button" (click)="decrementQty()"><i class="fa-solid fa-minus"></i></button>
+                  <input type="text" class="form-control text-center fw-bold bg-white" readonly [value]="quantity">
+                  <button class="btn btn-outline-secondary" type="button" (click)="incrementQty()"><i class="fa-solid fa-plus"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Moyen de Paiement -->
+          <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+            <div class="card-body p-4 p-md-5">
+              <h4 class="fw-bold mb-4 border-bottom pb-3">Paiement Mobile</h4>
+              
+              <p class="mb-3 text-secondary">Choisissez votre opérateur pour effectuer le paiement en toute sécurité.</p>
+              
+              <div class="row g-3 mb-4">
+                <!-- Carte Wave -->
+                <div class="col-sm-6">
+                  <div class="payment-card rounded-3 p-3 text-center cursor-pointer border" 
+                       [class.selected]="paymentMethod === 'wave'"
+                       (click)="selectMethod('wave')">
+                    <div class="check-indicator text-success mb-2" *ngIf="paymentMethod === 'wave'">
+                      <i class="fa-solid fa-circle-check fs-4"></i>
+                    </div>
+                    <div class="check-indicator text-muted mb-2 opacity-25" *ngIf="paymentMethod !== 'wave'">
+                      <i class="fa-regular fa-circle fs-4"></i>
+                    </div>
+                    <!-- Logo simulé pour Wave -->
+                    <div class="fs-1 text-primary mb-2 fw-bold" style="color: #17c0eb !important;">Wave</div>
+                    <span class="fw-semibold d-block">Payer avec Wave</span>
+                  </div>
+                </div>
+                
+                <!-- Carte Orange Money -->
+                <div class="col-sm-6">
+                  <div class="payment-card rounded-3 p-3 text-center cursor-pointer border" 
+                       [class.selected]="paymentMethod === 'orange'"
+                       (click)="selectMethod('orange')">
+                    <div class="check-indicator text-success mb-2" *ngIf="paymentMethod === 'orange'">
+                      <i class="fa-solid fa-circle-check fs-4"></i>
+                    </div>
+                    <div class="check-indicator text-muted mb-2 opacity-25" *ngIf="paymentMethod !== 'orange'">
+                      <i class="fa-regular fa-circle fs-4"></i>
+                    </div>
+                    <!-- Logo simulé pour Orange Money -->
+                    <div class="fs-1 mb-2 fw-bold" style="color: #ff6600 !important;">O<span class="fs-4">range</span> Money</div>
+                    <span class="fw-semibold d-block">Payer avec Orange</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Champ Téléphone -->
+              <div class="mb-4">
+                <label for="phone" class="form-label fw-bold">Numéro de téléphone de facturation</label>
+                <div class="input-group input-group-lg">
+                  <span class="input-group-text bg-light border-end-0 fw-semibold text-dark">+221</span>
+                  <input type="tel" class="form-control border-start-0 ps-0" id="phone" 
+                         placeholder="77 123 45 67" 
+                         [(ngModel)]="phoneNumber" 
+                         maxlength="9">
+                </div>
+                <div class="form-text text-muted mt-2"><i class="fa-solid fa-lock text-success me-1"></i> Vos données sont cryptées et sécurisées.</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Colonne Droite : Récapitulatif Sticky -->
+        <div class="col-lg-4" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+          <div class="position-sticky" style="top: 100px;">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+              <div class="card-body p-4">
+                <h5 class="fw-bold mb-4">Récapitulatif de la commande</h5>
+                
+                <div class="d-flex justify-content-between mb-2 text-secondary">
+                  <span>Sous-total ({{ quantity }} x {{ excursion.prix | number }})</span>
+                  <span>{{ totalAmount | number }} FCFA</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3 text-secondary">
+                  <span>Frais de service (0%)</span>
+                  <span>0 FCFA</span>
+                </div>
+                
+                <hr class="my-3 text-muted">
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <span class="fw-bold text-dark fs-5">Total à payer</span>
+                  <span class="fw-bold text-success fs-4">{{ totalAmount | number }} FCFA</span>
+                </div>
+
+                <button class="btn btn-success btn-lg w-100 fw-bold rounded-pill shadow-sm d-flex justify-content-center align-items-center gap-2" 
+                        (click)="onSubmitPayment()" 
+                        [disabled]="processingPayment">
+                  <span *ngIf="!processingPayment">
+                    Payer {{ totalAmount | number }} FCFA
+                  </span>
+                  <span *ngIf="processingPayment" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  <span *ngIf="processingPayment">Connexion en cours...</span>
+                </button>
+                <p class="text-center text-muted small mt-3 mb-0">En cliquant sur "Payer", vous acceptez nos conditions générales de vente.</p>
+              </div>
+            </div>
+
+            <!-- Badges de confiance -->
+            <div class="card border-0 bg-transparent">
+              <div class="card-body p-0">
+                <div class="d-flex align-items-start gap-3 mb-3" data-aos="fade-up" data-aos-delay="300">
+                  <div class="bg-white rounded-circle p-2 shadow-sm text-success badge-icon-anim" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-shield-halved fs-5"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-1 fs-sm">Paiement 100% Sécurisé</h6>
+                    <p class="small text-muted mb-0">Vos transactions sont protégées par les protocoles de sécurité de votre opérateur mobile.</p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+                  <div class="bg-white rounded-circle p-2 shadow-sm text-success badge-icon-anim" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-headset fs-5"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-1 fs-sm">Support Client 7j/7</h6>
+                    <p class="small text-muted mb-0">Notre équipe est disponible pour vous assister à tout moment par téléphone ou WhatsApp.</p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3" data-aos="fade-up" data-aos-delay="500">
+                  <div class="bg-white rounded-circle p-2 shadow-sm text-warning badge-icon-anim" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-star fs-5"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold mb-1 fs-sm">Excellente Note</h6>
+                    <p class="small text-muted mb-0">Évalués 4.9/5 par plus de 15,000 voyageurs internationaux satisfaits.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

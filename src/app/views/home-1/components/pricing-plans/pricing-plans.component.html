@@ -1,0 +1,74 @@
+<div class="compare-palns-area sp2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 m-auto">
+                <div class="compare-plan-header text-center heading2">
+                    <h5 data-aos="fade-up" data-aos-duration="800"><i class="fa-solid fa-tags"></i> &nbsp; Nos Offres</h5>
+                    <h2 class="tg-element-title">Des Forfaits Adaptés à Chaque Voyageur</h2>
+                    <p data-aos="fade-up" data-aos-duration="1000">Sénégal Excursions propose des formules flexibles, conçues pour s'adapter aux envies et au budget de chaque voyageur désirant découvrir le Sénégal.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="plan-toggle-wrap" [class]="isMonthly ? 'active' : ''">
+                    <div class="toggle-inner" data-aos="fade-up" data-aos-duration="1000">
+                        <input id="ce-toggle" [checked]="isMonthly" (change)="togglePlan()" type="checkbox">
+                        <span class="custom-toggle"></span>
+                        <div class="t-month">
+                            <h4>Mensuel</h4>
+                        </div>
+                        <div class="t-year">
+                            <h4>Annuel <span>(20% d'économie)</span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="tab-content">
+                    <div id="monthly">
+                        <div class="row">
+                            <div *ngFor="let plan of pricingPlans" class="col-lg-4 col-md-6" [attr.data-aos]="plan.aos"
+                                [attr.data-aos-duration]="plan.duration">
+                                <app-pricing-card [plan]="plan" [isMonthly]="isMonthly" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Garanties incluses dans tous les plans -->
+        <div class="row mt-5">
+            <div class="col-12" data-aos="fade-up" data-aos-duration="1000">
+                <div style="background: #f8f9fa; border-radius: 16px; padding: 40px; border: 1px solid #e0e0e0;">
+                    <h4 style="text-align: center; font-weight: 700; margin-bottom: 30px; color: #1a5c38;">
+                        <i class="fa-solid fa-shield-check"></i> &nbsp; Toutes nos offres incluent
+                    </h4>
+                    <div class="row text-center">
+                        <div class="col-lg-3 col-md-6" style="margin-bottom: 20px;">
+                            <i class="fa-solid fa-user-tie" style="font-size: 2rem; color: #1a5c38; margin-bottom: 12px; display: block;"></i>
+                            <p style="font-weight: 600; margin: 0;">Conseiller Dédié</p>
+                            <small style="color: #666;">Un expert Ã  votre écoute</small>
+                        </div>
+                        <div class="col-lg-3 col-md-6" style="margin-bottom: 20px;">
+                            <i class="fa-solid fa-bolt" style="font-size: 2rem; color: #1a5c38; margin-bottom: 12px; display: block;"></i>
+                            <p style="font-weight: 600; margin: 0;">Déclaration Rapide</p>
+                            <small style="color: #666;">Sinistre déclaré en ligne 24/7</small>
+                        </div>
+                        <div class="col-lg-3 col-md-6" style="margin-bottom: 20px;">
+                            <i class="fa-solid fa-map-pin" style="font-size: 2rem; color: #1a5c38; margin-bottom: 12px; display: block;"></i>
+                            <p style="font-weight: 600; margin: 0;">Expert Terrain</p>
+                            <small style="color: #666;">Déplacement en 48h</small>
+                        </div>
+                        <div class="col-lg-3 col-md-6" style="margin-bottom: 20px;">
+                            <i class="fa-solid fa-money-bill-wave" style="font-size: 2rem; color: #1a5c38; margin-bottom: 12px; display: block;"></i>
+                            <p style="font-weight: 600; margin: 0;">Indemnisation 30 Jours</p>
+                            <small style="color: #666;">Traitement garanti</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,513 @@
+<app-hero />
+
+<!-- SECTION QUI SOMMES-NOUS (pleine largeur) -->
+<app-about id="about"/>
+
+<!-- SECTION PRODUITS ASSURANCE -->
+<app-services id="service"/>
+
+<!-- SECTION ASSURANCE INDICIELLE â€” commentée
+<section class="senegal-excursions-indicielle">
+    <div class="senegal-excursions-indicielle__bg-deco"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                <div style="padding-right: 20px;">
+                    <span class="senegal-excursions-eyebrow mb-3">
+                        <i class="fa-solid fa-satellite-dish"></i> Produit Innovant
+                    </span>
+                    <h2 style="color: #fff; font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 900; margin: 16px 0 14px; line-height: 1.2; letter-spacing: -0.02em;">
+                        Assurance Indicielle â€” <span style="color: #F1B53B;">Indemnisation Automatique</span>
+                    </h2>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 0.92rem; line-height: 1.7; margin-bottom: 24px;">
+                        Un systeme unique base sur des indices climatiques satellitaires. L'indemnisation se declenche automatiquement quand les indices passent sous un seuil predefini â€” sans attendre un expert terrain.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px;">
+                        <div style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9); font-size: 0.88rem;">
+                            <i class="fa-solid fa-check" style="background: #F1B53B; color: #1a1a1a; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; flex-shrink: 0;"></i>
+                            Declenchement automatique sans expertise terrain
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9); font-size: 0.88rem;">
+                            <i class="fa-solid fa-check" style="background: #F1B53B; color: #1a1a1a; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; flex-shrink: 0;"></i>
+                            Donnees satellitaires en temps reel
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9); font-size: 0.88rem;">
+                            <i class="fa-solid fa-check" style="background: #F1B53B; color: #1a1a1a; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; flex-shrink: 0;"></i>
+                            Ideal pour petits et moyens exploitants
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.9); font-size: 0.88rem;">
+                            <i class="fa-solid fa-check" style="background: #F1B53B; color: #1a1a1a; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; flex-shrink: 0;"></i>
+                            Disponible pour recolte et betail
+                        </div>
+                    </div>
+                    <a routerLink="/services/one" class="senegal-excursions-btn senegal-excursions-btn-primary">
+                        Découvrir ce produit <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 36px; margin-top: 30px; margin-top: 0;">
+                    <h5 style="color: #F1B53B; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px;">Comment ca fonctionne ?</h5>
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="display: flex; gap: 16px; align-items: flex-start;">
+                            <div style="width: 40px; height: 40px; background: rgba(241,181,59,0.2); border: 1px solid rgba(241,181,59,0.4); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fa-solid fa-satellite" style="color: #F1B53B; font-size: 0.9rem;"></i>
+                            </div>
+                            <div>
+                                <h6 style="font-weight: 700; color: #fff; margin: 0 0 5px; font-size: 0.9rem;">Collecte de donnees satellites</h6>
+                                <p style="color: rgba(255,255,255,0.65); font-size: 0.83rem; margin: 0; line-height: 1.6;">Indices climatiques calcules en temps reel sur votre zone.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 16px; align-items: flex-start;">
+                            <div style="width: 40px; height: 40px; background: rgba(241,181,59,0.2); border: 1px solid rgba(241,181,59,0.4); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fa-solid fa-chart-line" style="color: #F1B53B; font-size: 0.9rem;"></i>
+                            </div>
+                            <div>
+                                <h6 style="font-weight: 700; color: #fff; margin: 0 0 5px; font-size: 0.9rem;">Comparaison avec le seuil</h6>
+                                <p style="color: rgba(255,255,255,0.65); font-size: 0.83rem; margin: 0; line-height: 1.6;">Si l'indice descend sous le seuil contractuel, le sinistre est detecte automatiquement.</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 16px; align-items: flex-start;">
+                            <div style="width: 40px; height: 40px; background: rgba(241,181,59,0.2); border: 1px solid rgba(241,181,59,0.4); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <i class="fa-solid fa-money-bill-transfer" style="color: #F1B53B; font-size: 0.9rem;"></i>
+                            </div>
+                            <div>
+                                <h6 style="font-weight: 700; color: #fff; margin: 0 0 5px; font-size: 0.9rem;">Indemnisation automatique</h6>
+                                <p style="color: rgba(255,255,255,0.65); font-size: 0.83rem; margin: 0; line-height: 1.6;">Vous etes indemnise rapidement, sans passage d'un expert terrain.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.senegal-excursions-indicielle {
+    position: relative;
+    background: linear-gradient(135deg, #3E4F22 0%, #556B2F 60%, #004085 100%);
+    padding: clamp(56px, 7vw, 80px) 0;
+    overflow: hidden;
+}
+.senegal-excursions-indicielle__bg-deco {
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(241,181,59,0.18), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.senegal-excursions-indicielle::before {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(26,138,71,0.4), transparent 70%);
+    border-radius: 50%;
+}
+</style>
+-->
+
+<!-- SECTION COMMENT SOUSCRIRE -->
+<app-work id="works"/>
+
+<!-- SECTION STATS -->
+<section class="senegal-excursions-stats">
+    <!-- Décorations de fond -->
+    <div class="senegal-excursions-stats__deco-1"></div>
+    <div class="senegal-excursions-stats__deco-2"></div>
+    <div class="senegal-excursions-stats__pattern"></div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="row text-center g-0 senegal-excursions-stats__grid">
+
+            <div class="col-lg-3 col-md-6 col-6 senegal-excursions-stats__item" data-aos="fade-up">
+                <div class="stat-card">
+                    <div class="stat-card__icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="stat-card__body">
+                        <h3 class="stat-card__num">{{ stats.nbAgriculteurs | number }}<span>+</span></h3>
+                        <p class="stat-card__label">Voyageurs satisfaits</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-6 senegal-excursions-stats__item" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-card">
+                    <div class="stat-card__icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="stat-card__body">
+                        <h3 class="stat-card__num">{{ stats.nbProduits }}<span>+</span></h3>
+                        <p class="stat-card__label">Circuits uniques</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-6 senegal-excursions-stats__item" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-card">
+                    <div class="stat-card__icon">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div class="stat-card__body">
+                        <h3 class="stat-card__num">{{ stats.nbRegions }}</h3>
+                        <p class="stat-card__label">Régions couvertes</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-6 senegal-excursions-stats__item" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-card">
+                    <div class="stat-card__icon">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="stat-card__body">
+                        <h3 class="stat-card__num">{{ stats.tauxSatisfaction }}<span>%</span></h3>
+                        <p class="stat-card__label">Taux de satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.senegal-excursions-stats {
+    position: relative;
+    background: linear-gradient(135deg, #3E4F22 0%, #556B2F 50%, #3E4F22 100%);
+    padding: clamp(24px, 3vw, 36px) 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(241,181,59,0.18);
+    border-bottom: 1px solid rgba(241,181,59,0.18);
+}
+/* Décorations subtiles */
+.senegal-excursions-stats__deco-1,
+.senegal-excursions-stats__deco-2 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+}
+.senegal-excursions-stats__deco-1 {
+    top: -100px; right: -80px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(241,181,59,0.18), transparent 70%);
+}
+.senegal-excursions-stats__deco-2 {
+    bottom: -100px; left: -80px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(26,138,71,0.30), transparent 70%);
+}
+/* Pattern subtil */
+.senegal-excursions-stats__pattern {
+    position: absolute; inset: 0;
+    background-image:
+        radial-gradient(rgba(241,181,59,0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+}
+
+/* Grille avec séparateurs verticaux */
+.senegal-excursions-stats__grid {
+    position: relative;
+}
+.senegal-excursions-stats__item {
+    position: relative;
+    padding: 12px;
+}
+/* Séparateur vertical entre cols (desktop) */
+.senegal-excursions-stats__item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 22%; bottom: 22%; right: 0;
+    width: 1px;
+    background: linear-gradient(180deg,
+        transparent, rgba(241,181,59,0.25), transparent);
+}
+@media (max-width: 768px) {
+    .senegal-excursions-stats__item:not(:last-child)::after { display: none; }
+}
+
+/* Card stat â€” disposition horizontale compacte */
+.stat-card {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    transition: transform 360ms cubic-bezier(.4,0,.2,1);
+}
+.stat-card:hover { transform: translateY(-3px); }
+.stat-card:hover .stat-card__icon {
+    background: rgba(241,181,59,0.22);
+    border-color: rgba(241,181,59,0.55);
+    transform: scale(1.05) rotate(-4deg);
+}
+.stat-card:hover .stat-card__icon i {
+    color: #F1B53B;
+}
+
+.stat-card__icon {
+    width: 46px; height: 46px;
+    background: rgba(241,181,59,0.12);
+    border: 1.5px solid rgba(241,181,59,0.30);
+    border-radius: 12px;
+    display: inline-flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(8px);
+    transition: all 360ms cubic-bezier(.4,0,.2,1);
+    flex-shrink: 0;
+}
+.stat-card__icon i {
+    color: #F1B53B;
+    font-size: 1.15rem;
+    transition: transform 360ms ease;
+}
+
+.stat-card__body {
+    text-align: left;
+}
+
+.stat-card__num {
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    margin: 0 0 4px;
+    letter-spacing: -0.025em;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    white-space: nowrap;
+}
+.stat-card__num span {
+    color: #F1B53B;
+    font-size: 0.85em;
+    margin-left: 1px;
+}
+
+.stat-card__label {
+    color: rgba(255,255,255,0.72);
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    .stat-card { flex-direction: column; gap: 6px; text-align: center; padding: 6px; }
+    .stat-card__body { text-align: center; }
+    .stat-card__icon { width: 38px; height: 38px; border-radius: 10px; }
+    .stat-card__icon i { font-size: 0.95rem; }
+    .stat-card__num { font-size: 1.1rem; }
+    .stat-card__label { font-size: 0.62rem; letter-spacing: 0.3px; }
+}
+</style>
+
+
+<!-- SECTION TEMOIGNAGES -->
+<!-- <app-testimonial /> -->
+
+<!-- SECTION FAQ -->
+<div style="background: linear-gradient(135deg, #edf7f0 0%, #fffdf0 100%);">
+    <app-faqs />
+</div>
+
+<!-- SECTION CONTACT -->
+<app-contact />
+
+<!-- SECTION ACTUALITES -->
+<!--
+<div style="background: linear-gradient(135deg, #edf7f0 0%, #fffdf0 100%);">
+    <app-blogs />
+</div>
+-->
+<!-- SECTION PARTENAIRES -->
+<!-- <app-brands /> -->
+
+<!-- SECTION PARTENAIRES â€” Marquee défilant infini -->
+<section class="senegal-excursions-partners">
+    <div class="container">
+        <div class="text-center" data-aos="fade-up">
+            <span class="senegal-excursions-eyebrow dark">
+                <i class="fa-solid fa-handshake"></i> Nos Partenaires
+            </span>
+            <h2 class="senegal-excursions-partners__title">
+                Ils nous font <span>confiance</span>
+            </h2>
+            <!-- <p class="senegal-excursions-partners__lead">
+                Sénégal Excursions collabore avec les institutions nationales et internationales engagées
+                dans le développement touristique sénégalais.
+            </p> -->
+        </div>
+    </div>
+
+    <!-- Marquee défilant -->
+    <div class="senegal-excursions-marquee">
+        <div class="senegal-excursions-marquee__track">
+            <!-- Mode dynamique (connecté Ã  l'API) -->
+            <ng-container *ngIf="partenaires.length > 0">
+                <ng-container *ngFor="let p of partenaires">
+                    <a *ngIf="p.url" [href]="p.url" target="_blank" class="partner-item text-decoration-none">
+                        <img *ngIf="p.logo" [src]="p.logo" [alt]="p.nom" style="height: 24px; width: auto; object-fit: contain;">
+                        <i *ngIf="!p.logo" class="fa-solid fa-handshake"></i>
+                        <span>{{ p.nom }}</span>
+                    </a>
+                    <div *ngIf="!p.url" class="partner-item">
+                        <img *ngIf="p.logo" [src]="p.logo" [alt]="p.nom" style="height: 24px; width: auto; object-fit: contain;">
+                        <i *ngIf="!p.logo" class="fa-solid fa-handshake"></i>
+                        <span>{{ p.nom }}</span>
+                    </div>
+                </ng-container>
+            </ng-container>
+
+            <!-- Mode fallback (si API vide ou échoue) -->
+            <ng-container *ngIf="partenaires.length === 0">
+                <!-- Première série -->
+                <div class="partner-item"><i class="fa-solid fa-building-columns"></i><span>Ministère de l'tourisme</span></div>
+                <div class="partner-item"><i class="fa-solid fa-globe"></i><span>Banque Mondiale</span></div>
+                <div class="partner-item"><i class="fa-solid fa-seedling"></i><span>Sénégal Découverte</span></div>
+                <div class="partner-item"><i class="fa-solid fa-coins"></i><span>BCEAO</span></div>
+                <div class="partner-item"><i class="fa-solid fa-handshake-angle"></i><span>USAID</span></div>
+                <div class="partner-item"><i class="fa-solid fa-leaf"></i><span>ANCAR</span></div>
+                <div class="partner-item"><i class="fa-solid fa-tractor"></i><span>SAED</span></div>
+                <div class="partner-item"><i class="fa-solid fa-wheat-awn"></i><span>UEMOA</span></div>
+                <!-- Duplicata pour boucle infinie -->
+                <div class="partner-item"><i class="fa-solid fa-building-columns"></i><span>Ministère de l'tourisme</span></div>
+                <div class="partner-item"><i class="fa-solid fa-globe"></i><span>Banque Mondiale</span></div>
+                <div class="partner-item"><i class="fa-solid fa-seedling"></i><span>Sénégal Découverte</span></div>
+                <div class="partner-item"><i class="fa-solid fa-coins"></i><span>BCEAO</span></div>
+                <div class="partner-item"><i class="fa-solid fa-handshake-angle"></i><span>USAID</span></div>
+                <div class="partner-item"><i class="fa-solid fa-leaf"></i><span>ANCAR</span></div>
+                <div class="partner-item"><i class="fa-solid fa-tractor"></i><span>SAED</span></div>
+                <div class="partner-item"><i class="fa-solid fa-wheat-awn"></i><span>UEMOA</span></div>
+            </ng-container>
+        </div>
+    </div>
+</section>
+
+<style>
+.senegal-excursions-partners {
+    background: linear-gradient(180deg, #fbfaf3 0%, #ffffff 100%);
+    padding: clamp(22px, 3vw, 36px) 0 clamp(22px, 3vw, 32px);
+    border-top: 1px solid rgba(85,107,47,0.08);
+    overflow: hidden;
+}
+.senegal-excursions-partners__title {
+    font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+    font-weight: 800;
+    color: #3E4F22;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    margin: 12px auto 8px;
+    max-width: 560px;
+}
+.senegal-excursions-partners__title span { color: #F1B53B; }
+.senegal-excursions-partners__lead {
+    color: #6c7c75;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    max-width: 540px;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+/* â”€â”€ Marquee défilant infini â”€â”€ */
+.senegal-excursions-marquee {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    margin-top: 18px;
+    padding: 8px 0 10px;
+}
+.senegal-excursions-marquee::before,
+.senegal-excursions-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 8%;
+    z-index: 2;
+    pointer-events: none;
+}
+.senegal-excursions-marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, #fbfaf3, transparent);
+}
+.senegal-excursions-marquee::after {
+    right: 0;
+    background: linear-gradient(270deg, #ffffff, transparent);
+}
+.senegal-excursions-marquee__track {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    width: max-content;
+    animation: senegal-excursions-scroll 35s linear infinite;
+    overflow: visible;
+}
+.senegal-excursions-marquee:hover .senegal-excursions-marquee__track {
+    animation-play-state: paused;
+}
+@keyframes senegal-excursions-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+.partner-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    padding: 14px 26px;
+    background: #fff;
+    border: 1px solid rgba(85,107,47,0.10);
+    border-radius: 100px;
+    color: #3E4F22;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 320ms cubic-bezier(.4,0,.2,1),
+                border-color 320ms ease,
+                box-shadow 320ms ease,
+                color 320ms ease;
+    box-shadow: 0 2px 8px rgba(13,51,32,0.04);
+    white-space: nowrap;
+    z-index: 1;
+}
+.partner-item > i,
+.partner-item > img {
+    color: #F1B53B;
+    font-size: 1.2rem;
+    transition: transform 320ms;
+}
+.partner-item:hover {
+    transform: translateY(-5px) scale(1.08);
+    border-color: rgba(241,181,59,0.65);
+    box-shadow:
+        0 14px 30px rgba(13,51,32,0.16),
+        0 0 0 1px rgba(241,181,59,0.25);
+    color: #556B2F;
+    z-index: 20;
+}
+.partner-item:hover > i,
+.partner-item:hover > img {
+    transform: scale(1.18) rotate(-6deg);
+}
+
+@media (max-width: 768px) {
+    .senegal-excursions-marquee__track { gap: 36px; animation-duration: 28s; }
+    .partner-item {
+        padding: 12px 20px;
+        font-size: 0.84rem;
+        gap: 10px;
+    }
+    .partner-item > i { font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .partner-item { transition: none; }
+    .senegal-excursions-marquee__track { animation: none; }
+}
+</style>

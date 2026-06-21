@@ -1,0 +1,108 @@
+﻿<app-breadcrumb title="Toutes nos Excursions"></app-breadcrumb>
+
+<div class="senegal-excursions-prod-section" style="background: #f8fcf9; padding: 60px 0; min-height: 80vh; position: relative;">
+    <div class="container">
+        <!-- Filtres -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div style="background: #fff; padding: 20px 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end;">
+                    
+                    <div style="flex: 1; min-width: 200px;">
+                        <label style="font-weight: 700; color: #3E4F22; margin-bottom: 8px; font-size: 0.9rem;">Région</label>
+                        <select class="form-select" [(ngModel)]="selectedRegion" (change)="applyFilters()" style="border-radius: 8px; border: 1px solid #ddd;">
+                            <option value="">Toutes les régions</option>
+                            <option *ngFor="let reg of regions" [value]="reg">{{ reg }}</option>
+                        </select>
+                    </div>
+
+                    <div style="flex: 1; min-width: 200px;">
+                        <label style="font-weight: 700; color: #3E4F22; margin-bottom: 8px; font-size: 0.9rem;">Budget Max: {{ maxPrix }} FCFA</label>
+                        <input type="range" class="form-range" min="10000" max="250000" step="5000" [(ngModel)]="maxPrix" (change)="applyFilters()">
+                    </div>
+
+                    <div style="flex: 1; min-width: 200px;">
+                        <label style="font-weight: 700; color: #3E4F22; margin-bottom: 8px; font-size: 0.9rem;">Durée Max (Jours)</label>
+                        <select class="form-select" [(ngModel)]="selectedDuree" (change)="applyFilters()" style="border-radius: 8px; border: 1px solid #ddd;">
+                            <option [ngValue]="0">Peu importe</option>
+                            <option [ngValue]="1">1 Journée</option>
+                            <option [ngValue]="3">Jusqu'à 3 jours</option>
+                            <option [ngValue]="7">Jusqu'à 1 semaine</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aucun résultat -->
+        <div *ngIf="filteredExcursions.length === 0" class="text-center py-5">
+            <i class="fa-solid fa-search fa-3x" style="color: #ccc; margin-bottom: 15px;"></i>
+            <h4 style="color: #555;">Aucune excursion ne correspond à vos critères.</h4>
+            <button class="btn btn-outline-success mt-3" (click)="selectedRegion=''; maxPrix=200000; selectedDuree=0; applyFilters()">Réinitialiser les filtres</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="row senegal-excursions-prod-grid g-4" *ngIf="filteredExcursions.length > 0">
+            <div class="col-12 col-md-6 col-lg-4 d-flex" *ngFor="let prod of filteredExcursions; let i = index">
+                <div class="prod-card d-flex flex-column h-100" [style.animation-delay]="(i * 0.1) + 's'" style="background: #3E4F22;">
+                    
+                    <div class="prod-card__media">
+                        <div class="prod-card__media-inner">
+                            <img [src]="prod.image" [alt]="prod.nom">
+                        </div>
+                        <div class="prod-card__branche">{{ prod.region }}</div>
+                    </div>
+                    
+                    <div class="prod-card__icon">
+                        <i [class]="prod.icon"></i>
+                    </div>
+
+                    <div class="prod-card__body flex-grow-1">
+                        <h4 class="prod-card__title">{{ prod.nom }}</h4>
+                        <p>{{ prod.description }}</p>
+                        
+                        <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-top: 10px; margin-bottom: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
+                            <span style="color: #F1B53B; font-weight: 700; font-size: 1.1rem;">{{ prod.prix }} FCFA</span>
+                            <span style="color: #fff; font-size: 0.8rem;"><i class="fa-regular fa-clock"></i> {{ prod.duree }} Jours</span>
+                        </div>
+
+                        <div class="prod-card__actions mt-auto">
+                            <a [routerLink]="['/service-single', encodeProductName(prod.nom)]" class="btn-details">
+                                <i class="fa-solid fa-eye"></i> Détails
+                            </a>
+                            <a routerLink="/checkout" class="btn-subscribe">
+                                <i class="fa-solid fa-calendar-check"></i> Réserver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+.prod-card {
+    position: relative;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.prod-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+.prod-card__media { position: relative; height: 180px; }
+.prod-card__media-inner { position: absolute; inset: 0; overflow: hidden; }
+.prod-card__media-inner img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.prod-card:hover .prod-card__media-inner img { transform: scale(1.05); }
+.prod-card__branche { position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.9); color: #3E4F22; padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 0.75rem; }
+.prod-card__icon { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: #F1B53B; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 10; border: 3px solid #3E4F22; }
+.prod-card__icon i { color: #3E4F22; }
+.prod-card__body { padding: 35px 20px 20px; text-align: center; }
+.prod-card__title { color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; }
+.prod-card__body p { color: rgba(255,255,255,0.8); font-size: 0.85rem; line-height: 1.5; margin-bottom: 10px; }
+.btn-details { background: #F1B53B; color: #3E4F22; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.8rem; }
+.btn-subscribe { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.8rem; }
+</style>

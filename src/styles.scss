@@ -1,0 +1,126 @@
+/* You can add global styles to this file, and also import other style files */
+@use "bootstrap/scss/bootstrap.scss";
+@use "aos/dist/aos.css";
+@use "@fortawesome/fontawesome-free/css/all.min.css";
+@use "assets/css/plugins/mobile.css";
+@use "slick-carousel/slick/slick.css";
+@use "slick-carousel/slick/slick-theme.css";
+@use 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@use './assets/scss/main.scss';
+@use './assets/scss/cnaas-design-system.scss';
+
+@import 'leaflet/dist/leaflet.css';
+
+/* ══════════════════════════════════════════════
+   FIX GLOBAL RESPONSIVE — ANTI D�BORDEMENT
+   ══════════════════════════════════════════════ */
+
+/* Bloque tout d�passement horizontal */
+html, body {
+    overflow-x: clip !important;
+    max-width: 100vw;
+}
+
+/* Images toujours dans leur conteneur */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Sections clipp�es */
+.hero1-section-area,
+.contact1-section-area,
+.slider-header-carousel,
+.owl-carousel {
+    overflow: hidden !important;
+    max-width: 100vw;
+}
+
+/* ── Hero : animations translateX ne cr�ent pas de scrollbar ── */
+.hero1-section-area .hero-heading-area h5,
+.hero1-section-area .hero-heading-area h1,
+.hero1-section-area .hero-heading-area p,
+.hero1-section-area .hero-heading-area .btn-area,
+.hero1-section-area .hero-heading-area .header-bottom-images {
+    max-width: 100%;
+}
+
+/* ── MOBILE (< 992px) ── */
+@media (max-width: 991px) {
+
+    /* Cache le cercle logo rotatif sur mobile */
+    .circle-arrow {
+        display: none !important;
+    }
+
+    /* Emp�che le dropdown 1300px de d�border */
+    .tp-submenu {
+        display: none !important;
+    }
+
+    /* Dropdown simple liste — largeur auto */
+    ul.dropdown-padding {
+        width: auto !important;
+        min-width: 200px;
+        max-width: calc(100vw - 30px) !important;
+    }
+}
+
+/* ── MOBILE (< 768px) ── */
+@media (max-width: 767px) {
+
+    /* Hero heading full width */
+    .hero1-section-area .col-lg-7 {
+        width: 100% !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    /* Boutons hero en colonne */
+    .hero1-section-area .btn-area {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        align-items: flex-start !important;
+    }
+
+    .hero1-section-area .btn-area a {
+        width: auto !important;
+        margin-left: 0 !important;
+    }
+
+    /* Section indicielle */
+    .container .row [class*="col-lg-"] {
+        overflow-x: hidden;
+    }
+
+    /* Stats bar */
+    .col-lg-3.col-md-6.col-6 {
+        max-width: 50%;
+    }
+
+    /* Contact form */
+    .contact1-section-area .row.bg-white {
+        flex-direction: column !important;
+    }
+
+    .contact1-section-area .col-lg-5,
+    .contact1-section-area .col-lg-7 {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+
+/* Surcharge Globale pour le menu navigation */
+.main-menu ul li a {
+  color: #1a5f3f !important;
+}
+.main-menu ul li a:hover, .main-menu ul li a.active {
+  color: #556B2F !important;
+}
+
+
+.main-menu ul li a {
+  white-space: nowrap !important;
+}

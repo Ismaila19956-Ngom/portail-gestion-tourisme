@@ -1,0 +1,91 @@
+<!-- État chargement -->
+<div *ngIf="loading" class="sp-state text-center py-5">
+    <i class="fa-solid fa-spinner fa-spin text-success fs-1"></i>
+    <span class="d-block mt-3 text-muted">Chargement des détails...</span>
+</div>
+
+<!-- État erreur -->
+<div *ngIf="error && !loading" class="sp-state sp-state--err text-center py-5">
+    <i class="fa-solid fa-triangle-exclamation text-danger fs-1"></i>
+    <span class="d-block mt-3 text-muted">Impossible de charger cette catégorie.</span>
+    <a routerLink="/home-1" class="btn btn-outline-success mt-4"><i class="fa-solid fa-arrow-left me-2"></i>Retour à l'accueil</a>
+</div>
+
+<ng-container *ngIf="produit && !loading && !error">
+    <!-- Héro -->
+    <div class="hero1-section-area"
+         [style.background-image]="'url(' + productImage + ')'"
+         style="background-size: cover; background-position: center; position: relative; padding: 120px 0 80px;">
+        
+        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.6);"></div>
+
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="row">
+                <div class="col-lg-8 m-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+                    <span class="badge bg-success bg-opacity-25 text-white px-3 py-2 mb-3 rounded-pill" style="border: 1px solid rgba(255,255,255,0.3);">
+                        <i class="fa-solid fa-map-location-dot me-2"></i>Catégorie d'Excursion
+                    </span>
+                    <h1 class="display-3 fw-bold text-white mb-4 text-shadow-sm">{{ produit.title }}</h1>
+                    
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center mb-0" style="background: transparent;">
+                            <li class="breadcrumb-item"><a routerLink="/home-1" class="text-white text-decoration-none opacity-75">Accueil</a></li>
+                            <li class="breadcrumb-item active text-white fw-bold" aria-current="page">{{ produit.title }}</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenu -->
+    <div class="container py-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <img [src]="productImage" [alt]="produit.title" class="img-fluid rounded-4 shadow-lg w-100 object-fit-cover" style="height: 400px;">
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <h3 class="fw-bold mb-4" style="color: #3E4F22;">Présentation de cette catégorie</h3>
+                <p class="lead text-secondary mb-4" style="line-height: 1.8;">
+                    {{ produit.description }}
+                </p>
+                
+                <div class="d-flex align-items-center gap-4 mb-5">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="fa-solid fa-clock text-success fs-5"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-0">Durée Flexible</h6>
+                            <small class="text-muted">De la demi-journée au multi-jours</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="fa-solid fa-user-group text-success fs-5"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-0">Guides Locaux</h6>
+                            <small class="text-muted">Experts passionnés</small>
+                        </div>
+                    </div>
+                </div>
+
+                <a routerLink="/checkout" class="btn btn-success btn-lg px-5 py-3 rounded-pill fw-bold shadow-sm d-inline-flex align-items-center gap-2" style="transition: all 0.3s ease; background: #F1B53B; color: #3E4F22; border-color: #F1B53B;">
+                    <i class="fa-solid fa-calendar-check"></i> Réserver cette excursion
+                </a>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<style>
+    .text-shadow-sm {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .btn-success:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(26, 122, 63, 0.3) !important;
+    }
+</style>

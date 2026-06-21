@@ -1,0 +1,181 @@
+<div class="sidebar-wrapper" style="position: sticky; top: 100px;">
+    <!-- RECHERCHE -->
+    <div style="background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 4px 20px rgba(85,107,47,0.07); margin-bottom: 22px;">
+        <h4 style="color: #3E4F22; font-size: 0.95rem; font-weight: 800; margin-bottom: 16px;
+                    display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-magnifying-glass" style="color: #F1B53B;"></i> Rechercher
+        </h4>
+        <form action="#" style="position: relative;">
+            <input type="text" placeholder="Excursion, région, guide..."
+                   style="width: 100%; border: 1.5px solid #d1e7dd; border-radius: 10px;
+                          padding: 12px 48px 12px 16px; font-size: 0.88rem; color: #333;
+                          background: #f8fdf9; outline: none; transition: all .3s;"
+                   onfocus="this.style.borderColor='#556B2F';this.style.background='#fff'"
+                   onblur="this.style.borderColor='#d1e7dd';this.style.background='#f8fdf9'">
+            <button type="submit"
+                    style="position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+                           width: 34px; height: 34px; background: #556B2F; border: none; border-radius: 8px;
+                           color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+                           font-size: 0.82rem; transition: background .2s;"
+                    onmouseover="this.style.background='#3E4F22'" onmouseout="this.style.background='#556B2F'">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- GUIDE DU MOIS (remplace expert du mois) -->
+    <div style="background: linear-gradient(150deg, #3E4F22 0%, #556B2F 100%); border-radius: 16px;
+                padding: 24px; margin-bottom: 22px; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -20px; right: -20px; width: 90px; height: 90px;
+                    background: rgba(241,181,59,0.08); border-radius: 50%;"></div>
+        <img src="assets/images/tourisme/team_2_1781800516492.png" alt="Guide Sénégal Excursions"
+             style="width: 72px; height: 72px; border-radius: 50%; object-fit: cover;
+                    border: 3px solid #F1B53B; margin-bottom: 12px; position: relative; z-index: 1;">
+        <span style="display: block; background: rgba(241,181,59,0.2); color: #F1B53B; font-size: 0.68rem;
+                     font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+                     padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; position: relative; z-index: 1; margin-left: auto; margin-right: auto; width: fit-content;">
+            Guide du mois
+        </span>
+        <h5 style="color: #fff; font-size: 0.98rem; font-weight: 800; margin-bottom: 4px; position: relative; z-index: 1;">Mamadou Ndiaye</h5>
+        <p style="color: rgba(255,255,255,0.65); font-size: 0.78rem; margin-bottom: 14px; position: relative; z-index: 1;">
+            Expert écotourisme — 15 ans d'expérience
+        </p>
+        <a routerLink="/about"
+           style="display: inline-block; background: #F1B53B; color: #1a1a1a; font-size: 0.8rem;
+                  font-weight: 700; padding: 8px 20px; border-radius: 8px; text-decoration: none;
+                  position: relative; z-index: 1; transition: background .2s;"
+           onmouseover="this.style.background='#e0a430'" onmouseout="this.style.background='#F1B53B'">
+            Voir son profil
+        </a>
+    </div>
+
+    <!-- CATÉGORIES -->
+    <div style="background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 4px 20px rgba(85,107,47,0.07); margin-bottom: 22px;">
+        <h4 style="color: #3E4F22; font-size: 0.95rem; font-weight: 800; margin-bottom: 16px;
+                    padding-bottom: 12px; border-bottom: 2px solid #e8f4ec;
+                    display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-tags" style="color: #F1B53B;"></i> Catégories
+        </h4>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+            <a routerLink="/blogs/one"
+               style="display: flex; align-items: center; justify-content: space-between;
+                      padding: 10px 0; border-bottom: 1px solid #f0f7f2; text-decoration: none;
+                      color: #444; font-size: 0.87rem; transition: color .2s;"
+               onmouseover="this.style.color='#556B2F'" onmouseout="this.style.color='#444'">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-earth-africa" style="color: #556B2F; font-size: 0.8rem;"></i>Toutes les actualités
+                </span>
+                <span style="background: rgba(85,107,47,0.08); color: #556B2F; font-size: 0.7rem;
+                             font-weight: 700; padding: 2px 10px; border-radius: 20px;">9</span>
+            </a>
+            <a routerLink="/blogs/sidebar"
+               style="display: flex; align-items: center; justify-content: space-between;
+                      padding: 10px 0; border-bottom: 1px solid #f0f7f2; text-decoration: none;
+                      color: #444; font-size: 0.87rem; transition: color .2s;"
+               onmouseover="this.style.color='#556B2F'" onmouseout="this.style.color='#444'">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-compass" style="color: #556B2F; font-size: 0.8rem;"></i>Conseils de voyage
+                </span>
+                <span style="background: rgba(85,107,47,0.08); color: #556B2F; font-size: 0.7rem;
+                             font-weight: 700; padding: 2px 10px; border-radius: 20px;">4</span>
+            </a>
+            <a routerLink="/blogs/single"
+               style="display: flex; align-items: center; justify-content: space-between;
+                      padding: 10px 0; text-decoration: none;
+                      color: #444; font-size: 0.87rem; transition: color .2s;"
+               onmouseover="this.style.color='#556B2F'" onmouseout="this.style.color='#444'">
+                <span style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-newspaper" style="color: #556B2F; font-size: 0.8rem;"></i>Nouvelles Sénégal Excursions
+                </span>
+                <span style="background: rgba(85,107,47,0.08); color: #556B2F; font-size: 0.7rem;
+                             font-weight: 700; padding: 2px 10px; border-radius: 20px;">5</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ARTICLES RÉCENTS -->
+    <div style="background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 4px 20px rgba(85,107,47,0.07); margin-bottom: 22px;">
+        <h4 style="color: #3E4F22; font-size: 0.95rem; font-weight: 800; margin-bottom: 16px;
+                    padding-bottom: 12px; border-bottom: 2px solid #e8f4ec;
+                    display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-newspaper" style="color: #F1B53B;"></i> Articles récents
+        </h4>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+            <a *ngFor="let post of recentPosts" routerLink="/blogs/single"
+               style="display: flex; gap: 12px; text-decoration: none; transition: transform .2s;"
+               onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'">
+                <img [src]="post.image" alt=""
+                     style="width: 68px; height: 56px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
+                <div>
+                    <span style="display: block; color: #3E4F22; font-size: 0.83rem; font-weight: 700; line-height: 1.35; margin-bottom: 4px;">{{post.title}}</span>
+                    <span style="color: #999; font-size: 0.75rem;"><i class="fa-solid fa-calendar-days" style="color: #556B2F;"></i> {{post.date}}</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- MOTS CLÉS -->
+    <div style="background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 4px 20px rgba(85,107,47,0.07); margin-bottom: 22px;">
+        <h4 style="color: #3E4F22; font-size: 0.95rem; font-weight: 800; margin-bottom: 16px;
+                    padding-bottom: 12px; border-bottom: 2px solid #e8f4ec;
+                    display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-hashtag" style="color: #F1B53B;"></i> Mots Clés
+        </h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <a href="javascript:void(0)" style="background: #f0faf4; color: #556B2F; font-size: 0.78rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; text-decoration: none; border: 1px solid #d1e7dd; transition: all .2s;" onmouseover="this.style.background='#556B2F';this.style.color='#fff'" onmouseout="this.style.background='#f0faf4';this.style.color='#556B2F'">Sénégal</a>
+            <a href="javascript:void(0)" style="background: #f0faf4; color: #556B2F; font-size: 0.78rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; text-decoration: none; border: 1px solid #d1e7dd; transition: all .2s;" onmouseover="this.style.background='#556B2F';this.style.color='#fff'" onmouseout="this.style.background='#f0faf4';this.style.color='#556B2F'">Tourisme</a>
+            <a href="javascript:void(0)" style="background: #f0faf4; color: #556B2F; font-size: 0.78rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; text-decoration: none; border: 1px solid #d1e7dd; transition: all .2s;" onmouseover="this.style.background='#556B2F';this.style.color='#fff'" onmouseout="this.style.background='#f0faf4';this.style.color='#556B2F'">Excursions</a>
+            <a href="javascript:void(0)" style="background: #f0faf4; color: #556B2F; font-size: 0.78rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; text-decoration: none; border: 1px solid #d1e7dd; transition: all .2s;" onmouseover="this.style.background='#556B2F';this.style.color='#fff'" onmouseout="this.style.background='#f0faf4';this.style.color='#556B2F'">Dakar</a>
+            <a href="javascript:void(0)" style="background: #f0faf4; color: #556B2F; font-size: 0.78rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; text-decoration: none; border: 1px solid #d1e7dd; transition: all .2s;" onmouseover="this.style.background='#556B2F';this.style.color='#fff'" onmouseout="this.style.background='#f0faf4';this.style.color='#556B2F'">Gorée</a>
+            <a href="javascript:void(0)" style="background: #f0faf4; color: #556B2F; font-size: 0.78rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; text-decoration: none; border: 1px solid #d1e7dd; transition: all .2s;" onmouseover="this.style.background='#556B2F';this.style.color='#fff'" onmouseout="this.style.background='#f0faf4';this.style.color='#556B2F'">Casamance</a>
+        </div>
+    </div>
+
+    <!-- NOUS CONTACTER -->
+    <div style="background: #fff; border-radius: 16px; padding: 22px; box-shadow: 0 4px 20px rgba(85,107,47,0.07); margin-bottom: 22px;">
+        <h4 style="color: #3E4F22; font-size: 0.95rem; font-weight: 800; margin-bottom: 16px;
+                    padding-bottom: 12px; border-bottom: 2px solid #e8f4ec;
+                    display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-headset" style="color: #F1B53B;"></i> Besoin d'aide ?
+        </h4>
+        <p style="color: #666; font-size: 0.84rem; line-height: 1.6; margin-bottom: 14px;">
+            Nos conseillers sont disponibles pour vous aider à planifier votre voyage.
+        </p>
+        <a href="tel:+221776543210"
+           style="display: flex; align-items: center; gap: 10px; background: #556B2F; color: #fff;
+                  padding: 12px 16px; border-radius: 10px; text-decoration: none; font-size: 0.85rem;
+                  font-weight: 700; margin-bottom: 8px; transition: all .3s;"
+           onmouseover="this.style.background='#3E4F22'" onmouseout="this.style.background='#556B2F'">
+            <i class="fa-solid fa-phone-volume" style="color: #F1B53B;"></i> (+221) 77 654 32 10
+        </a>
+        <a routerLink="/contact-us"
+           style="display: flex; align-items: center; gap: 10px; background: #f0faf4; color: #556B2F;
+                  padding: 12px 16px; border-radius: 10px; text-decoration: none; font-size: 0.85rem;
+                  font-weight: 700; border: 1px solid #d1e7dd; transition: all .3s;"
+           onmouseover="this.style.background='#e8f4ec'" onmouseout="this.style.background='#f0faf4'">
+            <i class="fa-solid fa-envelope"></i> Envoyer un message
+        </a>
+    </div>
+
+    <!-- RÉSEAUX SOCIAUX EN CARD -->
+    <div style="background: linear-gradient(135deg, #3E4F22, #556B2F); border-radius: 16px; padding: 22px; text-align: center;">
+        <h4 style="color: #fff; font-size: 0.9rem; font-weight: 800; margin-bottom: 6px;">Suivez-nous</h4>
+        <p style="color: rgba(255,255,255,0.6); font-size: 0.78rem; margin-bottom: 16px;">
+            Rejoignez la communauté Sénégal Excursions
+        </p>
+        <div style="display: flex; justify-content: center; gap: 10px;">
+            <a *ngFor="let rs of reseauxSociaux" [href]="rs.url" target="_blank" [title]="rs.reseau"
+               style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+                      display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none;
+                      font-size: 0.88rem; transition: all .25s;"
+               onmouseover="this.style.background='#F1B53B';this.style.borderColor='#F1B53B'"
+               onmouseout="this.style.background='rgba(255,255,255,0.1)';this.style.borderColor='rgba(255,255,255,0.2)'">
+                <i [class]="getSocialIcon(rs)"></i>
+            </a>
+            <!-- Fallback icons if list is empty -->
+            <a *ngIf="reseauxSociaux.length === 0" href="#" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 0.88rem; transition: all .25s;"><i class="fa-brands fa-facebook-f"></i></a>
+            <a *ngIf="reseauxSociaux.length === 0" href="#" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 0.88rem; transition: all .25s;"><i class="fa-brands fa-instagram"></i></a>
+            <a *ngIf="reseauxSociaux.length === 0" href="#" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 0.88rem; transition: all .25s;"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+    </div>
+</div>

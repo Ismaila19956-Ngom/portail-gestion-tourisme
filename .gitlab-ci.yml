@@ -1,0 +1,89 @@
+# ============================================================
+# CNAAS PORTAIL (Angular 19) - GitLab CI/CD
+# Declenchement : push sur la branche "dev"
+# Runner : shell executor (tag: cnaas-portail)
+# ============================================================
+# angular.json : projet "cnaas-portail", outputPath "dist/cnaas-portail"
+# Output reel  : dist/cnaas-portail/browser/
+# DEPLOY_DIR   : /usr/share/nginx/html/cnaas-portail
+# URL publique : http://185.166.39.101/cnaas-portail/
+# ============================================================
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH == "dev" && $CI_PIPELINE_SOURCE == "push"
+      when: always
+    - when: never
+
+default:
+  tags:
+    - cnaas-portail
+
+stages:
+  - build
+  - deploy
+
+variables:
+  APP_NAME: "cnaas-portail"
+  DEPLOY_DIR: "/usr/share/nginx/html/cnaas-portail"
+  BUILD_OUTPUT: "dist/cnaas-portail/browser"
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}-portail
+  paths:
+    - node_modules/
+
+build:
+  stage: build
+  before_script:
+    - echo "=== Build CNAAS Portail (Angular 19) ==="
+    - node --version
+    - npm --version
+  script:
+    - npm install --legacy-peer-deps
+    - npm run build
+    - echo "Verification du build..."
+    - ls -la $BUILD_OUTPUT/index.html
+    - echo "Build termine - commit $CI_COMMIT_SHORT_SHA"
+  artifacts:
+    paths:
+      - $BUILD_OUTPUT/
+    expire_in: 1 hour
+  only:
+    - dev
+
+deploy:
+  stage: deploy
+  script:
+    - echo "=== Deploiement CNAAS Portail vers $DEPLOY_DIR ==="
+    - |
+      if [ -f "$DEPLOY_DIR/index.html" ]; then
+        BACKUP_DIR="${DEPLOY_DIR}-bak-$(date +%Y%m%d-%H%M%S)"
+        sudo cp -r $DEPLOY_DIR $BACKUP_DIR
+        ls -dt ${DEPLOY_DIR}-bak-* 2>/dev/null | tail -n +4 | xargs sudo rm -rf
+        echo "Sauvegarde effectuee dans $BACKUP_DIR"
+      else
+        echo "Pas de version precedente a sauvegarder"
+      fi
+    - |
+      sudo mkdir -p $DEPLOY_DIR
+      TEMP_DIR="${DEPLOY_DIR}-tmp-$$"
+      sudo cp -r $BUILD_OUTPUT $TEMP_DIR
+      if [ -d "$DEPLOY_DIR" ]; then
+        sudo mv $DEPLOY_DIR ${DEPLOY_DIR}-old-tmp
+        sudo mv $TEMP_DIR $DEPLOY_DIR
+        sudo rm -rf ${DEPLOY_DIR}-old-tmp
+      else
+        sudo mv $TEMP_DIR $DEPLOY_DIR
+      fi
+      echo "Deploiement atomique effectue"
+    - sudo chown -R www-data:www-data $DEPLOY_DIR
+    - sudo chmod -R 755 $DEPLOY_DIR
+    - sudo nginx -t && sudo systemctl reload nginx
+    - echo "=== CNAAS Portail deploye avec succes ==="
+    - echo "Commit  $CI_COMMIT_SHORT_SHA sur $CI_COMMIT_BRANCH par $CI_COMMIT_AUTHOR"
+  environment:
+    name: production
+    url: http://$SERVER_IP/cnaas-portail/
+  only:
+    - dev

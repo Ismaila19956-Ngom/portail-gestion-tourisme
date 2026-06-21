@@ -1,0 +1,58 @@
+<owl-carousel-o *ngIf="slides.length > 0" class="slider-header-carousel" [options]="carouselOptions">
+  <ng-container *ngFor="let slide of slides; let i = index">
+    <ng-template carouselSlide>
+      <div class="hero1-section-area">
+        <img [src]="slide.img"
+       [alt]="'SÈnÈgal Excursions - ' + slide.title"
+             class="header-img1"
+             [attr.fetchpriority]="i === 0 ? 'high' : 'low'"
+             decoding="async">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="hero-heading-area heading1">
+                <h5><i class="fa-solid fa-map-location-dot"></i> &nbsp; Excursions au SÈnÈgal</h5>
+                <h1 class="main-heading" style="font-size: 25px;">{{ slide.title }}</h1>
+                <p class="pera">{{ slide.subtitle }}</p>
+                <div class="btn-area">
+                  <a routerLink="/excursions" class="header-btn1">DÈcouvrir nos Excursions &nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+                  <a routerLink="/contact-us" class="header-btn2">Nous Contacter &nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="circle-arrow" style="transform: scale(0.78); transform-origin: top right;">
+                <a href="javascript:void(0)" style="position: relative; display: inline-block;">
+                  <div class="circle1" style="margin: 0; position: absolute; top: 22px; left: 22px; width: 154px; height: 154px; background: none; border: none; backdrop-filter: none;">
+                    <div class="keyframe5" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                      <svg viewBox="0 0 154 154" width="154" height="154" style="position: absolute; top: 0; left: 0;">
+                        <defs>
+                          <path id="badge-text-path"
+                                d="M 77, 77 m -68, 0 a 68,68 0 1,1 136,0 a 68,68 0 1,1 -136,0"/>
+                        </defs>
+                        <text font-size="8.5" font-weight="900" fill="#fff" letter-spacing="2.5"
+                              font-family="Arial, sans-serif" style="text-transform: uppercase;">
+                           <textPath href="#badge-text-path">
+                             S…N…GAL EXCURSIONS ‚úî GUIDES LOCAUX ‚úî &nbsp;
+                           </textPath>
+                        </text>
+                      </svg>
+                    </div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                                width: 95px; height: 95px; border-radius: 50%; overflow: hidden;
+                                background: #fff; border: 3px solid #F1B53B;
+                                box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 5;
+                                display: flex; align-items: center; justify-content: center;">
+                       <span style="font-size: 2.2rem;">üåç</span>
+                    </div>
+                  </div>
+                  <img src="assets/img/icons/arrow1.svg" alt="" class="arrow1" style="z-index: 10;" loading="lazy">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>

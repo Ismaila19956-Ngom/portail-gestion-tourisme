@@ -1,0 +1,217 @@
+<div class="hero1-section-area about-bg-area"
+     style="background: #F1B53B;
+            background-image: url('assets/images/produits/hf_20260311_171453_4c033777-5979-4867-81ed-1fbbb5c1b9bc.jpeg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 20px 0 10px !important;
+            overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                background: linear-gradient(135deg, rgba(241, 181, 59, 0.2) 0%, rgba(7, 90, 38, 0.95) 100%);"></div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="row">
+            <div class="col-lg-10 m-auto">
+                <div class="hero-heading-area heading1 text-center" data-aos="fade-up" data-aos-duration="1000">
+                     <h5 class="hero-eyebrow">LE R�SEAU S�n�gal Excursions</h5>
+                     <h1 class="hero-title">Retrouvez nos agences sur <span>l'�tendue du territoire</span></h1>
+                    <div class="hero-divider"></div>
+                     <p class="hero-desc">
+                        La Compagnie Nationale d'Assurance touristique du S�n�gal (S�n�gal Excursions) dispose d'un vaste r�seau
+                        d'agences r�parties sur plusieurs zones pour �tre toujours plus proche de vous.
+                    </p>
+                    <div style="display: flex; justify-content: center;">
+                        <app-breadcrumb [title]="'Nos Agences'"></app-breadcrumb>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════ SECTION PRINCIPALE ════════════════ -->
+<section class="agencies-section">
+    <div class="container-fluid px-4">
+
+        <!-- Titre -->
+        <div class="row mb-2">
+            <div class="col-lg-8 m-auto text-center" data-aos="fade-up" data-aos-duration="800">
+                <span class="sub-title">Le r�seau S�n�gal Excursions</span>
+                <h2 class="section-title">Retrouvez nos agences sur <span>l'�tendue du territoire</span></h2>
+                <p class="section-desc">Cliquez sur une zone pour voir les agences correspondantes.</p>
+            </div>
+        </div>
+
+        <!-- ─── Chargement ─── -->
+        <div *ngIf="loading" class="loading-state">
+            <div class="spinner"></div>
+            <p>Chargement des agences…</p>
+        </div>
+
+        <!-- ─── Erreur ─── -->
+        <div *ngIf="error && !loading" class="alert-zone">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Connexion impossible au serveur. Donn�es de d�monstration affich�es.
+        </div>
+
+        <!-- ─── Contenu principal ─── -->
+        <div *ngIf="!loading">
+
+            <!-- ════ ONGLETS ZONES (horizontaux) ════ -->
+            <div class="zones-tabs-wrapper" data-aos="fade-up" data-aos-duration="600">
+                <div class="zones-tabs-scroll">
+                    <button
+                        *ngFor="let z of zonesAvecAgences"
+                        class="zone-tab"
+                        [class.active]="selectedZone?.zone === z.zone"
+                        (click)="selectZone(z)">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span class="zone-tab-name">{{ z.zone }}</span>
+                        <span class="zone-tab-count">{{ z.agences.length }} agence{{ z.agences.length > 1 ? 's' : '' }}</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ════ LAYOUT HYBRIDE : Carte (gauche) + Liste agences (droite) ════ -->
+            <div class="hybrid-layout" *ngIf="selectedZone" data-aos="fade-up" data-aos-duration="700">
+
+                <!-- ── Carte Google Maps / Leaflet ── -->
+                <div class="map-panel">
+                    <div class="map-header">
+                        <i class="fa-solid fa-map"></i>
+                        <span>Carte � {{ selectedZone.zone }}</span>
+                        <a *ngIf="selectedAgency?.latitude && selectedAgency?.longitude"
+                           [href]="'https://maps.google.com/?q=' + selectedAgency.latitude + ',' + selectedAgency.longitude"
+                           target="_blank" class="open-gmaps">
+                            <i class="fa-solid fa-up-right-from-square"></i> Ouvrir
+                        </a>
+                    </div>
+                    <div class="map-container" style="height: 500px; width: 100%;">
+                        <google-map 
+                            height="100%" 
+                            width="100%" 
+                            [center]="center" 
+                            [zoom]="zoom" 
+                            [options]="{ mapTypeControl: false, streetViewControl: false }">
+                            <ng-container *ngFor="let agency of selectedZone.agences">
+                                <map-marker 
+                                    *ngIf="hasValidCoords(agency)"
+                                    [position]="{ lat: +agency.latitude, lng: +agency.longitude }"
+                                    [options]="markerOptions"
+                                    (mapClick)="openInfoWindow(markerElem, agency)"
+                                    #markerElem="mapMarker">
+                                </map-marker>
+                            </ng-container>
+                            <map-info-window>
+                                <div style="padding: 5px; text-align: center; min-width: 150px;" *ngIf="selectedAgency">
+                                    <div style="background: rgba(241, 181, 59, 0.2); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; color: #556B2F;">
+                                        <i class="fa-solid fa-location-dot" style="font-size: 18px;"></i>
+                                    </div>
+                                    <strong style="color: #556B2F; font-size: 14px; display: block; margin-bottom: 5px;">{{ selectedAgency?.nomAgence || selectedAgency?.nom }}</strong>
+                                    <span *ngIf="getTypeLabel(selectedAgency)" style="display: inline-block; background: #e8f5ec; color: #556B2F; padding: 2px 8px; border-radius: 12px; font-size: 11px; margin-bottom: 8px;">{{ getTypeLabel(selectedAgency) }}</span>
+                                    <p style="margin: 0; font-size: 12px; color: #555;"><i class="fa-solid fa-map-marker-alt" style="color: #F1B53B; margin-right: 5px;"></i>{{ selectedAgency?.adresse || 'S�n�gal' }}</p>
+                                </div>
+                            </map-info-window>
+                        </google-map>
+                    </div>
+                </div>
+
+                <!-- ── Liste des agences de la zone (droite, scroll vertical) ── -->
+                <div class="agencies-list-panel">
+                    <div class="list-header">
+                        <i class="fa-solid fa-building"></i>
+                        <span>{{ selectedZone.agences.length }} agence{{ selectedZone.agences.length > 1 ? 's' : '' }} dans cette zone</span>
+                    </div>
+
+                    <div class="agencies-scroll">
+                        <div
+                            *ngFor="let agency of selectedZone.agences"
+                            class="agency-item"
+                            [class.selected]="selectedAgency === agency"
+                            (click)="selectAgency(agency)">
+
+                            <!-- Badge type -->
+                            <div class="agency-item-header">
+                                <div class="agency-icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="agency-title-block">
+                                    <h3 class="agency-name">{{ agency.nomAgence || agency.nom }}</h3>
+                                    <span class="agency-type-badge" *ngIf="getTypeLabel(agency)">
+                                        {{ getTypeLabel(agency) }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- D�tails agence -->
+                            <ul class="agency-details" *ngIf="selectedAgency === agency">
+                                <li *ngIf="agency.adresse">
+                                    <i class="fa-solid fa-map-marker-alt"></i>
+                                    <div>
+                                        <span>Adresse</span>
+                                        <p>{{ agency.adresse }}</p>
+                                    </div>
+                                </li>
+                                <li *ngIf="getTelephones(agency).length > 0">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <div>
+                                        <span>T�l�phone</span>
+                                        <p>
+                                            <ng-container *ngFor="let phone of getTelephones(agency); let last = last">
+                                                <a [href]="'tel:' + phone">{{ phone }}</a><br *ngIf="!last">
+                                            </ng-container>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li *ngIf="getEmails(agency).length > 0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <div>
+                                        <span>E-mail</span>
+                                        <p>
+                                            <ng-container *ngFor="let email of getEmails(agency); let last = last">
+                                                <a [href]="'mailto:' + email">{{ email }}</a><br *ngIf="!last">
+                                            </ng-container>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li *ngIf="getCommuneLabel(agency)">
+                                    <i class="fa-solid fa-city"></i>
+                                    <div>
+                                        <span>Commune</span>
+                                        <p>{{ getCommuneLabel(agency) }}</p>
+                                    </div>
+                                </li>
+                                <li *ngIf="agency.responsableNom">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                    <div>
+                                        <span>Responsable</span>
+                                        <p>{{ agency.responsableNom }}</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-clock"></i>
+                                    <div>
+                                        <span>Heures de bureau</span>
+                                        <p>Du Lundi au Vendredi, 8H:00 à 17H:00</p>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <!-- R�sum� si non s�lectionn� -->
+                            <p class="agency-summary" *ngIf="selectedAgency !== agency && agency.adresse">
+                                <i class="fa-solid fa-location-dot"></i> {{ agency.adresse }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message si aucune agence dans la zone -->
+            <div *ngIf="selectedZone && selectedZone.agences.length === 0" class="empty-zone">
+                <i class="fa-solid fa-building-circle-exclamation"></i>
+                <p>Aucune agence dans cette zone pour le moment.</p>
+            </div>
+
+        </div>
+    </div>
+</section>

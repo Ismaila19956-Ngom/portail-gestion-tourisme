@@ -1,0 +1,181 @@
+<!-- Barre d'annonce Sénégal Excursions -->
+<div style="background: #556B2F; padding: 8px 0; font-size: 0.82rem; color: #fff; font-weight: 500; letter-spacing: 0.4px; border-bottom: 1px solid rgba(241,181,59,0.25);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <!-- Infos de Contact (Gauche) -->
+        <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+            <a routerLink="/home-1" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                <span style="font-size: 1.5rem; background: #fff; padding: 2px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">ðŸŒ</span>
+                <span style="color: #fff; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px;">SÉNÉGAL EXCURSIONS</span>
+            </a>
+            <!-- Masqué sur mobile < 768px -->
+            <span class="d-none d-md-inline" style="opacity: 0.3;">|</span>
+            <a [href]="'tel:' + infoContact.telephone" class="d-none d-md-flex" style="color: #F1B53B; text-decoration: none; font-weight: 700; align-items: center; gap: 5px;">
+                <i class="fa-solid fa-phone"></i> {{ infoContact.telephone }}
+            </a>
+            <span class="d-none d-lg-inline" style="opacity: 0.3;">|</span>
+            <a [href]="'mailto:' + infoContact.email" class="d-none d-lg-flex" style="color: #fff; text-decoration: none; opacity: 0.9; align-items: center; gap: 5px; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">
+                <i class="fa-solid fa-envelope" style="color: #F1B53B;"></i> {{ infoContact.email }}
+            </a>
+        </div>
+
+        <!-- Réseaux Sociaux (Droite) â€” masqués < 576px -->
+        <div class="d-none d-sm-flex" style="align-items: center; gap: 14px;">
+            <span class="d-none d-md-inline" style="font-size: 0.75rem; text-transform: uppercase; opacity: 0.6; font-weight: 600; letter-spacing: 1px;">Rejoignez-nous :</span>
+            <div style="display: flex; gap: 12px;">
+
+                <!-- Liens dynamiques depuis l'API -->
+                <ng-container *ngIf="reseauxSociaux.length > 0">
+                    <a *ngFor="let rs of reseauxSociaux"
+                       [href]="rs.url"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       style="color: #fff; font-size: 0.95rem; transition: all 0.3s;"
+                       [style.--hover-color]="rs.color || '#F1B53B'"
+                       onmouseover="this.style.color=this.style.getPropertyValue('--hover-color')" onmouseout="this.style.color='#fff'"
+                       [title]="rs.reseau">
+                        <i [class]="getSocialIcon(rs)"></i>
+                    </a>
+                </ng-container>
+
+                <!-- Fallback statique si aucun réseau configuré -->
+                <ng-container *ngIf="reseauxSociaux.length === 0">
+                    <a href="#" style="color: #fff; font-size: 0.95rem; transition: all 0.3s;" onmouseover="this.style.color='#F1B53B'" onmouseout="this.style.color='#fff'">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" style="color: #fff; font-size: 0.95rem; transition: all 0.3s;" onmouseover="this.style.color='#F1B53B'" onmouseout="this.style.color='#fff'">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" style="color: #fff; font-size: 0.95rem; transition: all 0.3s;" onmouseover="this.style.color='#F1B53B'" onmouseout="this.style.color='#fff'">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                </ng-container>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<header>
+    <div class="header-area {{headerClass}} header header-sticky d-none d-lg-block" stickyScroll id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header-elements" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+
+                        <!-- Logo -->
+                        <div class="site-logo">
+                            <a routerLink="/home-1" style="display: flex; align-items: center; text-decoration: none; gap: 10px;">
+                                <span style="font-size: 2rem; background: #556B2F; color: white; padding: 4px 8px; border-radius: 8px;">🌍</span>
+                                <span style="font-weight: 800; font-size: 1.2rem; color: #1a5f3f; line-height: 1;">SÉNÉGAL<br><span style="color: #F1B53B;">EXCURSIONS</span></span>
+                            </a>
+                        </div>
+
+                        <!-- Navigation principale Sénégal Excursions -->
+                        <div class="main-menu" style="flex-grow: 1; display: flex; justify-content: center;">
+                            <ul style="display: flex; gap: 20px; list-style: none; margin: 0; padding: 0;">
+
+                                <!-- Accueil -->
+                                <li>
+                                    <a routerLink="/home-1" routerLinkActive="active">
+                                        Accueil
+                                    </a>
+                                </li>
+
+                                <!-- Nos Destinations (lien simple) -->
+                                <li>
+                                    <a routerLink="/excursions" routerLinkActive="active">
+                                        Nos Destinations
+                                    </a>
+                                </li>
+
+                                <!-- Excursions au Sénégal -->
+                                <li>
+                                    <a routerLink="/excursions" routerLinkActive="active">
+                                        Excursions
+                                    </a>
+                                </li>
+
+                                <!-- A Propos -->
+                                <li>
+                                    <a routerLink="/about" routerLinkActive="active">
+                                        A Propos
+                                    </a>
+                                </li>
+
+                                <!-- Sinistres -->
+                                <!-- <li>
+                                    <a routerLink="/contact-us" routerLinkActive="active">
+                                        Sinistres
+                                    </a>
+                                </li> -->
+
+                                <!-- Actualités -->
+                                <li>
+                                    <a routerLink="/blogs/one" routerLinkActive="active">
+                                        Actualités
+                                    </a>
+                                </li>
+
+                                <!-- Nos Agences (Commenté) -->
+                                <!-- <li>
+                                    <a routerLink="/agences" routerLinkActive="active">
+                                        Nos Agences
+                                    </a>
+                                </li> -->
+
+                                <!-- Contact -->
+                                <li>
+                                    <a routerLink="/contact-us" routerLinkActive="active">
+                                        Contact
+                                    </a>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+
+                        <!-- Zone Actions: Recherche + Se connecter -->
+                        <div class="btn-area" style="display: flex; align-items: center; gap: 12px;">
+
+                            <!-- Bouton FAQ (Point d'interrogation) -->
+                            <a routerLink="/faq" routerLinkActive="active-faq" style="color: #F1B53B; font-weight: 700; font-size: 1.15rem; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; transition: all 0.3s;" onmouseover="this.style.color='#fff'; this.style.transform='scale(1.1)'" onmouseout="this.style.color='#F1B53B'; this.style.transform='scale(1)'" title="Foire aux questions (FAQ)">
+                                ?
+                            </a>
+
+                            <!-- Bouton Recherche -->
+                            <div style="position: relative;">
+                                <button (click)="toggleSearch()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; transition: all 0.3s;" onmouseover="this.style.background='#F1B53B'; this.style.color='#1a1a1a'; this.style.borderColor='#F1B53B'" onmouseout="this.style.background='rgba(255,255,255,0.12)'; this.style.color='#fff'; this.style.borderColor='rgba(255,255,255,0.3)'">
+                                    <i class="fa-solid fa-magnifying-glass" style="font-size: 0.85rem;"></i>
+                                </button>
+                                <div *ngIf="searchOpen" style="position: absolute; top: 48px; right: 0; background: #fff; border: 1px solid #e2eee6; border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.18); padding: 12px; width: 280px; z-index: 9999;">
+                                    <form (ngSubmit)="onSearch()" style="display: flex; gap: 8px;">
+                                        <input type="text" [(ngModel)]="searchQuery" name="search" placeholder="Rechercher..." style="flex: 1; border: 1px solid #d1e7dd; border-radius: 8px; padding: 8px 12px; font-size: 0.88rem; outline: none; color: #333;">
+                                        <button type="submit" style="background: #556B2F; color: #fff; border: none; border-radius: 8px; padding: 8px 12px; cursor: pointer;">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Bouton Se connecter / Mon espace -->
+                            <a *ngIf="!isLoggedIn" routerLink="/connexion" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: #F1B53B; color: #1a1a1a; font-weight: 700; font-size: 0.85rem; border-radius: 8px; text-decoration: none; transition: all 0.3s; white-space: nowrap; border: none;" onmouseover="this.style.background='#e0a52e'; this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#F1B53B'; this.style.transform='translateY(0)'">
+                                <i class="fa-solid fa-user" style="font-size: 0.8rem;"></i> Se connecter
+                            </a>
+                            <a *ngIf="isLoggedIn" routerLink="/mon-espace" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: #F1B53B; color: #1a1a1a; font-weight: 700; font-size: 0.85rem; border-radius: 8px; text-decoration: none; transition: all 0.3s; white-space: nowrap; border: none;" onmouseover="this.style.background='#e0a52e'; this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#F1B53B'; this.style.transform='translateY(0)'">
+                                <i class="fa-solid fa-gauge-high" style="font-size: 0.8rem;"></i> Mon espace
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<app-mobile-menu
+    [btnClass]="btnClass"
+    [mobileHeaderClass]="mobileHeaderClass"
+    [mobileLogo]="mobileLogo"
+    [mobileSidebarClass]="mobileSidebarClass" />

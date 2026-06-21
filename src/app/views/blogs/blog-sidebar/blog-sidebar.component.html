@@ -1,0 +1,274 @@
+<!-- ══════════════════════════════════════════
+   H�RO — CONSEILS locaux
+══════════════════════════════════════════ -->
+<div class="hero1-section-area about-bg-area"
+     style="background-image: url('assets/images/produits/hf_20260311_163904_c2646f0e-6619-49af-8072-281498895f7c.jpeg');
+            background-size: cover; background-position: center 40%; position: relative;
+            padding: 90px 0 50px !important; overflow: hidden;">
+
+    <div style="position: absolute; inset: 0;
+                background: linear-gradient(135deg, rgba(241,181,59,0.10) 0%, rgba(13,51,32,0.96) 100%);"></div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="row">
+            <div class="col-lg-10 m-auto">
+                <div class="hero-heading-area heading1 text-center" data-aos="fade-up" data-aos-duration="1000">
+
+                    <span style="display: inline-flex; align-items: center; gap: 8px; background: rgba(241,181,59,0.15);
+                                 border: 1px solid rgba(241,181,59,0.35); color: #F1B53B; font-size: 0.78rem;
+                                 font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+                                 padding: 7px 18px; border-radius: 30px; margin-bottom: 20px;">
+                        <i class="fa-solid fa-leaf"></i> Expertise touristique
+                    </span>
+
+                    <h1 style="color: #fff; font-size: 2.6rem; font-weight: 900; line-height: 1.1;
+                               margin-bottom: 18px; text-shadow: 0 4px 14px rgba(0,0,0,0.35);">
+                        Conseils locaux
+                    </h1>
+
+                    <div style="width: 64px; height: 3px; background: #F1B53B; margin: 0 auto 20px; border-radius: 2px;"></div>
+
+                    <p style="color: rgba(255,255,255,0.82); font-size: 1rem; max-width: 560px;
+                              margin: 0 auto 28px; line-height: 1.65; font-weight: 400;">
+                        Conseils pratiques de nos agronomes et v�t�rinaires pour s�curiser et optimiser
+                        votre production touristique au S�n�gal.
+                    </p>
+
+                    <!-- Stats rapides -->
+                    <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 30px;">
+                        <div style="text-align: center;">
+                            <div style="color: #F1B53B; font-size: 1.5rem; font-weight: 900;">{{ blogs.length }}+</div>
+                            <div style="color: rgba(255,255,255,0.65); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Articles</div>
+                        </div>
+                        <div style="width: 1px; background: rgba(255,255,255,0.2); height: 40px; align-self: center;"></div>
+                        <div style="text-align: center;">
+                            <div style="color: #F1B53B; font-size: 1.5rem; font-weight: 900;">3</div>
+                            <div style="color: rgba(255,255,255,0.65); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Experts</div>
+                        </div>
+                        <div style="width: 1px; background: rgba(255,255,255,0.2); height: 40px; align-self: center;"></div>
+                        <div style="text-align: center;">
+                            <div style="color: #F1B53B; font-size: 1.5rem; font-weight: 900;">14</div>
+                            <div style="color: rgba(255,255,255,0.65); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">R�gions</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: center;">
+                        <app-breadcrumb subTitle="Conseils locaux" title="Actualit�s" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+   BARRE TH�MATIQUES
+══════════════════════════════════════════ -->
+<div style="background: #fff; border-bottom: 1px solid #e8f4ec; padding: 0;">
+    <div class="container">
+        <div style="display: flex; gap: 0; overflow-x: auto; scrollbar-width: none;">
+            <button *ngFor="let t of themes"
+                    (click)="setTheme(t.id)"
+                    [style.color]="activeTheme === t.id ? '#556B2F' : '#666'"
+                    [style.border-bottom]="activeTheme === t.id ? '3px solid #F1B53B' : '3px solid transparent'"
+                    [style.font-weight]="activeTheme === t.id ? '800' : '500'"
+                    style="background: none; border: none; border-top: none; border-left: none; border-right: none;
+                           padding: 16px 22px; font-size: 0.85rem; cursor: pointer; white-space: nowrap;
+                           transition: all .25s; display: flex; align-items: center; gap: 7px;">
+                <i [class]="t.icon" style="font-size: 0.82rem;"></i> {{ t.label }}
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+   CONTENU PRINCIPAL
+══════════════════════════════════════════ -->
+<div style="background: #f5fdf7; padding: 56px 0 64px;">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- ── Colonne articles ── -->
+            <div class="col-lg-8">
+
+                <!-- Compteur r�sultats -->
+                <div style="display: flex; align-items: center; justify-content: space-between;
+                            margin-bottom: 28px; flex-wrap: wrap; gap: 10px;">
+                    <p style="color: #666; font-size: 0.88rem; margin: 0;">
+                        <strong style="color: #3E4F22;">{{ filteredBlogs.length }}</strong>
+                        article{{ filteredBlogs.length > 1 ? 's' : '' }} trouv�{{ filteredBlogs.length > 1 ? 's' : '' }}
+                        <span *ngIf="activeTheme !== 'tous'" style="color: #556B2F;">— {{ activeThemeLabel }}</span>
+                    </p>
+                    <div style="display: flex; gap: 6px; align-items: center;">
+                        <span style="color: #888; font-size: 0.8rem;">Trier par :</span>
+                        <select style="border: 1px solid #d1e7dd; border-radius: 6px; padding: 5px 10px;
+                                       font-size: 0.82rem; color: #333; background: #fff; outline: none;">
+                            <option>Plus r�cent</option>
+                            <option>Plus lu</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Aucun r�sultat -->
+                <div *ngIf="filteredBlogs.length === 0"
+                     style="background: #fff; border-radius: 16px; padding: 48px; text-align: center;
+                            box-shadow: 0 2px 16px rgba(85,107,47,0.05);">
+                    <i class="fa-solid fa-file-circle-xmark" style="font-size: 2.5rem; color: #d1e7dd; margin-bottom: 16px; display: block;"></i>
+                    <p style="color: #888; font-size: 0.95rem; margin: 0;">Aucun article dans cette cat�gorie pour l'instant.</p>
+                </div>
+
+                <!-- Liste des articles -->
+                <div *ngFor="let blog of filteredBlogs; let i = index" style="margin-bottom: 28px;">
+                    <div style="background: #fff; border-radius: 18px; overflow: hidden;
+                                box-shadow: 0 4px 20px rgba(85,107,47,0.07);
+                                transition: transform .3s, box-shadow .3s;"
+                         onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 44px rgba(85,107,47,0.14)'"
+                         onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(85,107,47,0.07)'">
+
+                        <!-- IMAGE -->
+                        <div style="position: relative; height: 270px; overflow: hidden;">
+                            <img [src]="blog.image" [alt]="blog.title"
+                                 style="width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease;"
+                                 onmouseover="this.style.transform='scale(1.05)'"
+                                 onmouseout="this.style.transform='scale(1)'">
+
+                            <!-- Overlay d�grad� -->
+                            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 55%, rgba(13,51,32,0.55));"></div>
+
+                            <!-- Badge th�me -->
+                            <span [style.background]="blog.themeColor || '#F1B53B'"
+                                  style="position: absolute; top: 16px; left: 16px; color: #1a1a1a;
+                                         font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
+                                         letter-spacing: 1px; padding: 5px 14px; border-radius: 20px;">
+                                {{ blog.theme || 'Conseil touristique' }}
+                            </span>
+
+                            <!-- Dur�e lecture -->
+                            <span style="position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.45);
+                                         color: #fff; font-size: 0.72rem; font-weight: 600;
+                                         padding: 5px 12px; border-radius: 20px; backdrop-filter: blur(4px);">
+                                <i class="fa-solid fa-clock" style="margin-right: 4px;"></i>{{ blog.readTime || '5 min' }}
+                            </span>
+                        </div>
+
+                        <!-- CONTENU -->
+                        <div style="padding: 28px 32px 26px;">
+
+                            <!-- M�ta -->
+                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 14px; flex-wrap: wrap;">
+                                <span style="display: flex; align-items: center; gap: 6px; color: #666; font-size: 0.82rem;">
+                                    <i class="fa-solid fa-user-tie" style="color: #556B2F; font-size: 0.75rem;"></i>
+                                    {{ blog.author }}
+                                </span>
+                                <span style="display: flex; align-items: center; gap: 6px; color: #666; font-size: 0.82rem;">
+                                    <i class="fa-solid fa-calendar-days" style="color: #556B2F; font-size: 0.75rem;"></i>
+                                    {{ blog.date }}
+                                </span>
+                                <span *ngIf="blog.views" style="display: flex; align-items: center; gap: 6px; color: #666; font-size: 0.82rem;">
+                                    <i class="fa-solid fa-eye" style="color: #556B2F; font-size: 0.75rem;"></i>
+                                    {{ blog.views }}
+                                </span>
+                            </div>
+
+                            <!-- Titre -->
+                            <a routerLink="/blogs/single"
+                               style="display: block; color: #3E4F22; font-size: 1.22rem; font-weight: 800;
+                                      line-height: 1.4; margin-bottom: 12px; text-decoration: none; transition: color .3s;"
+                               onmouseover="this.style.color='#556B2F'"
+                               onmouseout="this.style.color='#3E4F22'">
+                                {{ blog.title }}
+                            </a>
+
+                            <!-- Description -->
+                            <p style="color: #666; font-size: 0.91rem; line-height: 1.78; margin-bottom: 22px;">
+                                {{ blog.description }}
+                            </p>
+
+                            <!-- Pied de carte -->
+                            <div style="display: flex; align-items: center; justify-content: space-between;
+                                        padding-top: 18px; border-top: 1px solid #e8f4ec; flex-wrap: wrap; gap: 10px;">
+
+                                <a routerLink="/blogs/single"
+                                   style="display: inline-flex; align-items: center; gap: 8px; background: #556B2F;
+                                          color: #fff; padding: 11px 24px; border-radius: 9px; font-size: 0.85rem;
+                                          font-weight: 700; text-decoration: none; transition: all .3s;"
+                                   onmouseover="this.style.background='#0a7a35';this.style.transform='translateX(3px)'"
+                                   onmouseout="this.style.background='#556B2F';this.style.transform='translateX(0)'">
+                                    Lire l'article <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="javascript:void(0)" title="Facebook"
+                                       style="width: 34px; height: 34px; border-radius: 50%; background: #f0faf4;
+                                              display: flex; align-items: center; justify-content: center; color: #556B2F;
+                                              text-decoration: none; font-size: 0.78rem; transition: all .25s; border: 1px solid #d1e7dd;"
+                                       onmouseover="this.style.background='#1877f2';this.style.color='#fff';this.style.borderColor='#1877f2'"
+                                       onmouseout="this.style.background='#f0faf4';this.style.color='#556B2F';this.style.borderColor='#d1e7dd'">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                    <a href="javascript:void(0)" title="WhatsApp"
+                                       style="width: 34px; height: 34px; border-radius: 50%; background: #f0faf4;
+                                              display: flex; align-items: center; justify-content: center; color: #556B2F;
+                                              text-decoration: none; font-size: 0.78rem; transition: all .25s; border: 1px solid #d1e7dd;"
+                                       onmouseover="this.style.background='#25d366';this.style.color='#fff';this.style.borderColor='#25d366'"
+                                       onmouseout="this.style.background='#f0faf4';this.style.color='#556B2F';this.style.borderColor='#d1e7dd'">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                    </a>
+                                    <a href="javascript:void(0)" title="LinkedIn"
+                                       style="width: 34px; height: 34px; border-radius: 50%; background: #f0faf4;
+                                              display: flex; align-items: center; justify-content: center; color: #556B2F;
+                                              text-decoration: none; font-size: 0.78rem; transition: all .25s; border: 1px solid #d1e7dd;"
+                                       onmouseover="this.style.background='#0a66c2';this.style.color='#fff';this.style.borderColor='#0a66c2'"
+                                       onmouseout="this.style.background='#f0faf4';this.style.color='#556B2F';this.style.borderColor='#d1e7dd'">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── PAGINATION ── -->
+                <div style="display: flex; justify-content: center; align-items: center; gap: 8px; padding-top: 10px;">
+                    <a href="javascript:void(0)"
+                       style="width: 40px; height: 40px; border: 1.5px solid #d1e7dd; border-radius: 9px;
+                              display: flex; align-items: center; justify-content: center; color: #556B2F;
+                              text-decoration: none; font-size: 0.85rem; transition: all .2s;"
+                       onmouseover="this.style.background='#556B2F';this.style.color='#fff'"
+                       onmouseout="this.style.background='transparent';this.style.color='#556B2F'">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </a>
+                    <a href="javascript:void(0)"
+                       style="width: 40px; height: 40px; background: #556B2F; border-radius: 9px;
+                              display: flex; align-items: center; justify-content: center; color: #fff;
+                              text-decoration: none; font-size: 0.88rem; font-weight: 800;">1</a>
+                    <a href="javascript:void(0)"
+                       style="width: 40px; height: 40px; border: 1.5px solid #d1e7dd; border-radius: 9px;
+                              display: flex; align-items: center; justify-content: center; color: #666;
+                              text-decoration: none; font-size: 0.88rem; transition: all .2s;"
+                       onmouseover="this.style.background='#f0faf4'" onmouseout="this.style.background='transparent'">2</a>
+                    <a href="javascript:void(0)"
+                       style="width: 40px; height: 40px; border: 1.5px solid #d1e7dd; border-radius: 9px;
+                              display: flex; align-items: center; justify-content: center; color: #666;
+                              text-decoration: none; font-size: 0.88rem; transition: all .2s;"
+                       onmouseover="this.style.background='#f0faf4'" onmouseout="this.style.background='transparent'">3</a>
+                    <a href="javascript:void(0)"
+                       style="width: 40px; height: 40px; border: 1.5px solid #d1e7dd; border-radius: 9px;
+                              display: flex; align-items: center; justify-content: center; color: #556B2F;
+                              text-decoration: none; font-size: 0.85rem; transition: all .2s;"
+                       onmouseover="this.style.background='#556B2F';this.style.color='#fff'"
+                       onmouseout="this.style.background='transparent';this.style.color='#556B2F'">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- ── SIDEBAR ── -->
+            <div class="col-lg-4">
+                <app-blogs-sidebar />
+            </div>
+
+        </div>
+    </div>
+</div>

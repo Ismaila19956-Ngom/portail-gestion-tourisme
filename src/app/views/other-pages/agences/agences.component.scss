@@ -1,0 +1,485 @@
+/* ════════════════════════════════════════════════
+   HERO
+════════════════════════════════════════════════ */
+.hero-eyebrow {
+    color: #F1B53B;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.hero-title {
+    color: #fff;
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+
+    span {
+        color: #F1B53B;
+    }
+}
+
+.hero-divider {
+    width: 60px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.7);
+    margin: 0 auto 14px;
+    border-radius: 2px;
+}
+
+.hero-desc {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.95rem;
+    max-width: 700px;
+    margin: 0 auto 15px;
+    line-height: 1.5;
+}
+
+/* ════════════════════════════════════════════════
+   SECTION PRINCIPALE
+════════════════════════════════════════════════ */
+.agencies-section {
+    padding: 30px 0 40px;
+    background-color: #f6fbf8;
+}
+
+.sub-title {
+    color: #F1B53B;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 10px;
+    line-height: 1.25;
+
+    span {
+        color: #F1B53B;
+    }
+}
+
+.section-desc {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* ════════════════════════════════════════════════
+   CHARGEMENT / ERREUR
+════════════════════════════════════════════════ */
+.loading-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+
+    p { margin-top: 16px; font-size: 15px; }
+}
+
+.spinner {
+    width: 44px;
+    height: 44px;
+    border: 4px solid rgba(241, 181, 59, 0.25);
+    border-top-color: #F1B53B;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.alert-zone {
+    background: #fff8e1;
+    border-left: 4px solid #F1B53B;
+    border-radius: 8px;
+    padding: 12px 18px;
+    color: #7a5c00;
+    font-size: 14px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    i { font-size: 18px; color: #F1B53B; }
+}
+
+/* ════════════════════════════════════════════════
+   ONGLETS ZONES (scroll horizontal)
+════════════════════════════════════════════════ */
+.zones-tabs-wrapper {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.zones-tabs-scroll {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 6px 4px 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #F1B53B #e8f5ec;
+
+    &::-webkit-scrollbar { height: 5px; }
+    &::-webkit-scrollbar-track { background: #e8f5ec; border-radius: 3px; }
+    &::-webkit-scrollbar-thumb { background: #F1B53B; border-radius: 3px; }
+}
+
+.zone-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    border: 2px solid #e0ece4;
+    background: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    min-width: 140px;
+    text-align: center;
+
+    i {
+        font-size: 20px;
+        color: #556B2F;
+        transition: color 0.25s;
+    }
+
+    .zone-tab-name {
+        font-size: 13px;
+        font-weight: 700;
+        color: #333;
+        line-height: 1.3;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .zone-tab-count {
+        font-size: 11px;
+        color: #888;
+        background: #f0f0f0;
+        padding: 2px 8px;
+        border-radius: 20px;
+        font-weight: 600;
+        transition: all 0.25s;
+    }
+
+    &:hover {
+        border-color: rgba(241, 181, 59, 0.5);
+        background: #fffdf5;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(241, 181, 59, 0.15);
+    }
+
+    &.active {
+        border-color: #556B2F;
+        background: linear-gradient(135deg, #556B2F, #0a7a35);
+        box-shadow: 0 6px 20px rgba(7, 90, 38, 0.3);
+        transform: translateY(-3px);
+
+        i { color: #F1B53B; }
+
+        .zone-tab-name { color: #fff; }
+
+        .zone-tab-count {
+            background: rgba(241, 181, 59, 0.25);
+            color: #F1B53B;
+        }
+    }
+}
+
+/* ════════════════════════════════════════════════
+   LAYOUT HYBRIDE : Carte (gauche) + Liste (droite)
+════════════════════════════════════════════════ */
+.hybrid-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 16px;
+    align-items: start;
+
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Panneau Carte ── */
+.map-panel {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e8f0eb;
+}
+
+.map-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #556B2F, #0a7a35);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+
+    i { color: #F1B53B; font-size: 16px; }
+
+    span { flex: 1; }
+
+    .open-gmaps {
+        color: #F1B53B;
+        font-size: 12px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        border: 1px solid rgba(241, 181, 59, 0.4);
+        padding: 4px 10px;
+        border-radius: 20px;
+        transition: all 0.2s;
+        white-space: nowrap;
+
+        &:hover {
+            background: rgba(241, 181, 59, 0.15);
+        }
+    }
+}
+
+.map-container {
+    width: 100%;
+    height: 500px;
+    position: relative;
+
+    iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-width: 992px) {
+        height: 350px;
+    }
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f6fbf8;
+    color: #aaa;
+
+    i { font-size: 48px; color: #c8e6d0; margin-bottom: 12px; }
+    p { font-size: 14px; }
+}
+
+/* ── Panneau Liste Agences ── */
+.agencies-list-panel {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e8f0eb;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 535px;
+}
+
+.list-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: #f6fbf8;
+    border-bottom: 1px solid #e0ece4;
+    font-size: 14px;
+    font-weight: 700;
+    color: #556B2F;
+    flex-shrink: 0;
+
+    i { color: #556B2F; font-size: 16px; }
+}
+
+.agencies-scroll {
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #F1B53B #f6fbf8;
+    padding: 10px;
+
+    &::-webkit-scrollbar { width: 5px; }
+    &::-webkit-scrollbar-track { background: #f6fbf8; }
+    &::-webkit-scrollbar-thumb { background: #F1B53B; border-radius: 3px; }
+}
+
+/* ── Carte agence individuelle ── */
+.agency-item {
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border: 2px solid #edf2ef;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    &:last-child { margin-bottom: 0; }
+
+    &:hover {
+        border-color: rgba(241, 181, 59, 0.4);
+        background: #fffdf5;
+        transform: translateX(3px);
+        box-shadow: 0 4px 14px rgba(241, 181, 59, 0.12);
+    }
+
+    &.selected {
+        border-color: #556B2F;
+        background: linear-gradient(135deg, #f6fbf8, #ecf7f0);
+        box-shadow: 0 6px 20px rgba(7, 90, 38, 0.12);
+
+        .agency-icon {
+            background: #556B2F;
+            color: #F1B53B;
+        }
+    }
+}
+
+.agency-item-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.agency-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(241, 181, 59, 0.15);
+    color: #556B2F;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    transition: all 0.25s;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.agency-title-block {
+    flex: 1;
+
+    .agency-name {
+        font-size: 14px;
+        font-weight: 700;
+        color: #111;
+        margin: 0 0 4px;
+        line-height: 1.3;
+    }
+
+    .agency-type-badge {
+        display: inline-block;
+        font-size: 11px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        background: rgba(7, 90, 38, 0.1);
+        color: #556B2F;
+        font-weight: 600;
+    }
+}
+
+.agency-summary {
+    font-size: 11px;
+    color: #888;
+    margin: 0;
+    padding-left: 42px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    i { color: #F1B53B; margin-right: 4px; }
+}
+
+/* ── D�tails d'une agence s�lectionn�e ── */
+.agency-details {
+    list-style: none;
+    padding: 8px 0 0 42px;
+    margin: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    animation: slideDown 0.3s ease;
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 6px;
+
+        &:last-child { margin-bottom: 0; }
+
+        i {
+            color: #F1B53B;
+            font-size: 13px;
+            margin-top: 3px;
+            width: 16px;
+            flex-shrink: 0;
+        }
+
+        div {
+            span {
+                display: block;
+                font-size: 10px;
+                color: #999;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 2px;
+            }
+
+            p {
+                margin: 0;
+                font-size: 12px;
+                color: #333;
+                font-weight: 500;
+                line-height: 1.4;
+
+                a {
+                    color: #555;
+                    text-decoration: none;
+                    transition: color 0.2s;
+
+                    &:hover { color: #556B2F; }
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Zone vide ── */
+.empty-zone {
+    text-align: center;
+    padding: 60px 20px;
+    color: #aaa;
+
+    i { font-size: 48px; margin-bottom: 16px; display: block; }
+    p { font-size: 15px; }
+}

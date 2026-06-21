@@ -1,0 +1,70 @@
+# Claude Code
+.claude/
+
+# ── Dépendances ──────────────────────────────────────────
+node_modules/
+.npm/
+.yarn/
+.pnp/
+.pnp.js
+
+# ── Build / dist ─────────────────────────────────────────
+dist/
+/dist/
+out/
+build/
+.output/
+
+
+# ── Angular cache & compilation ──────────────────────────
+.angular/
+.angular/cache/
+**/.angular/
+
+# ── Logs ─────────────────────────────────────────────────
+*.log
+
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+build.log
+
+# ── Lock files alternatifs (garder seulement package-lock.json) ──
+yarn.lock
+bun.lock
+
+# ── Environnements secrets ───────────────────────────────
+.env
+.env.*
+!.env.example
+src/environments/environment.local.ts
+
+# ── Éditeurs & OS ────────────────────────────────────────
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Tests & couverture ───────────────────────────────────
+coverage/
+.nyc_output/
+
+# ── Fichiers temporaires / backup ────────────────────────
+*.tmp
+*.temp
+*.bak
+*.backup
+original_html_backup*
+*.orig
+
+# ── Certificats SSL locaux ───────────────────────────────
+*.pem
+*.key
+*.crt

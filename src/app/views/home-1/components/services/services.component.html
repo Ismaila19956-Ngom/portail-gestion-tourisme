@@ -1,0 +1,266 @@
+<section class="senegal-excursions-services">
+    <div class="senegal-excursions-services__deco-top"></div>
+    <div class="senegal-excursions-services__deco-bot"></div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+
+        <!-- En-tête -->
+        <div class="row mb-4">
+            <div class="col-lg-7 m-auto text-center" data-aos="fade-up">
+                <span class="senegal-excursions-services__eyebrow">
+                    <i class="fa-solid fa-map"></i> Nos Excursions
+                </span>
+                <h2 class="senegal-excursions-services__title mt-3">
+                    Explorez nos <span>excursions inoubliables</span>
+                </h2>
+                <p class="senegal-excursions-services__lead">
+                    Des circuits pensés pour chaque voyageur, avec guides locaux et expériences authentiques.
+                </p>
+            </div>
+        </div>
+
+        <!-- Skeleton -->
+        <div *ngIf="loading" class="row g-3">
+            <div *ngFor="let _ of [1,2,3,4]" class="col-lg-4 col-md-6">
+                <div class="senegal-excursions-services__skel"></div>
+            </div>
+        </div>
+
+        <!-- Grille produits -->
+        <div *ngIf="!loading" class="row g-3">
+            <div *ngFor="let p of produits; let i = index"
+                 class="col-lg-4 col-md-6"
+                 data-aos="fade-up"
+                 [attr.data-aos-delay]="i * 70">
+                <article class="senegal-excursions-pcard">
+                    <div class="senegal-excursions-pcard__media">
+                        <img [src]="p.image" [alt]="p.nom" loading="lazy">
+                        <div class="senegal-excursions-pcard__media-overlay"></div>
+                        <div class="senegal-excursions-pcard__icon">
+                            <i [class]="p.icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="senegal-excursions-pcard__body">
+                        <h3>{{ p.nom }}</h3>
+                        <p>{{ p.description }}</p>
+                        <a [routerLink]="['/services/single', slug(p.id)]" class="senegal-excursions-pcard__btn">
+                            Accéder <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- CTA bas -->
+        <div *ngIf="!loading && produits.length > 0" class="row mt-4">
+            <div class="col-12 text-center" data-aos="fade-up">
+                <a routerLink="/excursions" class="senegal-excursions-services__cta">
+                    Voir toutes nos excursions <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.senegal-excursions-services {
+    position: relative;
+    background:
+        radial-gradient(ellipse at top right, rgba(241,181,59,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom left, rgba(26,138,71,0.12) 0%, transparent 50%),
+        linear-gradient(180deg, #556B2F 0%, #6B8E23 50%, #556B2F 100%);
+    padding: clamp(32px, 4vw, 50px) 0;
+    overflow: hidden;
+}
+.senegal-excursions-services__deco-top {
+    position: absolute;
+    top: -120px; right: -100px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(241,181,59,0.12), transparent 70%);
+    border-radius: 50%; filter: blur(50px);
+    pointer-events: none;
+}
+.senegal-excursions-services__deco-bot {
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(26,138,71,0.25), transparent 70%);
+    border-radius: 50%; filter: blur(50px);
+    pointer-events: none;
+}
+
+/* En-tête sur fond vert */
+.senegal-excursions-services__eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(241,181,59,0.16);
+    border: 1px solid rgba(241,181,59,0.4);
+    color: #F1B53B;
+    font-size: 0.7rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 2px;
+    padding: 6px 16px; border-radius: 100px;
+}
+.senegal-excursions-services__title {
+    font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    margin: 12px auto 8px;
+    max-width: 560px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+.senegal-excursions-services__title span { color: #F1B53B; }
+.senegal-excursions-services__lead {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.84rem;
+    line-height: 1.55;
+    max-width: 480px;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+/* Skeleton */
+.senegal-excursions-services__skel {
+    height: 120px; border-radius: 14px;
+    background: linear-gradient(90deg, #e6f2ff 25%, #f0f8ff 50%, #e6f2ff 75%);
+    background-size: 400% 100%;
+    animation: srv-shimmer 1.4s infinite;
+}
+@keyframes srv-shimmer {
+    0%   { background-position: -400% 0; }
+    100% { background-position:  400% 0; }
+}
+
+/* â”€â”€â”€ Carte produit horizontale â”€â”€â”€ */
+.senegal-excursions-pcard {
+    display: flex;
+    align-items: stretch;
+    background: #fff;
+    border: 1px solid rgba(85,107,47,0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 320ms cubic-bezier(.4,0,.2,1),
+                box-shadow 320ms,
+                border-color 320ms;
+    box-shadow:
+        0 1px 2px rgba(13,51,32,0.04),
+        0 6px 14px rgba(13,51,32,0.06);
+}
+.senegal-excursions-pcard:hover {
+    transform: translateY(-4px);
+    border-color: rgba(241,181,59,0.4);
+    box-shadow:
+        0 4px 8px rgba(13,51,32,0.06),
+        0 16px 32px rgba(13,51,32,0.12);
+}
+.senegal-excursions-pcard:hover .senegal-excursions-pcard__media img { transform: scale(1.06); }
+.senegal-excursions-pcard:hover .senegal-excursions-pcard__icon {
+    background: #556B2F;
+    transform: translate(-50%, -50%) scale(1.05) rotate(-4deg);
+}
+.senegal-excursions-pcard:hover .senegal-excursions-pcard__icon i { color: #F1B53B; }
+.senegal-excursions-pcard:hover .senegal-excursions-pcard__btn { gap: 10px; }
+
+.senegal-excursions-pcard__media {
+    position: relative;
+    width: 120px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+.senegal-excursions-pcard__media img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 600ms ease;
+}
+.senegal-excursions-pcard__media-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(85,107,47,0.45), rgba(13,51,32,0.6));
+}
+.senegal-excursions-pcard__icon {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 46px; height: 46px;
+    background: rgba(241,181,59,0.95);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+    transition: transform 320ms, background 320ms;
+}
+.senegal-excursions-pcard__icon i {
+    color: #3E4F22;
+    font-size: 1.15rem;
+    transition: color 320ms;
+}
+
+.senegal-excursions-pcard__body {
+    flex: 1;
+    padding: 14px 16px;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+.senegal-excursions-pcard__body h3 {
+    color: #3E4F22;
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+    text-transform: capitalize;
+}
+.senegal-excursions-pcard__body p {
+    color: #6c7c75;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    margin: 0 0 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.senegal-excursions-pcard__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #556B2F;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: gap 220ms ease, color 220ms;
+    align-self: flex-start;
+}
+.senegal-excursions-pcard__btn:hover { color: #F1B53B; }
+.senegal-excursions-pcard__btn i { font-size: 0.7rem; }
+
+/* CTA bas (sur fond vert) */
+.senegal-excursions-services__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #F1B53B;
+    color: #3E4F22;
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 320ms;
+    box-shadow: 0 4px 14px rgba(241,181,59,0.35);
+}
+.senegal-excursions-services__cta:hover {
+    background: #fff;
+    color: #556B2F;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(255,255,255,0.3);
+}
+
+@media (max-width: 576px) {
+    .senegal-excursions-pcard__media { width: 100px; }
+    .senegal-excursions-pcard__icon { width: 40px; height: 40px; }
+    .senegal-excursions-pcard__body { padding: 12px 14px; }
+}
+</style>

@@ -1,0 +1,112 @@
+<div class="mobile-header {{mobileHeaderClass}} d-block d-lg-none">
+  <div class="container-fluid">
+    <div class="col-12">
+      <div class="mobile-header-elements">
+        <div class="mobile-logo">
+          <a routerLink="/home-1"><img [src]="mobileLogo" alt="" style="max-height: 45px; width: auto; max-width: 180px; object-fit: contain;"></a>
+        </div>
+        <div class="mobile-nav-icon dots-menu" (click)="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-sidebar {{mobileSidebarClass}}" [ngClass]="{ 'mobile-menu-active': isMenuOpen }">
+  <div class="logosicon-area" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
+    <div class="logos">
+      <img [src]="mobileLogo" alt="" style="max-height: 45px; width: auto; max-width: 180px; object-fit: contain;">
+    </div>
+    <div class="menu-close" (click)="closeMenu()">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+  </div>
+  <div class="mobile-nav mobile-nav1">
+    <ul class="mobile-nav-list nav-list1">
+      <ng-container *ngFor="let item of menuItems;">
+        <app-mobile-nav-item [item]="item"></app-mobile-nav-item>
+      </ng-container>
+    </ul>
+
+    <div class="allmobilesection">
+      <!-- Champ Recherche Mobile -->
+      <div style="margin-bottom: 16px; padding: 0 5px;">
+        <div style="display: flex; gap: 8px;">
+          <input type="text" placeholder="Rechercher..." style="flex: 1; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 14px; font-size: 0.88rem; color: #fff; outline: none;" onfocus="this.style.borderColor='#F1B53B'" onblur="this.style.borderColor='rgba(255,255,255,0.2)'">
+          <button style="background: #F1B53B; color: #1a1a1a; border: none; border-radius: 8px; padding: 10px 14px; cursor: pointer;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bouton Se connecter (doré, seul bouton) -->
+      <a routerLink="/connexion" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 20px; background: #F1B53B; border-radius: 8px; color: #1a1a1a; font-weight: 700; font-size: 0.9rem; text-decoration: none; margin-bottom: 20px;">
+        <i class="fa-solid fa-user"></i> Se connecter
+      </a>
+      <div class="single-footer">
+        <h3>Infos de Contact</h3>
+        <div class="footer1-contact-info">
+          <div class="contact-info-single" style="margin-bottom: 12px;">
+            <div class="contact-info-icon" style="background: rgba(241,181,59,0.1); color: #F1B53B;">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="contact-info-text">
+              <a [href]="'tel:' + infoContact.telephone" style="color: #fff; font-weight: 500;">{{ infoContact.telephone }}</a>
+            </div>
+          </div>
+
+          <div class="contact-info-single" style="margin-bottom: 12px;">
+            <div class="contact-info-icon" style="background: rgba(241,181,59,0.1); color: #F1B53B;">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-info-text">
+              <a [href]="'mailto:' + infoContact.email" style="color: #fff; font-weight: 500;">{{ infoContact.email }}</a>
+            </div>
+          </div>
+
+          <div class="single-footer" style="margin-top: 20px;">
+            <h3>Notre Siège</h3>
+
+            <div class="contact-info-single">
+              <div class="contact-info-icon" style="background: rgba(241,181,59,0.1); color: #F1B53B;">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="contact-info-text">
+                <span style="color: #fff; font-size: 0.9rem; line-height: 1.4; display: block;">{{ infoContact.adresse }}</span>
+              </div>
+            </div>
+
+          </div>
+          <div class="single-footer" style="margin-top: 20px;">
+            <h3>Suivez-Nous</h3>
+
+            <div class="social-links-mobile-menu">
+              <ul style="display: flex; gap: 10px;">
+                <!-- Liens dynamiques depuis l'API -->
+                <ng-container *ngIf="reseauxSociaux.length > 0">
+                  <li *ngFor="let rs of reseauxSociaux">
+                    <a [href]="rs.url" [title]="rs.reseau" target="_blank"
+                      style="background: rgba(255,255,255,0.1); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #fff;">
+                      <i [class]="getSocialIcon(rs)"></i>
+                    </a>
+                  </li>
+                </ng-container>
+                
+                <!-- Fallback statique si aucun réseau configuré -->
+                <ng-container *ngIf="reseauxSociaux.length === 0">
+                  <li *ngFor="let lien of liensRapides">
+                    <a [href]="lien.url" [title]="lien.nom" target="_blank"
+                      style="background: rgba(255,255,255,0.1); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #fff;">
+                      <i [class]="lien.icone"></i>
+                    </a>
+                  </li>
+                </ng-container>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

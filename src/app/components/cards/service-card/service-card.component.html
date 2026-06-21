@@ -1,0 +1,155 @@
+<div class="product-card">
+    <div class="img-wrapper">
+        <img [src]="service.image" alt="{{service.title}}">
+        <div class="overlay"></div>
+    </div>
+    <div class="content-area">
+        <div class="product-icon">
+            <i class="fa-solid fa-leaf"></i>
+        </div>
+        <a [routerLink]="['/services/single', slug]"><h3>{{service.title}}</h3></a>
+        <p>{{service.description}}</p>
+        <div class="btn-wrap">
+            <a [routerLink]="['/services/single', slug]" class="readmore">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+</div>
+
+<style>
+.product-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-top: 4px solid #F1B53B;
+    overflow: hidden;
+    margin-bottom: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(241, 181, 59, 0.15);
+    border-color: rgba(241, 181, 59, 0.3);
+    
+    .img-wrapper img {
+        transform: scale(1.1);
+    }
+    
+    .product-icon {
+        background: #000;
+        color: #F1B53B;
+        transform: rotateY(180deg);
+    }
+    
+    .readmore {
+        background: #000;
+        color: #F1B53B;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+}
+
+.img-wrapper {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+    
+    .overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.6));
+    }
+}
+
+.content-area {
+    padding: 25px 25px 30px;
+    text-align: center;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    
+    .product-icon {
+        width: 60px;
+        height: 60px;
+        background: #F1B53B;
+        color: #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin: -55px auto 20px;
+        position: relative;
+        z-index: 2;
+        border: 4px solid #fff;
+        transition: all 0.5s ease;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    h3 {
+        font-size: 20px;
+        font-weight: 800;
+        color: #000;
+        margin-bottom: 12px;
+        transition: color 0.3s;
+        
+        &:hover {
+            color: #F1B53B;
+        }
+    }
+    
+    p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.5;
+        margin-bottom: 25px;
+        flex-grow: 1;
+    }
+    
+    .btn-wrap {
+        margin-top: auto;
+    }
+    
+    .readmore {
+        display: inline-block;
+        font-weight: 700;
+        color: #000;
+        background: #F1B53B;
+        padding: 10px 24px;
+        border-radius: 30px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.4s ease;
+        box-shadow: 0 4px 10px rgba(241, 181, 59, 0.3);
+        
+        i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        
+        &:hover {
+            transform: translateY(-2px);
+            
+            i {
+                transform: translateX(5px);
+            }
+        }
+    }
+}
+</style>

@@ -1,0 +1,77 @@
+<div class="team-card-vibrant" 
+     style="background: #fbfdfc; border-radius: 20px; padding: 15px; border: 2px solid #eef3ef; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); height: 100%; display: flex; flex-direction: column; position: relative; cursor: pointer; overflow: hidden; box-shadow: 0 5px 15px rgba(85,107,47,0.02);">
+    
+    <!-- Zone Image Artistique -->
+    <div style="position: relative; overflow: hidden; border-radius: 14px; box-shadow: 0 5px 15px rgba(0,0,0,0.06); transition: all 0.4s;" class="card-img-holder">
+        <img [src]="member.image" [alt]="member.name" 
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover; transition: transform 0.8s ease;"
+             class="portrait-img">
+        
+        <!-- Social Overlay Artistique -->
+        <div class="social-glass" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(85,107,47,0.4) 0%, rgba(13,51,32,0.7) 100%); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; gap: 10px; opacity: 0; transition: all 0.4s;">
+            <a href="javascript:void(0)" class="social-link" style="background: #F1B53B; color: #1a1a1a; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transform: translateY(15px); transition: all 0.3s; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"><i class="fa-brands fa-linkedin-in" style="font-size: 1rem;"></i></a>
+            <a href="javascript:void(0)" class="social-link" style="background: #fff; color: #556B2F; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transform: translateY(15px); transition: all 0.3s 0.05s; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"><i class="fa-regular fa-envelope" style="font-size: 1rem;"></i></a>
+        </div>
+    </div>
+    
+    <!-- Zone Contenu Premium -->
+    <div style="padding: 18px 5px 5px; text-align: center;">
+        <span style="display: inline-block; background: #556B2F; color: #fff; font-size: 0.65rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; transition: all 0.3s; box-shadow: 0 3px 10px rgba(85,107,47,0.2);" class="role-badge">
+            {{member.role}}
+        </span>
+        <h4 style="font-size: 1.15rem; font-weight: 800; color: #3E4F22; margin: 0; line-height: 1.25; font-family: 'Outfit', sans-serif; transition: all 0.3s;" class="member-name">
+            {{member.name}}
+        </h4>
+        <div style="width: 25px; height: 3px; background: #F1B53B; border-radius: 10px; margin: 15px auto 5px; transition: all 0.4s;" class="bot-line"></div>
+    </div>
+</div>
+
+<style>
+    .team-card-vibrant:hover {
+        transform: translateY(-10px);
+        background: #ffffff !important;
+        box-shadow: 0 20px 40px rgba(85,107,47,0.15), 0 0 15px rgba(241,181,59,0.1);
+        border-color: #F1B53B !important; /* Bordure or au survol pour plus de luxe */
+    }
+    .team-card-vibrant:hover .card-img-holder {
+        transform: scale(0.95) translateY(-5px);
+    }
+    .team-card-vibrant:hover .portrait-img {
+        transform: scale(1.18);
+    }
+    .team-card-vibrant:hover .social-glass {
+        opacity: 1;
+    }
+    .team-card-vibrant:hover .social-link {
+        transform: translateY(0);
+    }
+    .social-link:hover {
+        background: #3E4F22 !important;
+        color: #fff !important;
+        transform: scale(1.1) !important;
+    }
+    .team-card-vibrant:hover .role-badge {
+        background: #F1B53B;
+        box-shadow: 0 5px 15px rgba(241,181,59,0.3);
+    }
+    .team-card-vibrant:hover .member-name {
+        color: #556B2F;
+        transform: scale(1.05);
+    }
+    .team-card-vibrant:hover .bot-line {
+        width: 60px;
+    }
+</style>
+
+<style>
+    .team-card-pro:hover .member-photo {
+        transform: scale(1.05);
+    }
+    .team-card-pro:hover .linkedin-overlay {
+        opacity: 1;
+    }
+    .team-card-pro:hover .card-line {
+        width: 50px;
+        background: #F1B53B;
+    }
+</style>

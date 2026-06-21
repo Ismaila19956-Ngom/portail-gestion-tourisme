@@ -1,0 +1,75 @@
+<div class="faq1-section-area" style="padding: 60px 0; background: #f4f7f9;">
+    <div class="container">
+        <!-- En-tête centré -->
+        <div class="row mb-5">
+            <div class="col-lg-8 m-auto text-center">
+                <div data-aos="fade-up" data-aos-duration="800" style="display: inline-flex; align-items: center; gap: 8px; background: #1a5c38; color: #F1B53B; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;">
+                    <i class="fa-solid fa-circle-question"></i> FAQ
+                </div>
+                
+                <h2 data-aos="fade-up" data-aos-duration="900" style="font-size: 2.2rem; font-weight: 800; color: #11254e; margin-bottom: 20px; line-height: 1.2;">
+                    Questions Fréquemment Posées
+                </h2>
+                
+                <p data-aos="fade-up" data-aos-duration="1000" style="color: #4a5568; font-size: 1rem; line-height: 1.6;">
+                    Nous avons compilé les questions les plus fréquentes pour rendre vos démarches plus simples et accessibles.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 m-auto">
+                <div *ngIf="loading" style="text-align: center; padding: 40px;">
+                    <i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; color: #556B2F;"></i>
+                </div>
+
+                <div *ngIf="!loading && faqData.length === 0" style="text-align: center; padding: 40px;">
+                    <p style="color: #666;">Aucune question disponible pour le moment.</p>
+                </div>
+
+                <div *ngIf="!loading && faqData.length > 0" class="faq-auhtoir-area1" style="padding-top: 10px;">
+                    <div class="accordion accordion-flush" id="accordionFlushExample" ngbAccordion [closeOthers]="true" style="display: flex; flex-direction: column; gap: 12px;">
+                        @for (faq of faqData; track $index; let first=$first; let last=$last) {
+                        <div ngbAccordionItem [collapsed]="first ? false : true" class="accordion-item"
+                            data-aos="fade-up" [attr.data-aos-duration]="800 + ($index * 100)"
+                            style="border: 1px solid #e2e8f0; border-radius: 6px; overflow: hidden; background: #fff; margin-bottom: 0;">
+                            
+                            <h2 class="accordion-header" ngbAccordionHeader style="margin: 0;">
+                                <button ngbAccordionButton type="button" 
+                                    style="padding: 12px 16px; background: #fff; border: none; box-shadow: none; display: flex; align-items: center; width: 100%; transition: all 0.3s; position: relative;">
+                                    
+                                    <div style="background: #556B2F; color: #fff; padding: 4px 8px; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 15px; font-weight: bold; font-size: 0.85rem;">
+                                        Q{{ $index + 1 }}
+                                    </div>
+
+                                    <span style="flex: 1; text-align: left; padding-right: 10px; font-weight: 600; font-size: 0.95rem; color: #11254e;">
+                                        {{ faq.question }}
+                                    </span>
+                                </button>
+                            </h2>
+                            <div ngbAccordionCollapse>
+                                <div class="accordion-body" ngbAccordionBody style="padding: 0 16px 16px 64px; color: #4a5568; font-size: 0.9rem; line-height: 1.6; background: #fff;">
+                                    <ng-template>
+                                        <div style="white-space: pre-line;">
+                                            {{ faq.reponse }}
+                                        </div>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                    
+                    <div style="margin-top: 30px; display: flex; justify-content: center;">
+                        <a routerLink="/faq" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; color: #556B2F; font-size: 1.05rem; transition: all 0.3s;" onmouseover="this.style.color='#F1B53B'" onmouseout="this.style.color='#556B2F'">
+                            Voir toutes les questions
+                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #F1B53B; color: #fff; box-shadow: 0 4px 10px rgba(241,181,59,0.3);">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

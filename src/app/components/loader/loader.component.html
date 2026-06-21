@@ -1,0 +1,16 @@
+<div *ngIf="showPreloader" class="preloader-overlay">
+  <div class="skeleton-container">
+    <div class="watermark-logo">
+      <img src="assets/images/logo/senegal-excursions-logo.jpg" alt="" />
+    </div>
+    <div class="senegal-excursions-loader">
+      <span class="senegal-excursions-letter" *ngFor="let letter of letters; let i = index" [style.animation-delay]="(i * 0.12) + 's'">
+        {{ letter }}
+      </span>
+    </div>
+    <div class="loader-bar">
+      <div class="loader-bar-inner"></div>
+    </div>
+    <div class="loader-subtitle">Chargement en cours</div>
+  </div>
+</div>

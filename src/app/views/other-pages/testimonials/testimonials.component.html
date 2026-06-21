@@ -1,0 +1,85 @@
+<div class="hero1-section-area about-bg-area"
+     style="background-image: url('assets/images/tourisme/excursion_dakar_1781800534313.png');
+            background-size: cover; background-position: center; position: relative; padding: 80px 0 40px !important; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                background: linear-gradient(135deg, rgba(241,181,59,0.15) 0%, rgba(85,107,47,0.95) 100%);"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="row">
+            <div class="col-lg-10 m-auto">
+                <div class="hero-heading-area heading1 text-center" data-aos="fade-up" data-aos-duration="1000">
+                    <h5 style="color: #F1B53B; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin-bottom: 15px; font-size: 0.85rem;">Ils nous font confiance</h5>
+                    <h1 style="color: #fff; font-size: 2.4rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">Témoignages de Voyageurs</h1>
+                    <div style="width: 60px; height: 3px; background: #F1B53B; margin: 0 auto 20px; border-radius: 2px;"></div>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 1rem; max-width: 600px; margin: 0 auto 30px; line-height: 1.5; font-weight: 500;">
+                        Découvrez les expériences de nos voyageurs à travers tout le Sénégal.
+                    </p>
+                    <div style="display: flex; justify-content: center;">
+                        <app-breadcrumb title="Témoignages" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="background: #f8fdf9; padding: 70px 0;">
+    <div class="container">
+
+        <!-- Titre de section -->
+        <div class="row mb-5">
+            <div class="col-lg-8 m-auto text-center">
+                <span style="display: inline-block; background: rgba(85,107,47,0.1); color: #556B2F; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px;">
+                    Ils nous font confiance
+                </span>
+                <h2 style="color: #3E4F22; font-size: 2rem; font-weight: 800; line-height: 1.2; margin-bottom: 14px;">
+                    Ce que disent nos voyageurs
+                </h2>
+                <div style="width: 60px; height: 3px; background: #F1B53B; margin: 0 auto 16px; border-radius: 2px;"></div>
+                <p style="color: #666; font-size: 0.95rem; line-height: 1.6; max-width: 540px; margin: 0 auto;">
+                    Des voyageurs de tout le Sénégal et du monde entier partagent leur expérience avec Sénégal Excursions.
+                </p>
+            </div>
+        </div>
+
+        <!-- Grille témoignages -->
+        <div class="row">
+            <div *ngFor="let testimonial of testimonials" class="col-lg-4 col-md-6 mb-4">
+                <div style="background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); padding: 28px 24px; display: flex; flex-direction: column; height: 100%; transition: all 0.3s ease;"
+                     onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 35px rgba(85,107,47,0.12)'"
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.07)'">
+
+                    <!-- Guillemets décoratifs -->
+                    <div style="font-size: 3.5rem; line-height: 1; color: #F1B53B; font-family: Georgia, serif; margin-bottom: 6px; opacity: 0.8;">"</div>
+
+                    <!-- Texte témoignage -->
+                    <p style="font-size: 0.9rem; color: #444; line-height: 1.7; font-style: italic; flex: 1; margin-bottom: 20px;">
+                        {{ testimonial.description }}
+                    </p>
+
+                    <!-- 5 étoiles -->
+                    <div style="display: flex; gap: 3px; margin-bottom: 16px;">
+                        <i *ngFor="let star of [].constructor(5)" class="fa-solid fa-star" style="color: #F1B53B; font-size: 0.85rem;"></i>
+                    </div>
+
+                    <!-- Profil -->
+                    <div style="display: flex; align-items: center; gap: 14px; padding-top: 16px; border-top: 1px solid #e8f4ec;">
+                        <img [src]="testimonial.image" alt="{{ testimonial.name }}"
+                             style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 3px solid #e8f4ec; flex-shrink: 0;">
+                        <div>
+                            <span style="display: block; font-weight: 700; color: #3E4F22; font-size: 0.92rem; margin-bottom: 4px;">{{ testimonial.name }}</span>
+                            <span style="display: inline-block; background: rgba(85,107,47,0.08); color: #556B2F; font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 20px;">{{ testimonial.role }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="row">
+            <div class="col-lg-12">
+                <app-pagination />
+            </div>
+        </div>
+
+    </div>
+</div>

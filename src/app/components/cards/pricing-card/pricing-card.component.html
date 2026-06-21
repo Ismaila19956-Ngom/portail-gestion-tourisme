@@ -1,0 +1,17 @@
+<div class="single-pricing-area" [ngClass]="{ active: plan.active }" >
+    <div class="pricing-box">
+        <h3>{{ plan.name }}</h3>
+        <p>{{ plan.description }}</p>
+        <h2>{{ isMonthly ? plan.monthlyPrice : plan.yearlyPrice | number }} FCFA/{{ isMonthly ? 'mois' : 'an' }}</h2>
+        <p>{{ plan.billingNote }}</p>
+
+        <a routerLink="/contact" class="header-btn1">Demander un Devis Gratuit</a>
+
+        <h4>{{ plan.title }}</h4>
+        <ul>
+            <li *ngFor="let feature of plan.features">
+                <img src="assets/img/icons/check2.svg" alt=""> {{ feature }}
+            </li>
+        </ul>
+    </div>
+</div>

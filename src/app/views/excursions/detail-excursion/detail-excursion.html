@@ -1,0 +1,100 @@
+<div *ngIf="loading" class="text-center py-5">
+  <div class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Chargement...</span>
+  </div>
+</div>
+
+<div *ngIf="!loading && excursion" class="py-5 bg-light">
+  <div class="container">
+    <div class="mb-4">
+      <a routerLink="/excursions" class="btn btn-link text-success p-0 text-decoration-none">
+        <i class="fa-solid fa-arrow-left me-2"></i> Retour aux excursions
+      </a>
+    </div>
+
+    <div class="row g-4">
+      <!-- Détails Excursion -->
+      <div class="col-lg-8">
+        <div class="card shadow-sm border-0 overflow-hidden rounded-4 mb-4">
+          <ngb-carousel *ngIf="excursion">
+            <ng-template ngbSlide>
+              <div class="ratio ratio-21x9">
+                <img [src]="excursion.imageUrl || 'assets/images/excursion-placeholder.jpg'" [alt]="excursion.titre" class="d-block w-100 object-fit-cover">
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="ratio ratio-21x9">
+                <img src="assets/images/tourisme/excursion_saloum_1781800545237.png" alt="Paysage du Sénégal" class="d-block w-100 object-fit-cover">
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="ratio ratio-21x9">
+                <img src="assets/images/tourisme/senegal_hero_1781800514533.png" alt="Aventure au Sénégal" class="d-block w-100 object-fit-cover">
+              </div>
+            </ng-template>
+          </ngb-carousel>
+          <div class="card-body p-4">
+            <h1 class="fw-bold text-dark mb-3">{{ excursion.titre }}</h1>
+            
+            <div class="d-flex flex-wrap gap-4 mb-4 pb-3 border-bottom text-muted">
+              <div>
+                <i class="fa-solid fa-location-dot text-success me-2 fs-5"></i>
+                <span class="fw-semibold">Région:</span> {{ excursion.localisation }}
+              </div>
+              <div>
+                <i class="fa-solid fa-clock text-success me-2 fs-5"></i>
+                <span class="fw-semibold">Durée:</span> {{ excursion.dureeHeures }} heures
+              </div>
+              <div>
+                <i class="fa-solid fa-wallet text-success me-2 fs-5"></i>
+                <span class="fw-semibold">Tarif:</span> {{ excursion.prix | number }} FCFA / personne
+              </div>
+            </div>
+
+            <h4 class="fw-bold mb-3">Description et Itinéraire</h4>
+            <p class="text-secondary whitespace-pre-line" style="line-height: 1.7;">
+              {{ excursion.description }}
+            </p>
+
+            <div *ngIf="excursion.guides && excursion.guides.length > 0" class="mt-4 pt-4 border-top">
+              <h4 class="fw-bold mb-3">Vos Guides Locaux</h4>
+              <p class="text-muted mb-4">Ces guides certifiés Sénégal Excursions parlent votre langue et vous accompagneront tout au long de cette aventure.</p>
+              
+              <div class="row g-3">
+                <div class="col-md-6" *ngFor="let guide of excursion.guides">
+                  <div class="d-flex align-items-center bg-light rounded p-3 h-100 border border-success border-opacity-25">
+                    <img [src]="guide.photoUrl" alt="{{ guide.nom }}" class="rounded-circle me-3 border border-2 border-white shadow-sm" style="width: 60px; height: 60px; object-fit: cover;">
+                    <div>
+                      <h6 class="fw-bold text-dark mb-1">{{ guide.nom }}</h6>
+                      <div class="d-flex flex-wrap gap-1 mt-1">
+                        <span *ngFor="let langue of guide.langues" class="badge bg-white text-success border border-success border-opacity-50 fw-normal">
+                          {{ langue }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulaire de réservation -->
+      <div class="col-lg-4">
+        <div class="card shadow border-0 rounded-4 sticky-top" style="top: 100px; z-index: 10;">
+          <div class="card-body p-4">
+            <h4 class="fw-bold text-dark mb-4">Réserver cette excursion</h4>
+
+            <div class="text-center">
+              <p class="text-muted mb-4">Pour finaliser votre réservation et choisir votre moyen de paiement (Wave, Orange Money, etc.), cliquez ci-dessous.</p>
+              <a [routerLink]="['/checkout', excursion.id]" class="btn btn-success btn-lg w-100 fw-bold shadow-sm py-3">
+                <i class="fa-solid fa-lock me-2"></i> Procéder au paiement sécurisé
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
