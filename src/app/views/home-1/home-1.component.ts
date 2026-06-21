@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AboutComponent } from "./components/about/about.component";
-import { BlogsComponent } from "./components/blogs/blogs.component";
-import { BrandsComponent } from "./components/brands/brands.component";
 import { ContactComponent } from "./components/contact/contact.component";
 import { FaqsComponent } from "./components/faqs/faqs.component";
 import { HeroComponent } from "./components/hero/hero.component";
@@ -27,8 +25,6 @@ import { Partenaire } from '../../models/cnaas.models';
         FaqsComponent,
         ContactComponent,
         PricingPlansComponent,
-        BrandsComponent,
-        BlogsComponent,
         CommonModule
     ],
     templateUrl: './home-1.component.html',
@@ -64,7 +60,7 @@ export class Home1Component implements OnInit {
     this.apiService.getPartenaires().subscribe({
       next: (data) => {
         if (data && data.length > 0) {
-          // Pour le marquee infini, on duplique si nécessaire
+          // Pour le marquee infini, on duplique si nÃ©cessaire
           this.partenaires = [...data, ...data, ...data, ...data];
         }
       },
