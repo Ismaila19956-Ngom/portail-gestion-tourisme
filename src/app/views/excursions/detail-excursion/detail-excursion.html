@@ -16,25 +16,21 @@
       <!-- Détails Excursion -->
       <div class="col-lg-8">
         <div class="card shadow-sm border-0 overflow-hidden rounded-4 mb-4">
-          <ngb-carousel *ngIf="excursion">
-            <ng-template ngbSlide>
+          <div class="card-body p-4 pb-2">
+            <h1 class="fw-bold text-dark mb-2">{{ excursion.titre }}</h1>
+          </div>
+          <ngb-carousel *ngIf="excursion && excursion.images && excursion.images.length > 0">
+            <ng-template ngbSlide *ngFor="let img of excursion.images">
               <div class="ratio ratio-21x9">
-                <img [src]="excursion.imageUrl || 'assets/images/excursion-placeholder.jpg'" [alt]="excursion.titre" class="d-block w-100 object-fit-cover">
-              </div>
-            </ng-template>
-            <ng-template ngbSlide>
-              <div class="ratio ratio-21x9">
-                <img src="assets/images/tourisme/excursion_saloum_1781800545237.png" alt="Paysage du Sénégal" class="d-block w-100 object-fit-cover">
-              </div>
-            </ng-template>
-            <ng-template ngbSlide>
-              <div class="ratio ratio-21x9">
-                <img src="assets/images/tourisme/senegal_hero_1781800514533.png" alt="Aventure au Sénégal" class="d-block w-100 object-fit-cover">
+                <img [src]="img" [alt]="excursion.titre" class="d-block w-100 object-fit-cover">
               </div>
             </ng-template>
           </ngb-carousel>
-          <div class="card-body p-4">
-            <h1 class="fw-bold text-dark mb-3">{{ excursion.titre }}</h1>
+          <!-- Fallback image si pas de carousel -->
+          <div class="ratio ratio-21x9" *ngIf="excursion && (!excursion.images || excursion.images.length === 0)">
+            <img [src]="excursion.imageUrl || 'assets/images/excursion-placeholder.jpg'" [alt]="excursion.titre" class="d-block w-100 object-fit-cover">
+          </div>
+          <div class="card-body p-4 pt-3">
             
             <div class="d-flex flex-wrap gap-4 mb-4 pb-3 border-bottom text-muted">
               <div>

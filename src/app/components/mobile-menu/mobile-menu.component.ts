@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { menuItems } from './data';
 import { MobileNavItemComponent } from "./mobile-nav-item/mobile-nav-item.component";
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { CnaasApiService } from '../../services/cnaas-api.service';
 import { ReseauxSociauxService, ReseauSocialPortail } from '@core/services/reseaux-sociaux.service';
 
@@ -23,6 +24,7 @@ interface MenuItem {
 export class MobileMenuComponent implements OnInit {
     private api = inject(CnaasApiService);
     private reseauxSvc = inject(ReseauxSociauxService);
+    private router = inject(Router);
 
     isMenuOpen = false;
 
@@ -65,6 +67,12 @@ export class MobileMenuComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.router.events.pipe(
+            filter(event => event instanceof NavigationEnd)
+        ).subscribe(() => {
+            this.closeMenu();
+        });
+
         /* Copie profonde pour ne pas muter le tableau statique */
         this.menuItems = menuItems.map(item => ({ ...item, subMenu: item.subMenu ? [...item.subMenu] : undefined }));
 

@@ -18,6 +18,7 @@ export interface Excursion {
   dureeHeures: number;
   localisation: string;
   imageUrl: string;
+  images?: string[];
   active: boolean;
   guides?: Guide[];
 }

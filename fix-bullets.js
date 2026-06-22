@@ -9,27 +9,22 @@ function walk(dir) {
         const stat = fs.statSync(file);
         if (stat && stat.isDirectory()) {
             results = results.concat(walk(file));
-        } else if (file.endsWith('.ts') || file.endsWith('.html')) {
-            results.push(file);
+        } else {
+            if (file.endsWith('.ts') || file.endsWith('.html')) results.push(file);
         }
     });
     return results;
 }
 
-const files = walk('src');
-let changed = 0;
-
+const files = walk('src/app');
 files.forEach(f => {
     let content = fs.readFileSync(f, 'utf8');
-    let original = content;
-    
-    // Replace the bullet character that incorrectly replaced o"
-    content = content.replace(/•/g, 'o"');
-
-    if (content !== original) {
-        fs.writeFileSync(f, content, 'utf8');
-        changed++;
+    if (content.includes('•')) {
+        let original = content;
+        content = content.replace(/•/g, 'o"');
+        if (content !== original) {
+            console.log("Fixing file:", f);
+            fs.writeFileSync(f, content, 'utf8');
+        }
     }
 });
-
-console.log(`Fixed ${changed} files where bullet • corrupted o"`);

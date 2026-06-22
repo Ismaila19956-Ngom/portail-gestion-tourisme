@@ -5,21 +5,21 @@
     <div class="container">
         <div class="row g-3" style="padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08);">
 
-            <!-- ── Col 1 : S�n�gal Excursions Identity ── -->
+            <!-- ── Col 1 : Sénégal Excursions Identity ── -->
             <div class="col-lg-4 col-md-12">
                 <a routerLink="/home-1" (click)="scrollToTop()" style="display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 12px;">
                     <span style="font-size: 2rem; background: #fff; padding: 4px 6px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🌍</span>
                     <div>
-                        <div style="color: #fff; font-weight: 900; font-size: 1.05rem; letter-spacing: 0.5px; line-height: 1.1;">S�N�GAL</div>
+                        <div style="color: #fff; font-weight: 900; font-size: 1.05rem; letter-spacing: 0.5px; line-height: 1.1;">S�N�GAL</div>
                         <div style="color: rgba(255,255,255,0.55); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Excursions</div>
                     </div>
                 </a>
 
                 <p style="color: rgba(255,255,255,0.65); font-size: 0.8rem; line-height: 1.5; margin-bottom: 16px; max-width: 320px;">
-                    <strong style="color: rgba(255,255,255,0.9);">S�n�gal Excursions</strong> accompagne les voyageurs du monde entier pour leur faire d�couvrir la beaut� authentique de la T�ranga depuis 2015.
+                    <strong style="color: rgba(255,255,255,0.9);">Sénégal Excursions</strong> accompagne les voyageurs du monde entier pour leur faire découvrir la beauté authentique de la Téranga depuis 2015.
                 </p>
 
-                <!-- Chiffres cl�s -->
+                <!-- Chiffres cl�s -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
                     <div style="background: rgba(255,255,255,0.06); border-radius: 8px; padding: 8px 10px; border: 1px solid rgba(255,255,255,0.08);">
                         <div style="color: #F1B53B; font-size: 1.1rem; font-weight: 900; line-height: 1;">15 000+</div>
@@ -27,7 +27,7 @@
                     </div>
                     <div style="background: rgba(255,255,255,0.06); border-radius: 8px; padding: 8px 10px; border: 1px solid rgba(255,255,255,0.08);">
                         <div style="color: #F1B53B; font-size: 1.1rem; font-weight: 900; line-height: 1;">14</div>
-                        <div style="color: rgba(255,255,255,0.55); font-size: 0.65rem; margin-top: 3px;">R�gions couvertes</div>
+                        <div style="color: rgba(255,255,255,0.55); font-size: 0.65rem; margin-top: 3px;">R�gions couvertes</div>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
                     <span style="position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background: #F1B53B; border-radius: 2px;"></span>
                 </h4>
                 <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px;">
-                    <!-- Produits charg�s depuis l'API -->
+                    <!-- Produits charg�s depuis l'API -->
                     <li *ngFor="let p of produits">
                         <a [routerLink]="p.id ? ['/services/single', slug(p.id)] : '/services/one'" (click)="scrollToTop()"
                            style="color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.78rem; display: flex; align-items: center; gap: 6px; transition: all .2s;"
@@ -88,26 +88,26 @@
                 <!-- Infos contact : 2 par ligne -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; margin-bottom: 16px;">
 
-                    <!-- Si�ge social -->
+                    <!-- Siège social -->
                     <div style="display: flex; align-items: flex-start; gap: 8px;">
                         <div style="width: 28px; height: 28px; background: rgba(241,181,59,0.12); border-radius: 6px; flex-shrink: 0;
                                     display: flex; align-items: center; justify-content: center;">
                             <i class="fa-solid fa-location-dot" style="color: #F1B53B; font-size: 0.75rem;"></i>
                         </div>
                         <div>
-                            <div style="color: rgba(255,255,255,0.45); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 2px;">Si�ge social</div>
+                            <div style="color: rgba(255,255,255,0.45); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 2px;">Siège social</div>
                             <span style="color: rgba(255,255,255,0.75); font-size: 0.8rem; line-height: 1.3;">{{ infoContact.adresse }}</span>
                         </div>
                     </div>
 
-                    <!-- T�l�phone -->
+                    <!-- Téléphone -->
                     <div style="display: flex; align-items: flex-start; gap: 8px;">
                         <div style="width: 28px; height: 28px; background: rgba(241,181,59,0.12); border-radius: 6px; flex-shrink: 0;
                                     display: flex; align-items: center; justify-content: center;">
                             <i class="fa-solid fa-phone" style="color: #F1B53B; font-size: 0.75rem;"></i>
                         </div>
                         <div>
-                            <div style="color: rgba(255,255,255,0.45); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 2px;">T�l�phone</div>
+                            <div style="color: rgba(255,255,255,0.45); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 2px;">Téléphone</div>
                             <a [href]="'tel:' + infoContact.telephone"
                                style="color: rgba(255,255,255,0.75); font-size: 0.8rem; text-decoration: none; transition: color .2s;"
                                onmouseover="this.style.color='#F1B53B'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">{{ infoContact.telephone }}</a>
@@ -144,7 +144,7 @@
 
 
 
-                <!-- Bouton contact + R�seaux sociaux sur la m�me ligne -->
+                <!-- Bouton contact + Réseaux sociaux sur la m�me ligne -->
                 <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
                     <a routerLink="/contact-us" (click)="scrollToTop()"
                        style="display: inline-flex; align-items: center; gap: 6px; background: #F1B53B; color: #1a1a1a;
@@ -155,7 +155,7 @@
                         <i class="fa-solid fa-paper-plane"></i> Envoyer un message
                     </a>
 
-                    <!-- R�seaux sociaux (dynamiques) -->
+                    <!-- Réseaux sociaux (dynamiques) -->
                     <ng-container *ngIf="reseauxSociaux.length > 0">
                         <a *ngFor="let rs of reseauxSociaux" [href]="rs.url" [title]="rs.reseau" target="_blank"
                            style="width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
@@ -168,7 +168,7 @@
                         </a>
                     </ng-container>
 
-                    <!-- Fallback statique si aucun r�seau configur� -->
+                    <!-- Fallback statique si aucun réseau configur� -->
                     <ng-container *ngIf="reseauxSociaux.length === 0">
                         <a *ngFor="let lien of liensRapides" [href]="lien.url" [title]="lien.nom" target="_blank"
                            style="width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
@@ -188,18 +188,18 @@
         <div style="display: flex; align-items: center; justify-content: space-between;
                     flex-wrap: wrap; gap: 10px; padding: 16px 0;">
             <p style="color: rgba(255,255,255,0.45); font-size: 0.75rem; margin: 0;">
-                � {{ currentYear }} <strong style="color: rgba(255,255,255,0.65);">S�n�gal Excursions</strong> — Votre partenaire de voyage au S�n�gal.
+                � {{ currentYear }} <strong style="color: rgba(255,255,255,0.65);">Sénégal Excursions</strong> — Votre partenaire de voyage au Sénégal.
             </p>
             <div style="display: flex; gap: 16px; flex-wrap: wrap;">
                 <a href="javascript:void(0)"
                    style="color: rgba(255,255,255,0.4); font-size: 0.75rem; text-decoration: none; transition: color .2s;"
                    onmouseover="this.style.color='#F1B53B'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
-                    Mentions l�gales
+                    Mentions légales
                 </a>
                 <a href="javascript:void(0)"
                    style="color: rgba(255,255,255,0.4); font-size: 0.75rem; text-decoration: none; transition: color .2s;"
                    onmouseover="this.style.color='#F1B53B'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
-                    Politique de confidentialit�
+                    Politique de confidentialité
                 </a>
                 <!-- <a routerLink="/faq"
                    style="color: rgba(255,255,255,0.4); font-size: 0.78rem; text-decoration: none; transition: color .2s;"
@@ -214,7 +214,7 @@
 
 <style>
 /* ════════════════════════════════════════════════════════
-   FOOTER — override pour compacter (sans r��crire chaque inline)
+   FOOTER — override pour compacter (sans r��crire chaque inline)
    ════════════════════════════════════════════════════════ */
 .senegal-excursions-footer h4 {
     font-size: 0.78rem !important;
@@ -247,7 +247,7 @@
 .senegal-excursions-footer ul {
     gap: 4px !important;
 }
-/* Stats chiffres cl�s */
+/* Stats chiffres cl�s */
 .senegal-excursions-footer .container > .row > div:first-child > div[style*="grid-template-columns"] {
     margin-bottom: 12px !important;
     gap: 8px !important;
@@ -261,13 +261,13 @@
 .senegal-excursions-footer .container > .row > div:first-child > div[style*="grid-template-columns"] > div > div:last-child {
     font-size: 0.6rem !important;
 }
-/* R�seaux sociaux */
+/* Réseaux sociaux */
 .senegal-excursions-footer a[title][target="_blank"] {
     width: 28px !important;
     height: 28px !important;
     font-size: 0.68rem !important;
 }
-/* Bloc Contact (ic�nes + labels) */
+/* Bloc Contact (ic�nes + labels) */
 .senegal-excursions-footer .container > .row > div:last-child > div:first-of-type > div {
     gap: 8px !important;
 }
