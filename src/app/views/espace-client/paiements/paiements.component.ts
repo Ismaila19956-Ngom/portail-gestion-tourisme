@@ -34,7 +34,7 @@ interface PaiementRow {
                     <i class="fa-solid fa-receipt" style="color:#538F6C;"></i>
                     Mes Paiements
                 </h2>
-                <p class="pg-sub">Historique de vos versements de primes Sénégal Excursions</p>
+                <p class="pg-sub">Historique de vos versements de primes SÃ©nÃ©gal Excursions</p>
             </div>
             <div class="stats-row">
                 <div class="stat-chip">
@@ -43,13 +43,13 @@ interface PaiementRow {
                 </div>
                 <div class="stat-chip">
                     <div class="stat-icon"><i class="fa-solid fa-circle-check" style="color:#27ae60;font-size:0.68rem;"></i></div>
-                    <div><div class="stat-val">{{ encaisses }}</div><div class="stat-lbl">Encaissé(s)</div></div>
+                    <div><div class="stat-val">{{ encaisses }}</div><div class="stat-lbl">Encaissï¿½(s)</div></div>
                 </div>
                 <div class="stat-chip total-chip">
                     <div class="stat-icon"><i class="fa-solid fa-coins" style="color:#538F6C;font-size:0.68rem;"></i></div>
                     <div>
                         <div class="stat-val gold-val">{{ totalVerse | number:'1.0-0' }}</div>
-                        <div class="stat-lbl">FCFA versés</div>
+                        <div class="stat-lbl">FCFA versï¿½s</div>
                     </div>
                 </div>
             </div>
@@ -63,24 +63,24 @@ interface PaiementRow {
         <!-- â•â• VIDE â•â• -->
         <div *ngIf="!loading && !featuredRow" class="empty-box">
             <i class="fa-solid fa-receipt" style="font-size:2rem;color:#e0c97a;display:block;margin-bottom:10px;"></i>
-            <p style="color:#1a1a1a;font-weight:700;font-size:0.88rem;margin:0 0 4px;">Aucun paiement enregistré</p>
-            <p style="color:#aaa;font-size:0.78rem;margin:0;">Vos versements apparaîtront ici.</p>
+            <p style="color:#1a1a1a;font-weight:700;font-size:0.88rem;margin:0 0 4px;">Aucun paiement enregistrï¿½</p>
+            <p style="color:#aaa;font-size:0.78rem;margin:0;">Vos versements apparaï¿½tront ici.</p>
         </div>
 
         <ng-container *ngIf="!loading && featuredRow">
 
-            <!-- â•â• PAIEMENT LE PLUS RÉCENT â•â• -->
+            <!-- â•â• PAIEMENT LE PLUS Rï¿½CENT â•â• -->
             <div class="section">
                 <div class="section-head">
                     <div class="section-title">
                         <span class="pulse-dot"></span>
-                        Paiement le plus récent
+                        Paiement le plus rï¿½cent
                         <span class="recent-tag">Dernier versement</span>
                     </div>
-                    <span class="sort-label"><i class="fa-solid fa-arrow-down-wide-short"></i> Triés par date d'émission</span>
+                    <span class="sort-label"><i class="fa-solid fa-arrow-down-wide-short"></i> Triï¿½s par date d'ï¿½mission</span>
                 </div>
 
-                <!-- Carte vedette gradient (modèle polices) -->
+                <!-- Carte vedette gradient (modï¿½le polices) -->
                 <div class="featured-card">
                     <div class="fc-orb fc-orb-1"></div>
                     <div class="fc-orb fc-orb-2"></div>
@@ -100,13 +100,13 @@ interface PaiementRow {
                               [style.color]="featuredRow.statutColor"
                               [style.border]="'1px solid ' + featuredRow.statutDot + '44'">
                             <span class="dot-s" [style.background]="featuredRow.statutDot"></span>
-                            {{ featuredRow.encaisse ? 'Encaissé' : featuredRow.statutLabel }}
+                            {{ featuredRow.encaisse ? 'Encaissï¿½' : featuredRow.statutLabel }}
                         </span>
                     </div>
 
                     <div class="fc-grid">
                         <div class="fc-cell">
-                            <div class="fc-lbl">Date d'émission</div>
+                            <div class="fc-lbl">Date d'ï¿½mission</div>
                             <div class="fc-val">{{ featuredRow.dateEmission | date:'dd MMMM yyyy' }}</div>
                         </div>
                         <div class="fc-cell">
@@ -114,13 +114,13 @@ interface PaiementRow {
                             <div class="fc-val">{{ featuredRow.modeLabel }}</div>
                         </div>
                         <div class="fc-cell">
-                            <div class="fc-lbl">Montant versé</div>
+                            <div class="fc-lbl">Montant versï¿½</div>
                             <div class="fc-val accent-val">{{ featuredRow.montantPaye | number:'1.0-0' }} <small>FCFA</small></div>
                         </div>
                     </div>
 
                     <div class="fc-footer">
-                        <span class="fc-star-badge"><i class="fa-solid fa-star"></i> Plus récent</span>
+                        <span class="fc-star-badge"><i class="fa-solid fa-star"></i> Plus rï¿½cent</span>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@ interface PaiementRow {
 
                 <div class="hist-table">
                     <div class="hist-head">
-                        <span>N° Facture</span>
+                        <span>Nï¿½ Facture</span>
                         <span>Police</span>
                         <span>Produit</span>
                         <span>Date</span>
@@ -168,7 +168,7 @@ interface PaiementRow {
                                   [style.color]="r.statutColor"
                                   [style.border]="'1px solid ' + r.statutDot + '44'">
                                 <span class="dot-s" [style.background]="r.statutDot"></span>
-                                {{ r.encaisse ? 'Encaissé' : r.statutLabel }}
+                                {{ r.encaisse ? 'Encaissï¿½' : r.statutLabel }}
                             </span>
                         </div>
                     </div>
@@ -180,7 +180,7 @@ interface PaiementRow {
         <!-- â•â• PAGINATION â•â• -->
         <div *ngIf="totalPages > 1" class="pag-row">
             <button (click)="loadPage(currentPage - 1)" [disabled]="currentPage === 0" class="pag-btn">
-                <i class="fa-solid fa-chevron-left"></i> Précédent
+                <i class="fa-solid fa-chevron-left"></i> Prï¿½cï¿½dent
             </button>
             <span class="pag-cur">{{ currentPage + 1 }} / {{ totalPages }}</span>
             <button (click)="loadPage(currentPage + 1)" [disabled]="currentPage === totalPages - 1" class="pag-btn">
@@ -223,7 +223,7 @@ interface PaiementRow {
     .section-dot { width:7px;height:7px;border-radius:50%;background:#d1d1d1;flex-shrink:0; }
     .count-badge { font-size:0.62rem;font-weight:800;padding:1px 7px;border-radius:20px;background:#f5f5f5;color:#888; }
 
-    /* Featured card â€” gradient (modèle polices) */
+    /* Featured card â€” gradient (modï¿½le polices) */
     .featured-card { background:linear-gradient(135deg,#538F6C 0%,#3d7554 100%);border-radius:14px;padding:14px 20px;position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(61,117,84,0.25);display:flex;flex-direction:column;gap:10px; }
     .fc-orb { position:absolute;border-radius:50%;opacity:0.08;pointer-events:none; }
     .fc-orb-1 { width:200px;height:200px;background:#fff;top:-70px;right:40px; }

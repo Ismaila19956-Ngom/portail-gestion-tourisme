@@ -1,16 +1,16 @@
 <!-- ============================================================
-     Sénégal Excursions â€” Page FAQ globale
+     SÃ©nÃ©gal Excursions â€” Page FAQ globale
      ============================================================ -->
 
 <!-- â•â• HERO avec image de fond â•â• -->
 <div class="faq-hero">
-    <!-- Image de fond (img balisée â€” Angular résout assets/... proprement) -->
+    <!-- Image de fond (img balisï¿½e â€” Angular rï¿½sout assets/... proprement) -->
     <img src="assets/images/produits/hf_20260311_164048_86f66af8-95f1-4418-b76a-4b4735fea65e.jpeg"
          alt=""
          class="faq-hero__bg-img"
          aria-hidden="true">
 
-    <!-- Overlay sombre vert pour lisibilité du texte -->
+    <!-- Overlay sombre vert pour lisibilitï¿½ du texte -->
     <div class="faq-hero__overlay"></div>
 
     <!-- Pattern de points en bas -->
@@ -25,7 +25,7 @@
 
         <h1 class="faq-hero__title">Foire aux <span class="faq-hero__title-accent">questions</span></h1>
         <p class="faq-hero__subtitle">
-            Trouvez rapidement des réponses Ã  vos questions concernant nos produits et nos services.
+            Trouvez rapidement des rï¿½ponses Ã  vos questions concernant nos produits et nos services.
         </p>
 
         <!-- Search Bar -->
@@ -34,14 +34,14 @@
             <input type="text"
                    [(ngModel)]="searchQuery"
                    (input)="onSearch()"
-                   placeholder="Rechercher une question ou un mot-clé..."
+                   placeholder="Rechercher une question ou un mot-clï¿½..."
                    class="faq-hero__search-input">
         </div>
 
         <!-- Quick stats -->
         <div class="faq-hero__stats">
-            <span class="faq-hero__stat"><i class="fa-solid fa-comments"></i> Réponses claires</span>
-            <span class="faq-hero__stat"><i class="fa-solid fa-bolt"></i> Mises Ã  jour régulièrement</span>
+            <span class="faq-hero__stat"><i class="fa-solid fa-comments"></i> Rï¿½ponses claires</span>
+            <span class="faq-hero__stat"><i class="fa-solid fa-bolt"></i> Mises Ã  jour rï¿½guliï¿½rement</span>
             <span class="faq-hero__stat"><i class="fa-solid fa-headset"></i> Support disponible</span>
         </div>
     </div>
@@ -65,9 +65,9 @@
         object-position: center;
         z-index: 0;
         pointer-events: none;
-        opacity: 1;             /* image plein écran */
+        opacity: 1;             /* image plein Ã©cran */
     }
-    /* Overlay diagonal or â†’ vert (même style que la page Contact) */
+    /* Overlay diagonal or â†’ vert (mÃªme style que la page Contact) */
     .faq-hero__overlay {
         position: absolute;
         inset: 0;
@@ -200,14 +200,14 @@
     <!-- Loader -->
     <div *ngIf="loading" style="text-align: center; padding: 40px 0;">
         <i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; color: #556B2F;"></i>
-        <p style="margin-top: 10px; color: #666;">Chargement des questions fréquentes...</p>
+        <p style="margin-top: 10px; color: #666;">Chargement des questions frÃ©quentes...</p>
     </div>
 
     <!-- Empty State -->
     <div *ngIf="!loading && filteredFaqs.length === 0" style="text-align: center; padding: 60px 20px; background: #f9fbf9; border-radius: 12px; border: 1px dashed #c3e0ce;">
         <i class="fa-solid fa-circle-question" style="font-size: 3rem; color: #c3e0ce; margin-bottom: 15px;"></i>
-        <h3 style="font-size: 1.3rem; color: #556B2F; margin-bottom: 10px;">Aucune réponse trouvée</h3>
-        <p style="color: #666;">Nous n'avons pas trouvé de question correspondant Ã  "{{ searchQuery }}".</p>
+        <h3 style="font-size: 1.3rem; color: #556B2F; margin-bottom: 10px;">Aucune rï¿½ponse trouvï¿½e</h3>
+        <p style="color: #666;">Nous n'avons pas trouvï¿½ de question correspondant Ã  "{{ searchQuery }}".</p>
         <button (click)="searchQuery=''; onSearch()" class="btn btn-outline-success" style="margin-top: 10px;">Voir toutes les questions</button>
     </div>
 

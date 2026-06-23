@@ -13,12 +13,12 @@
         <div class="row">
             <div class="col-lg-10 m-auto">
                 <div class="hero-heading-area heading1 text-center" data-aos="fade-up" data-aos-duration="1000">
-                     <h5 class="hero-eyebrow">LE RÉSEAU Sénégal Excursions</h5>
-                     <h1 class="hero-title">Retrouvez nos agences sur <span>l'étendue du territoire</span></h1>
+                     <h5 class="hero-eyebrow">LE Rï¿½SEAU SÃ©nÃ©gal Excursions</h5>
+                     <h1 class="hero-title">Retrouvez nos agences sur <span>l'ï¿½tendue du territoire</span></h1>
                     <div class="hero-divider"></div>
                      <p class="hero-desc">
-                        La Compagnie Nationale d'Assurance touristique du Sénégal (Sénégal Excursions) dispose d'un vaste réseau
-                        d'agences réparties sur plusieurs zones pour être toujours plus proche de vous.
+                        La Compagnie Nationale d'Assurance touristique du SÃ©nÃ©gal (SÃ©nÃ©gal Excursions) dispose d'un vaste rï¿½seau
+                        d'agences rï¿½parties sur plusieurs zones pour ï¿½tre toujours plus proche de vous.
                     </p>
                     <div style="display: flex; justify-content: center;">
                         <app-breadcrumb [title]="'Nos Agences'"></app-breadcrumb>
@@ -36,8 +36,8 @@
         <!-- Titre -->
         <div class="row mb-2">
             <div class="col-lg-8 m-auto text-center" data-aos="fade-up" data-aos-duration="800">
-                <span class="sub-title">Le réseau Sénégal Excursions</span>
-                <h2 class="section-title">Retrouvez nos agences sur <span>l'étendue du territoire</span></h2>
+                <span class="sub-title">Le rï¿½seau SÃ©nÃ©gal Excursions</span>
+                <h2 class="section-title">Retrouvez nos agences sur <span>l'ï¿½tendue du territoire</span></h2>
                 <p class="section-desc">Cliquez sur une zone pour voir les agences correspondantes.</p>
             </div>
         </div>
@@ -51,7 +51,7 @@
         <!-- â”€â”€â”€ Erreur â”€â”€â”€ -->
         <div *ngIf="error && !loading" class="alert-zone">
             <i class="fa-solid fa-triangle-exclamation"></i>
-            Connexion impossible au serveur. Données de démonstration affichées.
+            Connexion impossible au serveur. Donnï¿½es de dï¿½monstration affichï¿½es.
         </div>
 
         <!-- â”€â”€â”€ Contenu principal â”€â”€â”€ -->
@@ -79,7 +79,7 @@
                 <div class="map-panel">
                     <div class="map-header">
                         <i class="fa-solid fa-map"></i>
-                        <span>Carte – {{ selectedZone.zone }}</span>
+                        <span>Carte ï¿½ {{ selectedZone.zone }}</span>
                         <a *ngIf="selectedAgency?.latitude && selectedAgency?.longitude"
                            [href]="'https://maps.google.com/?q=' + selectedAgency.latitude + ',' + selectedAgency.longitude"
                            target="_blank" class="open-gmaps">
@@ -109,7 +109,7 @@
                                     </div>
                                     <strong style="color: #556B2F; font-size: 14px; display: block; margin-bottom: 5px;">{{ selectedAgency?.nomAgence || selectedAgency?.nom }}</strong>
                                     <span *ngIf="getTypeLabel(selectedAgency)" style="display: inline-block; background: #e8f5ec; color: #556B2F; padding: 2px 8px; border-radius: 12px; font-size: 11px; margin-bottom: 8px;">{{ getTypeLabel(selectedAgency) }}</span>
-                                    <p style="margin: 0; font-size: 12px; color: #555;"><i class="fa-solid fa-map-marker-alt" style="color: #F1B53B; margin-right: 5px;"></i>{{ selectedAgency?.adresse || 'Sénégal' }}</p>
+                                    <p style="margin: 0; font-size: 12px; color: #555;"><i class="fa-solid fa-map-marker-alt" style="color: #F1B53B; margin-right: 5px;"></i>{{ selectedAgency?.adresse || 'SÃ©nÃ©gal' }}</p>
                                 </div>
                             </map-info-window>
                         </google-map>
@@ -143,7 +143,7 @@
                                 </div>
                             </div>
 
-                            <!-- Détails agence -->
+                            <!-- DÃ©tails agence -->
                             <ul class="agency-details" *ngIf="selectedAgency === agency">
                                 <li *ngIf="agency.adresse">
                                     <i class="fa-solid fa-map-marker-alt"></i>
@@ -155,7 +155,7 @@
                                 <li *ngIf="getTelephones(agency).length > 0">
                                     <i class="fa-solid fa-phone"></i>
                                     <div>
-                                        <span>Téléphone</span>
+                                        <span>TÃ©lÃ©phone</span>
                                         <p>
                                             <ng-container *ngFor="let phone of getTelephones(agency); let last = last">
                                                 <a [href]="'tel:' + phone">{{ phone }}</a><br *ngIf="!last">
@@ -197,7 +197,7 @@
                                 </li>
                             </ul>
 
-                            <!-- Résumé si non sélectionné -->
+                            <!-- RÃ©sumÃ© si non sï¿½lectionnï¿½ -->
                             <p class="agency-summary" *ngIf="selectedAgency !== agency && agency.adresse">
                                 <i class="fa-solid fa-location-dot"></i> {{ agency.adresse }}
                             </p>

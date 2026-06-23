@@ -9,13 +9,13 @@
             <div class="col-lg-5">
                 <div class="cw-header">
                     <span class="cw-eyebrow" data-aos="fade-up" data-aos-duration="600">
-                        <i class="fa-solid fa-list-check"></i> Comment �a marche
+                        <i class="fa-solid fa-list-check"></i> Comment �a marche
                     </span>
                     <h2 class="cw-title" data-aos="fade-up" data-aos-duration="700">
-                        {{ activeDemarche?.titre || 'Votre parcours de souscription en 4 �tapes simples' }}
+                        {{ activeDemarche?.titre || 'Votre parcours de souscription en 4 étapes simples' }}
                     </h2>
                     <p class="cw-lead" data-aos="fade-up" data-aos-duration="800">
-                        {{ activeDemarche?.description || 'S�n�gal Excursions vous accompagne à chaque �tape, de l\'inscription jusqu\'à l\'indemnisation, avec transparence et r�activit�.' }}
+                        {{ activeDemarche?.description || 'Sénégal Excursions vous accompagne à chaque étape, de l\'inscription jusqu\'à l\'indemnisation, avec transparence et réactivité.' }}
                     </p>
 
                     <!-- Tabs steps -->
@@ -40,7 +40,7 @@
                                     <div class="cw-pane">
                                         <div class="cw-pane__media">
                                             <img [src]="tab.image || 'assets/images/produits/default.jpeg'" [alt]="tab.title">
-                                            <span class="cw-pane__badge">�tape {{ i + 1 }}</span>
+                                            <span class="cw-pane__badge">étape {{ i + 1 }}</span>
                                         </div>
                                         <div class="cw-pane__body">
                                             <h3 class="cw-pane__title">{{ tab.title }}</h3>
@@ -71,7 +71,7 @@
 
 <style>
 /* ════════════════════════════════════════════════════════
-   COMMENT ÇA MARCHE — version compact�e et arrondie
+   COMMENT ÇA MARCHE — version compact�e et arrondie
    ════════════════════════════════════════════════════════ */
 .cw-section {
     padding: clamp(22px, 3vw, 38px) 0 clamp(26px, 3.5vw, 44px) !important;
@@ -114,7 +114,7 @@
 }
 
 /* ════════════════════════════════════════════════════════
-   �TAPES — pills arrondies, ic�ne ronde, chevron à droite
+   �TAPES — pills arrondies, ic�ne ronde, chevron à droite
    ════════════════════════════════════════════════════════ */
 .cw-steps__list {
     display: flex;
@@ -187,7 +187,7 @@
     transition: background 280ms, color 280ms, transform 320ms cubic-bezier(.4, 0, .2, 1);
 }
 
-/* �tat actif — vert profond avec chip or */
+/* �tat actif — vert profond avec chip or */
 .cw-step__btn.active {
     background: linear-gradient(135deg, #556B2F 0%, #3E4F22 100%);
     border-color: #556B2F;
@@ -211,7 +211,7 @@
 }
 
 /* ════════════════════════════════════════════════════════
-   PANE DROITE — image + carte body, coins tr�s arrondis
+   PANE DROITE — image + carte body, coins très arrondis
    ════════════════════════════════════════════════════════ */
 .cw-pane {
     background: #ffffff;
@@ -274,7 +274,7 @@
 }
 
 /* ════════════════════════════════════════════════════════
-   BOUTON "Voir plus" — pill segment�e (coh�rence design system)
+   BOUTON "Voir plus" — pill segment�e (coh�rence design system)
    ════════════════════════════════════════════════════════ */
 .cw-pill {
     display: inline-flex;

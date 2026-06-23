@@ -45,13 +45,13 @@ export class SouscriptionComponent implements OnInit {
       privacy: [false, Validators.requiredTrue]
     });
 
-    // Mettre Ã  jour le message et le produit sélectionné si le produit choisi change
+    // Mettre Ã  jour le message et le produit sï¿½lectionnï¿½ si le produit choisi change
     this.contactForm.get('produitNom')?.valueChanges.subscribe(name => {
       if (name) {
         const match = this.produits.find(p => p.nom === name);
         this.selectedProduit = match || { nom: name };
         this.contactForm.patchValue({
-          message: `Bonjour,\n\nJe souhaite souscrire au produit : ${name}.\nMerci de me recontacter pour m'indiquer les modalités.\n\nCordialement.`
+          message: `Bonjour,\n\nJe souhaite souscrire au produit : ${name}.\nMerci de me recontacter pour m'indiquer les modalitï¿½s.\n\nCordialement.`
         }, { emitEvent: false });
       } else {
         this.selectedProduit = null;
@@ -64,7 +64,7 @@ export class SouscriptionComponent implements OnInit {
       next: (list) => {
         this.produits = list || [];
         
-        // Lire le paramètre product dans l'URL
+        // Lire le paramÃ¨tre product dans l'URL
         this.route.queryParams.subscribe(params => {
           let productName = params['product'];
           if (productName) {
@@ -82,7 +82,7 @@ export class SouscriptionComponent implements OnInit {
             
             this.contactForm.patchValue({
               produitNom: finalName,
-              message: `Bonjour,\n\nJe souhaite souscrire au produit : "${finalName}".\nMerci de me recontacter pour m'indiquer les modalités.\n\nCordialement.`
+              message: `Bonjour,\n\nJe souhaite souscrire au produit : "${finalName}".\nMerci de me recontacter pour m'indiquer les modalitï¿½s.\n\nCordialement.`
             });
           }
         });
@@ -111,13 +111,13 @@ export class SouscriptionComponent implements OnInit {
     
     const n = (p.nom || '').toLowerCase();
     const b = (p.branche?.libelle || '').toLowerCase();
-    if (n.includes('récolte') || n.includes('recolte') || b.includes('récolte'))
+    if (n.includes('rï¿½colte') || n.includes('recolte') || b.includes('rï¿½colte'))
         return 'assets/images/produits/hf_20260311_162333_0b136c9f-1c67-4e61-978e-ab229d738d9d.jpeg';
-    if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel') || b.includes('betail'))
+    if (n.includes('bÃ©tail') || n.includes('betail') || n.includes('cheptel') || b.includes('betail'))
         return 'assets/images/produits/hf_20260311_162333_2c5dfd81-2a14-40ad-99fb-17207f71c1bb.jpeg';
     if (n.includes('avicul') || n.includes('volaille'))
         return 'assets/images/produits/hf_20260311_162333_01988b04-73a0-41b3-bffc-7087d47324a6.jpeg';
-    if (n.includes('matériel') || n.includes('materiel') || n.includes('équipement'))
+    if (n.includes('matï¿½riel') || n.includes('materiel') || n.includes('Ã©quipement'))
         return 'assets/images/produits/hf_20260311_162925_871036b1-9cf1-4fdb-8480-7b3ce42bf7a7.jpeg';
     if (n.includes('indiciel') || n.includes('pluie') || n.includes('indice'))
         return 'assets/images/produits/hf_20260311_164048_86f66af8-95f1-4418-b76a-4b4735fea65e.jpeg';
@@ -139,7 +139,7 @@ export class SouscriptionComponent implements OnInit {
 
     const val = this.contactForm.value;
     
-    // Découpage du nom complet en prenom / nom
+    // Dï¿½coupage du nom complet en prenom / nom
     const nameParts = (val.nomComplet || '').trim().split(/\s+/);
     const prenom = nameParts.length > 1 ? nameParts[0] : '';
     const nom = nameParts.length > 1 ? nameParts.slice(1).join(' ') : nameParts[0] || '';
@@ -155,8 +155,8 @@ export class SouscriptionComponent implements OnInit {
       message: val.message
     };
 
-    // Si un produit est sélectionné, on envoie son ID pour que la demande
-    // apparaisse dans l'onglet "Demandes de souscription" côté admin
+    // Si un produit est sï¿½lectionnï¿½, on envoie son ID pour que la demande
+    // apparaisse dans l'onglet "Demandes de souscription" cï¿½tï¿½ admin
     if (this.selectedProduit && this.selectedProduit.id) {
       payload.produitId = this.selectedProduit.id;
     }
@@ -164,14 +164,14 @@ export class SouscriptionComponent implements OnInit {
     this.cnaasApi.submitContact(payload).subscribe({
       next: (res) => {
         this.isSubmitting = false;
-        this.successMessage = 'Votre demande de devis a bien été envoyée. Notre équipe d\'experts vous recontactera bientôt.';
+        this.successMessage = 'Votre demande de devis a bien ï¿½tï¿½ envoyï¿½e. Notre ï¿½quipe d\'experts vous recontactera bientï¿½t.';
         this.contactForm.reset();
         this.selectedProduit = null;
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
       error: (err) => {
         this.isSubmitting = false;
-        this.errorMessage = 'Une erreur est survenue lors de l\'envoi de votre demande. Veuillez réessayer plus tard.';
+        this.errorMessage = 'Une erreur est survenue lors de l\'envoi de votre demande. Veuillez rï¿½essayer plus tard.';
         console.error('Erreur envoi contact', err);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }

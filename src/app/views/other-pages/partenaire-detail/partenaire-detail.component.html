@@ -12,16 +12,16 @@
         <div class="row">
             <div class="col-lg-10 m-auto">
                 <div class="hero-heading-area heading1 text-center" data-aos="fade-up" data-aos-duration="1000">
-                     <h5 class="hero-eyebrow text-uppercase fw-bold mb-2" style="color: #F1B53B !important; letter-spacing: 2px; font-size: 0.9rem;">DÉTAIL DU PARTENAIRE</h5>
+                     <h5 class="hero-eyebrow text-uppercase fw-bold mb-2" style="color: #F1B53B !important; letter-spacing: 2px; font-size: 0.9rem;">Dï¿½TAIL DU PARTENAIRE</h5>
                      <h1 class="hero-title text-white fw-bolder mb-3" style="font-size: 2.5rem; text-transform: uppercase;">{{ partenaire.title }}</h1>
                     <div class="hero-divider" style="width: 60px; height: 3px; background: #F1B53B; margin: 0 auto 20px;"></div>
                      <p class="hero-desc mb-4" style="color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
-                        Découvrez notre partenariat avec {{ partenaire.title }}.
+                        DÃ©couvrez notre partenariat avec {{ partenaire.title }}.
                     </p>
                     <div style="display: flex; justify-content: center; font-weight: bold; font-size: 0.9rem;">
                         <a routerLink="/" style="color: #F1B53B; text-decoration: none;">Accueil</a>
                         <span style="color: rgba(255,255,255,0.7); margin: 0 10px;">></span>
-                        <span style="color: white;">Détail partenaire</span>
+                        <span style="color: white;">Dï¿½tail partenaire</span>
                     </div>
                 </div>
             </div>
@@ -39,15 +39,15 @@
         </div>
       </div>
       <div *ngIf="error" class="alert alert-danger text-center">
-        Impossible de charger les détails du partenaire.
+        Impossible de charger les dÃ©tails du partenaire.
       </div>
   
       <div class="row g-5" *ngIf="!loading && !error && partenaire">
   
-        <!-- COLONNE PRINCIPALE (Détails) -->
+        <!-- COLONNE PRINCIPALE (DÃ©tails) -->
         <div class="col-lg-8">
   
-          <!-- Image et Détails Card (Fusionnés) -->
+          <!-- Image et DÃ©tails Card (Fusionnï¿½s) -->
           <article style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 28px; position: relative;">
             
             <!-- Image -->
@@ -60,7 +60,7 @@
               </div>
             </div>
 
-            <!-- Détails -->
+            <!-- DÃ©tails -->
             <div style="padding: 20px 30px 30px;">
               <div class="detail-content" style="color: #4a5651; font-size: 1rem; line-height: 1.8;" [innerHTML]="partenaire.description"></div>
             </div>
@@ -73,7 +73,7 @@
               <h2 style="font-size: 1.6rem; font-weight: 900; color: #3E4F22; margin-bottom: 5px;">
                 Autres partenaires
               </h2>
-              <p style="color: #64748b; font-size: 0.95rem;">Découvrez nos autres partenaires</p>
+              <p style="color: #64748b; font-size: 0.95rem;">DÃ©couvrez nos autres partenaires</p>
             </div>
             
             <div class="row g-4">
@@ -108,11 +108,11 @@
             
             <div style="position: relative; z-index: 1;">
                 <h3 style="font-size: 1.6rem; font-weight: 900; margin-bottom: 12px;">Contactez ce partenaire ?</h3>
-                <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto;">Commencez dès maintenant et suivez les instructions pour avancer dans votre processus.</p>
+                <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto;">Commencez dï¿½s maintenant et suivez les instructions pour avancer dans votre processus.</p>
                 
                 <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                     <a routerLink="/contact-us" style="background: #F1B53B; color: #3E4F22; border-radius: 30px; padding: 12px 28px; font-weight: 800; font-size: 0.95rem; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: transform 0.2s;">
-                        <i class="fa-solid fa-envelope"></i> Nous écrire
+                        <i class="fa-solid fa-envelope"></i> Nous ï¿½crire
                     </a>
                 </div>
             </div>
@@ -120,7 +120,7 @@
 
         </div>
   
-        <!-- COLONNE LATÉRALE (Sidebar) -->
+        <!-- COLONNE LATï¿½RALE (Sidebar) -->
         <div class="col-lg-4">
           <div class="sticky-sidebar" style="top: 100px;">
   
@@ -130,7 +130,7 @@
                 <i class="fa-solid fa-headset text-warning"></i> Besoin d'aide ?
               </h5>
               <p class="text-muted small mb-4">
-                Nos conseillers sont disponibles du lundi au vendredi de 8h Ã  17h pour répondre Ã  toutes vos questions.
+                Nos conseillers sont disponibles du lundi au vendredi de 8h Ã  17h pour rï¿½pondre Ã  toutes vos questions.
               </p>
               <a href="tel:+221338697800" class="btn btn-success w-100 mb-3 fw-bold rounded-pill">
                 <i class="fa-solid fa-phone me-2"></i> (+221) 33 869 78 00
@@ -168,7 +168,7 @@
             <!-- Suivez-nous -->
             <div *ngIf="reseauxSociaux.length > 0" style="background: linear-gradient(135deg, #556B2F 0%, #3E4F22 100%); border-radius: 16px; padding: 25px; text-align: center; color: white;">
               <h3 style="color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px;">Suivez-nous</h3>
-              <p style="color: rgba(255,255,255,0.78); font-size: 0.85rem; margin-bottom: 16px;">Restez informé des actualités Sénégal Excursions</p>
+              <p style="color: rgba(255,255,255,0.78); font-size: 0.85rem; margin-bottom: 16px;">Restez informï¿½ des actualitï¿½s SÃ©nÃ©gal Excursions</p>
               <div style="display: flex; gap: 8px; justify-content: center;">
                   <a *ngFor="let rs of reseauxSociaux" [href]="rs.url" target="_blank" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #F1B53B; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s;">
                       <i [class]="getSocialIcon(rs)"></i>

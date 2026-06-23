@@ -13,18 +13,18 @@ interface Slide {
 const DEFAULT_SLIDES: Slide[] = [
     {
         img: 'assets/images/tourisme/senegal_hero_1781800514533.png',
-        title: 'Découvrez le Sénégal Authentique avec des Guides Locaux',
-        subtitle: 'Excursions inoubliables – Dakar, Gorée, Saloum, Casamance'
+        title: 'DÃ©couvrez le SÃ©nÃ©gal Authentique avec des Guides Locaux',
+        subtitle: 'Excursions inoubliables â€¢ Dakar, GorÃ©e, Saloum, Casamance'
     },
     {
         img: 'assets/images/tourisme/excursion_dakar_1781800534313.png',
         title: 'Des Circuits Sur Mesure pour Tous les Voyageurs',
-        subtitle: 'Réservation en ligne – Paiement sécurisé – Confirmation immédiate'
+        subtitle: 'RÃ©servation en ligne â€¢ Paiement sÃ©curisÃ© â€¢ Confirmation immÃ©diate'
     },
     {
         img: 'assets/images/tourisme/excursion_saloum_1781800545237.png',
-        title: 'Vivez une Expérience Unique au CÅ“ur de l\'Afrique',
-        subtitle: 'Éco-tourisme responsable – Guides certifiés – Satisfaction garantie'
+        title: 'Vivez une ExpÃ©rience Unique au CÅ“ur de l\'Afrique',
+        subtitle: 'Ã‰co-tourisme responsable â€¢ Guides certifiÃ©s â€¢ Satisfaction garantie'
     }
 ];
 
@@ -75,18 +75,18 @@ export class HeroComponent implements OnInit {
 
                 if (activeSlides.length > 0) {
                     this.slides = activeSlides.map(s => {
-                        // Nettoyer les double slashes éventuels (sauf après http: ou https:)
+                        // Nettoyer les double slashes â€¢ventuels (sauf aprâ€¢s http: ou https:)
                         const safeUrl = (s.imageUrl || '').replace(/([^:]\/)\/+/g, '$1');
                         return {
                             img:      safeUrl,
                             title:    s.titre,
-                            subtitle: s.sousTitre || 'Excursions inoubliables au Sénégal'
+                            subtitle: s.sousTitre || 'Excursions inoubliables au SÃ©nÃ©gal'
                         };
                     });
                     return;
                 }
             }
-            // Sinon, on garde les slides par défaut (DEFAULT_SLIDES déjÃ  assignés)
+            // Sinon, on garde les slides par dâ€¢faut (DEFAULT_SLIDES dâ€¢jÃ  assignâ€¢s)
             this.slides = DEFAULT_SLIDES;
         });
     }

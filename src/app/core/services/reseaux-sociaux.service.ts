@@ -14,7 +14,7 @@ export interface ReseauSocialPortail {
   ordre: number;
 }
 
-/** Base URL normalisée (sans trailing slash) â€” même pattern que cnaas-api.service.ts */
+/** Base URL normalisï¿½e (sans trailing slash) â€” mÃªme pattern que cnaas-api.service.ts */
 const baseUrl = environment.apiUrl.endsWith('/') ? environment.apiUrl.slice(0, -1) : environment.apiUrl;
 const PUBLIC = `${baseUrl}/public`;
 
@@ -31,7 +31,7 @@ export class ReseauxSociauxService {
       .pipe(
         catchError((err) => {
           console.error('[ReseauxSociaux] Erreur API:', err);
-          return of([]); // Fallback silencieux : affiche les icônes statiques
+          return of([]); // Fallback silencieux : affiche les icï¿½nes statiques
         })
       );
   }

@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ViewServicesComponent implements OnInit {
 
-    /** ID du produit actuellement affiché (pour l'exclure des suggestions) */
+    /** ID du produit actuellement affichï¿½ (pour l'exclure des suggestions) */
     @Input() excludeId?: number;
 
     services: ServiceType[] = [];
@@ -23,7 +23,7 @@ export class ViewServicesComponent implements OnInit {
     constructor(private api: CnaasApiService, private route: ActivatedRoute) {}
 
     ngOnInit(): void {
-        /* Récupérer l'ID courant depuis la route si non passé en @Input */
+        /* Rï¿½cupï¿½rer l'ID courant depuis la route si non passï¿½ en @Input */
         const routeId = +(this.route.snapshot.paramMap.get('id') ?? 0);
         const excludeId = this.excludeId ?? routeId;
 
@@ -51,13 +51,13 @@ export class ViewServicesComponent implements OnInit {
 
     private getDefaultDesc(p: Produit): string {
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('récolte') || n.includes('recolte')) return 'Protégez vos cultures contre les aléas climatiques sévères.';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel')) return 'Protection complète de votre cheptel contre mortalité et maladies.';
-        if (n.includes('avicul') || n.includes('volaille')) return 'Sécurisez vos élevages de volailles contre les risques.';
-        if (n.includes('matériel') || n.includes('materiel') || n.includes('équipement')) return 'Garantissez vos équipements contre dommages et vols.';
-        if (n.includes('indiciel')) return 'Indemnisation automatique basée sur des indices climatiques.';
-        if (n.includes('horticol') || n.includes('maraich')) return 'Couverture spécifique pour serres et cultures maraîchères.';
-        return 'Découvrez ce produit d\'assurance touristique Sénégal Excursions.';
+        if (n.includes('rï¿½colte') || n.includes('recolte')) return 'Protï¿½gez vos cultures contre les alï¿½as climatiques sï¿½vï¿½res.';
+        if (n.includes('bÃ©tail') || n.includes('betail') || n.includes('cheptel')) return 'Protection complï¿½te de votre cheptel contre mortalitï¿½ et maladies.';
+        if (n.includes('avicul') || n.includes('volaille')) return 'Sï¿½curisez vos ï¿½levages de volailles contre les risques.';
+        if (n.includes('matï¿½riel') || n.includes('materiel') || n.includes('Ã©quipement')) return 'Garantissez vos Ã©quipements contre dommages et vols.';
+        if (n.includes('indiciel')) return 'Indemnisation automatique basï¿½e sur des indices climatiques.';
+        if (n.includes('horticol') || n.includes('maraich')) return 'Couverture spï¿½cifique pour serres et cultures maraï¿½chï¿½res.';
+        return 'DÃ©couvrez ce produit d\'assurance touristique SÃ©nÃ©gal Excursions.';
     }
 
     private getImage(p: Produit): string {
@@ -65,13 +65,13 @@ export class ViewServicesComponent implements OnInit {
             return (p as any).imageUrl.replace(/([^:]\/)\/+/g, "$1");
         }
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('récolte') || n.includes('recolte'))
+        if (n.includes('rï¿½colte') || n.includes('recolte'))
             return 'assets/images/produits/hf_20260311_162333_0b136c9f-1c67-4e61-978e-ab229d738d9d.jpeg';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel'))
+        if (n.includes('bÃ©tail') || n.includes('betail') || n.includes('cheptel'))
             return 'assets/images/produits/hf_20260311_162333_2c5dfd81-2a14-40ad-99fb-17207f71c1bb.jpeg';
         if (n.includes('avicul') || n.includes('volaille'))
             return 'assets/images/produits/hf_20260311_162333_01988b04-73a0-41b3-bffc-7087d47324a6.jpeg';
-        if (n.includes('matériel') || n.includes('materiel') || n.includes('équipement') || n.includes('equipement'))
+        if (n.includes('matï¿½riel') || n.includes('materiel') || n.includes('Ã©quipement') || n.includes('equipement'))
             return 'assets/images/produits/hf_20260311_162925_871036b1-9cf1-4fdb-8480-7b3ce42bf7a7.jpeg';
         if (n.includes('indiciel') || n.includes('pluie'))
             return 'assets/images/produits/hf_20260311_164048_86f66af8-95f1-4418-b76a-4b4735fea65e.jpeg';
@@ -82,10 +82,10 @@ export class ViewServicesComponent implements OnInit {
 
     private getIcon(p: Produit): string {
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('récolte') || n.includes('recolte')) return 'fa-solid fa-wheat-awn';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel')) return 'fa-solid fa-cow';
+        if (n.includes('rï¿½colte') || n.includes('recolte')) return 'fa-solid fa-wheat-awn';
+        if (n.includes('bÃ©tail') || n.includes('betail') || n.includes('cheptel')) return 'fa-solid fa-cow';
         if (n.includes('avicul') || n.includes('volaille')) return 'fa-solid fa-egg';
-        if (n.includes('matériel') || n.includes('materiel') || n.includes('équipement') || n.includes('equipement')) return 'fa-solid fa-tractor';
+        if (n.includes('matï¿½riel') || n.includes('materiel') || n.includes('Ã©quipement') || n.includes('equipement')) return 'fa-solid fa-tractor';
         if (n.includes('indiciel') || n.includes('pluie')) return 'fa-solid fa-satellite-dish';
         if (n.includes('horticol') || n.includes('maraich') || n.includes('serre')) return 'fa-solid fa-seedling';
         return 'fa-solid fa-shield-halved';

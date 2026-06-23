@@ -16,7 +16,7 @@ declare var google: any;
 })
 export class AgencesComponent implements OnInit, AfterViewInit {
 
-  /* â”€â”€â”€ Données dynamiques â”€â”€â”€ */
+  /* â”€â”€â”€ Donnï¿½es dynamiques â”€â”€â”€ */
   zonesAvecAgences: { zone: string; agences: any[] }[] = [];
   selectedZone: { zone: string; agences: any[] } | null = null;
   selectedAgency: any = null;
@@ -37,11 +37,11 @@ export class AgencesComponent implements OnInit, AfterViewInit {
   /* â”€â”€â”€ Fallback statique (si API indisponible) â”€â”€â”€ */
   private fallbackZones = [
     {
-      zone: 'Zone Ouest Siège',
+      zone: 'Zone Ouest SiÃ¨ge',
       agences: [
         {
-          nomAgence: 'Siège',
-          adresse: 'Sur la VDN Liberté EXT Villa N°6 – Dakar',
+          nomAgence: 'SiÃ¨ge',
+          adresse: 'Sur la VDN Libertï¿½ EXT Villa Nï¿½6 ï¿½ Dakar',
           email: 'contact@senegal-excursions.sn',
           telephone: '+221 33 869 78 00',
           latitude: 14.7167, longitude: -17.4677
@@ -78,7 +78,7 @@ export class AgencesComponent implements OnInit, AfterViewInit {
             // Si l'API retourne vide, utiliser fallback
             this.zonesAvecAgences = this.fallbackZones;
           }
-          // Sélectionner la première zone par défaut
+          // Sï¿½lectionner la premiï¿½re zone par dï¿½faut
           if (this.zonesAvecAgences.length > 0) {
             this.selectZone(this.zonesAvecAgences[0]);
           }
@@ -161,7 +161,7 @@ export class AgencesComponent implements OnInit, AfterViewInit {
         });
       });
 
-      // Si la carte est déjÃ  rendue
+      // Si la carte est dï¿½jÃ  rendue
       if (this.googleMap && this.googleMap.googleMap) {
         this.googleMap.fitBounds(bounds, 40);
       } else {
@@ -170,7 +170,7 @@ export class AgencesComponent implements OnInit, AfterViewInit {
           if (this.googleMap && this.googleMap.googleMap) {
             this.googleMap.fitBounds(bounds, 40);
           } else {
-            // Fallback (on calcule manuellement le centre si fitBounds échoue)
+            // Fallback (on calcule manuellement le centre si fitBounds ï¿½choue)
             let minLat = 90, maxLat = -90, minLng = 180, maxLng = -180;
             agences.forEach(a => {
               const lat = Number(a.latitude);
@@ -195,22 +195,22 @@ export class AgencesComponent implements OnInit, AfterViewInit {
     return agency.latitude && agency.longitude && !isNaN(Number(agency.latitude)) && !isNaN(Number(agency.longitude));
   }
 
-  /** Retourne le libellé de la zone de rattachement d'une agence */
+  /** Retourne le libellï¿½ de la zone de rattachement d'une agence */
   getZoneLabel(agence: any): string {
     return agence.zoneRattachement?.libelle || agence.zone || '';
   }
 
-  /** Retourne le libellé du type unité d'une agence */
+  /** Retourne le libellï¿½ du type unitï¿½ d'une agence */
   getTypeLabel(agence: any): string {
     return agence.typeUnite?.libelle || agence.type || '';
   }
 
-  /** Retourne le libellé de la commune d'une agence */
+  /** Retourne le libellï¿½ de la commune d'une agence */
   getCommuneLabel(agence: any): string {
     return agence.commune?.libelle || '';
   }
 
-  /** Formate le téléphone pour l'affichage */
+  /** Formate le tÃ©lÃ©phone pour l'affichage */
   getTelephones(agence: any): string[] {
     if (!agence.telephone) return [];
     return agence.telephone.split(/[,;\/]/).map((t: string) => t.trim()).filter((t: string) => t);

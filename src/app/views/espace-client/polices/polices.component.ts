@@ -58,7 +58,7 @@ const GRADIENTS: [string, string][] = [
                 <div style="font-weight:800;color:#b71c1c;font-size:0.88rem;margin-bottom:4px;">Erreur de chargement</div>
                 <div style="color:#c62828;font-size:0.82rem;">{{ loadError }}</div>
                 <button (click)="loadPage(currentPage)" class="retry-btn">
-                    <i class="fa-solid fa-rotate-right"></i> Réessayer
+                    <i class="fa-solid fa-rotate-right"></i> Rï¿½essayer
                 </button>
             </div>
         </div>
@@ -70,7 +70,7 @@ const GRADIENTS: [string, string][] = [
                     <i class="fa-solid fa-file-contract" style="color:#556B2F;"></i>
                     Mes Polices d'assurance
                 </h2>
-                <p class="pg-sub">Retrouvez l'ensemble de vos contrats d'assurance touristique Sénégal Excursions</p>
+                <p class="pg-sub">Retrouvez l'ensemble de vos contrats d'assurance touristique SÃ©nÃ©gal Excursions</p>
             </div>
             <div class="stats-row">
                 <div class="stat-chip">
@@ -97,23 +97,23 @@ const GRADIENTS: [string, string][] = [
         <!-- â•â• VIDE â•â• -->
         <div *ngIf="!loading && !loadError && !featuredRow" class="empty-box">
             <div class="empty-icon"><i class="fa-solid fa-file-slash" style="font-size:2.2rem;color:#c8e6c9;"></i></div>
-            <h4 style="color:#3E4F22;font-weight:800;margin-bottom:8px;">Aucune police trouvée</h4>
+            <h4 style="color:#3E4F22;font-weight:800;margin-bottom:8px;">Aucune police trouvï¿½e</h4>
             <p style="color:#aaa;font-size:0.88rem;margin:0;">Vous n'avez pas encore souscrit de police d'assurance.</p>
         </div>
 
         <ng-container *ngIf="!loading && !loadError && featuredRow">
 
-            <!-- â•â• POLICE LA PLUS RÉCENTE â•â• -->
+            <!-- â•â• POLICE LA PLUS Rï¿½CENTE â•â• -->
             <div class="section featured-section">
                 <div class="section-head">
                     <div class="section-title">
                         <span class="pulse-dot"></span>
-                        Police la plus récente
-                        <span class="recent-tag">Dernière souscription</span>
+                        Police la plus rï¿½cente
+                        <span class="recent-tag">Derniï¿½re souscription</span>
                     </div>
                     <div class="section-title" style="gap:6px;font-size:0.75rem;font-weight:600;color:#aaa;">
                         <i class="fa-solid fa-arrow-down-wide-short" style="font-size:0.7rem;"></i>
-                        Triées par date d'effet
+                        Triï¿½es par date d'effet
                     </div>
                 </div>
 
@@ -123,7 +123,7 @@ const GRADIENTS: [string, string][] = [
                     <div class="fc-orb fc-orb-2"></div>
 
                     <div *ngIf="featuredRow.expiringSoon" class="expiry-badge">
-                        <i class="fa-solid fa-triangle-exclamation"></i> Expire bientôt
+                        <i class="fa-solid fa-triangle-exclamation"></i> Expire bientï¿½t
                     </div>
 
                     <!-- Haut -->
@@ -151,21 +151,21 @@ const GRADIENTS: [string, string][] = [
                             <div *ngIf="featuredRow.duree" class="fc-sub">{{ featuredRow.duree }} mois</div>
                         </div>
                         <div class="fc-cell">
-                            <div class="fc-lbl">Échéance</div>
+                            <div class="fc-lbl">Ã©chÃ©ance</div>
                             <div class="fc-val" [style.color]="featuredRow.expiringSoon ? '#FF8C42' : '#fff'">
                                 {{ featuredRow.dateEcheance | date:'dd MMMM yyyy' }}
                             </div>
-                            <div *ngIf="featuredRow.expiringSoon" class="fc-sub" style="color:#FF8C42;">âš  Expire bientôt</div>
+                            <div *ngIf="featuredRow.expiringSoon" class="fc-sub" style="color:#FF8C42;">âš  Expire bientï¿½t</div>
                         </div>
                         <div class="fc-cell">
-                            <div class="fc-lbl">Capital assuré</div>
+                            <div class="fc-lbl">Capital assurï¿½</div>
                             <div class="fc-val">{{ featuredRow.montantAssure | number:'1.0-0' }} <small>FCFA</small></div>
                         </div>
                         <div class="fc-cell">
                             <div class="fc-lbl">Prime TTC</div>
                             <div class="fc-val prime-val">{{ featuredRow.primeTotale | number:'1.0-0' }} <small>FCFA</small></div>
                             <div *ngIf="featuredRow.montantEtat" class="fc-sub">
-                                <span class="etat-badge">âˆ’{{ featuredRow.montantEtat | number:'1.0-0' }} État</span>
+                                <span class="etat-badge">âˆ’{{ featuredRow.montantEtat | number:'1.0-0' }} ï¿½tat</span>
                             </div>
                         </div>
                         <div class="fc-cell" *ngIf="featuredRow.agenceNom">
@@ -185,10 +185,10 @@ const GRADIENTS: [string, string][] = [
                     <!-- Footer -->
                     <div class="fc-footer">
                         <a [routerLink]="['/mon-espace/polices', featuredRow.slug]" class="fc-btn">
-                            Consulter le détail <i class="fa-solid fa-arrow-right"></i>
+                            Consulter le dï¿½tail <i class="fa-solid fa-arrow-right"></i>
                         </a>
                         <div class="fc-star-badge">
-                            <i class="fa-solid fa-star"></i> Plus récente
+                            <i class="fa-solid fa-star"></i> Plus rï¿½cente
                         </div>
                     </div>
                 </div>
@@ -207,10 +207,10 @@ const GRADIENTS: [string, string][] = [
 
                 <div class="hist-table">
                     <div class="hist-head">
-                        <span>N° Police</span>
+                        <span>Nï¿½ Police</span>
                         <span>Produit</span>
                         <span>Date effet</span>
-                        <span>Échéance</span>
+                        <span>Ã©chÃ©ance</span>
                         <span class="col-r">Capital</span>
                         <span class="col-r">Prime TTC</span>
                         <span class="col-c">Statut</span>
@@ -219,7 +219,7 @@ const GRADIENTS: [string, string][] = [
                     <div *ngFor="let r of historyRows; let even=even; let i=index"
                          class="hist-row" [class.hist-even]="even">
 
-                        <!-- N° Police -->
+                        <!-- Nï¿½ Police -->
                         <div class="hist-num">
                             <div class="hist-icon" [style.background]="r.gradientFrom + '22'">
                                 <i [class]="r.produitIcon" style="font-size:0.6rem;" [style.color]="r.gradientFrom"></i>
@@ -252,7 +252,7 @@ const GRADIENTS: [string, string][] = [
                             <div *ngIf="r.duree" class="hist-meta">{{ r.duree }} jours</div>
                         </div>
 
-                        <!-- Échéance -->
+                        <!-- Ã©chÃ©ance -->
                         <div>
                             <div class="hist-date" [style.color]="r.expiringSoon ? '#e67e22' : '#666'"
                                  [style.font-weight]="r.expiringSoon ? '700' : '400'">
@@ -304,7 +304,7 @@ const GRADIENTS: [string, string][] = [
         <!-- â•â• PAGINATION â•â• -->
         <div *ngIf="!loadError && totalPages > 1" class="pag-row">
             <button (click)="loadPage(currentPage - 1)" [disabled]="currentPage === 0" class="pag-btn">
-                <i class="fa-solid fa-chevron-left"></i> Précédent
+                <i class="fa-solid fa-chevron-left"></i> Prï¿½cï¿½dent
             </button>
             <span class="pag-cur">{{ currentPage + 1 }} / {{ totalPages }}</span>
             <button (click)="loadPage(currentPage + 1)" [disabled]="currentPage === totalPages - 1" class="pag-btn">
@@ -519,7 +519,7 @@ export class PolicesComponent implements OnInit, OnDestroy {
             this.zone.run(() => {
                 if (this.loading) {
                     this.loading   = false;
-                    this.loadError = 'Le serveur ne répond pas. Réessayez plus tard.';
+                    this.loadError = 'Le serveur ne rï¿½pond pas. Rï¿½essayez plus tard.';
                     this.cdr.detectChanges();
                 }
             });
@@ -532,7 +532,7 @@ export class PolicesComponent implements OnInit, OnDestroy {
                     try {
                         const pi      = pageInfo(res);
                         const polices = [...(res?.content ?? [])].sort((a, b) => {
-                            // Trier par dateEffet DESC â†’ la plus récente en premier
+                            // Trier par dateEffet DESC â†’ la plus rï¿½cente en premier
                             const da = a.dateEffet ? new Date(a.dateEffet).getTime() : 0;
                             const db = b.dateEffet ? new Date(b.dateEffet).getTime() : 0;
                             return db - da;
@@ -552,7 +552,7 @@ export class PolicesComponent implements OnInit, OnDestroy {
                         this.featuredRow = rows.length > 0 ? rows[0] : null;
                         this.historyRows = rows.slice(1);
                     } catch (e) {
-                        console.error('[Polices] traitement réponse:', e);
+                        console.error('[Polices] traitement rï¿½ponse:', e);
                         this.featuredRow = null;
                         this.historyRows = [];
                     } finally {
@@ -566,12 +566,12 @@ export class PolicesComponent implements OnInit, OnDestroy {
                 this.zone.run(() => {
                     this.loading   = false;
                     this.loadError =
-                        err?.name === 'TimeoutError'  ? 'Délai dépassé â€” le serveur est trop lent.' :
+                        err?.name === 'TimeoutError'  ? 'Dï¿½lai dï¿½passï¿½ â€” le serveur est trop lent.' :
                         err?.status === 0             ? 'Impossible de contacter le serveur.' :
-                        err?.status === 403           ? 'Accès refusé (403).' :
-                        err?.status === 401           ? 'Session expirée. Reconnectez-vous.' :
+                        err?.status === 403           ? 'AccÃ¨s refusï¿½ (403).' :
+                        err?.status === 401           ? 'Session expirï¿½e. Reconnectez-vous.' :
                         err?.status >= 500            ? `Erreur serveur (${err.status}).` :
-                                                        `Erreur ${err?.status ?? 'réseau'}.`;
+                                                        `Erreur ${err?.status ?? 'rï¿½seau'}.`;
                     this.cdr.detectChanges();
                 });
             }

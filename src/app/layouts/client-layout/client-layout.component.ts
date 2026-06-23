@@ -21,14 +21,14 @@ import { AuthService } from '../../services/auth.service';
             <!-- Logo + toggle -->
             <div class="sidebar-header">
                 <div class="sidebar-logo" *ngIf="sidebarOpen()">
-                    <img src="assets/images/logo/senegal-excursions-logo.jpg" alt="S�n�gal Excursions">
+                    <img src="assets/images/logo/senegal-excursions-logo.jpg" alt="Sénégal Excursions">
                     <div class="sidebar-logo-text">
-                        <span class="sidebar-brand">S�n�gal Excursions</span>
+                        <span class="sidebar-brand">Sénégal Excursions</span>
                         <span class="sidebar-tagline">Espace Assur�</span>
                     </div>
                 </div>
                 <div class="sidebar-logo-icon" *ngIf="!sidebarOpen()">
-                    <img src="assets/images/logo/senegal-excursions-logo.jpg" alt="S�n�gal Excursions">
+                    <img src="assets/images/logo/senegal-excursions-logo.jpg" alt="Sénégal Excursions">
                 </div>
                 <button class="hamburger-btn" (click)="toggle()" [title]="sidebarOpen() ? 'R�duire' : 'D�velopper'">
                     <span class="ham-line" [class.open]="sidebarOpen()"></span>
@@ -310,7 +310,7 @@ import { AuthService } from '../../services/auth.service';
         }
         .topbar-left { display: flex; align-items: center; gap: 14px; }
         .topbar-ham {
-            display: none; /* cach� sur desktop, visible mobile */
+            display: none; /* caché sur desktop, visible mobile */
             width: 36px; height: 36px; background: #f0faf4;
             border: none; border-radius: 8px; cursor: pointer;
             align-items: center; justify-content: center;
@@ -361,7 +361,7 @@ import { AuthService } from '../../services/auth.service';
             }
             .sidebar.mobile-open { transform: translateX(0); }
 
-            /* Main occupe tout l'�cran */
+            /* Main occupe tout l'écran */
             .main-area, .main-area.expanded { margin-left: 0 !important; }
 
             /* Topbar */
@@ -373,7 +373,7 @@ import { AuthService } from '../../services/auth.service';
             .page-content { padding: 14px 12px; }
         }
 
-        /* ── Tr�s petit mobile (≤480px) ── */
+        /* ── Très petit mobile (≤480px) ── */
         @media (max-width: 480px) {
             .page-content { padding: 12px 10px; }
             .topbar { height: 54px; }

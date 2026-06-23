@@ -19,25 +19,25 @@ export class BlogContentComponent {
             role: 'Agriculteur â€” Kaolack',
             rating: 5,
             isReply: false,
-            text: `Très bonne initiative de la Sénégal Excursions ! L'assurance indicielle m'a vraiment aidé lors de la sécheresse de 2024. L'indemnisation a été rapide, sans complication. Je recommande vivement Ã  tous les agriculteurs du Sénégal de souscrire avant la campagne 2025.`
+            text: `TrÃ¨s bonne initiative de la SÃ©nÃ©gal Excursions ! L'assurance indicielle m'a vraiment aidï¿½ lors de la sï¿½cheresse de 2024. L'indemnisation a ï¿½tï¿½ rapide, sans complication. Je recommande vivement Ã  tous les agriculteurs du SÃ©nÃ©gal de souscrire avant la campagne 2025.`
         },
         {
             image: 'assets/img/all-images/testimonial-img12.png',
             name: 'AÃ¯ssatou Ndiaye',
             date: '14 Mars 2025',
-            role: 'Éleveuse â€” Thiès',
+            role: 'ï¿½leveuse â€” Thiï¿½s',
             rating: 4,
             isReply: true,
-            text: `Je suis totalement d'accord avec Mamadou. J'ai souscrit Ã  l'assurance bétail et j'ai été indemnisée rapidement lors d'une épizootie. Merci Sénégal Excursions pour votre professionnalisme et votre réactivité sur le terrain.`
+            text: `Je suis totalement d'accord avec Mamadou. J'ai souscrit Ã  l'assurance bÃ©tail et j'ai ï¿½tï¿½ indemnisï¿½e rapidement lors d'une ï¿½pizootie. Merci SÃ©nÃ©gal Excursions pour votre professionnalisme et votre rÃ©activitÃ© sur le terrain.`
         },
         {
             image: 'assets/img/all-images/testimonial-img13.png',
             name: 'Ibrahim Sow',
             date: '15 Mars 2025',
-            role: 'Maraîcher â€” Saint-Louis',
+            role: 'Maraï¿½cher â€” Saint-Louis',
             rating: 5,
             isReply: false,
-            text: `Article très instructif ! Les conditions climatiques deviennent de plus en plus imprévisibles. Avoir une assurance adaptée est devenu indispensable pour nous, les agriculteurs du nord du Sénégal. Je vais me renseigner pour la campagne 2025.`
+            text: `Article trÃ¨s instructif ! Les conditions climatiques deviennent de plus en plus imprï¿½visibles. Avoir une assurance adaptï¿½e est devenu indispensable pour nous, les agriculteurs du nord du SÃ©nÃ©gal. Je vais me renseigner pour la campagne 2025.`
         }
     ];
 

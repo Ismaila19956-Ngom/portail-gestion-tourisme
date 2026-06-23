@@ -15,12 +15,12 @@ export const OTHER_PAGES_ROUTES: Routes = [
     {
         path: 'etape/detail/:id',
         component: EtapeDetailComponent,
-        data: { title: "Détail de l'étape" }
+        data: { title: "Dï¿½tail de l'Ã©tape" }
     },
     {
         path: 'partenaire/detail/:id',
         component: PartenaireDetailComponent,
-        data: { title: "Détail du partenaire" }
+        data: { title: "Dï¿½tail du partenaire" }
     },
     {
         path: 'our-team',

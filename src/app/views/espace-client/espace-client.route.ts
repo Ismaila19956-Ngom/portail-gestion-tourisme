@@ -16,22 +16,22 @@ export const ESPACE_CLIENT_ROUTES: Routes = [
             {
                 path: 'polices',
                 loadComponent: () => import('./polices/polices.component').then(m => m.PolicesComponent),
-                data: { title: 'Mes Polices - Sénégal Excursions' }
+                data: { title: 'Mes Polices - SÃ©nÃ©gal Excursions' }
             },
             {
                 path: 'polices/:ref',
                 loadComponent: () => import('./polices/police-detail/police-detail.component').then(m => m.PoliceDetailComponent),
-                data: { title: 'Détail police - Sénégal Excursions' }
+                data: { title: 'Dï¿½tail police - SÃ©nÃ©gal Excursions' }
             },
             {
                 path: 'sinistres',
                 loadComponent: () => import('./sinistres/sinistres.component').then(m => m.SinistresComponent),
-                data: { title: 'Mes Sinistres - Sénégal Excursions' }
+                data: { title: 'Mes Sinistres - SÃ©nÃ©gal Excursions' }
             },
             {
                 path: 'paiements',
                 loadComponent: () => import('./paiements/paiements.component').then(m => m.PaiementsComponent),
-                data: { title: 'Mes Paiements - Sénégal Excursions' }
+                data: { title: 'Mes Paiements - SÃ©nÃ©gal Excursions' }
             },
         ]
     }

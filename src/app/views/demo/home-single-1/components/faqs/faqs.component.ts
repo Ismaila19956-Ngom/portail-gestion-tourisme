@@ -31,10 +31,10 @@ export class FaqsComponent implements OnInit {
 
     getIcon(text: string): string {
         const n = (text || '').toLowerCase();
-        if (n.includes('récolte') || n.includes('recolte') || n.includes('culture') || n.includes('horticol')) return 'fa-solid fa-wheat-awn';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel') || n.includes('vache') || n.includes('animal')) return 'fa-solid fa-cow';
+        if (n.includes('rï¿½colte') || n.includes('recolte') || n.includes('culture') || n.includes('horticol')) return 'fa-solid fa-wheat-awn';
+        if (n.includes('bÃ©tail') || n.includes('betail') || n.includes('cheptel') || n.includes('vache') || n.includes('animal')) return 'fa-solid fa-cow';
         if (n.includes('avicul') || n.includes('volaille') || n.includes('poulet')) return 'fa-solid fa-egg';
-        if (n.includes('matériel') || n.includes('materiel') || n.includes('équipement') || n.includes('equipement')) return 'fa-solid fa-tractor';
+        if (n.includes('matï¿½riel') || n.includes('materiel') || n.includes('Ã©quipement') || n.includes('equipement')) return 'fa-solid fa-tractor';
         if (n.includes('indiciel') || n.includes('pluie') || n.includes('climat')) return 'fa-solid fa-cloud-rain';
         if (n.includes('serre') || n.includes('maraich')) return 'fa-solid fa-seedling';
         if (n.includes('stock')) return 'fa-solid fa-warehouse';

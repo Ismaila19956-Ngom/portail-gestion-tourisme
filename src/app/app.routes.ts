@@ -8,7 +8,7 @@ export const routes: Routes = [
         path: 'connexion',
         component: LoginComponent,
         canActivate: [guestGuard],
-        data: { title: "Connexion - Sénégal Excursions" }
+        data: { title: "Connexion - SÃ©nÃ©gal Excursions" }
     },
     {
         path: '',

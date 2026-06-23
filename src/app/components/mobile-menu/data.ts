@@ -12,10 +12,11 @@ export const menuItems:MenuItem[] = [
     },
     {
         "title": "Nos Destinations",
+        "link": "#",
         "isOpen": false,
         "subMenu": [
             { "title": "Toutes les destinations", "link": "/excursions" },
-            { "title": "Dakar & Gorée", "link": "/excursions" },
+            { "title": "Dakar & GorÃ©e", "link": "/excursions" },
             { "title": "Sine Saloum", "link": "/excursions" },
             { "title": "Casamance", "link": "/excursions" },
             { "title": "Saint-Louis", "link": "/excursions" }
@@ -26,12 +27,13 @@ export const menuItems:MenuItem[] = [
         "link": "/about"
     },
     {
-        "title": "Actualités",
+        "title": "ActualitÃ©s",
+        "link": "#",
         "isOpen": false,
         "subMenu": [
-            { "title": "Toutes les actualités", "link": "/blogs/one" },
+            { "title": "Toutes les actualitÃ©s", "link": "/blogs/one" },
             { "title": "Conseils de voyage", "link": "/blogs/sidebar" },
-            { "title": "Découvertes", "link": "/blogs/single" }
+            { "title": "DÃ©couvertes", "link": "/blogs/single" }
         ]
     },
     {

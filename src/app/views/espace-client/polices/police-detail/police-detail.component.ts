@@ -20,10 +20,10 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
     imports: [CommonModule, RouterLink],
     template: `
     <div>
-        <!-- RETOUR + EN-TÊTE -->
+        <!-- RETOUR + EN-Tï¿½TE -->
         <div style="margin-bottom:18px;">
 
-            <!-- Breadcrumb : Retour / N° Police -->
+            <!-- Breadcrumb : Retour / Nï¿½ Police -->
             <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap;margin-bottom:14px;">
                 <a routerLink="/mon-espace/polices"
                    style="display:inline-flex;align-items:center;gap:6px;color:#538F6C;font-size:0.82rem;font-weight:600;text-decoration:none;opacity:0.85;transition:opacity 0.2s;"
@@ -34,7 +34,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                       style="color:#d1d1d1;margin:0 10px;font-size:0.82rem;">/</span>
                 <span *ngIf="!loading && police"
                       style="font-family:monospace;font-size:0.82rem;font-weight:700;color:#1a1a1a;">
-                    Police N° {{ police.numeroPolice }}
+                    Police Nï¿½ {{ police.numeroPolice }}
                 </span>
             </div>
 
@@ -60,7 +60,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
              style="background:#fff;border-radius:18px;padding:64px 40px;text-align:center;border:1px solid #ffe0e0;">
             <i class="fa-solid fa-circle-exclamation" style="font-size:2.5rem;color:#e74c3c;margin-bottom:16px;display:block;"></i>
             <h4 style="color:#3E4F22;font-weight:800;margin-bottom:8px;">Police introuvable</h4>
-            <p style="color:#aaa;font-size:0.9rem;margin:0 0 20px;">Cette police n'existe pas ou vous n'y avez pas accès.</p>
+            <p style="color:#aaa;font-size:0.9rem;margin:0 0 20px;">Cette police n'existe pas ou vous n'y avez pas accÃ¨s.</p>
             <a routerLink="/mon-espace/polices"
                style="display:inline-flex;align-items:center;gap:7px;background:#538F6C;color:#fff;font-size:0.82rem;font-weight:700;padding:10px 20px;border-radius:10px;text-decoration:none;">
                 <i class="fa-solid fa-arrow-left"></i> Retour
@@ -111,29 +111,29 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
             </div>
             </div><!-- /tabs-scroll-wrap -->
 
-            <!-- TAB: INFORMATIONS GÉNÉRALES — CONDITIONS PARTICULIÈRES -->
+            <!-- TAB: INFORMATIONS Gï¿½Nï¿½RALES ï¿½ CONDITIONS PARTICULIï¿½RES -->
             <div *ngIf="activeTab === 'info'" class="cp-wrap">
 
                 <!-- -- CANAL DE DISTRIBUTION -- -->
                 <div class="cp-section-title">Canal de distribution</div>
                 <table class="cp-table">
                     <tr>
-                        <td class="cp-lbl">Réseau</td>
-                        <td class="cp-val">{{ police.agence?.zone?.libelle || '—' }}</td>
+                        <td class="cp-lbl">Rï¿½seau</td>
+                        <td class="cp-val">{{ police.agence?.zone?.libelle || 'ï¿½' }}</td>
                         <td class="cp-lbl">Agence / bureau</td>
-                        <td class="cp-val">{{ police.agence?.nom || '—' }}</td>
+                        <td class="cp-val">{{ police.agence?.nom || 'ï¿½' }}</td>
                     </tr>
                     <tr>
                         <td class="cp-lbl">Zone de couverture</td>
-                        <td class="cp-val">{{ police.region?.libelle || '—' }}</td>
+                        <td class="cp-val">{{ police.region?.libelle || 'ï¿½' }}</td>
                         <td class="cp-lbl">Adresse agence</td>
-                        <td class="cp-val">{{ police.localisationRisque || '—' }}</td>
+                        <td class="cp-val">{{ police.localisationRisque || 'ï¿½' }}</td>
                     </tr>
                     <tr>
                         <td class="cp-lbl">Garantie</td>
-                        <td class="cp-val">{{ police.garantie?.libelle || '—' }}</td>
+                        <td class="cp-val">{{ police.garantie?.libelle || 'ï¿½' }}</td>
                         <td class="cp-lbl">Produit</td>
-                        <td class="cp-val" style="color:#538F6C;font-weight:700;">{{ police.produit?.nom || '—' }}</td>
+                        <td class="cp-val" style="color:#538F6C;font-weight:700;">{{ police.produit?.nom || 'ï¿½' }}</td>
                     </tr>
                 </table>
 
@@ -141,13 +141,13 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 <div class="cp-section-title">Identification</div>
                 <table class="cp-table">
                     <tr>
-                        <td class="cp-lbl">N° inscription</td>
-                        <td class="cp-val" style="color:#538F6C;font-weight:700;">{{ police.client?.numeroClient || '—' }}</td>
-                        <td class="cp-lbl">N° client</td>
-                        <td class="cp-val" style="color:#538F6C;font-weight:700;">{{ police.client?.numeroClient || '—' }}</td>
+                        <td class="cp-lbl">Nï¿½ inscription</td>
+                        <td class="cp-val" style="color:#538F6C;font-weight:700;">{{ police.client?.numeroClient || 'ï¿½' }}</td>
+                        <td class="cp-lbl">Nï¿½ client</td>
+                        <td class="cp-val" style="color:#538F6C;font-weight:700;">{{ police.client?.numeroClient || 'ï¿½' }}</td>
                     </tr>
                     <tr>
-                        <td class="cp-lbl">N° police</td>
+                        <td class="cp-lbl">Nï¿½ police</td>
                         <td class="cp-val" colspan="3" style="color:#538F6C;font-weight:700;font-family:monospace;">{{ police.numeroPolice }}</td>
                     </tr>
                 </table>
@@ -156,53 +156,53 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 <div class="cp-section-title cp-section-italic">Souscripteur</div>
                 <table class="cp-table">
                     <tr>
-                        <td class="cp-lbl">Prénom / Nom</td>
+                        <td class="cp-lbl">Prï¿½nom / Nom</td>
                         <td class="cp-val">{{ clientNom() }}</td>
-                        <td class="cp-lbl">Téléphone</td>
-                        <td class="cp-val">{{ police.client?.telephone || '—' }}</td>
+                        <td class="cp-lbl">TÃ©lÃ©phone</td>
+                        <td class="cp-val">{{ police.client?.telephone || 'ï¿½' }}</td>
                     </tr>
                     <tr>
-                        <td class="cp-lbl">Pièce d'identité</td>
-                        <td class="cp-val">—</td>
+                        <td class="cp-lbl">Piï¿½ce d'identitï¿½</td>
+                        <td class="cp-val">ï¿½</td>
                         <td class="cp-lbl">Email</td>
-                        <td class="cp-val">{{ police.client?.email || '—' }}</td>
+                        <td class="cp-val">{{ police.client?.email || 'ï¿½' }}</td>
                     </tr>
                     <tr>
                         <td class="cp-lbl">Adresse</td>
-                        <td class="cp-val">{{ police.adresseComplete || police.commune?.libelle || '—' }}</td>
-                        <td class="cp-lbl">Localité</td>
-                        <td class="cp-val">{{ police.localite?.libelle || police.departement?.libelle || '—' }}</td>
+                        <td class="cp-val">{{ police.adresseComplete || police.commune?.libelle || 'ï¿½' }}</td>
+                        <td class="cp-lbl">Localitï¿½</td>
+                        <td class="cp-val">{{ police.localite?.libelle || police.departement?.libelle || 'ï¿½' }}</td>
                     </tr>
                 </table>
 
-                <!-- -- ASSURÉ -- -->
-                <div class="cp-section-title cp-section-italic">Assuré</div>
+                <!-- -- ASSURï¿½ -- -->
+                <div class="cp-section-title cp-section-italic">Assurï¿½</div>
                 <table class="cp-table">
                     <tr>
                         <td class="cp-lbl">Situation du risque</td>
-                        <td class="cp-val">{{ police.localisationRisque || police.localite?.libelle || '—' }}</td>
-                        <td class="cp-lbl">Départ / Commune</td>
-                        <td class="cp-val">{{ (police.departement?.libelle || '') + (police.commune?.libelle ? ' / ' + police.commune?.libelle : '') || '—' }}</td>
+                        <td class="cp-val">{{ police.localisationRisque || police.localite?.libelle || 'ï¿½' }}</td>
+                        <td class="cp-lbl">Dï¿½part / Commune</td>
+                        <td class="cp-val">{{ (police.departement?.libelle || '') + (police.commune?.libelle ? ' / ' + police.commune?.libelle : '') || 'ï¿½' }}</td>
                     </tr>
                     <tr *ngIf="police.produit?.categorie?.libelle">
-                        <td class="cp-lbl">Catégorie produit</td>
+                        <td class="cp-lbl">CatÃ©gorie produit</td>
                         <td class="cp-val" colspan="3">{{ police.produit?.categorie?.libelle }}</td>
                     </tr>
                 </table>
 
-                <!-- -- EFFET ET DURÉE DU CONTRAT -- -->
-                <div class="cp-section-title">Effet et durée du contrat</div>
+                <!-- -- EFFET ET DURï¿½E DU CONTRAT -- -->
+                <div class="cp-section-title">Effet et durÃ©e du contrat</div>
                 <table class="cp-table">
                     <tr>
-                        <td class="cp-lbl">Date d'émission</td>
+                        <td class="cp-lbl">Date d'ï¿½mission</td>
                         <td class="cp-val">{{ police.dateEmission | date:'dd/MM/yyyy' }}</td>
-                        <td class="cp-lbl">Durée de couverture</td>
-                        <td class="cp-val">{{ police.duree ? police.duree + ' mois' : '—' }}</td>
+                        <td class="cp-lbl">DurÃ©e de couverture</td>
+                        <td class="cp-val">{{ police.duree ? police.duree + ' mois' : 'ï¿½' }}</td>
                     </tr>
                     <tr>
                         <td class="cp-lbl">Date d'effet</td>
                         <td class="cp-val">{{ police.dateEffet | date:'dd/MM/yyyy' }}</td>
-                        <td class="cp-lbl">Date d'échéance</td>
+                        <td class="cp-lbl">Date d'Ã©chÃ©ance</td>
                         <td class="cp-val" [style.color]="isExpiringSoon(police.dateEcheance) ? '#e67e22' : 'inherit'">
                             {{ police.dateEcheance | date:'dd/MM/yyyy' }}
                             <i *ngIf="isExpiringSoon(police.dateEcheance)" class="fa-solid fa-triangle-exclamation" style="font-size:0.7rem;margin-left:4px;"></i>
@@ -212,15 +212,15 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                         <td class="cp-lbl">Tacite reconduction</td>
                         <td class="cp-val">{{ police.taciteReconduction ? 'OUI' : 'NON' }}</td>
                         <td class="cp-lbl">Franchise</td>
-                        <td class="cp-val">{{ police.betail?.franchiseTaux || police.equipement?.franchiseTaux || '—' }}</td>
+                        <td class="cp-val">{{ police.betail?.franchiseTaux || police.equipement?.franchiseTaux || 'ï¿½' }}</td>
                     </tr>
                 </table>
 
-                <!-- -- COÛT DE L'ASSURANCE -- -->
-                <div class="cp-section-title">Coût de l'assurance</div>
+                <!-- -- COÃ¹T DE L'ASSURANCE -- -->
+                <div class="cp-section-title">CoÃ¹t de l'assurance</div>
                 <table class="cp-table">
                     <tr>
-                        <td class="cp-lbl">Capital assuré</td>
+                        <td class="cp-lbl">Capital assurï¿½</td>
                         <td class="cp-val">{{ montantAssure(police) | number:'1.0-0' }} FCFA</td>
                         <td class="cp-lbl">Prime nette HT</td>
                         <td class="cp-val">{{ (police.primeNette || 0) | number:'1.0-0' }} FCFA</td>
@@ -232,7 +232,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                         <td class="cp-val">{{ (police.montantFrais || 0) | number:'1.0-0' }} FCFA</td>
                     </tr>
                     <tr *ngIf="police.montantEtat">
-                        <td class="cp-lbl">Subvention État</td>
+                        <td class="cp-lbl">Subvention ï¿½tat</td>
                         <td class="cp-val" style="color:#27ae60;font-weight:700;">- {{ police.montantEtat | number:'1.0-0' }} FCFA</td>
                         <td class="cp-lbl cp-total-lbl">Prime TTC</td>
                         <td class="cp-val cp-total-val">{{ primeTotale(police) | number:'1.0-0' }} FCFA</td>
@@ -304,7 +304,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
             /* -- Responsive -- */
             @media (max-width:768px) {
 
-                /* Table conditions particulières ? 2 colonnes (label + valeur) */
+                /* Table conditions particuliï¿½res ? 2 colonnes (label + valeur) */
                 .cp-table { display:block;overflow-x:auto; }
                 .cp-table tr { display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #eaf0ec; }
                 .cp-table tr td { border-right:none !important;border-bottom:none; }
@@ -351,12 +351,12 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             <div>
                                 <div style="font-weight:900;font-size:1rem;">Questionnaire Assurance Aviculture</div>
                                 <div style="opacity:0.75;font-size:0.76rem;margin-top:3px;">
-                                    <i class="fa-solid fa-file-contract" style="margin-right:4px;"></i>Police N° {{ police?.numeroPolice }}
+                                    <i class="fa-solid fa-file-contract" style="margin-right:4px;"></i>Police Nï¿½ {{ police?.numeroPolice }}
                                 </div>
                             </div>
                         </div>
                         <span style="background:#F1B53B;color:#fff;font-size:0.72rem;font-weight:800;padding:7px 16px;border-radius:20px;display:flex;align-items:center;gap:6px;white-space:nowrap;">
-                            <i class="fa-solid fa-circle-check"></i> ENREGISTRÉ
+                            <i class="fa-solid fa-circle-check"></i> ENREGISTRï¿½
                         </span>
                     </div>
 
@@ -369,7 +369,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                         </div>
                         <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;padding:18px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;">
                             <div>
-                                <div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Le soussigné</div>
+                                <div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Le soussignï¿½</div>
                                 <div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ clientNom() }}</div>
                             </div>
                             <div *ngIf="qAviculture.adresse">
@@ -377,18 +377,18 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                 <div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qAviculture.adresse }}</div>
                             </div>
                             <div *ngIf="qAviculture.qualite">
-                                <div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Qualité</div>
+                                <div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">QualitÃ©</div>
                                 <div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qAviculture.qualite }}</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Section 2 : Bâtiments -->
+                    <!-- Section 2 : BÃ¢timents -->
                     <div *ngIf="qAviculture.batiments && qAviculture.batiments.length > 0" style="margin-bottom:10px;">
                         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
                             <div style="width:26px;height:26px;background:#F1B53B;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.78rem;flex-shrink:0;">2</div>
-                            <span style="font-weight:800;color:#3E4F22;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;white-space:nowrap;">Bâtiments d'élevage</span>
-                            <span style="background:#F1B53B22;color:#856404;font-size:0.7rem;font-weight:700;padding:2px 10px;border-radius:20px;">{{ qAviculture.batiments.length }} bâtiment(s)</span>
+                            <span style="font-weight:800;color:#3E4F22;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;white-space:nowrap;">BÃ¢timents d'ï¿½levage</span>
+                            <span style="background:#F1B53B22;color:#856404;font-size:0.7rem;font-weight:700;padding:2px 10px;border-radius:20px;">{{ qAviculture.batiments.length }} bÃ¢timent(s)</span>
                             <div style="flex:1;height:1.5px;background:linear-gradient(to right,#F1B53B44,transparent);"></div>
                         </div>
                         <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;overflow:hidden;">
@@ -396,12 +396,12 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                 <table style="width:100%;border-collapse:collapse;font-size:0.8rem;">
                                     <thead>
                                         <tr style="background:#538F6C;color:#fff;">
-                                            <th style="padding:11px 14px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;white-space:nowrap;">N° Bande</th>
-                                            <th style="padding:11px 14px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;white-space:nowrap;">Nature / Espèce</th>
-                                            <th style="padding:11px 14px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;white-space:nowrap;">Mode d'élevage</th>
+                                            <th style="padding:11px 14px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;white-space:nowrap;">Nï¿½ Bande</th>
+                                            <th style="padding:11px 14px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;white-space:nowrap;">Nature / Espï¿½ce</th>
+                                            <th style="padding:11px 14px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;white-space:nowrap;">Mode d'ï¿½levage</th>
                                             <th style="padding:11px 14px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:center;white-space:nowrap;">Alarme Ventil.</th>
                                             <th style="padding:11px 14px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;white-space:nowrap;">Lieu Alarme</th>
-                                            <th style="padding:11px 14px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:center;white-space:nowrap;">Groupe Élec.</th>
+                                            <th style="padding:11px 14px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:center;white-space:nowrap;">Groupe ï¿½lec.</th>
                                             <th style="padding:11px 14px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:right;white-space:nowrap;">NB Animaux</th>
                                             <th style="padding:11px 14px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:right;white-space:nowrap;">Charg. Max</th>
                                         </tr>
@@ -410,9 +410,9 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                         <tr *ngFor="let b of qAviculture.batiments; let even = even"
                                             [style.background]="even ? '#fafffe' : '#fff'"
                                             style="border-bottom:1px solid #eef5f1;">
-                                            <td style="padding:11px 14px;font-weight:800;color:#538F6C;font-family:monospace;">{{ b.numeroBande || '—' }}</td>
-                                            <td style="padding:11px 14px;color:#333;font-weight:600;">{{ b.natureEspece?.libelle || '—' }}</td>
-                                            <td style="padding:11px 14px;color:#555;">{{ b.typeElevage?.libelle || '—' }}</td>
+                                            <td style="padding:11px 14px;font-weight:800;color:#538F6C;font-family:monospace;">{{ b.numeroBande || 'ï¿½' }}</td>
+                                            <td style="padding:11px 14px;color:#333;font-weight:600;">{{ b.natureEspece?.libelle || 'ï¿½' }}</td>
+                                            <td style="padding:11px 14px;color:#555;">{{ b.typeElevage?.libelle || 'ï¿½' }}</td>
                                             <td style="padding:11px 14px;text-align:center;">
                                                 <span [style.background]="b.alarmeVentilation ? '#e8f4ec' : '#f5f5f5'"
                                                       [style.color]="b.alarmeVentilation ? '#538F6C' : '#999'"
@@ -420,7 +420,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                                     {{ b.alarmeVentilation ? 'Oui' : 'Non' }}
                                                 </span>
                                             </td>
-                                            <td style="padding:11px 14px;color:#555;">{{ b.lieuAlarme || '—' }}</td>
+                                            <td style="padding:11px 14px;color:#555;">{{ b.lieuAlarme || 'ï¿½' }}</td>
                                             <td style="padding:11px 14px;text-align:center;">
                                                 <span [style.background]="b.groupeElectrogene ? '#e8f4ec' : '#f5f5f5'"
                                                       [style.color]="b.groupeElectrogene ? '#538F6C' : '#999'"
@@ -449,72 +449,72 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                 <thead>
                                     <tr style="background:#538F6C;color:#fff;">
                                         <th style="padding:11px 16px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;width:35%;">Question</th>
-                                        <th style="padding:11px 16px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;">Réponse</th>
+                                        <th style="padding:11px 16px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;">Rï¿½ponse</th>
                                         <th style="padding:11px 16px;font-weight:700;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;width:25%;">Commentaire</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fafffe;">
-                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">1 — Catégorie(s) d'animaux élevés</td>
+                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">1 ï¿½ CatÃ©gorie(s) d'animaux ï¿½levï¿½s</td>
                                         <td style="padding:12px 16px;">
                                             <div *ngIf="qAviculture.categorieChair?.libelle" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qAviculture.categorieChair?.libelle }}</strong></div>
                                             <div *ngIf="qAviculture.categoriePoulettes?.libelle" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qAviculture.categoriePoulettes?.libelle }}</strong></div>
                                             <div *ngIf="qAviculture.categoriePondeuses?.libelle" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qAviculture.categoriePondeuses?.libelle }}</strong></div>
-                                            <span *ngIf="!qAviculture.categorieChair && !qAviculture.categoriePoulettes && !qAviculture.categoriePondeuses" style="color:#aaa;">—</span>
+                                            <span *ngIf="!qAviculture.categorieChair && !qAviculture.categoriePoulettes && !qAviculture.categoriePondeuses" style="color:#aaa;">ï¿½</span>
                                         </td>
-                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[0] || '—' }}</td>
+                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[0] || 'ï¿½' }}</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fff;">
-                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">2 — Nombre d'animaux par catégorie</td>
+                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">2 ï¿½ Nombre d'animaux par catÃ©gorie</td>
                                         <td style="padding:12px 16px;">
                                             <div *ngIf="qAviculture.nbAnimauxChair != null" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qAviculture.nbAnimauxChair | number:'1.0-0' }}</strong></div>
                                             <div *ngIf="qAviculture.nbAnimauxPoulettes != null" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qAviculture.nbAnimauxPoulettes | number:'1.0-0' }}</strong></div>
                                             <div *ngIf="qAviculture.nbAnimauxPondeuses != null" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qAviculture.nbAnimauxPondeuses | number:'1.0-0' }}</strong></div>
                                         </td>
-                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[1] || '—' }}</td>
+                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[1] || 'ï¿½' }}</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fafffe;">
-                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">3 — Fréquence de renouvellement (jours)</td>
+                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">3 ï¿½ Frï¿½quence de renouvellement (jours)</td>
                                         <td style="padding:12px 16px;">
                                             <div *ngIf="qAviculture.frequenceChair != null" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qAviculture.frequenceChair }} j</strong></div>
                                             <div *ngIf="qAviculture.frequencePoulettes != null" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qAviculture.frequencePoulettes }} j</strong></div>
                                             <div *ngIf="qAviculture.frequencePondeuses != null" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qAviculture.frequencePondeuses }} j</strong></div>
                                         </td>
-                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[2] || '—' }}</td>
+                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[2] || 'ï¿½' }}</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fff;">
-                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">4 — Numéro des bandes</td>
+                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">4 ï¿½ NumÃ©ro des bandes</td>
                                         <td style="padding:12px 16px;">
                                             <div *ngIf="qAviculture.numeroBandesChair" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qAviculture.numeroBandesChair }}</strong></div>
                                             <div *ngIf="qAviculture.numeroBandesPoulettes" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qAviculture.numeroBandesPoulettes }}</strong></div>
                                             <div *ngIf="qAviculture.numeroBandesPondeuses" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qAviculture.numeroBandesPondeuses }}</strong></div>
                                         </td>
-                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[3] || '—' }}</td>
+                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[3] || 'ï¿½' }}</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fafffe;">
-                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">5 — Prix d'achat des pondeuses (FCFA)</td>
+                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">5 ï¿½ Prix d'achat des pondeuses (FCFA)</td>
                                         <td style="padding:12px 16px;">
                                             <span *ngIf="qAviculture.prixAchatPondeuses != null" style="color:#538F6C;font-weight:800;font-size:0.88rem;">{{ qAviculture.prixAchatPondeuses | number:'1.0-0' }} FCFA</span>
-                                            <span *ngIf="qAviculture.prixAchatPondeuses == null" style="color:#aaa;">—</span>
+                                            <span *ngIf="qAviculture.prixAchatPondeuses == null" style="color:#aaa;">ï¿½</span>
                                         </td>
-                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[4] || '—' }}</td>
+                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[4] || 'ï¿½' }}</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fff;">
-                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">6 — Prix de vente (FCFA)</td>
+                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">6 ï¿½ Prix de vente (FCFA)</td>
                                         <td style="padding:12px 16px;">
                                             <div *ngIf="qAviculture.prixVenteChair != null" style="color:#333;font-size:0.8rem;">Chair : <strong style="color:#538F6C;">{{ qAviculture.prixVenteChair | number:'1.0-0' }} FCFA</strong></div>
                                             <div *ngIf="qAviculture.prixVentePoulettes != null" style="color:#333;font-size:0.8rem;">Poulettes : <strong style="color:#538F6C;">{{ qAviculture.prixVentePoulettes | number:'1.0-0' }} FCFA</strong></div>
                                         </td>
-                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[5] || '—' }}</td>
+                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[5] || 'ï¿½' }}</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fafffe;">
-                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">7 — Période de production (semaines)</td>
+                                        <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">7 ï¿½ Pï¿½riode de production (semaines)</td>
                                         <td style="padding:12px 16px;">
                                             <div *ngIf="qAviculture.periodeChair != null" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qAviculture.periodeChair }} sem.</strong></div>
                                             <div *ngIf="qAviculture.periodePoulettes != null" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qAviculture.periodePoulettes }} sem.</strong></div>
                                             <div *ngIf="qAviculture.periodePondeuses != null" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qAviculture.periodePondeuses }} sem.</strong></div>
                                         </td>
-                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[6] || '—' }}</td>
+                                        <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[6] || 'ï¿½' }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -523,7 +523,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 </div>
 
                 <!-- --------------------------------------------------
-                     BÉTAIL
+                     Bï¿½TAIL
                 -------------------------------------------------- -->
                 <div *ngIf="qBetail">
                     <div style="background:linear-gradient(135deg,#538F6C,#3d7554);border-radius:12px;padding:14px 18px;margin-bottom:14px;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
@@ -532,11 +532,11 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                 <i class="fa-solid fa-cow" style="font-size:1.2rem;"></i>
                             </div>
                             <div>
-                                <div style="font-weight:900;font-size:1rem;">Questionnaire Assurance Bétail</div>
-                                <div style="opacity:0.75;font-size:0.76rem;margin-top:3px;"><i class="fa-solid fa-file-contract" style="margin-right:4px;"></i>Police N° {{ police?.numeroPolice }}</div>
+                                <div style="font-weight:900;font-size:1rem;">Questionnaire Assurance BÃ©tail</div>
+                                <div style="opacity:0.75;font-size:0.76rem;margin-top:3px;"><i class="fa-solid fa-file-contract" style="margin-right:4px;"></i>Police Nï¿½ {{ police?.numeroPolice }}</div>
                             </div>
                         </div>
-                        <span style="background:#F1B53B;color:#fff;font-size:0.72rem;font-weight:800;padding:7px 16px;border-radius:20px;display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-circle-check"></i> ENREGISTRÉ</span>
+                        <span style="background:#F1B53B;color:#fff;font-size:0.72rem;font-weight:800;padding:7px 16px;border-radius:20px;display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-circle-check"></i> ENREGISTRï¿½</span>
                     </div>
                     <!-- Section 1 : Identification -->
                     <div style="margin-bottom:10px;">
@@ -546,46 +546,46 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             <div style="flex:1;height:1.5px;background:linear-gradient(to right,#F1B53B44,transparent);"></div>
                         </div>
                         <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;padding:18px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
-                            <div><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Le soussigné</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ clientNom() }}</div></div>
+                            <div><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Le soussignï¿½</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ clientNom() }}</div></div>
                             <div *ngIf="qBetail.adresse"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Adresse</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.adresse }}</div></div>
-                            <div *ngIf="qBetail.qualite"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Qualité</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.qualite }}</div></div>
+                            <div *ngIf="qBetail.qualite"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">QualitÃ©</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.qualite }}</div></div>
                         </div>
                     </div>
-                    <!-- Section 2 : Élevage -->
+                    <!-- Section 2 : ï¿½levage -->
                     <div style="margin-bottom:10px;">
                         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
                             <div style="width:26px;height:26px;background:#F1B53B;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.78rem;flex-shrink:0;">2</div>
-                            <span style="font-weight:800;color:#3E4F22;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;">Informations sur l'élevage</span>
+                            <span style="font-weight:800;color:#3E4F22;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;">Informations sur l'ï¿½levage</span>
                             <div style="flex:1;height:1.5px;background:linear-gradient(to right,#F1B53B44,transparent);"></div>
                         </div>
                         <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;overflow:hidden;">
                             <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
                                 <thead><tr style="background:#538F6C;color:#fff;">
                                     <th style="padding:11px 16px;font-weight:700;font-size:0.68rem;text-transform:uppercase;text-align:left;">Question</th>
-                                    <th style="padding:11px 16px;font-weight:700;font-size:0.68rem;text-transform:uppercase;text-align:left;">Réponse</th>
+                                    <th style="padding:11px 16px;font-weight:700;font-size:0.68rem;text-transform:uppercase;text-align:left;">Rï¿½ponse</th>
                                 </tr></thead>
                                 <tbody>
-                                    <tr *ngIf="qBetail.typeElevage?.libelle" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Type d'élevage</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.typeElevage?.libelle }}</td></tr>
-                                    <tr *ngIf="qBetail.modeElevage" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Mode d'élevage</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.modeElevage }}</td></tr>
-                                    <tr *ngIf="qBetail.dureeEmbouche" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Durée embouche</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.dureeEmbouche }}</td></tr>
+                                    <tr *ngIf="qBetail.typeElevage?.libelle" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Type d'ï¿½levage</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.typeElevage?.libelle }}</td></tr>
+                                    <tr *ngIf="qBetail.modeElevage" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Mode d'ï¿½levage</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.modeElevage }}</td></tr>
+                                    <tr *ngIf="qBetail.dureeEmbouche" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">DurÃ©e embouche</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.dureeEmbouche }}</td></tr>
                                     <tr *ngIf="qBetail.productionLait" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Production de lait</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.productionLait }}</td></tr>
                                     <tr *ngIf="qBetail.distanceDomicileExploitation" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Distance domicile / exploitation</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.distanceDomicileExploitation }}</td></tr>
-                                    <tr *ngIf="qBetail.elevageSimple" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Élevage simple</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.elevageSimple }}</td></tr>
+                                    <tr *ngIf="qBetail.elevageSimple" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">ï¿½levage simple</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.elevageSimple }}</td></tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <!-- Section 3 : Vétérinaire -->
+                    <!-- Section 3 : Vï¿½tï¿½rinaire -->
                     <div *ngIf="qBetail.nomVeterinaire || qBetail.telephoneVeterinaire || qBetail.frequenceIntervention" style="margin-bottom:10px;">
                         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
                             <div style="width:26px;height:26px;background:#F1B53B;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.78rem;flex-shrink:0;">3</div>
-                            <span style="font-weight:800;color:#3E4F22;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;">Suivi vétérinaire</span>
+                            <span style="font-weight:800;color:#3E4F22;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;">Suivi vÃ©tÃ©rinaire</span>
                             <div style="flex:1;height:1.5px;background:linear-gradient(to right,#F1B53B44,transparent);"></div>
                         </div>
                         <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;padding:18px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
-                            <div *ngIf="qBetail.nomVeterinaire"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Vétérinaire</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.nomVeterinaire }}</div></div>
-                            <div *ngIf="qBetail.telephoneVeterinaire"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Téléphone</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.telephoneVeterinaire }}</div></div>
-                            <div *ngIf="qBetail.frequenceIntervention"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Fréquence d'intervention</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.frequenceIntervention }}</div></div>
+                            <div *ngIf="qBetail.nomVeterinaire"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Vï¿½tï¿½rinaire</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.nomVeterinaire }}</div></div>
+                            <div *ngIf="qBetail.telephoneVeterinaire"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">TÃ©lÃ©phone</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.telephoneVeterinaire }}</div></div>
+                            <div *ngIf="qBetail.frequenceIntervention"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Frï¿½quence d'intervention</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.frequenceIntervention }}</div></div>
                         </div>
                         <div *ngIf="qBetail.commentaireVeterinaire" style="background:#fff8e8;border-radius:10px;border:1px solid #f1e8c8;padding:12px 16px;margin-top:12px;font-size:0.83rem;color:#856404;font-style:italic;">
                             <i class="fa-solid fa-comment-dots" style="margin-right:6px;"></i>{{ qBetail.commentaireVeterinaire }}
@@ -594,21 +594,21 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 </div>
 
                 <!-- --------------------------------------------------
-                     RÉCOLTE
+                     Rï¿½COLTE
                 -------------------------------------------------- -->
                 <div *ngIf="qRecolte">
-                    <ng-container [ngTemplateOutlet]="qRecolteTpl" [ngTemplateOutletContext]="{q: qRecolte, titre: 'Récolte / Céréales', icon: 'fa-solid fa-wheat-awn'}"></ng-container>
+                    <ng-container [ngTemplateOutlet]="qRecolteTpl" [ngTemplateOutletContext]="{q: qRecolte, titre: 'Rï¿½colte / Cï¿½rï¿½ales', icon: 'fa-solid fa-wheat-awn'}"></ng-container>
                 </div>
 
                 <!-- --------------------------------------------------
                      HORTICULTURE
                 -------------------------------------------------- -->
                 <div *ngIf="qHorticulture">
-                    <ng-container [ngTemplateOutlet]="qRecolteTpl" [ngTemplateOutletContext]="{q: qHorticulture, titre: 'Horticulture / Maraîchage', icon: 'fa-solid fa-seedling'}"></ng-container>
+                    <ng-container [ngTemplateOutlet]="qRecolteTpl" [ngTemplateOutletContext]="{q: qHorticulture, titre: 'Horticulture / Maraï¿½chage', icon: 'fa-solid fa-seedling'}"></ng-container>
                 </div>
 
                 <!-- --------------------------------------------------
-                     ÉQUIPEMENT / MULTIRISQUES / STOCK (générique)
+                     ï¿½QUIPEMENT / MULTIRISQUES / STOCK (gï¿½nï¿½rique)
                 -------------------------------------------------- -->
                 <div *ngIf="qEquipement || qMultirisques || qStock">
                     <div style="background:linear-gradient(135deg,#538F6C,#3d7554);border-radius:12px;padding:14px 18px;margin-bottom:14px;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
@@ -618,10 +618,10 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             </div>
                             <div>
                                 <div style="font-weight:900;font-size:1rem;">{{ qTabLabel }}</div>
-                                <div style="opacity:0.75;font-size:0.76rem;margin-top:3px;"><i class="fa-solid fa-file-contract" style="margin-right:4px;"></i>Police N° {{ police?.numeroPolice }}</div>
+                                <div style="opacity:0.75;font-size:0.76rem;margin-top:3px;"><i class="fa-solid fa-file-contract" style="margin-right:4px;"></i>Police Nï¿½ {{ police?.numeroPolice }}</div>
                             </div>
                         </div>
-                        <span style="background:#F1B53B;color:#fff;font-size:0.72rem;font-weight:800;padding:7px 16px;border-radius:20px;display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-circle-check"></i> ENREGISTRÉ</span>
+                        <span style="background:#F1B53B;color:#fff;font-size:0.72rem;font-weight:800;padding:7px 16px;border-radius:20px;display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-circle-check"></i> ENREGISTRï¿½</span>
                     </div>
                     <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;padding:20px;">
                         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;">
@@ -640,12 +640,12 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                      style="text-align:center;padding:64px;color:#aaa;">
                     <i class="fa-solid fa-clipboard" style="font-size:2.5rem;margin-bottom:16px;display:block;opacity:0.4;"></i>
                     <h4 style="color:#3E4F22;font-weight:700;margin-bottom:8px;">Questionnaire non rempli</h4>
-                    <p style="font-size:0.9rem;margin:0;">Aucun questionnaire n'a été enregistré pour cette police.</p>
+                    <p style="font-size:0.9rem;margin:0;">Aucun questionnaire n'a ï¿½tï¿½ enregistrï¿½ pour cette police.</p>
                 </div>
 
                 </ng-container>
 
-                <!-- Template Récolte / Horticulture partagé -->
+                <!-- Template Rï¿½colte / Horticulture partagï¿½ -->
                 <ng-template #qRecolteTpl let-q="q" let-titre="titre" let-icon="icon">
                     <div style="background:linear-gradient(135deg,#538F6C,#3d7554);border-radius:12px;padding:14px 18px;margin-bottom:14px;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
                         <div style="display:flex;align-items:center;gap:14px;">
@@ -654,10 +654,10 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             </div>
                             <div>
                                 <div style="font-weight:900;font-size:1rem;">Questionnaire Assurance {{ titre }}</div>
-                                <div style="opacity:0.75;font-size:0.76rem;margin-top:3px;"><i class="fa-solid fa-file-contract" style="margin-right:4px;"></i>Police N° {{ police?.numeroPolice }}</div>
+                                <div style="opacity:0.75;font-size:0.76rem;margin-top:3px;"><i class="fa-solid fa-file-contract" style="margin-right:4px;"></i>Police Nï¿½ {{ police?.numeroPolice }}</div>
                             </div>
                         </div>
-                        <span style="background:#F1B53B;color:#fff;font-size:0.72rem;font-weight:800;padding:7px 16px;border-radius:20px;display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-circle-check"></i> ENREGISTRÉ</span>
+                        <span style="background:#F1B53B;color:#fff;font-size:0.72rem;font-weight:800;padding:7px 16px;border-radius:20px;display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-circle-check"></i> ENREGISTRï¿½</span>
                     </div>
                     <!-- Section 1 : Identification -->
                     <div style="margin-bottom:10px;">
@@ -669,8 +669,8 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                         <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;padding:18px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;">
                             <div *ngIf="q?.nomPrenomProfession"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Nom / Profession</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ q.nomPrenomProfession }}</div></div>
                             <div *ngIf="q?.adresseDomicile"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Adresse domicile</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ q.adresseDomicile }}</div></div>
-                            <div *ngIf="q?.qualite"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Qualité</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ q.qualite }}</div></div>
-                            <div *ngIf="q?.telephone"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Téléphone</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ q.telephone }}</div></div>
+                            <div *ngIf="q?.qualite"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">QualitÃ©</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ q.qualite }}</div></div>
+                            <div *ngIf="q?.telephone"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">TÃ©lÃ©phone</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ q.telephone }}</div></div>
                         </div>
                     </div>
                     <!-- Section 2 : Exploitation -->
@@ -684,19 +684,19 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
                                 <thead><tr style="background:#538F6C;color:#fff;">
                                     <th style="padding:11px 16px;font-weight:700;font-size:0.68rem;text-transform:uppercase;text-align:left;width:45%;">Question</th>
-                                    <th style="padding:11px 16px;font-weight:700;font-size:0.68rem;text-transform:uppercase;text-align:left;">Réponse</th>
+                                    <th style="padding:11px 16px;font-weight:700;font-size:0.68rem;text-transform:uppercase;text-align:left;">Rï¿½ponse</th>
                                 </tr></thead>
                                 <tbody>
                                     <tr *ngIf="q?.situationRisque" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Situation du risque</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.situationRisque }}</td></tr>
-                                    <tr *ngIf="q?.dureeMois" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Durée (mois)</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.dureeMois }}</td></tr>
-                                    <tr *ngIf="q?.dateDebut" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Date de début</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.dateDebut | date:'dd/MM/yyyy' }}</td></tr>
-                                    <tr *ngIf="q?.superficieCultivee" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Superficie cultivée (ha)</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.superficieCultivee }}</td></tr>
-                                    <tr *ngIf="q?.superficieAssuree" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Superficie assurée (ha)</td><td style="padding:11px 16px;color:#538F6C;font-weight:800;">{{ q.superficieAssuree }}</td></tr>
-                                    <tr *ngIf="q?.speculation" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Spéculation / Culture</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.speculation }}</td></tr>
+                                    <tr *ngIf="q?.dureeMois" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">DurÃ©e (mois)</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.dureeMois }}</td></tr>
+                                    <tr *ngIf="q?.dateDebut" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Date de dÃ©but</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.dateDebut | date:'dd/MM/yyyy' }}</td></tr>
+                                    <tr *ngIf="q?.superficieCultivee" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Superficie cultivï¿½e (ha)</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.superficieCultivee }}</td></tr>
+                                    <tr *ngIf="q?.superficieAssuree" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Superficie assurï¿½e (ha)</td><td style="padding:11px 16px;color:#538F6C;font-weight:800;">{{ q.superficieAssuree }}</td></tr>
+                                    <tr *ngIf="q?.speculation" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Spï¿½culation / Culture</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.speculation }}</td></tr>
                                     <tr *ngIf="q?.chargesProduction" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Charges de production</td><td style="padding:11px 16px;color:#538F6C;font-weight:800;">{{ q.chargesProduction | number:'1.0-0' }} FCFA</td></tr>
-                                    <tr *ngIf="q?.productionEscomptee" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Production escomptée</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.productionEscomptee }}</td></tr>
-                                    <tr *ngIf="q?.assurancePrecedente" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Assurance précédente</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.assurancePrecedente }}</td></tr>
-                                    <tr *ngIf="q?.sinistrePrecedent" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Sinistre précédent</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.sinistrePrecedent }}</td></tr>
+                                    <tr *ngIf="q?.productionEscomptee" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Production escomptï¿½e</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.productionEscomptee }}</td></tr>
+                                    <tr *ngIf="q?.assurancePrecedente" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Assurance prÃ©cÃ©dente</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.assurancePrecedente }}</td></tr>
+                                    <tr *ngIf="q?.sinistrePrecedent" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Sinistre prÃ©cÃ©dent</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.sinistrePrecedent }}</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -705,7 +705,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
             </div>
 
             <!-- TAB: PV / VISITES (dynamique par produit) -->
-            <!-- TAB: VISITES / PEV — PAGE UNIFIÉE SANS CARDS -->
+            <!-- TAB: VISITES / PEV ï¿½ PAGE UNIFIï¿½E SANS CARDS -->
             <div *ngIf="activeTab === 'pev'">
 
                 <!-- Spinner -->
@@ -720,23 +720,23 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 <div *ngIf="pevs.length === 0 && visitesAviculture.length === 0 && visitesHort.length === 0"
                      style="background:#fff;border-radius:18px;border:1px solid #e8f4ec;padding:72px 40px;text-align:center;">
                     <i class="fa-solid fa-clipboard-check" style="font-size:2.8rem;color:#d1e7dd;margin-bottom:10px;display:block;"></i>
-                    <h4 style="color:#3E4F22;font-weight:800;margin-bottom:8px;">Aucune visite enregistrée</h4>
-                    <p style="color:#aaa;font-size:0.87rem;margin:0;">Aucune visite d'inspection n'a été saisie pour cette police.</p>
+                    <h4 style="color:#3E4F22;font-weight:800;margin-bottom:8px;">Aucune visite enregistrï¿½e</h4>
+                    <p style="color:#aaa;font-size:0.87rem;margin:0;">Aucune visite d'inspection n'a ï¿½tï¿½ saisie pour cette police.</p>
                 </div>
 
-                <!-- -- PV DE MARQUAGE BÉTAIL -- -->
+                <!-- -- PV DE MARQUAGE Bï¿½TAIL -- -->
                 <div *ngIf="pevs.length > 0"
                      style="background:#fff;border-radius:18px;border:1px solid #e8f4ec;overflow:hidden;box-shadow:0 2px 16px rgba(85,107,47,0.06);margin-bottom:20px;">
 
-                    <!-- En-tête page -->
+                    <!-- En-tï¿½te page -->
                     <div style="background:linear-gradient(135deg,#538F6C,#3d7554);padding:22px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
                         <div style="display:flex;align-items:center;gap:14px;">
                             <div style="width:42px;height:42px;background:rgba(255,255,255,0.15);border-radius:12px;border:1.5px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                                 <i class="fa-solid fa-stamp" style="color:#fff;font-size:1.1rem;"></i>
                             </div>
                             <div>
-                                <div style="color:#fff;font-weight:900;font-size:0.95rem;">Procès-verbaux de marquage</div>
-                                <div style="color:rgba(255,255,255,0.65);font-size:0.73rem;margin-top:3px;">Inspection vétérinaire — Bétail</div>
+                                <div style="color:#fff;font-weight:900;font-size:0.95rem;">Procï¿½s-verbaux de marquage</div>
+                                <div style="color:rgba(255,255,255,0.65);font-size:0.73rem;margin-top:3px;">Inspection vÃ©tÃ©rinaire ï¿½ BÃ©tail</div>
                             </div>
                         </div>
                         <span style="background:rgba(255,255,255,0.18);color:#fff;font-size:0.72rem;font-weight:800;padding:4px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.25);">
@@ -753,14 +753,14 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             <div style="display:flex;align-items:center;gap:12px;">
                                 <div style="width:32px;height:32px;background:#538F6C;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.8rem;flex-shrink:0;">{{ i+1 }}</div>
                                 <div>
-                                    <div style="font-weight:900;color:#3E4F22;font-size:0.88rem;">PV N° {{ pv.numeroPv }}</div>
+                                    <div style="font-weight:900;color:#3E4F22;font-size:0.88rem;">PV Nï¿½ {{ pv.numeroPv }}</div>
                                     <div style="color:#888;font-size:0.72rem;margin-top:1px;display:flex;align-items:center;gap:4px;">
                                         <i class="fa-solid fa-calendar" style="font-size:0.62rem;"></i> {{ pv.dateInspection | date:'dd MMMM yyyy' }}
                                     </div>
                                 </div>
                             </div>
                             <span style="background:#e8f4ec;color:#538F6C;font-size:0.7rem;font-weight:700;padding:3px 12px;border-radius:20px;display:flex;align-items:center;gap:5px;">
-                                <i class="fa-solid fa-stethoscope"></i> Inspection vétérinaire
+                                <i class="fa-solid fa-stethoscope"></i> Inspection vÃ©tÃ©rinaire
                             </span>
                         </div>
 
@@ -768,7 +768,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                         <div style="padding:20px 28px;">
                             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:x 28px;gap-y:16px;gap:16px 28px;">
                                 <div *ngIf="pv.nomVeterinaire">
-                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Vétérinaire</div>
+                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Vï¿½tï¿½rinaire</div>
                                     <div style="color:#3E4F22;font-weight:800;font-size:0.86rem;">{{ pv.nomVeterinaire }}</div>
                                 </div>
                                 <div *ngIf="pv.lieuExploitation">
@@ -776,11 +776,11 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                     <div style="color:#3E4F22;font-weight:700;font-size:0.86rem;">{{ pv.lieuExploitation }}</div>
                                 </div>
                                 <div *ngIf="pv.modeElevage">
-                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Mode d'élevage</div>
+                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Mode d'ï¿½levage</div>
                                     <div style="color:#3E4F22;font-weight:700;font-size:0.86rem;">{{ pv.modeElevage }}</div>
                                 </div>
                                 <div *ngIf="pv.hygiene">
-                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Hygiène</div>
+                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Hygiï¿½ne</div>
                                     <div style="color:#3E4F22;font-weight:700;font-size:0.86rem;">{{ pv.hygiene }}</div>
                                 </div>
                                 <div *ngIf="pv.vaccins">
@@ -796,21 +796,21 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                 <div style="color:#666;font-size:0.83rem;line-height:1.6;">{{ pv.observation }}</div>
                             </div>
 
-                            <!-- Tableau animaux inspectés -->
+                            <!-- Tableau animaux inspectï¿½s -->
                             <div *ngIf="pv.animaux && pv.animaux.length > 0" style="margin-top:20px;">
                                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
                                     <div style="width:4px;height:16px;background:#538F6C;border-radius:2px;"></div>
                                     <span style="font-weight:800;color:#3E4F22;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.6px;">
-                                        Animaux inspectés — {{ pv.animaux.length }}
+                                        Animaux inspectï¿½s ï¿½ {{ pv.animaux.length }}
                                     </span>
                                 </div>
                                 <div style="overflow-x:auto;">
                                     <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
                                         <thead>
                                             <tr style="background:#f8fdf9;border-bottom:2px solid #e8f4ec;">
-                                                <th style="padding:10px 14px;color:#538F6C;font-weight:800;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;">Espèce</th>
+                                                <th style="padding:10px 14px;color:#538F6C;font-weight:800;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;">Espï¿½ce</th>
                                                 <th style="padding:10px 14px;color:#538F6C;font-weight:800;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;">Race</th>
-                                                <th style="padding:10px 14px;color:#538F6C;font-weight:800;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;">N° Boucle</th>
+                                                <th style="padding:10px 14px;color:#538F6C;font-weight:800;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;">Nï¿½ Boucle</th>
                                                 <th style="padding:10px 14px;color:#538F6C;font-weight:800;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;">Sexe</th>
                                                 <th style="padding:10px 14px;color:#538F6C;font-weight:800;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;text-align:left;">ge</th>
                                                 <th style="padding:10px 14px;color:#538F6C;font-weight:800;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;text-align:right;">Poids (kg)</th>
@@ -821,13 +821,13 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                             <tr *ngFor="let a of pv.animaux; let even = even"
                                                 [style.background]="even ? '#fafffe' : '#fff'"
                                                 style="border-bottom:1px solid #eef5f1;">
-                                                <td style="padding:10px 14px;font-weight:800;color:#3E4F22;">{{ a.espece || '—' }}</td>
-                                                <td style="padding:10px 14px;color:#555;">{{ a.race || '—' }}</td>
-                                                <td style="padding:10px 14px;font-family:monospace;color:#538F6C;font-weight:700;">{{ a.numeroBoucle || '—' }}</td>
-                                                <td style="padding:10px 14px;color:#555;">{{ a.sexe || '—' }}</td>
-                                                <td style="padding:10px 14px;color:#555;">{{ a.age || '—' }}</td>
-                                                <td style="padding:10px 14px;text-align:right;color:#3E4F22;font-weight:700;">{{ a.poidsVif ?? '—' }}</td>
-                                                <td style="padding:10px 14px;text-align:right;color:#538F6C;font-weight:800;white-space:nowrap;">{{ a.valeurUnitaire ? (a.valeurUnitaire | number:'1.0-0') + ' F' : '—' }}</td>
+                                                <td style="padding:10px 14px;font-weight:800;color:#3E4F22;">{{ a.espece || 'ï¿½' }}</td>
+                                                <td style="padding:10px 14px;color:#555;">{{ a.race || 'ï¿½' }}</td>
+                                                <td style="padding:10px 14px;font-family:monospace;color:#538F6C;font-weight:700;">{{ a.numeroBoucle || 'ï¿½' }}</td>
+                                                <td style="padding:10px 14px;color:#555;">{{ a.sexe || 'ï¿½' }}</td>
+                                                <td style="padding:10px 14px;color:#555;">{{ a.age || 'ï¿½' }}</td>
+                                                <td style="padding:10px 14px;text-align:right;color:#3E4F22;font-weight:700;">{{ a.poidsVif ?? 'ï¿½' }}</td>
+                                                <td style="padding:10px 14px;text-align:right;color:#538F6C;font-weight:800;white-space:nowrap;">{{ a.valeurUnitaire ? (a.valeurUnitaire | number:'1.0-0') + ' F' : 'ï¿½' }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -841,7 +841,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 <div *ngIf="visitesAviculture.length > 0"
                      style="background:#fff;border-radius:18px;border:1px solid #e8f4ec;overflow:hidden;box-shadow:0 2px 16px rgba(85,107,47,0.06);margin-bottom:20px;">
 
-                    <!-- En-tête page -->
+                    <!-- En-tï¿½te page -->
                     <div style="background:linear-gradient(135deg,#538F6C,#3d7554);padding:22px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
                         <div style="display:flex;align-items:center;gap:14px;">
                             <div style="width:42px;height:42px;background:rgba(255,255,255,0.15);border-radius:12px;border:1.5px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -849,7 +849,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             </div>
                             <div>
                                 <div style="color:#fff;font-weight:900;font-size:0.95rem;">Visites techniques aviculture</div>
-                                <div style="color:rgba(255,255,255,0.65);font-size:0.73rem;margin-top:3px;">Inspection des bâtiments et du cheptel</div>
+                                <div style="color:rgba(255,255,255,0.65);font-size:0.73rem;margin-top:3px;">Inspection des bÃ¢timents et du cheptel</div>
                             </div>
                         </div>
                         <span style="background:rgba(255,255,255,0.18);color:#fff;font-size:0.72rem;font-weight:800;padding:4px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.25);">
@@ -884,7 +884,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             <!-- Identification -->
                             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px 28px;margin-bottom:20px;">
                                 <div *ngIf="v.nomVeterinaire">
-                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Vétérinaire / Expert</div>
+                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Vï¿½tï¿½rinaire / Expert</div>
                                     <div style="color:#3E4F22;font-weight:800;font-size:0.86rem;">{{ v.nomVeterinaire }}</div>
                                 </div>
                                 <div *ngIf="v.souscripteur">
@@ -896,29 +896,29 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                     <div style="color:#3E4F22;font-weight:700;font-size:0.86rem;">{{ v.situationRisque }}</div>
                                 </div>
                                 <div *ngIf="v.tauxMortalite != null">
-                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Taux de mortalité</div>
+                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Taux de mortalitï¿½</div>
                                     <div style="color:#e74c3c;font-weight:800;font-size:0.9rem;">{{ v.tauxMortalite }} %</div>
                                 </div>
                                 <div *ngIf="v.dureeVideSanitaire != null">
-                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Durée vide sanitaire</div>
+                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">DurÃ©e vide sanitaire</div>
                                     <div style="color:#3E4F22;font-weight:700;font-size:0.86rem;">{{ v.dureeVideSanitaire }} jour(s)</div>
                                 </div>
                                 <div *ngIf="v.produitsDesinfection">
-                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Produits désinfection</div>
+                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Produits dï¿½sinfection</div>
                                     <div style="color:#3E4F22;font-weight:700;font-size:0.86rem;">{{ v.produitsDesinfection }}</div>
                                 </div>
                                 <div *ngIf="v.avisGeneral">
-                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Avis général</div>
+                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Avis gï¿½nï¿½ral</div>
                                     <div style="color:#538F6C;font-weight:800;font-size:0.86rem;">{{ v.avisGeneral }}</div>
                                 </div>
                             </div>
 
-                            <!-- Indicateurs booléens -->
+                            <!-- Indicateurs boolï¿½ens -->
                             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:16px;">
                                 <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#f8fdf9;border-radius:10px;border:1px solid #e8f4ec;">
                                     <i [class]="v.existenceFicheElevage ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-xmark'"
                                        [style.color]="v.existenceFicheElevage ? '#538F6C' : '#e74c3c'" style="font-size:1rem;flex-shrink:0;"></i>
-                                    <span style="color:#3E4F22;font-size:0.78rem;font-weight:700;">Fiche d'élevage</span>
+                                    <span style="color:#3E4F22;font-size:0.78rem;font-weight:700;">Fiche d'ï¿½levage</span>
                                 </div>
                                 <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#f8fdf9;border-radius:10px;border:1px solid #e8f4ec;">
                                     <i [class]="v.existencePlanAlimentation ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-xmark'"
@@ -961,7 +961,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 <div *ngIf="visitesHort.length > 0"
                      style="background:#fff;border-radius:18px;border:1px solid #e8f4ec;overflow:hidden;box-shadow:0 2px 16px rgba(85,107,47,0.06);">
 
-                    <!-- En-tête page -->
+                    <!-- En-tï¿½te page -->
                     <div style="background:linear-gradient(135deg,#538F6C,#3d7554);padding:22px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
                         <div style="display:flex;align-items:center;gap:14px;">
                             <div style="width:42px;height:42px;background:rgba(255,255,255,0.15);border-radius:12px;border:1.5px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -969,7 +969,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             </div>
                             <div>
                                 <div style="color:#fff;font-weight:900;font-size:0.95rem;">Visites de risque horticulture</div>
-                                <div style="color:rgba(255,255,255,0.65);font-size:0.73rem;margin-top:3px;">Inspection des parcelles et systèmes d'irrigation</div>
+                                <div style="color:rgba(255,255,255,0.65);font-size:0.73rem;margin-top:3px;">Inspection des parcelles et systï¿½mes d'irrigation</div>
                             </div>
                         </div>
                         <span style="background:rgba(255,255,255,0.18);color:#fff;font-size:0.72rem;font-weight:800;padding:4px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.25);">
@@ -1021,12 +1021,12 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                     <div style="color:#3E4F22;font-weight:700;font-size:0.86rem;">{{ v.typeIrrigation }}</div>
                                 </div>
                                 <div *ngIf="v.avisGeneral">
-                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Avis général</div>
+                                    <div style="color:#aaa;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;">Avis gï¿½nï¿½ral</div>
                                     <div style="color:#538F6C;font-weight:800;font-size:0.86rem;">{{ v.avisGeneral }}</div>
                                 </div>
                             </div>
 
-                            <!-- Indicateurs booléens -->
+                            <!-- Indicateurs boolï¿½ens -->
                             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:16px;">
                                 <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#f8fdf9;border-radius:10px;border:1px solid #e8f4ec;">
                                     <i [class]="v.systemeIrrigationFonctionnel ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-xmark'"
@@ -1036,12 +1036,12 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                 <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#f8fdf9;border-radius:10px;border:1px solid #e8f4ec;">
                                     <i [class]="v.existenceCloture ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-xmark'"
                                        [style.color]="v.existenceCloture ? '#538F6C' : '#e74c3c'" style="font-size:1rem;flex-shrink:0;"></i>
-                                    <span style="color:#3E4F22;font-size:0.78rem;font-weight:700;">Clôture existante</span>
+                                    <span style="color:#3E4F22;font-size:0.78rem;font-weight:700;">Clï¿½ture existante</span>
                                 </div>
                                 <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#f8fdf9;border-radius:10px;border:1px solid #e8f4ec;">
                                     <i [class]="v.existenceAbri ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-xmark'"
                                        [style.color]="v.existenceAbri ? '#538F6C' : '#e74c3c'" style="font-size:1rem;flex-shrink:0;"></i>
-                                    <span style="color:#3E4F22;font-size:0.78rem;font-weight:700;">Abri présent</span>
+                                    <span style="color:#3E4F22;font-size:0.78rem;font-weight:700;">Abri prï¿½sent</span>
                                 </div>
                             </div>
 
@@ -1068,7 +1068,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                     <div *ngIf="avenants.length === 0" style="text-align:center;padding:64px;color:#aaa;">
                         <i class="fa-solid fa-file-pen" style="font-size:2.5rem;margin-bottom:16px;display:block;opacity:0.4;"></i>
                         <h4 style="color:#3E4F22;font-weight:700;margin-bottom:8px;">Aucun avenant</h4>
-                        <p style="font-size:0.9rem;margin:0;">Aucun avenant n'a été enregistré pour cette police.</p>
+                        <p style="font-size:0.9rem;margin:0;">Aucun avenant n'a ï¿½tï¿½ enregistrï¿½ pour cette police.</p>
                     </div>
                     <div *ngIf="avenants.length > 0" style="display:flex;flex-direction:column;gap:14px;">
                         <div *ngFor="let a of avenants; let i = index"
@@ -1077,7 +1077,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                 <div style="display:flex;align-items:center;gap:10px;">
                                     <div style="width:34px;height:34px;background:#538F6C;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.8rem;font-weight:800;flex-shrink:0;">{{ i+1 }}</div>
                                     <div>
-                                        <div style="font-weight:800;color:#3E4F22;font-size:0.9rem;">Avenant N° {{ a.numeroAvenant || ('AV-' + a.id) }}</div>
+                                        <div style="font-weight:800;color:#3E4F22;font-size:0.9rem;">Avenant Nï¿½ {{ a.numeroAvenant || ('AV-' + a.id) }}</div>
                                         <div style="color:#888;font-size:0.75rem;margin-top:2px;">{{ a.dateEmission | date:'dd/MM/yyyy' }}</div>
                                     </div>
                                 </div>
@@ -1089,7 +1089,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             </div>
                             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
                                 <div *ngIf="a.dateEffet" class="q-item"><span class="q-label">Date d'effet</span><span class="q-value">{{ a.dateEffet | date:'dd/MM/yyyy' }}</span></div>
-                                <div *ngIf="a.dateEcheance" class="q-item"><span class="q-label">Date échéance</span><span class="q-value">{{ a.dateEcheance | date:'dd/MM/yyyy' }}</span></div>
+                                <div *ngIf="a.dateEcheance" class="q-item"><span class="q-label">Date Ã©chÃ©ance</span><span class="q-value">{{ a.dateEcheance | date:'dd/MM/yyyy' }}</span></div>
                                 <div *ngIf="a.typeAvenant" class="q-item"><span class="q-label">Type</span><span class="q-value">{{ a.typeAvenant?.libelle || a.typeAvenant }}</span></div>
                                 <div *ngIf="a.motif" class="q-item"><span class="q-label">Motif</span><span class="q-value">{{ a.motif }}</span></div>
                                 <div *ngIf="a.montantPrime != null" class="q-item"><span class="q-label">Prime avenant</span><span class="q-value" style="color:#538F6C;">{{ a.montantPrime | number:'1.0-0' }} FCFA</span></div>
@@ -1097,11 +1097,11 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             <div *ngIf="a.observations" style="margin-top:12px;background:#f8fdf9;border-radius:8px;border:1px solid #e8f4ec;padding:10px 14px;font-size:0.82rem;color:#555;font-style:italic;">
                                 <i class="fa-solid fa-circle-info" style="margin-right:5px;color:#538F6C;"></i>{{ a.observations }}
                             </div>
-                            <!-- Bouton télécharger l'avenant -->
+                            <!-- Bouton tÃ©lÃ©charger l'avenant -->
                             <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
                                 <a [href]="documentUrl('avenant', a.id, 'pdf')" target="_blank"
                                    style="display:inline-flex;align-items:center;gap:6px;background:#538F6C;color:#fff;font-size:0.75rem;font-weight:700;padding:7px 14px;border-radius:8px;text-decoration:none;">
-                                    <i class="fa-solid fa-file-pdf"></i> Télécharger PDF
+                                    <i class="fa-solid fa-file-pdf"></i> TÃ©lÃ©charger PDF
                                 </a>
                             </div>
                         </div>
@@ -1111,11 +1111,11 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
 
             <!-- TAB: MEMBRES -->
             <div *ngIf="activeTab === 'membres'">
-                <!-- Résumé -->
+                <!-- RÃ©sumÃ© -->
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
                     <div>
-                        <h4 style="margin:0 0 4px;font-size:0.95rem;font-weight:800;color:#3E4F22;">Membres adhérents à la police</h4>
-                        <p style="margin:0;font-size:0.8rem;color:#888;">Liste des membres enregistrés pour cette police collective</p>
+                        <h4 style="margin:0 0 4px;font-size:0.95rem;font-weight:800;color:#3E4F22;">Membres adhï¿½rents ï¿½ la police</h4>
+                        <p style="margin:0;font-size:0.8rem;color:#888;">Liste des membres enregistrÃ¨s pour cette police collective</p>
                     </div>
                     <span style="background:#538F6C;color:#fff;font-size:0.75rem;font-weight:800;padding:5px 14px;border-radius:20px;white-space:nowrap;">
                         <i class="fa-solid fa-users" style="margin-right:6px;"></i>{{ membres().length }} membre(s)
@@ -1127,15 +1127,15 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                     <table style="width:100%;border-collapse:collapse;font-size:0.83rem;">
                         <thead>
                             <tr style="background:#538F6C;">
-                                <th style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">N°</th>
+                                <th style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">Nï¿½</th>
                                 <th style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">Nom du membre</th>
-                                <th *ngIf="isBetail" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">Catégorie</th>
+                                <th *ngIf="isBetail" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">CatÃ©gorie</th>
                                 <th *ngIf="isBetail" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Nb animaux</th>
                                 <th *ngIf="isBetail" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Valeur totale</th>
                                 <th *ngIf="isBetail" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Prime</th>
-                                <th *ngIf="isAviculture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">N° Bâtiment</th>
+                                <th *ngIf="isAviculture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">Nï¿½ BÃ¢timent</th>
                                 <th *ngIf="isAviculture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Nb animaux</th>
-                                <th *ngIf="isAviculture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Val. assurée</th>
+                                <th *ngIf="isAviculture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Val. assurï¿½e</th>
                                 <th *ngIf="isAviculture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Prime</th>
                                 <th *ngIf="isRecolte || isHorticulture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Superficie (ha)</th>
                                 <th *ngIf="isRecolte || isHorticulture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Prime</th>
@@ -1146,20 +1146,20 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                 [style.background]="i % 2 === 0 ? '#fffdf0' : '#f3faf6'">
                                 <td style="padding:11px 14px;color:#538F6C;font-weight:800;border-bottom:1px solid #eef5f0;">{{ i + 1 }}</td>
                                 <td style="padding:11px 14px;border-bottom:1px solid #eef5f0;">
-                                    <div style="font-weight:700;color:#3E4F22;">{{ m.nomMembre || m.nom || '—' }}</div>
+                                    <div style="font-weight:700;color:#3E4F22;">{{ m.nomMembre || m.nom || 'ï¿½' }}</div>
                                     <div *ngIf="m.prenom" style="color:#888;font-size:0.72rem;">{{ m.prenom }}</div>
                                     <div *ngIf="m.numeroCni" style="color:#aaa;font-size:0.7rem;font-family:monospace;">CNI : {{ m.numeroCni }}</div>
                                 </td>
-                                <td *ngIf="isBetail" style="padding:11px 14px;border-bottom:1px solid #eef5f0;">{{ m.categorieLibelle || '—' }}</td>
-                                <td *ngIf="isBetail" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;">{{ m.nombre ?? '—' }}</td>
-                                <td *ngIf="isBetail" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;white-space:nowrap;">{{ m.valeurTotale ? (m.valeurTotale | number:'1.0-0') + ' F' : '—' }}</td>
-                                <td *ngIf="isBetail" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;color:#538F6C;font-weight:700;white-space:nowrap;">{{ m.prime ? (m.prime | number:'1.0-0') + ' F' : '—' }}</td>
-                                <td *ngIf="isAviculture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;font-family:monospace;font-size:0.8rem;">{{ m.numeroBatiment || '—' }}</td>
-                                <td *ngIf="isAviculture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;">{{ m.nombreAnimaux ?? '—' }}</td>
-                                <td *ngIf="isAviculture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;white-space:nowrap;">{{ m.valeurAssuree ? (m.valeurAssuree | number:'1.0-0') + ' F' : '—' }}</td>
-                                <td *ngIf="isAviculture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;color:#538F6C;font-weight:700;white-space:nowrap;">{{ m.prime ? (m.prime | number:'1.0-0') + ' F' : '—' }}</td>
-                                <td *ngIf="isRecolte || isHorticulture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;">{{ m.superficie ?? '—' }}</td>
-                                <td *ngIf="isRecolte || isHorticulture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;color:#538F6C;font-weight:700;white-space:nowrap;">{{ m.prime ? (m.prime | number:'1.0-0') + ' F' : '—' }}</td>
+                                <td *ngIf="isBetail" style="padding:11px 14px;border-bottom:1px solid #eef5f0;">{{ m.categorieLibelle || 'ï¿½' }}</td>
+                                <td *ngIf="isBetail" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;">{{ m.nombre ?? 'ï¿½' }}</td>
+                                <td *ngIf="isBetail" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;white-space:nowrap;">{{ m.valeurTotale ? (m.valeurTotale | number:'1.0-0') + ' F' : 'ï¿½' }}</td>
+                                <td *ngIf="isBetail" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;color:#538F6C;font-weight:700;white-space:nowrap;">{{ m.prime ? (m.prime | number:'1.0-0') + ' F' : 'ï¿½' }}</td>
+                                <td *ngIf="isAviculture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;font-family:monospace;font-size:0.8rem;">{{ m.numeroBatiment || 'ï¿½' }}</td>
+                                <td *ngIf="isAviculture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;">{{ m.nombreAnimaux ?? 'ï¿½' }}</td>
+                                <td *ngIf="isAviculture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;white-space:nowrap;">{{ m.valeurAssuree ? (m.valeurAssuree | number:'1.0-0') + ' F' : 'ï¿½' }}</td>
+                                <td *ngIf="isAviculture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;color:#538F6C;font-weight:700;white-space:nowrap;">{{ m.prime ? (m.prime | number:'1.0-0') + ' F' : 'ï¿½' }}</td>
+                                <td *ngIf="isRecolte || isHorticulture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;">{{ m.superficie ?? 'ï¿½' }}</td>
+                                <td *ngIf="isRecolte || isHorticulture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;color:#538F6C;font-weight:700;white-space:nowrap;">{{ m.prime ? (m.prime | number:'1.0-0') + ' F' : 'ï¿½' }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1169,7 +1169,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 <div *ngIf="membres().length === 0"
                      style="text-align:center;padding:48px 20px;background:#f8fdf9;border-radius:14px;border:1.5px dashed #d1e7dd;">
                     <i class="fa-solid fa-users" style="font-size:2rem;color:#cde0d6;display:block;margin-bottom:12px;"></i>
-                    <p style="color:#aaa;font-size:0.84rem;margin:0;">Aucun membre adhérent enregistré pour cette police.</p>
+                    <p style="color:#aaa;font-size:0.84rem;margin:0;">Aucun membre adhï¿½rent enregistrï¿½ pour cette police.</p>
                 </div>
             </div>
 
@@ -1182,23 +1182,23 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 </div>
                 <ng-container *ngIf="!docLoading">
 
-                <!-- -- Section 1 : Documents générés par la police (DocumentController) -- -->
+                <!-- -- Section 1 : Documents gï¿½nï¿½rï¿½s par la police (DocumentController) -- -->
                 <div style="margin-bottom:14px;">
                     <div style="display:flex;align-items:center;gap:9px;margin-bottom:14px;">
                         <i class="fa-solid fa-file-contract" style="color:#538F6C;"></i>
                         <span style="font-weight:800;color:#3E4F22;font-size:0.88rem;text-transform:uppercase;letter-spacing:0.5px;">Documents contractuels</span>
-                        <span style="background:#e8f4ec;color:#538F6C;font-size:0.7rem;font-weight:700;padding:2px 10px;border-radius:20px;">Police N° {{ police?.numeroPolice }}</span>
+                        <span style="background:#e8f4ec;color:#538F6C;font-size:0.7rem;font-weight:700;padding:2px 10px;border-radius:20px;">Police Nï¿½ {{ police?.numeroPolice }}</span>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:10px;">
 
-                        <!-- Conditions particulières (police principale) -->
+                        <!-- Conditions particuliï¿½res (police principale) -->
                         <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 1px 6px rgba(85,107,47,0.04);">
                             <div style="display:flex;align-items:center;gap:12px;">
                                 <div style="width:40px;height:40px;background:#ffe4e4;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                                     <i class="fa-solid fa-file-pdf" style="color:#e74c3c;font-size:1.05rem;"></i>
                                 </div>
                                 <div>
-                                    <div style="font-weight:800;color:#3E4F22;font-size:0.85rem;">Conditions particulières</div>
+                                    <div style="font-weight:800;color:#3E4F22;font-size:0.85rem;">Conditions particuliï¿½res</div>
                                     <div style="color:#888;font-size:0.71rem;margin-top:2px;">
                                         <span style="font-family:monospace;background:#f8f8f8;padding:1px 7px;border-radius:8px;">{{ policeDocType() }}</span>
                                     </div>
@@ -1213,14 +1213,14 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                    style="display:inline-flex;align-items:center;gap:5px;background:#2b5eb0;color:#fff;font-size:0.72rem;font-weight:700;padding:7px 12px;border-radius:8px;border:none;cursor:pointer;">
                                     <i class="fa-solid fa-file-word"></i> Word
                                 </button>
-                                <button (click)="openDoc(documentUrl(policeDocType(), police!.id, 'pdf'), 'Conditions particulières')"
+                                <button (click)="openDoc(documentUrl(policeDocType(), police!.id, 'pdf'), 'Conditions particuliï¿½res')"
                                    style="display:inline-flex;align-items:center;gap:5px;background:#27ae60;color:#fff;font-size:0.72rem;font-weight:700;padding:7px 12px;border-radius:8px;border:none;cursor:pointer;">
                                     <i class="fa-solid fa-eye"></i> Consulter
                                 </button>
                             </div>
                         </div>
 
-                        <!-- Documents additionnels (questionnaire, attestation, annexe…) -->
+                        <!-- Documents additionnels (questionnaire, attestation, annexeï¿½) -->
                         <div *ngFor="let d of extraDocTypes()"
                              style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 1px 6px rgba(85,107,47,0.04);">
                             <div style="display:flex;align-items:center;gap:12px;">
@@ -1249,11 +1249,11 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                     </div>
                 </div>
 
-                <!-- -- Section 2 : Documents de référence (DocumentModuleController, filtrés par category) -- -->
+                <!-- -- Section 2 : Documents de rï¿½fï¿½rence (DocumentModuleController, filtrÃ¨s par category) -- -->
                 <div>
                     <div style="display:flex;align-items:center;gap:9px;margin-bottom:14px;">
                         <i class="fa-solid fa-folder-open" style="color:#538F6C;"></i>
-                        <span style="font-weight:800;color:#3E4F22;font-size:0.88rem;text-transform:uppercase;letter-spacing:0.5px;">Documents de référence du produit</span>
+                        <span style="font-weight:800;color:#3E4F22;font-size:0.88rem;text-transform:uppercase;letter-spacing:0.5px;">Documents de rï¿½fï¿½rence du produit</span>
                         <span style="background:#e8f4ec;color:#538F6C;font-size:0.7rem;font-weight:700;padding:2px 10px;border-radius:20px;">{{ documents.length }}</span>
                     </div>
 
@@ -1275,7 +1275,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                         <span *ngIf="doc.filename" style="font-family:monospace;font-size:0.67rem;">{{ doc.filename }}</span>
                                         <span *ngIf="doc.marquerParDefault"
                                               style="background:#fff3cd;color:#856404;font-size:0.67rem;font-weight:700;padding:1px 8px;border-radius:10px;">
-                                            Par défaut
+                                            Par dï¿½faut
                                         </span>
                                     </div>
                                 </div>
@@ -1287,11 +1287,11 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                         </div>
                     </div>
 
-                    <!-- Aucun document de référence -->
+                    <!-- Aucun document de rï¿½fï¿½rence -->
                     <div *ngIf="documents.length === 0"
                          style="background:#f8fdf9;border-radius:14px;border:1px dashed #d1e7dd;padding:32px;text-align:center;color:#aaa;font-size:0.84rem;">
                         <i class="fa-solid fa-folder-open" style="font-size:1.6rem;margin-bottom:10px;display:block;opacity:0.35;color:#538F6C;"></i>
-                        Aucun document de référence pour ce produit.
+                        Aucun document de rï¿½fï¿½rence pour ce produit.
                     </div>
                 </div>
 
@@ -1306,11 +1306,11 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 </div>
 
                 <div *ngIf="!paiementsLoading">
-                    <!-- Résumé -->
+                    <!-- RÃ©sumÃ© -->
                     <div *ngIf="paiements.length > 0"
                          style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px;">
                         <div style="background:linear-gradient(135deg,#538F6C,#27ae60);border-radius:14px;padding:18px;text-align:center;color:#fff;">
-                            <div style="font-size:0.72rem;font-weight:600;text-transform:uppercase;opacity:0.85;margin-bottom:6px;">Total versé</div>
+                            <div style="font-size:0.72rem;font-weight:600;text-transform:uppercase;opacity:0.85;margin-bottom:6px;">Total versï¿½</div>
                             <div style="font-size:1.2rem;font-weight:900;">{{ totalVerse() | number:'1.0-0' }} FCFA</div>
                         </div>
                         <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;padding:18px;text-align:center;">
@@ -1318,7 +1318,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             <div style="color:#3E4F22;font-size:1.2rem;font-weight:900;">{{ paiements.length }}</div>
                         </div>
                         <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;padding:18px;text-align:center;">
-                            <div style="color:#888;font-size:0.72rem;font-weight:600;text-transform:uppercase;margin-bottom:6px;">Encaissés</div>
+                            <div style="color:#888;font-size:0.72rem;font-weight:600;text-transform:uppercase;margin-bottom:6px;">Encaissï¿½s</div>
                             <div style="color:#27ae60;font-size:1.2rem;font-weight:900;">{{ nbEncaisses() }}</div>
                         </div>
                     </div>
@@ -1330,12 +1330,12 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             <table style="width:100%;border-collapse:collapse;font-size:0.84rem;">
                                 <thead>
                                     <tr style="background:#f8fdf9;">
-                                        <th style="padding:11px 16px;color:#538F6C;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid #e8f4ec;">N° Facture</th>
+                                        <th style="padding:11px 16px;color:#538F6C;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid #e8f4ec;">Nï¿½ Facture</th>
                                         <th style="padding:11px 16px;color:#538F6C;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid #e8f4ec;">Date</th>
                                         <th style="padding:11px 16px;color:#538F6C;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid #e8f4ec;">Montant</th>
                                         <th style="padding:11px 16px;color:#538F6C;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid #e8f4ec;">Mode</th>
                                         <th style="padding:11px 16px;color:#538F6C;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid #e8f4ec;">Statut</th>
-                                        <th style="padding:11px 16px;color:#538F6C;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid #e8f4ec;">Encaissé</th>
+                                        <th style="padding:11px 16px;color:#538F6C;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid #e8f4ec;">Encaissï¿½</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1343,7 +1343,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                         [style.background]="even ? '#fafffe' : '#fff'"
                                         style="border-bottom:1px solid #eef5f1;">
                                         <td style="padding:12px 16px;font-family:monospace;font-weight:700;color:#3E4F22;font-size:0.82rem;">
-                                            {{ p.numeroFacture || '—' }}
+                                            {{ p.numeroFacture || 'ï¿½' }}
                                         </td>
                                         <td style="padding:12px 16px;color:#555;white-space:nowrap;">
                                             {{ p.dateEmission | date:'dd/MM/yyyy' }}
@@ -1378,8 +1378,8 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                     <div *ngIf="paiements.length === 0"
                          style="text-align:center;padding:64px;color:#aaa;">
                         <i class="fa-solid fa-receipt" style="font-size:2.5rem;margin-bottom:16px;display:block;opacity:0.4;"></i>
-                        <h4 style="color:#3E4F22;font-weight:700;margin-bottom:8px;">Aucun paiement enregistré</h4>
-                        <p style="font-size:0.9rem;margin:0;">Aucun paiement n'a été effectué pour cette police.</p>
+                        <h4 style="color:#3E4F22;font-weight:700;margin-bottom:8px;">Aucun paiement enregistrï¿½</h4>
+                        <p style="font-size:0.9rem;margin:0;">Aucun paiement n'a ï¿½tï¿½ effectuï¿½ pour cette police.</p>
                     </div>
                 </div>
             </div>
@@ -1394,7 +1394,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
       <!-- Overlay -->
       <div style="position:absolute;inset:0;background:rgba(0,0,0,0.72);backdrop-filter:blur(4px);"></div>
 
-      <!-- Fenêtre -->
+      <!-- Fenï¿½tre -->
       <div style="position:relative;z-index:1;width:100%;max-width:960px;height:90vh;
                   background:#1a1a2e;border-radius:16px;overflow:hidden;
                   display:flex;flex-direction:column;
@@ -1412,7 +1412,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
             <div style="font-size:13px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
               {{ pdfModal.title }}
             </div>
-            <div style="font-size:11px;color:rgba(255,255,255,0.45);">Document confidentiel · Sénégal Excursions</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);">Document confidentiel ï¿½ SÃ©nÃ©gal Excursions</div>
           </div>
           <button (click)="closeDoc()"
                   style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.1);
@@ -1433,7 +1433,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                       justify-content:center;gap:14px;background:#1a1a2e;">
             <div style="width:44px;height:44px;border:3px solid rgba(241,181,59,0.2);
                         border-top-color:#F1B53B;border-radius:50%;animation:spin 0.9s linear infinite;"></div>
-            <span style="color:rgba(255,255,255,0.55);font-size:13px;">Chargement du document…</span>
+            <span style="color:rgba(255,255,255,0.55);font-size:13px;">Chargement du documentï¿½</span>
           </div>
 
           <!-- Erreur -->
@@ -1490,7 +1490,7 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
 
     avenants:          Avenant[]        = [];
     documents:         DocumentModule[] = [];
-    /* Commentaires aviculture parsés (index 0=Q1 … 6=Q7) */
+    /* Commentaires aviculture parsï¿½s (index 0=Q1 ï¿½ 6=Q7) */
     qAvicComments:     string[]         = [];
 
     loading           = true;
@@ -1502,7 +1502,7 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
 
     activeTab: TabId = 'info';
 
-    /* Type du produit — calculé une seule fois */
+    /* Type du produit ï¿½ calculï¿½ une seule fois */
     isBetail       = false;
     isAviculture   = false;
     isRecolte      = false;
@@ -1513,7 +1513,7 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
     pevTabLabel = 'Visite de risque';
     qTabLabel   = 'Questionnaire';
 
-    /* Onglets — propriété stable (jamais recréée, pas de getter) */
+    /* Onglets ï¿½ propriÃ©tÃ© stable (jamais recrÃ©Ã©e, pas de getter) */
     tabs: { id: TabId; label: string; icon: string }[] = [
         { id: 'info',          label: 'Informations',     icon: 'fa-solid fa-circle-info' },
         { id: 'membres',       label: 'Membres',          icon: 'fa-solid fa-users' },
@@ -1529,22 +1529,22 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
         const nom  = (this.police?.produit?.nom  || '').toLowerCase();
 
         this.isBetail       = code.includes('bet') || code.includes('chep') || code.includes('bovin')
-                           || nom.includes('bétail') || nom.includes('betail') || nom.includes('cheptel');
+                           || nom.includes('bÃ©tail') || nom.includes('betail') || nom.includes('cheptel');
         this.isAviculture   = !this.isBetail
                            && (code.includes('avi') || nom.includes('avicul') || nom.includes('volaille'));
-        this.isRecolte      = code.includes('recol') || nom.includes('récolte') || nom.includes('recolte');
+        this.isRecolte      = code.includes('recol') || nom.includes('rï¿½colte') || nom.includes('recolte');
         this.isHorticulture = code.includes('hort') || nom.includes('horticul') || nom.includes('maraich');
-        this.isEquipement   = code.includes('equip') || code.includes('mater') || nom.includes('équipement') || nom.includes('equipement');
+        this.isEquipement   = code.includes('equip') || code.includes('mater') || nom.includes('Ã©quipement') || nom.includes('equipement');
         this.isMultirisques = code.includes('multi') || nom.includes('multirisque');
         this.isStock        = code.includes('stock') || nom.includes('stock');
 
         /* Labels des onglets */
         this.pevTabLabel = this.isBetail ? 'PV de marquage' : 'Visite de risque';
-        if      (this.isBetail)       this.qTabLabel = 'Questionnaire bétail';
+        if      (this.isBetail)       this.qTabLabel = 'Questionnaire bÃ©tail';
         else if (this.isAviculture)   this.qTabLabel = 'Questionnaire aviculture';
-        else if (this.isRecolte)      this.qTabLabel = 'Questionnaire récolte';
+        else if (this.isRecolte)      this.qTabLabel = 'Questionnaire rï¿½colte';
         else if (this.isHorticulture) this.qTabLabel = 'Questionnaire horticulture';
-        else if (this.isEquipement)   this.qTabLabel = 'Questionnaire équipement';
+        else if (this.isEquipement)   this.qTabLabel = 'Questionnaire Ã©quipement';
         else if (this.isMultirisques) this.qTabLabel = 'Questionnaire multirisques';
         else if (this.isStock)        this.qTabLabel = 'Questionnaire stock';
         else                          this.qTabLabel = 'Questionnaire';
@@ -1555,7 +1555,7 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
             return t;
         });
 
-        /* Charger questionnaire + visites adaptés */
+        /* Charger questionnaire + visites adaptï¿½s */
         this.loadQuestionnaire(policeId);
         this.loadVisites(policeId);
     }
@@ -1676,23 +1676,23 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
         });
     }
 
-    /** Mappe le code produit vers le code catégorie document du backend */
+    /** Mappe le code produit vers le code catÃ©gorie document du backend */
     private docCategoryCode(productCode: string): string | undefined {
         const c = (productCode || '').toUpperCase();
         if (c.includes('AVI'))                          return 'DOC_AVICULTURE';
         if (c.includes('BET') || c.includes('CHEP'))   return 'DOC_BETAIL';
         if (c.includes('RECOL'))                        return 'DOC_RECOLTE';
-        if (c.includes('HORT'))                        return 'DOC_RECOLTE';   // horticulture partage la catégorie récolte si pas de catégorie propre
+        if (c.includes('HORT'))                        return 'DOC_RECOLTE';   // horticulture partage la catÃ©gorie rï¿½colte si pas de catÃ©gorie propre
         if (c.includes('INDIC'))                        return 'DOC_INDICIELLE';
         if (c.includes('STOCK'))                        return 'DOC_STOCK';
-        if (c.includes('EQUIP'))                        return 'ÉQUIPEMENT_DOC';
+        if (c.includes('EQUIP'))                        return 'ï¿½QUIPEMENT_DOC';
         if (c.includes('ARBOR'))                        return 'DOC_ARBORICULTURE';
-        return undefined;   // pas de filtre catégorie ? renvoie tous les docs du produit
+        return undefined;   // pas de filtre catÃ©gorie ? renvoie tous les docs du produit
     }
 
     /**
-     * Parse un champ commentaire formaté "Q1 : texte Q2 : texte ..."
-     * Retourne un tableau de `count` éléments (index 0 = Q1).
+     * Parse un champ commentaire formatï¿½ "Q1 : texte Q2 : texte ..."
+     * Retourne un tableau de `count` ï¿½lï¿½ments (index 0 = Q1).
      */
     private parseQComments(commentaire: string | undefined, count: number): string[] {
         const result: string[] = Array(count).fill('');
@@ -1706,16 +1706,16 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
         return result;
     }
 
-    /** Nom du client : raison sociale OU prénom + nom */
+    /** Nom du client : raison sociale OU prï¿½nom + nom */
     clientNom(): string {
         const c = this.police?.client;
-        if (!c) return '—';
-        return c.raisonSociale || `${c.prenom ?? ''} ${c.nom ?? ''}`.trim() || '—';
+        if (!c) return 'ï¿½';
+        return c.raisonSociale || `${c.prenom ?? ''} ${c.nom ?? ''}`.trim() || 'ï¿½';
     }
 
     /**
-     * Détecte si le client est un Opérateur / Groupement.
-     * Critères : raisonSociale renseignée sur la police OU clientRaisonSociale dans la session.
+     * Dï¿½tecte si le client est un Opï¿½rateur / Groupement.
+     * Critï¿½res : raisonSociale renseignï¿½e sur la police OU clientRaisonSociale dans la session.
      */
     isOperateur(): boolean {
         return !!(this.police?.client?.raisonSociale || this.auth.user()?.clientRaisonSociale);
@@ -1723,7 +1723,7 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
 
     /**
      * Retourne la liste des membres selon le produit de la police.
-     * Les membres sont inclus dans les sous-entités produit du DTO Police.
+     * Les membres sont inclus dans les sous-entitï¿½s produit du DTO Police.
      */
     membres(): any[] {
         if (this.isAviculture)   return this.police?.aviculture?.membres  ?? [];
@@ -1754,7 +1754,7 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
         return 'POLICE_AVICULTURE';
     }
 
-    /** Documents additionnels générés (questionnaire, attestation, annexe…) selon le produit */
+    /** Documents additionnels gï¿½nï¿½rï¿½s (questionnaire, attestation, annexeï¿½) selon le produit */
     extraDocTypes(): Array<{ type: string; label: string; icon: string }> {
         const c = (this.police?.produit?.code || '').toUpperCase();
         const docs: Array<{ type: string; label: string; icon: string }> = [];
@@ -1832,11 +1832,11 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
         return '#666';
     }
     paiStatutLabel(s: any): string {
-        if (!s) return '—';
+        if (!s) return 'ï¿½';
         return s.description || s.name || String(s);
     }
     modeLabel(m: any): string {
-        if (!m) return '—';
+        if (!m) return 'ï¿½';
         if (typeof m === 'string') return m;
         return m.description || m.libelle || m.name || String(m);
     }
@@ -1880,7 +1880,7 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
         const token = this.auth.accessToken;
         fetch(url, { headers: { Authorization: `Bearer ${token}` } })
             .then(res => {
-                if (!res.ok) throw new Error(`Erreur ${res.status} — ${res.statusText}`);
+                if (!res.ok) throw new Error(`Erreur ${res.status} ï¿½ ${res.statusText}`);
                 return res.blob();
             })
             .then(blob => {
@@ -1894,7 +1894,7 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
             });
     }
 
-    /** Télécharge le document directement */
+    /** Tï¿½lï¿½charge le document directement */
     downloadDoc(url: string, filename: string): void {
         const token = this.auth.accessToken;
         fetch(url, { headers: { Authorization: `Bearer ${token}` } })

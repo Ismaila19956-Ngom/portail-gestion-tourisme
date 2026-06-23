@@ -47,11 +47,11 @@ interface AlertItem { icon: string; color: string; bg: string; message: string; 
             <div class="hero-left">
                 <div class="hero-greeting">Bonjour ðŸ‘‹</div>
                 <h1 class="hero-name">{{ displayName }}</h1>
-                <p class="hero-sub">Votre espace Sénégal Excursions â€” {{ today }}</p>
+                <p class="hero-sub">Votre espace SÃ©nÃ©gal Excursions â€” {{ today }}</p>
                 <div class="hero-stats">
                     <div class="hero-stat">
                         <span class="hero-stat-val">{{ featuredCard ? 1 : 0 }}</span>
-                        <span class="hero-stat-lbl">Dernière police</span>
+                        <span class="hero-stat-lbl">Derniï¿½re police</span>
                     </div>
                     <div class="hero-stat-sep"></div>
                     <div class="hero-stat">
@@ -77,34 +77,34 @@ interface AlertItem { icon: string; color: string; bg: string; message: string; 
         <!-- â•â• CHARGEMENT â•â• -->
         <div *ngIf="loading" class="loading-box">
             <div class="spinner"></div>
-            <p>Chargement de vos données...</p>
+            <p>Chargement de vos donnï¿½es...</p>
         </div>
 
         <ng-container *ngIf="!loading">
 
-            <!-- â•â• POLICE LA PLUS RÉCENTE (vedette) â•â• -->
+            <!-- â•â• POLICE LA PLUS Rï¿½CENTE (vedette) â•â• -->
             <section *ngIf="featuredCard" class="section featured-section">
                 <div class="section-head">
                     <div class="section-title">
                         <span class="pulse-dot"></span>
-                        Police la plus récente
-                        <span class="recent-tag">Dernière souscription</span>
+                        Police la plus rï¿½cente
+                        <span class="recent-tag">Derniï¿½re souscription</span>
                     </div>
                     <a routerLink="/mon-espace/polices" class="see-all">Toutes mes polices <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
 
                 <!-- Card vedette pleine largeur -->
                 <div class="featured-card" [style.background]="'linear-gradient(135deg,' + featuredCard.gradientFrom + ' 0%,' + featuredCard.gradientTo + ' 100%)'">
-                    <!-- Orbes déco -->
+                    <!-- Orbes dï¿½co -->
                     <div class="fc-orb fc-orb-1"></div>
                     <div class="fc-orb fc-orb-2"></div>
 
                     <!-- Badge expiration -->
                     <div *ngIf="featuredCard.expiringSoon" class="expiry-badge">
-                        <i class="fa-solid fa-triangle-exclamation"></i> Expire bientôt
+                        <i class="fa-solid fa-triangle-exclamation"></i> Expire bientï¿½t
                     </div>
 
-                    <!-- Rangée haut -->
+                    <!-- Rangï¿½e haut -->
                     <div class="fc-top">
                         <div class="fc-icon-wrap">
                             <div class="fc-icon"><i [class]="featuredCard.icon"></i></div>
@@ -127,13 +127,13 @@ interface AlertItem { icon: string; color: string; bg: string; message: string; 
                                 <div class="fc-info-val">{{ featuredCard.dateEffet | date:'dd MMMM yyyy' }}</div>
                             </div>
                             <div class="fc-info-block">
-                                <div class="fc-info-lbl">Échéance</div>
+                                <div class="fc-info-lbl">Ã©chÃ©ance</div>
                                 <div class="fc-info-val" [style.color]="featuredCard.expiringSoon ? '#FF8C42' : '#fff'">
                                     {{ featuredCard.dateEcheance | date:'dd MMMM yyyy' }}
                                 </div>
                             </div>
                             <div class="fc-info-block">
-                                <div class="fc-info-lbl">Capital assuré</div>
+                                <div class="fc-info-lbl">Capital assurï¿½</div>
                                 <div class="fc-info-val">{{ featuredCard.montant | number:'1.0-0' }} <small>FCFA</small></div>
                             </div>
                             <div class="fc-info-block">
@@ -146,10 +146,10 @@ interface AlertItem { icon: string; color: string; bg: string; message: string; 
                     <!-- Bouton -->
                     <div class="fc-footer">
                         <a [routerLink]="['/mon-espace/polices', featuredCard.id]" class="fc-btn">
-                            <i class="fa-solid fa-eye"></i> Consulter le détail
+                            <i class="fa-solid fa-eye"></i> Consulter le dï¿½tail
                         </a>
                         <div class="fc-badge-new">
-                            <i class="fa-solid fa-star"></i> Plus récente
+                            <i class="fa-solid fa-star"></i> Plus rï¿½cente
                         </div>
                     </div>
                 </div>
@@ -173,10 +173,10 @@ interface AlertItem { icon: string; color: string; bg: string; message: string; 
                 </div>
                 <div class="history-table">
                     <div class="history-header">
-                        <span>N° Police</span>
+                        <span>Nï¿½ Police</span>
                         <span>Produit</span>
                         <span>Date effet</span>
-                        <span>Échéance</span>
+                        <span>Ã©chÃ©ance</span>
                         <span>Statut</span>
                         <span></span>
                     </div>
@@ -200,12 +200,12 @@ interface AlertItem { icon: string; color: string; bg: string; message: string; 
                 </div>
             </section>
 
-            <!-- â•â• PAIEMENTS RÉCENTS â•â• -->
+            <!-- â•â• PAIEMENTS Rï¿½CENTS â•â• -->
             <section class="section" *ngIf="paiements.length > 0">
                 <div class="section-head">
                     <div class="section-title">
                         <span class="section-dot dot-gold"></span>
-                        Paiements récents
+                        Paiements rï¿½cents
                         <span class="section-count gold">{{ paiements.length }}</span>
                     </div>
                     <a routerLink="/mon-espace/paiements" class="see-all">Voir tout <i class="fa-solid fa-arrow-right"></i></a>
@@ -220,7 +220,7 @@ interface AlertItem { icon: string; color: string; bg: string; message: string; 
                             <div class="pay-top">
                                 <div>
                                     <div class="pay-ref">{{ p.numeroFacture || 'Paiement #' + p.id }}</div>
-                                    <div class="pay-meta">{{ p.dateEmission | date:'dd MMM yyyy' }} · {{ modeLabel(p.modePaiement) }}</div>
+                                    <div class="pay-meta">{{ p.dateEmission | date:'dd MMM yyyy' }} ï¿½ {{ modeLabel(p.modePaiement) }}</div>
                                 </div>
                                 <div class="pay-amount">{{ p.montantPaye | number:'1.0-0' }} <small>FCFA</small></div>
                             </div>
@@ -311,7 +311,7 @@ interface AlertItem { icon: string; color: string; bg: string; message: string; 
     .see-all { font-size:0.78rem;color:#556B2F;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:5px;opacity:0.8;transition:opacity 0.18s;white-space:nowrap; }
     .see-all:hover { opacity:1; }
 
-    /* Pulse dot (police récente) */
+    /* Pulse dot (police rï¿½cente) */
     .pulse-dot {
         width:10px;height:10px;border-radius:50%;background:#27ae60;flex-shrink:0;
         box-shadow:0 0 0 0 rgba(39,174,96,0.4);
@@ -459,10 +459,10 @@ export class DashboardComponent implements OnInit {
     today         = new Date().toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
 
     private static readonly GRADIENTS: [string, string][] = [
-        ['#556B2F','#0d6e30'],  // vert Sénégal Excursions
+        ['#556B2F','#0d6e30'],  // vert SÃ©nÃ©gal Excursions
         ['#3E4F22','#556B2F'],  // vert profond
-        ['#1a6b3c','#0f4d26'],  // vert forêt
-        ['#2e7d32','#1b5e20'],  // vert foncé
+        ['#1a6b3c','#0f4d26'],  // vert forï¿½t
+        ['#2e7d32','#1b5e20'],  // vert foncï¿½
         ['#006064','#00838f'],  // teal
         ['#1565c0','#0d47a1'],  // bleu
     ];
@@ -488,14 +488,14 @@ export class DashboardComponent implements OnInit {
 
         this.portal.getPolices(clientId, 0, 8).subscribe({
             next: res => {
-                // Trier par dateEffet DESC â†’ la plus récente en premier
+                // Trier par dateEffet DESC â†’ la plus rï¿½cente en premier
                 const polices = [...(res?.content ?? [])].sort((a, b) => {
                     const da = a.dateEffet ? new Date(a.dateEffet).getTime() : 0;
                     const db = b.dateEffet ? new Date(b.dateEffet).getTime() : 0;
                     return db - da;
                 });
                 const cards = polices.map((p, i) => this.toCard(p, i % DashboardComponent.GRADIENTS.length));
-                this.featuredCard = cards.length > 0 ? cards[0] : null;  // la plus récente
+                this.featuredCard = cards.length > 0 ? cards[0] : null;  // la plus rï¿½cente
                 this.historyCards = cards.slice(1);                        // toutes les autres
                 this.buildAlerts();
                 check();
@@ -515,7 +515,7 @@ export class DashboardComponent implements OnInit {
         const active = sN === 'VALIDER' || sN === 'ACTIF' || sN === 'EN_COURS';
         const code   = p.produit?.code || '';
         const diff   = p.dateEcheance ? new Date(p.dateEcheance).getTime() - Date.now() : -1;
-        // Couleur dot statut selon état
+        // Couleur dot statut selon ï¿½tat
         const statutDot = active ? '#4ade80'
             : sN === 'RESILIE' || sN === 'EXPIRE' ? '#f87171'
             : sN === 'SUSPENDU' ? '#fb923c'
@@ -548,7 +548,7 @@ export class DashboardComponent implements OnInit {
         for (const c of all) {
             if (c.expiringSoon) {
                 a.push({ icon:'fa-solid fa-clock', color:'#e67e22', bg:'rgba(230,126,34,0.12)',
-                    message: `Police ${c.numeroPolice} expire bientôt`, routerLink: `/mon-espace/polices/${c.id}` });
+                    message: `Police ${c.numeroPolice} expire bientï¿½t`, routerLink: `/mon-espace/polices/${c.id}` });
             }
         }
         this.alerts = a;

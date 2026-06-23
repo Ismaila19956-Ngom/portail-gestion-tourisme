@@ -36,28 +36,28 @@ export class FaqComponent {
     faqs: FaqItem[] = [
         /* â”€â”€ SOUSCRIPTION â”€â”€ */
         {
-            question: 'Comment puis-je souscrire aux produits de la Sénégal Excursions ?',
-            answer: "Vous pouvez souscrire directement via notre formulaire de contact en ligne, par téléphone au (+221) 33 869 78 00, ou en vous rendant dans l'une de nos agences réparties dans les 14 régions du Sénégal. Un conseiller vous accompagnera dans le choix du produit le plus adapté Ã  votre exploitation.",
+            question: 'Comment puis-je souscrire aux produits de la SÃ©nÃ©gal Excursions ?',
+            answer: "Vous pouvez souscrire directement via notre formulaire de contact en ligne, par tÃ©lÃ©phone au (+221) 33 869 78 00, ou en vous rendant dans l'une de nos agences rï¿½parties dans les 14 rï¿½gions du SÃ©nÃ©gal. Un conseiller vous accompagnera dans le choix du produit le plus adaptï¿½ Ã  votre exploitation.",
             categoryId: 'souscription',
             icon: 'fa-solid fa-file-signature',
             link: '/contact-us',
             linkLabel: 'Contacter un conseiller'
         },
         {
-            question: 'Quelle est la période de souscription pour la campagne 2025 ?',
-            answer: "La période de souscription pour la campagne hivernale 2025 est ouverte du 1er mars au 31 mai 2025. Passé cette date, aucune nouvelle souscription ne pourra être acceptée pour la saison en cours. Nous vous encourageons Ã  vous rapprocher rapidement d'un agent Sénégal Excursions.",
+            question: 'Quelle est la pï¿½riode de souscription pour la campagne 2025 ?',
+            answer: "La pï¿½riode de souscription pour la campagne hivernale 2025 est ouverte du 1er mars au 31 mai 2025. Passï¿½ cette date, aucune nouvelle souscription ne pourra ï¿½tre acceptï¿½e pour la saison en cours. Nous vous encourageons Ã  vous rapprocher rapidement d'un agent SÃ©nÃ©gal Excursions.",
             categoryId: 'souscription',
             icon: 'fa-solid fa-calendar-check',
         },
         {
-            question: 'Quels documents sont nécessaires pour souscrire ?',
-            answer: "Pour souscrire, vous aurez besoin : d'une pièce d'identité valide (CNI ou passeport), de justificatifs de votre exploitation (titre foncier ou bail, superficie cultivée), d'une évaluation de la valeur de votre production et de votre numéro de téléphone mobile pour le paiement.",
+            question: 'Quels documents sont nï¿½cessaires pour souscrire ?',
+            answer: "Pour souscrire, vous aurez besoin : d'une piï¿½ce d'identitï¿½ valide (CNI ou passeport), de justificatifs de votre exploitation (titre foncier ou bail, superficie cultivï¿½e), d'une ï¿½valuation de la valeur de votre production et de votre numÃ©ro de tÃ©lÃ©phone mobile pour le paiement.",
             categoryId: 'souscription',
             icon: 'fa-solid fa-folder-open',
         },
         {
-            question: 'La Sénégal Excursions couvre-t-elle toutes les régions du Sénégal ?',
-            answer: "Oui, la Sénégal Excursions a pour mission de couvrir l'ensemble du monde rural sénégalais. Nos agents sont présents dans les 14 régions, des zones de culture pluviale du Bassin arachidier aux zones maraîchères du fleuve Sénégal, en passant par les zones sylvo-pastorales du nord et les régions forestières du sud.",
+            question: 'La SÃ©nÃ©gal Excursions couvre-t-elle toutes les rï¿½gions du SÃ©nÃ©gal ?',
+            answer: "Oui, la SÃ©nÃ©gal Excursions a pour mission de couvrir l'ensemble du monde rural sï¿½nï¿½galais. Nos agents sont prï¿½sents dans les 14 rï¿½gions, des zones de culture pluviale du Bassin arachidier aux zones maraï¿½chï¿½res du fleuve SÃ©nÃ©gal, en passant par les zones sylvo-pastorales du nord et les rï¿½gions forestiï¿½res du sud.",
             categoryId: 'souscription',
             icon: 'fa-solid fa-map-location-dot',
             link: '/agences',
@@ -67,7 +67,7 @@ export class FaqComponent {
         /* â”€â”€ PRODUITS â”€â”€ */
         {
             question: "Quels types de produits d'assurance proposez-vous ?",
-            answer: "La Sénégal Excursions propose une gamme complète : assurance multirisque récolte, assurance bétail, assurance aviculture, assurance matériel touristique, assurance horticole/maraîchère, assurance indicielle climatique et assurance multi-risques. Chaque produit est conçu pour les réalités du monde rural sénégalais.",
+            answer: "La SÃ©nÃ©gal Excursions propose une gamme complï¿½te : assurance multirisque rï¿½colte, assurance bÃ©tail, assurance aviculture, assurance matï¿½riel touristique, assurance horticole/maraï¿½chï¿½re, assurance indicielle climatique et assurance multi-risques. Chaque produit est conï¿½u pour les rï¿½alitï¿½s du monde rural sï¿½nï¿½galais.",
             categoryId: 'produits',
             icon: 'fa-solid fa-shield-halved',
             link: '/services/one',
@@ -75,47 +75,47 @@ export class FaqComponent {
         },
         {
             question: "Qu'est-ce que l'assurance indicielle et comment fonctionne-t-elle ?",
-            answer: "L'assurance indicielle est basée sur un indice objectif mesuré Ã  distance (données satellite ou relevés pluviométriques). Si cet indice tombe en dessous d'un seuil prédéfini (ex : déficit pluviométrique de 30%), l'indemnisation est déclenchée automatiquement, sans nécessiter d'expertise terrain. Cela garantit rapidité et neutralité.",
+            answer: "L'assurance indicielle est basï¿½e sur un indice objectif mesurï¿½ Ã  distance (donnï¿½es satellite ou relevï¿½s pluviomï¿½triques). Si cet indice tombe en dessous d'un seuil prï¿½dï¿½fini (ex : dï¿½ficit pluviomï¿½trique de 30%), l'indemnisation est dï¿½clenchï¿½e automatiquement, sans nï¿½cessiter d'expertise terrain. Cela garantit rapiditï¿½ et neutralitï¿½.",
             categoryId: 'produits',
             icon: 'fa-solid fa-satellite-dish',
         },
         {
-            question: "Quelles cultures sont éligibles Ã  l'assurance récolte ?",
-            answer: "Nous couvrons les cultures stratégiques sénégalaises : arachide, mil, sorgho, maÃ¯s, niébé, coton et riz pluvial. Des extensions spécifiques couvrent les cultures irriguées (riz paddy, tomate, oignon) dans les zones de Saint-Louis, Podor et Matam.",
+            question: "Quelles cultures sont ï¿½ligibles Ã  l'assurance rï¿½colte ?",
+            answer: "Nous couvrons les cultures stratï¿½giques sï¿½nï¿½galaises : arachide, mil, sorgho, maÃ¯s, niï¿½bï¿½, coton et riz pluvial. Des extensions spï¿½cifiques couvrent les cultures irriguï¿½es (riz paddy, tomate, oignon) dans les zones de Saint-Louis, Podor et Matam.",
             categoryId: 'produits',
             icon: 'fa-solid fa-wheat-awn',
         },
         {
-            question: "Les éleveurs peuvent-ils bénéficier de l'assurance bétail ?",
-            answer: "Oui, l'assurance bétail Sénégal Excursions couvre la mortalité suite Ã  des accidents, des maladies contagieuses répertoriées (fièvre aphteuse, PPCB, charbon symptomatique, peste bovine) ou des catastrophes naturelles. Elle est disponible pour les bovins, ovins, caprins et camelins.",
+            question: "Les ï¿½leveurs peuvent-ils bï¿½nï¿½ficier de l'assurance bÃ©tail ?",
+            answer: "Oui, l'assurance bÃ©tail SÃ©nÃ©gal Excursions couvre la mortalitï¿½ suite Ã  des accidents, des maladies contagieuses rï¿½pertoriï¿½es (fiï¿½vre aphteuse, PPCB, charbon symptomatique, peste bovine) ou des catastrophes naturelles. Elle est disponible pour les bovins, ovins, caprins et camelins.",
             categoryId: 'produits',
             icon: 'fa-solid fa-cow',
         },
         {
-            question: "Comment est déterminée la valeur assurée de mon exploitation ?",
-            answer: "La valeur assurée est établie conjointement avec notre conseiller sur la base de : la superficie cultivée, les rendements moyens des 3 dernières campagnes, le prix de marché des cultures et le coÃ»t des intrants investis. Un formulaire d'évaluation est complété lors de la souscription.",
+            question: "Comment est dï¿½terminï¿½e la valeur assurï¿½e de mon exploitation ?",
+            answer: "La valeur assurï¿½e est ï¿½tablie conjointement avec notre conseiller sur la base de : la superficie cultivï¿½e, les rendements moyens des 3 derniï¿½res campagnes, le prix de marchï¿½ des cultures et le coÃ»t des intrants investis. Un formulaire d'ï¿½valuation est complï¿½tï¿½ lors de la souscription.",
             categoryId: 'produits',
             icon: 'fa-solid fa-calculator',
         },
 
         /* â”€â”€ SINISTRES â”€â”€ */
         {
-            question: 'Comment déclarer un sinistre Ã  la Sénégal Excursions ?',
-            answer: "En cas de sinistre, déclarez-le dans les 72 heures suivant la constatation des dommages. Contactez votre agence Sénégal Excursions la plus proche ou appelez le (+221) 33 869 78 00. Un expert sera dépêché sur votre exploitation pour évaluer les dommages de manière contradictoire.",
+            question: 'Comment dï¿½clarer un sinistre Ã  la SÃ©nÃ©gal Excursions ?',
+            answer: "En cas de sinistre, dï¿½clarez-le dans les 72 heures suivant la constatation des dommages. Contactez votre agence SÃ©nÃ©gal Excursions la plus proche ou appelez le (+221) 33 869 78 00. Un expert sera dï¿½pï¿½chï¿½ sur votre exploitation pour ï¿½valuer les dommages de maniï¿½re contradictoire.",
             categoryId: 'sinistres',
             icon: 'fa-solid fa-triangle-exclamation',
             link: '/contact-us',
-            linkLabel: 'Déclarer en ligne'
+            linkLabel: 'Dï¿½clarer en ligne'
         },
         {
-            question: "Quel est le délai d'indemnisation après un sinistre ?",
-            answer: "Après validation de votre dossier par nos experts, l'indemnisation est versée dans un délai maximum de 30 jours. Pour l'assurance indicielle, l'indemnisation est déclenchée automatiquement dès que l'indice atteint le seuil prévu, sans visite d'expertise, ce qui réduit considérablement les délais.",
+            question: "Quel est le dï¿½lai d'indemnisation aprï¿½s un sinistre ?",
+            answer: "Aprï¿½s validation de votre dossier par nos experts, l'indemnisation est versï¿½e dans un dï¿½lai maximum de 30 jours. Pour l'assurance indicielle, l'indemnisation est dï¿½clenchï¿½e automatiquement dï¿½s que l'indice atteint le seuil prï¿½vu, sans visite d'expertise, ce qui rï¿½duit considï¿½rablement les dï¿½lais.",
             categoryId: 'sinistres',
             icon: 'fa-solid fa-clock-rotate-left',
         },
         {
-            question: "Quels documents fournir lors de la déclaration d'un sinistre ?",
-            answer: "Pour votre déclaration de sinistre, préparez : votre police d'assurance, une description des dommages avec dates et causes, des photos si possible et tout document attestant des pertes (bons d'achat d'intrants, factures). Notre conseiller vous guidera dans la constitution du dossier.",
+            question: "Quels documents fournir lors de la dÃ©claration d'un sinistre ?",
+            answer: "Pour votre dÃ©claration de sinistre, prï¿½parez : votre police d'assurance, une description des dommages avec dates et causes, des photos si possible et tout document attestant des pertes (bons d'achat d'intrants, factures). Notre conseiller vous guidera dans la constitution du dossier.",
             categoryId: 'sinistres',
             icon: 'fa-solid fa-folder-open',
         },
@@ -123,19 +123,19 @@ export class FaqComponent {
         /* â”€â”€ PAIEMENT â”€â”€ */
         {
             question: 'Quelles sont les options de paiement disponibles ?',
-            answer: "Vous pouvez régler votre prime par virement bancaire, chèque, espèces en agence ou via les solutions de mobile money : Wave, Orange Money et Free Money. Depuis 2024, la souscription et le paiement sont disponibles directement depuis votre téléphone.",
+            answer: "Vous pouvez rÃ©gler votre prime par virement bancaire, chï¿½que, espï¿½ces en agence ou via les solutions de mobile money : Wave, Orange Money et Free Money. Depuis 2024, la souscription et le paiement sont disponibles directement depuis votre tÃ©lÃ©phone.",
             categoryId: 'paiement',
             icon: 'fa-solid fa-credit-card',
         },
         {
-            question: "Comment sont calculées les primes d'assurance ?",
-            answer: "Les primes sont calculées selon : la valeur assurée de votre production, le type de culture ou d'élevage, la zone géographique et le niveau de risque climatique local, le type de garantie choisi et vos antécédents de sinistres. Notre conseiller vous proposera le tarif le plus adapté.",
+            question: "Comment sont calculï¿½es les primes d'assurance ?",
+            answer: "Les primes sont calculï¿½es selon : la valeur assurï¿½e de votre production, le type de culture ou d'ï¿½levage, la zone gï¿½ographique et le niveau de risque climatique local, le type de garantie choisi et vos antï¿½cï¿½dents de sinistres. Notre conseiller vous proposera le tarif le plus adaptï¿½.",
             categoryId: 'paiement',
             icon: 'fa-solid fa-calculator',
         },
         {
             question: "Peut-on payer la prime en plusieurs fois ?",
-            answer: "Oui, dans le cadre de nos programmes de facilitation d'accès, la Sénégal Excursions propose des facilités de paiement pour les petits exploitants. Un premier versement de 50% est requis Ã  la souscription, le solde devant être réglé avant la fin de la période de souscription. Renseignez-vous auprès de votre agence.",
+            answer: "Oui, dans le cadre de nos programmes de facilitation d'accÃ¨s, la SÃ©nÃ©gal Excursions propose des facilitï¿½s de paiement pour les petits exploitants. Un premier versement de 50% est requis Ã  la souscription, le solde devant ï¿½tre rï¿½glï¿½ avant la fin de la pï¿½riode de souscription. Renseignez-vous auprï¿½s de votre agence.",
             categoryId: 'paiement',
             icon: 'fa-solid fa-money-bill-wave',
         },

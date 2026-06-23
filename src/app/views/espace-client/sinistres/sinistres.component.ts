@@ -33,7 +33,7 @@ interface SinistreRow {
                     <i class="fa-solid fa-triangle-exclamation" style="color:#e67e22;"></i>
                     Mes Sinistres
                 </h2>
-                <p class="pg-sub">Suivi de vos déclarations de sinistres locaux Sénégal Excursions</p>
+                <p class="pg-sub">Suivi de vos dÃ©clarations de sinistres locaux SÃ©nÃ©gal Excursions</p>
             </div>
             <div class="stats-row">
                 <div class="stat-chip">
@@ -46,7 +46,7 @@ interface SinistreRow {
                 </div>
                 <div class="stat-chip">
                     <div class="stat-icon"><i class="fa-solid fa-circle-check" style="color:#27ae60;font-size:0.68rem;"></i></div>
-                    <div><div class="stat-val">{{ regles }}</div><div class="stat-lbl">Réglé(s)</div></div>
+                    <div><div class="stat-val">{{ regles }}</div><div class="stat-lbl">Rï¿½glï¿½(s)</div></div>
                 </div>
             </div>
         </div>
@@ -59,21 +59,21 @@ interface SinistreRow {
         <!-- â•â• VIDE â•â• -->
         <div *ngIf="!loading && !featuredRow" class="empty-box">
             <i class="fa-solid fa-check-circle" style="font-size:2rem;color:#27ae60;display:block;margin-bottom:10px;"></i>
-            <p style="color:#3E4F22;font-weight:700;font-size:0.88rem;margin:0 0 4px;">Aucun sinistre déclaré</p>
+            <p style="color:#3E4F22;font-weight:700;font-size:0.88rem;margin:0 0 4px;">Aucun sinistre dï¿½clarï¿½</p>
             <p style="color:#aaa;font-size:0.78rem;margin:0;">Continuez Ã  prendre soin de votre exploitation !</p>
         </div>
 
         <ng-container *ngIf="!loading && featuredRow">
 
-            <!-- â•â• SINISTRE LE PLUS RÉCENT â•â• -->
+            <!-- â•â• SINISTRE LE PLUS Rï¿½CENT â•â• -->
             <div class="section">
                 <div class="section-head">
                     <div class="section-title">
                         <span class="pulse-dot"></span>
-                        Sinistre le plus récent
-                        <span class="recent-tag">Dernière déclaration</span>
+                        Sinistre le plus rï¿½cent
+                        <span class="recent-tag">Derniï¿½re dÃ©claration</span>
                     </div>
-                    <span class="sort-label"><i class="fa-solid fa-arrow-down-wide-short"></i> Triés par date de survenance</span>
+                    <span class="sort-label"><i class="fa-solid fa-arrow-down-wide-short"></i> Triï¿½s par date de survenance</span>
                 </div>
 
                 <!-- Carte vedette gradient -->
@@ -90,7 +90,7 @@ interface SinistreRow {
                                 <div class="fc-num">{{ featuredRow.numeroDossier }}</div>
                                 <div class="fc-sub-prod">
                                     <span>Police : {{ featuredRow.policeNum }}</span>
-                                    <span style="margin:0 6px;opacity:0.6;">·</span>
+                                    <span style="margin:0 6px;opacity:0.6;">ï¿½</span>
                                     <span>{{ featuredRow.produitNom }}</span>
                                 </div>
                             </div>
@@ -109,17 +109,17 @@ interface SinistreRow {
                             <div class="fc-val">{{ featuredRow.dateSurvenance | date:'dd MMMM yyyy' }}</div>
                         </div>
                         <div class="fc-cell">
-                            <div class="fc-lbl">Date de déclaration</div>
+                            <div class="fc-lbl">Date de dÃ©claration</div>
                             <div class="fc-val">{{ featuredRow.dateDeclaration | date:'dd MMMM yyyy' }}</div>
                         </div>
                         <div class="fc-cell" *ngIf="featuredRow.montantEvalue != null">
-                            <div class="fc-lbl">Montant évalué</div>
+                            <div class="fc-lbl">Montant ï¿½valuï¿½</div>
                             <div class="fc-val prime-val">{{ featuredRow.montantEvalue | number:'1.0-0' }} <small>FCFA</small></div>
                         </div>
                     </div>
 
                     <div class="fc-footer">
-                        <span class="fc-star-badge"><i class="fa-solid fa-star"></i> Plus récent</span>
+                        <span class="fc-star-badge"><i class="fa-solid fa-star"></i> Plus rï¿½cent</span>
                     </div>
                 </div>
             </div>
@@ -137,12 +137,12 @@ interface SinistreRow {
 
                 <div class="hist-table">
                     <div class="hist-head">
-                        <span>N° Dossier</span>
+                        <span>Nï¿½ Dossier</span>
                         <span>Police</span>
                         <span>Produit</span>
                         <span>Survenance</span>
-                        <span>Déclaration</span>
-                        <span class="col-r">Montant évalué</span>
+                        <span>DÃ©claration</span>
+                        <span class="col-r">Montant ï¿½valuï¿½</span>
                         <span class="col-c">Statut</span>
                     </div>
                     <div *ngFor="let r of historyRows; let even=even"
@@ -183,7 +183,7 @@ interface SinistreRow {
         <!-- â•â• PAGINATION â•â• -->
         <div *ngIf="totalPages > 1" class="pag-row">
             <button (click)="loadPage(currentPage - 1)" [disabled]="currentPage === 0" class="pag-btn">
-                <i class="fa-solid fa-chevron-left"></i> Précédent
+                <i class="fa-solid fa-chevron-left"></i> Prï¿½cï¿½dent
             </button>
             <span class="pag-cur">{{ currentPage + 1 }} / {{ totalPages }}</span>
             <button (click)="loadPage(currentPage + 1)" [disabled]="currentPage === totalPages - 1" class="pag-btn">
@@ -224,7 +224,7 @@ interface SinistreRow {
     .section-dot { width:7px;height:7px;border-radius:50%;background:#d1d1d1;flex-shrink:0; }
     .count-badge { font-size:0.62rem;font-weight:800;padding:1px 7px;border-radius:20px;background:#eef5f1;color:#538F6C; }
 
-    /* Featured card â€” gradient (modèle polices) */
+    /* Featured card â€” gradient (modï¿½le polices) */
     .featured-card { background:linear-gradient(135deg,#538F6C 0%,#3d7554 100%);border-radius:14px;padding:14px 20px;position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(61,117,84,0.25);display:flex;flex-direction:column;gap:10px; }
     .fc-orb { position:absolute;border-radius:50%;opacity:0.08;pointer-events:none; }
     .fc-orb-1 { width:200px;height:200px;background:#fff;top:-70px;right:40px; }

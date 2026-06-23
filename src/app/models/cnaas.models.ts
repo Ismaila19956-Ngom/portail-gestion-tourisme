@@ -1,6 +1,6 @@
 /* ============================================================
-   Interfaces TypeScript — S�n�gal Excursions Portail
-   Synchronis�es avec le backend Spring Boot (senegal-excursions-backend)
+   Interfaces TypeScript — Sénégal Excursions Portail
+   Synchronis�es avec le backend Spring Boot (senegal-excursions-backend)
 ============================================================ */
 
 export interface ValeurRef {
@@ -10,7 +10,7 @@ export interface ValeurRef {
     description?: string;
 }
 
-/* ── Cat�gorie produit ── */
+/* ── Catégorie produit ── */
 export interface CategorieProduit {
     id?: number;
     code: string;
@@ -129,7 +129,7 @@ export interface Frais {
     active?: boolean;
 }
 
-/* ── Page r�ponse Spring ── */
+/* ── Page r�ponse Spring ── */
 export interface PageResponse<T> {
     content: T[];
     totalElements: number;
@@ -138,7 +138,7 @@ export interface PageResponse<T> {
     number: number;
 }
 
-/* ── D�tail complet d'un produit ── */
+/* ── D�tail complet d'un produit ── */
 export interface ProduitDetail {
     produit: Produit;
     garanties: Garantie[];

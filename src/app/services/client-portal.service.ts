@@ -24,7 +24,7 @@ export class ClientPortalService {
             .set('page', page)
             .set('size', size);
         return this.http.get<Page<Police>>(`${environment.apiUrl}/polices`, { params }).pipe(
-            timeout(25_000),             // 25 s max — apr�s on l�ve TimeoutError
+            timeout(25_000),             // 25 s max — apr�s on l�ve TimeoutError
             catchError(err => throwError(() => err))
         );
     }
@@ -66,7 +66,7 @@ export class ClientPortalService {
         );
     }
 
-    /** T�l�charge n'importe quel document (PDF/Word) comme Blob — le token JWT est ajout� par l'intercepteur */
+    /** T�l�charge n'importe quel document (PDF/Word) comme Blob — le token JWT est ajout� par l'intercepteur */
     getBlob(url: string): Observable<Blob> {
         return this.http.get(url, { responseType: 'blob' });
     }
@@ -89,8 +89,8 @@ export class ClientPortalService {
     ───────────────────────────────────────────────────────────────── */
 
     /**
-     * B�tail : GET /api/betail/{policeId}/questionnaires  → Page<QuestionnaireBetail>
-     * On prend le premier �l�ment de la page.
+     * Bétail : GET /api/betail/{policeId}/questionnaires  → Page<QuestionnaireBetail>
+     * On prend le premier �l�ment de la page.
      */
     getQuestionnaireBetail(policeId: number): Observable<any | null> {
         return this.http.get<Page<any>>(
@@ -103,7 +103,7 @@ export class ClientPortalService {
 
     /**
      * Aviculture : GET /api/polices/aviculture/{policeId}/questionnaires  → Page<QuestionnaireAviculture>
-     * On prend le premier �l�ment.
+     * On prend le premier �l�ment.
      */
     getQuestionnaireAviculture(policeId: number): Observable<QuestionnaireAviculture | null> {
         return this.http.get<Page<QuestionnaireAviculture>>(
@@ -115,7 +115,7 @@ export class ClientPortalService {
     }
 
     /**
-     * R�colte : GET /api/recolte/{policeId}/questionnaire  → QuestionnaireRecolte (optional)
+     * R�colte : GET /api/recolte/{policeId}/questionnaire  → QuestionnaireRecolte (optional)
      */
     getQuestionnaireRecolte(policeId: number): Observable<QuestionnaireRecolte | null> {
         return this.http.get<QuestionnaireRecolte>(
@@ -133,7 +133,7 @@ export class ClientPortalService {
     }
 
     /**
-     * �quipement : GET /api/polices/equipement/{policeId}/questionnaire  → QuestionnaireEquipement (optional)
+     * équipement : GET /api/polices/equipement/{policeId}/questionnaire  → QuestionnaireEquipement (optional)
      */
     getQuestionnaireEquipement(policeId: number): Observable<any | null> {
         return this.http.get<any>(
@@ -143,7 +143,7 @@ export class ClientPortalService {
 
     /**
      * Multirisques : GET /api/polices/multirisques/{policeId}/questionnaires  → Page<QuestionnaireMultirisques>
-     * On prend le premier �l�ment.
+     * On prend le premier �l�ment.
      */
     getQuestionnaireMultirisques(policeId: number): Observable<any | null> {
         return this.http.get<Page<any>>(

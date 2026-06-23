@@ -24,11 +24,11 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   reseauxSociaux: ReseauSocialPortail[] = [];
 
   siege: any = {
-    nomAgence: 'Siège Social',
-    adresse: 'Immeuble Sénégal Excursions, Dakar, Sénégal',
+    nomAgence: 'SiÃ¨ge Social',
+    adresse: 'Immeuble SÃ©nÃ©gal Excursions, Dakar, SÃ©nÃ©gal',
     email: 'contact@senegal-excursions.sn',
     telephone: '(+221) 33 869 78 00',
-    horaires: 'Lun – Ven : 8h – 17h\nSamedi : 9h – 13h\nDimanche : Fermé',
+    horaires: 'Lun ï¿½ Ven : 8h ï¿½ 17h\nSamedi : 9h ï¿½ 13h\nDimanche : Fermï¿½',
     latitude: 14.7167, 
     longitude: -17.4677
   };
@@ -51,7 +51,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
     this.initForm();
     this.loadObjetsDemande();
 
-    /* Charger les réseaux sociaux depuis l'API publique */
+    /* Charger les rÃ©seaux sociaux depuis l'API publique */
     this.reseauxSvc.getActifs().subscribe(rs => {
         this.reseauxSociaux = rs;
     });
@@ -68,15 +68,15 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
       }
     });
 
-    /* Charger le siège pour les coordonnées GPS */
+    /* Charger le siÃ¨ge pour les coordonnï¿½es GPS */
     this.cnaasApi.getAgencesPubliques().subscribe({
       next: (agences) => {
         if (agences && agences.length > 0) {
           const siegeAgence = agences.find((a: any) => 
             a.code?.toUpperCase() === 'SIEGE' || 
-            a.nomAgence?.toLowerCase().includes('siège') ||
+            a.nomAgence?.toLowerCase().includes('siÃ¨ge') ||
             a.nomAgence?.toLowerCase().includes('siege') ||
-            a.typeUnite?.libelle?.toLowerCase().includes('siège') ||
+            a.typeUnite?.libelle?.toLowerCase().includes('siÃ¨ge') ||
             a.typeUnite?.libelle?.toLowerCase().includes('siege')
           );
           if (siegeAgence) {
@@ -158,20 +158,20 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
     this.cnaasApi.submitContact(payload).subscribe({
       next: (res) => {
         this.isSubmitting = false;
-        this.successMessage = 'Votre message a bien été envoyé. Notre équipe vous recontactera bientôt.';
+        this.successMessage = 'Votre message a bien ï¿½tï¿½ envoyï¿½. Notre ï¿½quipe vous recontactera bientï¿½t.';
         this.contactForm.reset();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
       error: (err) => {
         this.isSubmitting = false;
-        this.errorMessage = 'Une erreur est survenue lors de l\'envoi de votre demande. Veuillez réessayer plus tard.';
+        this.errorMessage = 'Une erreur est survenue lors de l\'envoi de votre demande. Veuillez rï¿½essayer plus tard.';
         console.error('Erreur envoi contact', err);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });
   }
 
-  /** Retourne l'icône Font Awesome correspondant au réseau */
+  /** Retourne l'icï¿½ne Font Awesome correspondant au rï¿½seau */
   getSocialIcon(rs: ReseauSocialPortail): string {
       if (rs.icon) {
           return rs.icon;

@@ -64,7 +64,7 @@ export class CnaasApiService {
             }));
     }
 
-    /* ─── Cat�gories ─── */
+    /* ─── Catégories ─── */
     getCategories(): Observable<CategorieProduit[]> {
         return this.http
             .get<CategorieProduit[]>(`${PUBLIC}/categories`)
@@ -115,7 +115,7 @@ export class CnaasApiService {
             .pipe(catchError(() => of([])));
     }
 
-    /* ─── Indices Pluviom�triques ─── */
+    /* ─── Indices Pluviom�triques ─── */
     getIndicesPluviometriques(): Observable<any[]> {
         return this.http
             .get<any[]>(`${PUBLIC}/indices-pluviometriques`)
@@ -132,14 +132,14 @@ export class CnaasApiService {
             );
     }
 
-    /** R�cup�re les sp�culations/zones configur�es pour une extension donn�e */
+    /** R�cup�re les sp�culations/zones configur�es pour une extension donn�e */
     getExtensionSpeculations(extensionId: number): Observable<any[]> {
         return this.http
             .get<any[]>(`${baseUrl}/extension-speculations/extension/${extensionId}`)
             .pipe(catchError(() => of([])));
     }
 
-    /** R�cup�re les sp�culations/zones configur�es pour une garantie donn�e */
+    /** R�cup�re les sp�culations/zones configur�es pour une garantie donn�e */
     getGarantieSpeculations(garantieId: number): Observable<any[]> {
         return this.http
             .get<any[]>(`${environment.apiUrl}/garantie-speculations/garantie/${garantieId}`)
@@ -160,7 +160,7 @@ export class CnaasApiService {
             .pipe(catchError(() => of([])));
     }
 
-    /* ─── D�tail complet (forkJoin) ─── */
+    /* ─── D�tail complet (forkJoin) ─── */
     getProduitDetail(produitId: number): Observable<ProduitDetail> {
         return forkJoin({
             produit:    this.getProduit(produitId),
@@ -173,7 +173,7 @@ export class CnaasApiService {
         });
     }
 
-    /* ─── R�f�rentiel public ─── */
+    /* ─── R�f�rentiel public ─── */
     getReferentielValues(listeCode: string): Observable<any[]> {
         return this.http
             .get<any>(`${PUBLIC}/referentiel/${listeCode}/values?size=100`)
@@ -232,7 +232,7 @@ export class CnaasApiService {
             }));
     }
 
-    /* ─── Mod�le Partenariat ─── */
+    /* ─── Mod�le Partenariat ─── */
     getModelePartenariat(): Observable<any> {
         return this.http
             .get<any>(`${PUBLIC}/portail/modele-partenariat`)

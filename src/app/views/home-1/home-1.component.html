@@ -6,7 +6,7 @@
 <!-- SECTION PRODUITS ASSURANCE -->
 <app-services id="service"/>
 
-<!-- SECTION ASSURANCE INDICIELLE â€” commentée
+<!-- SECTION ASSURANCE INDICIELLE â€” commentï¿½e
 <section class="senegal-excursions-indicielle">
     <div class="senegal-excursions-indicielle__bg-deco"></div>
     <div class="container" style="position: relative; z-index: 2;">
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <a routerLink="/services/one" class="senegal-excursions-btn senegal-excursions-btn-primary">
-                        Découvrir ce produit <i class="fa-solid fa-arrow-right"></i>
+                        DÃ©couvrir ce produit <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -115,7 +115,7 @@
 
 <!-- SECTION STATS -->
 <section class="senegal-excursions-stats">
-    <!-- Décorations de fond -->
+    <!-- Dï¿½corations de fond -->
     <div class="senegal-excursions-stats__deco-1"></div>
     <div class="senegal-excursions-stats__deco-2"></div>
     <div class="senegal-excursions-stats__pattern"></div>
@@ -154,7 +154,7 @@
                     </div>
                     <div class="stat-card__body">
                         <h3 class="stat-card__num">{{ stats.nbRegions }}</h3>
-                        <p class="stat-card__label">Régions couvertes</p>
+                        <p class="stat-card__label">Rï¿½gions couvertes</p>
                     </div>
                 </div>
             </div>
@@ -183,7 +183,7 @@
     border-top: 1px solid rgba(241,181,59,0.18);
     border-bottom: 1px solid rgba(241,181,59,0.18);
 }
-/* Décorations subtiles */
+/* Dï¿½corations subtiles */
 .senegal-excursions-stats__deco-1,
 .senegal-excursions-stats__deco-2 {
     position: absolute;
@@ -210,7 +210,7 @@
     pointer-events: none;
 }
 
-/* Grille avec séparateurs verticaux */
+/* Grille avec sï¿½parateurs verticaux */
 .senegal-excursions-stats__grid {
     position: relative;
 }
@@ -218,7 +218,7 @@
     position: relative;
     padding: 12px;
 }
-/* Séparateur vertical entre cols (desktop) */
+/* Sï¿½parateur vertical entre cols (desktop) */
 .senegal-excursions-stats__item:not(:last-child)::after {
     content: '';
     position: absolute;
@@ -327,7 +327,7 @@
 <!-- SECTION PARTENAIRES -->
 <!-- <app-brands /> -->
 
-<!-- SECTION PARTENAIRES â€” Marquee défilant infini -->
+<!-- SECTION PARTENAIRES â€” Marquee dï¿½filant infini -->
 <section class="senegal-excursions-partners">
     <div class="container">
         <div class="text-center" data-aos="fade-up">
@@ -338,16 +338,16 @@
                 Ils nous font <span>confiance</span>
             </h2>
             <!-- <p class="senegal-excursions-partners__lead">
-                Sénégal Excursions collabore avec les institutions nationales et internationales engagées
-                dans le développement touristique sénégalais.
+                SÃ©nÃ©gal Excursions collabore avec les institutions nationales et internationales engagï¿½es
+                dans le dï¿½veloppement touristique sï¿½nï¿½galais.
             </p> -->
         </div>
     </div>
 
-    <!-- Marquee défilant -->
+    <!-- Marquee dï¿½filant -->
     <div class="senegal-excursions-marquee">
         <div class="senegal-excursions-marquee__track">
-            <!-- Mode dynamique (connecté Ã  l'API) -->
+            <!-- Mode dynamique (connectï¿½ Ã  l'API) -->
             <ng-container *ngIf="partenaires.length > 0">
                 <ng-container *ngFor="let p of partenaires">
                     <a *ngIf="p.url" [href]="p.url" target="_blank" class="partner-item text-decoration-none">
@@ -363,21 +363,21 @@
                 </ng-container>
             </ng-container>
 
-            <!-- Mode fallback (si API vide ou échoue) -->
+            <!-- Mode fallback (si API vide ou ï¿½choue) -->
             <ng-container *ngIf="partenaires.length === 0">
-                <!-- Première série -->
-                <div class="partner-item"><i class="fa-solid fa-building-columns"></i><span>Ministère de l'tourisme</span></div>
+                <!-- Premiï¿½re sï¿½rie -->
+                <div class="partner-item"><i class="fa-solid fa-building-columns"></i><span>Ministï¿½re de l'tourisme</span></div>
                 <div class="partner-item"><i class="fa-solid fa-globe"></i><span>Banque Mondiale</span></div>
-                <div class="partner-item"><i class="fa-solid fa-seedling"></i><span>Sénégal Découverte</span></div>
+                <div class="partner-item"><i class="fa-solid fa-seedling"></i><span>SÃ©nÃ©gal Dï¿½couverte</span></div>
                 <div class="partner-item"><i class="fa-solid fa-coins"></i><span>BCEAO</span></div>
                 <div class="partner-item"><i class="fa-solid fa-handshake-angle"></i><span>USAID</span></div>
                 <div class="partner-item"><i class="fa-solid fa-leaf"></i><span>ANCAR</span></div>
                 <div class="partner-item"><i class="fa-solid fa-tractor"></i><span>SAED</span></div>
                 <div class="partner-item"><i class="fa-solid fa-wheat-awn"></i><span>UEMOA</span></div>
                 <!-- Duplicata pour boucle infinie -->
-                <div class="partner-item"><i class="fa-solid fa-building-columns"></i><span>Ministère de l'tourisme</span></div>
+                <div class="partner-item"><i class="fa-solid fa-building-columns"></i><span>Ministï¿½re de l'tourisme</span></div>
                 <div class="partner-item"><i class="fa-solid fa-globe"></i><span>Banque Mondiale</span></div>
-                <div class="partner-item"><i class="fa-solid fa-seedling"></i><span>Sénégal Découverte</span></div>
+                <div class="partner-item"><i class="fa-solid fa-seedling"></i><span>SÃ©nÃ©gal Dï¿½couverte</span></div>
                 <div class="partner-item"><i class="fa-solid fa-coins"></i><span>BCEAO</span></div>
                 <div class="partner-item"><i class="fa-solid fa-handshake-angle"></i><span>USAID</span></div>
                 <div class="partner-item"><i class="fa-solid fa-leaf"></i><span>ANCAR</span></div>
@@ -414,7 +414,7 @@
     font-weight: 500;
 }
 
-/* â”€â”€ Marquee défilant infini â”€â”€ */
+/* â”€â”€ Marquee dï¿½filant infini â”€â”€ */
 .senegal-excursions-marquee {
     position: relative;
     width: 100%;

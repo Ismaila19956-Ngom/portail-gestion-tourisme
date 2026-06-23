@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-10 m-auto">
                 <div class="hero-heading-area heading1 text-center" data-aos="fade-up" data-aos-duration="1000">
-                    <!-- Si produit sélectionné -->
+                    <!-- Si produit sï¿½lectionnï¿½ -->
                     <ng-container *ngIf="selectedProduit">
                         <span *ngIf="selectedProduit.branche?.libelle"
                               style="display: inline-flex; align-items: center; gap: 8px; background: rgba(241,181,59,0.15);
@@ -23,7 +23,7 @@
                         </h1>
                         <div style="width: 64px; height: 3px; background: #F1B53B; margin: 0 auto 20px; border-radius: 2px;"></div>
                         <p style="color: rgba(255,255,255,0.85); font-size: 1rem; max-width: 600px; margin: 0 auto 30px; line-height: 1.5; font-weight: 500;">
-                            {{ selectedProduit.description || 'Sécurisez vos activités locaux avec cette offre de la Sénégal Excursions.' }}
+                            {{ selectedProduit.description || 'Sï¿½curisez vos activitï¿½s locaux avec cette offre de la SÃ©nÃ©gal Excursions.' }}
                         </p>
                     </ng-container>
 
@@ -48,7 +48,7 @@
             <div class="col-lg-5">
                 <div style="background: linear-gradient(160deg, #05351c 0%, #032111 100%); border-radius: 24px; padding: 50px 40px; box-shadow: 0 8px 30px rgba(5,53,28,0.15); height: 100%; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden;">
                     
-                    <!-- Bulle déco subtile -->
+                    <!-- Bulle dï¿½co subtile -->
                     <div style="position: absolute; top: -60px; right: -60px; width: 150px; height: 150px; background: rgba(241,181,59,0.05); border-radius: 50%; pointer-events: none;"></div>
                     
                     <div style="position: relative; z-index: 2;">
@@ -59,23 +59,23 @@
                         
                         <!-- Title -->
                         <h2 style="color: #fff; font-size: 2.1rem; font-weight: 900; margin-bottom: 18px; line-height: 1.25; letter-spacing: -0.02em;">
-                            Planifions Votre Voyage au Sénégal
+                            Planifions Votre Voyage au SÃ©nÃ©gal
                         </h2>
                         
                         <!-- Description -->
                         <p style="color: rgba(255,255,255,0.72); font-size: 0.95rem; line-height: 1.65; margin-bottom: 44px; font-weight: 500;">
-                            Notre équipe d'experts locaux est Ã  votre disposition pour vous guider vers la meilleure couverture.
+                            Notre ï¿½quipe d'experts locaux est Ã  votre disposition pour vous guider vers la meilleure couverture.
                         </p>
 
                         <!-- Blocs d'informations -->
                         <div style="display: flex; flex-direction: column; gap: 28px;">
-                            <!-- Téléphone -->
+                            <!-- TÃ©lÃ©phone -->
                             <div style="display: flex; align-items: center; gap: 16px;">
                                 <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                                     <i class="fa-solid fa-phone" style="color: #F1B53B; font-size: 1.05rem;"></i>
                                 </div>
                                 <div>
-                                    <span style="display: block; color: rgba(255,255,255,0.45); font-size: 0.76rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Téléphone</span>
+                                    <span style="display: block; color: rgba(255,255,255,0.45); font-size: 0.76rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">TÃ©lÃ©phone</span>
                                     <a href="tel:+221338697800" style="display: block; color: #fff; font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#F1B53B'" onmouseout="this.style.color='#fff'">(+221) 33 869 78 00</a>
                                 </div>
                             </div>
@@ -124,12 +124,12 @@
                                 <div *ngIf="contactForm.get('nomComplet')?.invalid && contactForm.get('nomComplet')?.touched" style="color: #dc3545; font-size: 0.78rem; margin-top: 5px; font-weight: 500; padding-left: 2px;">Le nom complet est requis.</div>
                             </div>
 
-                            <!-- Téléphone -->
+                            <!-- TÃ©lÃ©phone -->
                             <div class="col-md-6">
-                                <input type="tel" formControlName="telephone" placeholder="Téléphone *"
+                                <input type="tel" formControlName="telephone" placeholder="TÃ©lÃ©phone *"
                                     style="width: 100%; border: 1.5px solid #d9ede2; border-radius: 10px; padding: 13px 18px; font-size: 0.9rem; color: #333; outline: none; background: #fcfdfc; transition: all 0.3s;"
                                     onfocus="this.style.borderColor='#556B2F'; this.style.boxShadow='0 0 0 3px rgba(85,107,47,0.08)';" onblur="this.style.borderColor='#d9ede2'; this.style.boxShadow='none';">
-                                <div *ngIf="contactForm.get('telephone')?.invalid && contactForm.get('telephone')?.touched" style="color: #dc3545; font-size: 0.78rem; margin-top: 5px; font-weight: 500; padding-left: 2px;">Le téléphone est requis.</div>
+                                <div *ngIf="contactForm.get('telephone')?.invalid && contactForm.get('telephone')?.touched" style="color: #dc3545; font-size: 0.78rem; margin-top: 5px; font-weight: 500; padding-left: 2px;">Le tÃ©lÃ©phone est requis.</div>
                             </div>
 
                             <!-- Email -->
@@ -140,22 +140,22 @@
                                 <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" style="color: #dc3545; font-size: 0.78rem; margin-top: 5px; font-weight: 500; padding-left: 2px;">Un email valide est requis.</div>
                             </div>
 
-                            <!-- Produit souhaité -->
+                            <!-- Produit souhaitï¿½ -->
                             <div class="col-md-6">
                                 <select formControlName="produitNom" 
                                         style="width: 100%; border: 1.5px solid #d9ede2; border-radius: 10px; padding: 13px 18px; font-size: 0.9rem; color: #555; outline: none; background: #fcfdfc url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23075A26%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E') no-repeat right 16px center; background-size: 10px auto; appearance: none; -webkit-appearance: none; cursor: pointer; transition: all 0.3s;"
                                         onfocus="this.style.borderColor='#556B2F'; this.style.boxShadow='0 0 0 3px rgba(85,107,47,0.08)';" onblur="this.style.borderColor='#d9ede2'; this.style.boxShadow='none';">
-                                    <option value="">Produit souhaité</option>
+                                    <option value="">Produit souhaitï¿½</option>
                                     <option *ngFor="let p of produits" [value]="p.nom">{{ p.nom }}</option>
                                 </select>
                             </div>
 
-                            <!-- Détails de l'exploitation -->
+                            <!-- DÃ©tails de l'exploitation -->
                             <div class="col-12">
-                                <textarea formControlName="message" rows="5" placeholder="Détails de votre exploitation..."
+                                <textarea formControlName="message" rows="5" placeholder="DÃ©tails de votre exploitation..."
                                     style="width: 100%; border: 1.5px solid #d9ede2; border-radius: 10px; padding: 13px 18px; font-size: 0.9rem; color: #333; outline: none; background: #fcfdfc; resize: vertical; transition: all 0.3s;"
                                     onfocus="this.style.borderColor='#556B2F'; this.style.boxShadow='0 0 0 3px rgba(85,107,47,0.08)';" onblur="this.style.borderColor='#d9ede2'; this.style.boxShadow='none';"></textarea>
-                                <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" style="color: #dc3545; font-size: 0.78rem; margin-top: 5px; font-weight: 500; padding-left: 2px;">Les détails de votre exploitation sont requis.</div>
+                                <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" style="color: #dc3545; font-size: 0.78rem; margin-top: 5px; font-weight: 500; padding-left: 2px;">Les dÃ©tails de votre exploitation sont requis.</div>
                             </div>
 
                             <!-- Checkbox Politique -->
@@ -163,10 +163,10 @@
                                 <div style="display: flex; align-items: flex-start; gap: 10px;">
                                     <input type="checkbox" formControlName="privacy" id="privacy" style="width: 18px; height: 18px; accent-color: #556B2F; margin-top: 2px; cursor: pointer; flex-shrink: 0;">
                                     <label for="privacy" style="font-size: 0.85rem; color: #555; cursor: pointer; font-weight: 500; line-height: 1.4;">
-                                        J'accepte la <a href="javascript:void(0)" style="color: #556B2F; font-weight: 600; text-decoration: none;">politique de confidentialité</a> de Sénégal Excursions.
+                                        J'accepte la <a href="javascript:void(0)" style="color: #556B2F; font-weight: 600; text-decoration: none;">politique de confidentialitï¿½</a> de SÃ©nÃ©gal Excursions.
                                     </label>
                                 </div>
-                                <div *ngIf="contactForm.get('privacy')?.invalid && contactForm.get('privacy')?.touched" style="color: #dc3545; font-size: 0.78rem; margin-top: 4px; font-weight: 500; padding-left: 2px;">Vous devez accepter la politique de confidentialité.</div>
+                                <div *ngIf="contactForm.get('privacy')?.invalid && contactForm.get('privacy')?.touched" style="color: #dc3545; font-size: 0.78rem; margin-top: 4px; font-weight: 500; padding-left: 2px;">Vous devez accepter la politique de confidentialitï¿½.</div>
                             </div>
 
                             <!-- Bouton Submit -->

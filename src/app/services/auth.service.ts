@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { AuthSession, LoginRequest, LoginResponse, UserSession } from '../models/auth.models';
 
-const SESSION_KEY = '_Sénégal Excursions_PORTAIL_SESSION_';
+const SESSION_KEY = '_SÃ©nÃ©gal Excursions_PORTAIL_SESSION_';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

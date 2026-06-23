@@ -14,28 +14,28 @@ export class ServiceContentComponent {
     /* â”€â”€ FAQ â”€â”€ */
     faqs = [
         {
-            question: "Quelles cultures sont couvertes par l'assurance récolte Sénégal Excursions ?",
-            answer: "L'assurance multirisque récolte Sénégal Excursions couvre les principales cultures pluviales sénégalaises : mil, sorgho, maÃ¯s, arachide, niébé et coton. Des extensions spécifiques sont disponibles pour les cultures irriguées (riz, tomate, oignon) dans les zones de Saint-Louis et Podor."
+            question: "Quelles cultures sont couvertes par l'assurance rï¿½colte SÃ©nÃ©gal Excursions ?",
+            answer: "L'assurance multirisque rï¿½colte SÃ©nÃ©gal Excursions couvre les principales cultures pluviales sï¿½nï¿½galaises : mil, sorgho, maÃ¯s, arachide, niï¿½bï¿½ et coton. Des extensions spï¿½cifiques sont disponibles pour les cultures irriguï¿½es (riz, tomate, oignon) dans les zones de Saint-Louis et Podor."
         },
         {
             question: "Comment fonctionne l'indemnisation en cas de sinistre ?",
-            answer: "Dès la déclaration d'un sinistre, un expert Sénégal Excursions ou un partenaire agréé se déplace sur votre exploitation dans un délai de 72 heures. L'évaluation des dommages est réalisée contradictoirement, et l'indemnisation est versée dans un délai maximum de 30 jours après l'accord du dossier."
+            answer: "Dï¿½s la dÃ©claration d'un sinistre, un expert SÃ©nÃ©gal Excursions ou un partenaire agrï¿½ï¿½ se dï¿½place sur votre exploitation dans un dï¿½lai de 72 heures. L'ï¿½valuation des dommages est rï¿½alisï¿½e contradictoirement, et l'indemnisation est versï¿½e dans un dï¿½lai maximum de 30 jours aprï¿½s l'accord du dossier."
         },
         {
             question: "Puis-je souscrire via mobile money ?",
-            answer: "Oui, depuis la campagne 2024, la Sénégal Excursions a intégré les paiements via Wave et Orange Money. Vous pouvez souscrire et payer votre prime directement depuis votre téléphone, sans vous déplacer, grâce Ã  nos agents itinérants ou via notre portail en ligne."
+            answer: "Oui, depuis la campagne 2024, la SÃ©nÃ©gal Excursions a intï¿½grï¿½ les paiements via Wave et Orange Money. Vous pouvez souscrire et payer votre prime directement depuis votre tÃ©lÃ©phone, sans vous dï¿½placer, grï¿½ce Ã  nos agents itinï¿½rants ou via notre portail en ligne."
         },
         {
-            question: "L'assurance indicielle nécessite-t-elle une expertise terrain ?",
-            answer: "Non, c'est l'un des grands avantages de l'assurance indicielle. L'indemnisation est déclenchée automatiquement sur la base de données objectives (relevés pluviométriques, indices satellitaires NDVI) sans nécessiter d'expertise sur le terrain. Cela garantit une rapidité et une neutralité totales dans le processus d'indemnisation."
+            question: "L'assurance indicielle nï¿½cessite-t-elle une expertise terrain ?",
+            answer: "Non, c'est l'un des grands avantages de l'assurance indicielle. L'indemnisation est dï¿½clenchï¿½e automatiquement sur la base de donnï¿½es objectives (relevï¿½s pluviomï¿½triques, indices satellitaires NDVI) sans nï¿½cessiter d'expertise sur le terrain. Cela garantit une rapiditï¿½ et une neutralitï¿½ totales dans le processus d'indemnisation."
         },
         {
-            question: "Quels sont les délais de souscription pour la campagne 2025 ?",
-            answer: "La période de souscription pour la campagne hivernale 2025 est ouverte du 1er mars au 31 mai 2025. Passé cette date, aucune nouvelle souscription ne sera acceptée pour la saison en cours. Contactez rapidement votre agent Sénégal Excursions le plus proche."
+            question: "Quels sont les dï¿½lais de souscription pour la campagne 2025 ?",
+            answer: "La pï¿½riode de souscription pour la campagne hivernale 2025 est ouverte du 1er mars au 31 mai 2025. Passï¿½ cette date, aucune nouvelle souscription ne sera acceptï¿½e pour la saison en cours. Contactez rapidement votre agent SÃ©nÃ©gal Excursions le plus proche."
         },
         {
-            question: "Comment contacter un conseiller Sénégal Excursions ?",
-            answer: "Vous pouvez contacter la Sénégal Excursions au (+221) 33 869 78 00 (du lundi au vendredi, 8h-17h) ou par email Ã  contact@senegal-excursions.sn. Des agents sont également présents dans chacune des 14 régions du Sénégal. Retrouvez l'agence la plus proche via notre carte des agences."
+            question: "Comment contacter un conseiller SÃ©nÃ©gal Excursions ?",
+            answer: "Vous pouvez contacter la SÃ©nÃ©gal Excursions au (+221) 33 869 78 00 (du lundi au vendredi, 8h-17h) ou par email Ã  contact@senegal-excursions.sn. Des agents sont ï¿½galement prï¿½sents dans chacune des 14 rï¿½gions du SÃ©nÃ©gal. Retrouvez l'agence la plus proche via notre carte des agences."
         }
     ];
 
@@ -44,26 +44,26 @@ export class ServiceContentComponent {
         {
             image: 'assets/img/all-images/testimonial-img14.png',
             name: 'Ousmane Faye',
-            role: 'Céréaliculteur â€” Louga',
+            role: 'Cï¿½rï¿½aliculteur â€” Louga',
             rating: 5,
             date: 'Octobre 2024',
-            text: "Grâce Ã  l'assurance récolte Sénégal Excursions, j'ai pu être indemnisé après la sécheresse de juillet. La procédure a été simple et rapide. Je renouvelle sans hésiter pour 2025."
+            text: "Grï¿½ce Ã  l'assurance rï¿½colte SÃ©nÃ©gal Excursions, j'ai pu ï¿½tre indemnisï¿½ aprï¿½s la sï¿½cheresse de juillet. La procï¿½dure a ï¿½tï¿½ simple et rapide. Je renouvelle sans hï¿½siter pour 2025."
         },
         {
             image: 'assets/img/all-images/testimonial-img15.png',
             name: 'Fatou Diop',
-            role: 'Maraîchère â€” Thiès',
+            role: 'Maraï¿½chï¿½re â€” Thiï¿½s',
             rating: 5,
-            date: 'Décembre 2024',
-            text: "L'expert Sénégal Excursions est venu dans les 48h après ma déclaration. L'indemnisation a couvert mes pertes Ã  hauteur de 85%. Je suis très satisfaite du service."
+            date: 'Dï¿½cembre 2024',
+            text: "L'expert SÃ©nÃ©gal Excursions est venu dans les 48h aprï¿½s ma dÃ©claration. L'indemnisation a couvert mes pertes Ã  hauteur de 85%. Je suis trÃ¨s satisfaite du service."
         },
         {
             image: 'assets/img/all-images/testimonial-img16.png',
-            name: 'Ibrahima Baldé',
-            role: 'Éleveur â€” Kolda',
+            name: 'Ibrahima Baldï¿½',
+            role: 'ï¿½leveur â€” Kolda',
             rating: 4,
             date: 'Novembre 2024',
-            text: "La Sénégal Excursions est une vraie bouée de sauvetage pour nous les éleveurs du Fouladou. J'ai perdu plusieurs têtes de bétail lors de la fièvre aphteuse et j'ai été remboursé correctement."
+            text: "La SÃ©nÃ©gal Excursions est une vraie bouï¿½e de sauvetage pour nous les ï¿½leveurs du Fouladou. J'ai perdu plusieurs tï¿½tes de bÃ©tail lors de la fiï¿½vre aphteuse et j'ai ï¿½tï¿½ remboursï¿½ correctement."
         }
     ];
 
