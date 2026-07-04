@@ -4,13 +4,13 @@
 
 <!-- ══ HERO avec image de fond ══ -->
 <div class="faq-hero">
-    <!-- Image de fond (img balis�e — Angular r�sout assets/... proprement) -->
-    <img src="assets/images/produits/hf_20260311_164048_86f66af8-95f1-4418-b76a-4b4735fea65e.jpeg"
+    <!-- Image de fond -->
+    <img src="assets/images/tourisme/hero_faq.png"
          alt=""
          class="faq-hero__bg-img"
          aria-hidden="true">
 
-    <!-- Overlay sombre vert pour lisibilit� du texte -->
+    <!-- Overlay sombre vert pour lisibilit du texte -->
     <div class="faq-hero__overlay"></div>
 
     <!-- Pattern de points en bas -->
@@ -206,8 +206,8 @@
     <!-- Empty State -->
     <div *ngIf="!loading && filteredFaqs.length === 0" style="text-align: center; padding: 60px 20px; background: #f9fbf9; border-radius: 12px; border: 1px dashed #c3e0ce;">
         <i class="fa-solid fa-circle-question" style="font-size: 3rem; color: #c3e0ce; margin-bottom: 15px;"></i>
-        <h3 style="font-size: 1.3rem; color: #556B2F; margin-bottom: 10px;">Aucune r�ponse trouv�e</h3>
-        <p style="color: #666;">Nous n'avons pas trouv� de question correspondant à "{{ searchQuery }}".</p>
+        <h3 style="font-size: 1.3rem; color: #556B2F; margin-bottom: 10px;">Aucune réponse trouvée</h3>
+        <p style="color: #666;">Nous n'avons pas trouvé de question correspondant à "{{ searchQuery }}".</p>
         <button (click)="searchQuery=''; onSearch()" class="btn btn-outline-success" style="margin-top: 10px;">Voir toutes les questions</button>
     </div>
 

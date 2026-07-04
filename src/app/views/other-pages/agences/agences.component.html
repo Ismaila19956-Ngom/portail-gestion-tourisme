@@ -1,6 +1,6 @@
 <div class="hero1-section-area about-bg-area"
      style="background: #F1B53B;
-            background-image: url('assets/images/produits/hf_20260311_171453_4c033777-5979-4867-81ed-1fbbb5c1b9bc.jpeg');
+             background-image: url('assets/images/tourisme/hero_dakar.png');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -13,12 +13,12 @@
         <div class="row">
             <div class="col-lg-10 m-auto">
                 <div class="hero-heading-area heading1 text-center" data-aos="fade-up" data-aos-duration="1000">
-                     <h5 class="hero-eyebrow">LE R�SEAU Sénégal Excursions</h5>
-                     <h1 class="hero-title">Retrouvez nos agences sur <span>l'�tendue du territoire</span></h1>
+                     <h5 class="hero-eyebrow">LE RÉSEAU Sénégal Excursions</h5>
+                     <h1 class="hero-title">Retrouvez nos agences sur <span>l'étendue du territoire</span></h1>
                     <div class="hero-divider"></div>
                      <p class="hero-desc">
-                        La Compagnie Nationale d'Assurance touristique du Sénégal (Sénégal Excursions) dispose d'un vaste r�seau
-                        d'agences r�parties sur plusieurs zones pour �tre toujours plus proche de vous.
+                        Sénégal Excursions dispose d'un large réseau de partenaires et d'agences
+                        réparties sur plusieurs zones pour être toujours plus proche de vous.
                     </p>
                     <div style="display: flex; justify-content: center;">
                         <app-breadcrumb [title]="'Nos Agences'"></app-breadcrumb>
@@ -36,8 +36,8 @@
         <!-- Titre -->
         <div class="row mb-2">
             <div class="col-lg-8 m-auto text-center" data-aos="fade-up" data-aos-duration="800">
-                <span class="sub-title">Le r�seau Sénégal Excursions</span>
-                <h2 class="section-title">Retrouvez nos agences sur <span>l'�tendue du territoire</span></h2>
+                <span class="sub-title">Le réseau Sénégal Excursions</span>
+                <h2 class="section-title">Retrouvez nos agences sur <span>l'étendue du territoire</span></h2>
                 <p class="section-desc">Cliquez sur une zone pour voir les agences correspondantes.</p>
             </div>
         </div>
@@ -51,7 +51,7 @@
         <!-- ─── Erreur ─── -->
         <div *ngIf="error && !loading" class="alert-zone">
             <i class="fa-solid fa-triangle-exclamation"></i>
-            Connexion impossible au serveur. Donn�es de d�monstration affich�es.
+            Connexion impossible au serveur. Données de démonstration affichées.
         </div>
 
         <!-- ─── Contenu principal ─── -->
@@ -79,7 +79,7 @@
                 <div class="map-panel">
                     <div class="map-header">
                         <i class="fa-solid fa-map"></i>
-                        <span>Carte � {{ selectedZone.zone }}</span>
+                        <span>Carte — {{ selectedZone.zone }}</span>
                         <a *ngIf="selectedAgency?.latitude && selectedAgency?.longitude"
                            [href]="'https://maps.google.com/?q=' + selectedAgency.latitude + ',' + selectedAgency.longitude"
                            target="_blank" class="open-gmaps">
@@ -197,7 +197,7 @@
                                 </li>
                             </ul>
 
-                            <!-- Résumé si non s�lectionn� -->
+                            <!-- Résumé si non sélectionné -->
                             <p class="agency-summary" *ngIf="selectedAgency !== agency && agency.adresse">
                                 <i class="fa-solid fa-location-dot"></i> {{ agency.adresse }}
                             </p>

@@ -20,7 +20,7 @@ export class ExcursionsComponent implements OnInit {
   selectedRegion = '';
   selectedDuration = '';
   maxPrice: number | null = null;
-  displayLimit = 2; // Affiche 2 par défaut
+  displayLimit = 6; // Affiche 6 par défaut
 
   regions: string[] = [];
 
@@ -87,7 +87,7 @@ export class ExcursionsComponent implements OnInit {
     this.selectedRegion = '';
     this.selectedDuration = '';
     this.maxPrice = null;
-    this.displayLimit = 2;
+    this.displayLimit = 6;
     this.filteredExcursions = [...this.excursions];
   }
 }

@@ -1,8 +1,8 @@
-import { NgFor, NgIf } from '@angular/common';
+﻿import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CarouselModule, type OwlOptions } from 'ngx-owl-carousel-o';
-import { CnaasApiService } from '../../../../services/cnaas-api.service';
+import { TourismeApiService } from '../../../../services/tourisme-api.service';
 
 interface Slide {
     img: string;
@@ -12,19 +12,24 @@ interface Slide {
 
 const DEFAULT_SLIDES: Slide[] = [
     {
-        img: 'assets/images/tourisme/senegal_hero_1781800514533.png',
+        img: 'assets/images/tourisme/hero_goree.png',
         title: 'Découvrez le Sénégal Authentique avec des Guides Locaux',
         subtitle: 'Excursions inoubliables • Dakar, Gorée, Saloum, Casamance'
     },
     {
-        img: 'assets/images/tourisme/excursion_dakar_1781800534313.png',
+        img: 'assets/images/tourisme/hero_saloum.png',
         title: 'Des Circuits Sur Mesure pour Tous les Voyageurs',
         subtitle: 'Réservation en ligne • Paiement sécurisé • Confirmation immédiate'
     },
     {
-        img: 'assets/images/tourisme/excursion_saloum_1781800545237.png',
+        img: 'assets/images/tourisme/hero_dakar.png',
         title: 'Vivez une Expérience Unique au Cœur de l\'Afrique',
         subtitle: 'Éco-tourisme responsable • Guides certifiés • Satisfaction garantie'
+    },
+    {
+        img: 'assets/images/tourisme/service_plage.png',
+        title: 'Plages Paradisiaques et Nature Préservée',
+        subtitle: 'Saly, Casamance, Cap Skirring • Détente & Aventure • Tout Niveaux'
     }
 ];
 
@@ -64,7 +69,7 @@ export class HeroComponent implements OnInit {
         }
     };
 
-    constructor(private api: CnaasApiService) {}
+    constructor(private api: TourismeApiService) {}
 
     ngOnInit(): void {
         this.api.getSliders().subscribe(data => {

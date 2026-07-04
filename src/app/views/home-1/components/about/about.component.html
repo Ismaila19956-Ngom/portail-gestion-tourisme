@@ -5,8 +5,8 @@
     <div class="container" style="position: relative; z-index: 2;">
 
         <!-- En-tête -->
-        <div class="row mb-4">
-            <div class="col-lg-7 m-auto text-center">
+        <div class="row mb-5">
+            <div class="col-lg-7 m-auto text-center" data-aos="fade-up">
                 <span class="senegal-excursions-about__eyebrow">
                     <i class="fa-solid fa-leaf"></i> Qui sommes-nous
                 </span>
@@ -20,25 +20,21 @@
         </div>
 
         <!-- Grille Dynamique -->
-        <div class="row g-4" *ngIf="partenaires && partenaires.length > 0">
-            <div class="col-lg-4 col-md-6" *ngFor="let p of partenaires; let i = index" data-aos="zoom-in" [attr.data-aos-duration]="800 + (i * 200)">
-                <article class="cs-box">
-                    <div class="cs-box__img">
-                        <img [src]="getImageUrl(p.imageUrl) || 'assets/images/tourisme/excursion_casamance_1781800557434.png'"
-                             [alt]="p.titre" loading="lazy">
-                        <div class="cs-box__img-veil"></div>
+        <div class="row g-4 justify-content-center" *ngIf="partenaires && partenaires.length > 0">
+            <div class="col-lg-4 col-md-6" *ngFor="let p of partenaires; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 150">
+                <article class="modern-tour-card">
+                    <div class="modern-tour-card__image">
+                        <img [src]="getImageUrl(p.imageUrl) || 'assets/images/tourisme/excursion_casamance_1781800557434.png'" [alt]="p.titre" loading="lazy">
+                        <div class="modern-tour-card__badge">
+                            <i [class]="p.icone || 'fa-solid fa-star'"></i>
+                        </div>
+                        <div class="modern-tour-card__overlay"></div>
                     </div>
-                    <div class="cs-box__icon">
-                        <i [class]="p.icone || 'fa-solid fa-star'"></i>
-                    </div>
-                    <div class="cs-box__content">
-                        <a [routerLink]="['/partenaire/detail', p.id]" class="cs-box__title">{{ p.titre }}</a>
-                        <p>{{ p.description }}</p>
-                        <a [routerLink]="['/partenaire/detail', p.id]" class="cs-box__more">
-                            <span>En savoir plus</span>
-                            <span class="cs-box__more-arrow">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
+                    <div class="modern-tour-card__content">
+                        <a [routerLink]="['/partenaire/detail', p.id]" class="modern-tour-card__title">{{ p.titre }}</a>
+                        <p class="modern-tour-card__desc">{{ p.description }}</p>
+                        <a [routerLink]="['/partenaire/detail', p.id]" class="modern-tour-card__btn">
+                            En savoir plus <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
@@ -46,81 +42,69 @@
         </div>
 
         <!-- Grille 3 cartes (Par défaut si la base de données est vide) -->
-        <div class="row g-4" *ngIf="!partenaires || partenaires.length === 0">
+        <div class="row g-4 justify-content-center" *ngIf="!partenaires || partenaires.length === 0">
 
-            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration="800">
-                <article class="cs-box">
-                    <div class="cs-box__img">
-                        <img src="assets/images/tourisme/excursion_goree_1781800606230.png"
-                             alt="Notre mission" loading="lazy">
-                        <div class="cs-box__img-veil"></div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                <article class="modern-tour-card">
+                    <div class="modern-tour-card__image">
+                        <img src="assets/images/tourisme/excursion_goree_1781800606230.png" alt="Notre mission" loading="lazy">
+                        <div class="modern-tour-card__badge">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div class="modern-tour-card__overlay"></div>
                     </div>
-                    <div class="cs-box__icon">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <div class="cs-box__content">
-                        <a routerLink="/about" class="cs-box__title">Notre Mission</a>
-                        <p>
+                    <div class="modern-tour-card__content">
+                        <a routerLink="/about" class="modern-tour-card__title">Notre Mission</a>
+                        <p class="modern-tour-card__desc">
                             Faire découvrir un Sénégal authentique à chaque voyageur,
                             avec passion, respect et professionnalisme depuis 2015.
                         </p>
-                        <a routerLink="/about" class="cs-box__more">
-                            <span>Découvrir notre histoire</span>
-                            <span class="cs-box__more-arrow">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
+                        <a routerLink="/about" class="modern-tour-card__btn">
+                            Découvrir notre histoire <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
             </div>
 
-            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration="1000">
-                <article class="cs-box">
-                    <div class="cs-box__img">
-                        <img src="assets/images/tourisme/excursion_casamance_1781800557434.png"
-                             alt="Nos produits" loading="lazy">
-                        <div class="cs-box__img-veil"></div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+                <article class="modern-tour-card">
+                    <div class="modern-tour-card__image">
+                        <img src="assets/images/tourisme/excursion_casamance_1781800557434.png" alt="Nos produits" loading="lazy">
+                        <div class="modern-tour-card__badge">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <div class="modern-tour-card__overlay"></div>
                     </div>
-                    <div class="cs-box__icon">
-                        <i class="fa-solid fa-compass"></i>
-                    </div>
-                    <div class="cs-box__content">
-                        <a routerLink="/excursions" class="cs-box__title">Nos Excursions</a>
-                        <p>
+                    <div class="modern-tour-card__content">
+                        <a routerLink="/excursions" class="modern-tour-card__title">Nos Excursions</a>
+                        <p class="modern-tour-card__desc">
                              Dakar, Gorée, Sine-Saloum, Casamance, Saint-Louis, Lompoul
                             — des circuits pour tous les goûts.
                         </p>
-                        <a routerLink="/excursions" class="cs-box__more">
-                            <span>Voir les excursions</span>
-                            <span class="cs-box__more-arrow">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
+                        <a routerLink="/excursions" class="modern-tour-card__btn">
+                            Voir les excursions <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
             </div>
 
-            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-duration="1200">
-                <article class="cs-box">
-                    <div class="cs-box__img">
-                        <img src="assets/images/tourisme/excursion_dakar_1781800534313.png"
-                             alt="Notre couverture" loading="lazy">
-                        <div class="cs-box__img-veil"></div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <article class="modern-tour-card">
+                    <div class="modern-tour-card__image">
+                        <img src="assets/images/tourisme/excursion_dakar_1781800534313.png" alt="Notre couverture" loading="lazy">
+                        <div class="modern-tour-card__badge">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <div class="modern-tour-card__overlay"></div>
                     </div>
-                    <div class="cs-box__icon">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                    </div>
-                    <div class="cs-box__content">
-                        <a routerLink="/about" class="cs-box__title">Nos Garanties</a>
-                        <p>
+                    <div class="modern-tour-card__content">
+                        <a routerLink="/about" class="modern-tour-card__title">Nos Garanties</a>
+                        <p class="modern-tour-card__desc">
                              500+ voyageurs satisfaits, 4 régions couvertes
                             et guides locaux disponibles 7j/7.
                         </p>
-                        <a routerLink="/about" class="cs-box__more">
-                            <span>Nos engagements</span>
-                            <span class="cs-box__more-arrow">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </span>
+                        <a routerLink="/about" class="modern-tour-card__btn">
+                            Nos engagements <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
@@ -129,7 +113,7 @@
         </div>
 
         <!-- CTA bas -->
-        <div class="text-center mt-4" data-aos="fade-up">
+        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
             <a routerLink="/about" class="ab-cta">
                 <i class="fa-solid fa-layer-group ab-cta__lead"></i>
                 <span class="ab-cta__label">En savoir plus sur Sénégal Excursions</span>
@@ -143,9 +127,9 @@
 </section>
 
 <style>
-/* Padding spécifique Ã  la section about â€” version compactée */
+/* Padding spécifique à la section about */
 .senegal-excursions-about {
-    padding: clamp(18px, 2.5vw, 32px) 0 clamp(22px, 3vw, 36px);
+    padding: clamp(30px, 4vw, 60px) 0 clamp(40px, 5vw, 70px);
 }
 
 /* En-tête */
@@ -159,247 +143,163 @@
     padding: 5px 14px; border-radius: 100px;
 }
 .senegal-excursions-about__title {
-    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    font-size: clamp(1.4rem, 2vw, 2rem);
     font-weight: 800;
     color: #3E4F22;
     line-height: 1.25;
     letter-spacing: -0.015em;
-    margin: 10px auto 6px;
-    max-width: 540px;
+    margin: 10px auto 12px;
+    max-width: 580px;
 }
 .senegal-excursions-about__title span { color: #F1B53B; }
 .senegal-excursions-about__lead {
     color: #6c7c75;
-    font-size: 0.82rem;
-    line-height: 1.5;
-    max-width: 470px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 500px;
     margin: 0 auto;
     font-weight: 500;
 }
 
-/* âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"
-   CASE-STUDY BOX (style home-2 â€” version polie Sénégal Excursions)
-   âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo" */
-.cs-box {
-    position: relative;
-    padding-bottom: 10px;
-    transition: transform 400ms cubic-bezier(.4,0,.2,1);
+/* ======================================================================
+   NOUVEAU DESIGN DE CARTE (Modern Tour Card)
+   ====================================================================== */
+.modern-tour-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-.cs-box:hover { transform: translateY(-5px); }
-
-/* HOVER : voile or sur image + zoom + icône flip + content remplit or */
-.cs-box:hover .cs-box__img-veil { height: 55%; opacity: 1; }
-.cs-box:hover .cs-box__img img { transform: scale(1.08) rotate(-3deg); }
-.cs-box:hover .cs-box__icon {
-    background: linear-gradient(135deg, #fff 0%, #fff 100%);
-    transform: translateX(-50%) rotateY(-180deg);
-}
-.cs-box:hover .cs-box__icon i { color: #556B2F; }
-.cs-box:hover .cs-box__content::before { transform: scaleY(1); }
-.cs-box:hover .cs-box__title,
-.cs-box:hover .cs-box__more { color: #3E4F22; }
-.cs-box:hover .cs-box__content p { color: rgba(13,51,32,0.85); }
-
-/* IMAGE (150px) coins arrondis premium */
-.cs-box__img {
     position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    height: 150px;
-    box-shadow: 0 8px 22px rgba(13,51,32,0.10);
+    border: 1px solid rgba(85,107,47,0.08);
 }
-.cs-box__img img {
-    width: 100%; height: 100%;
+
+.modern-tour-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 45px rgba(13,51,32,0.12);
+}
+
+.modern-tour-card__image {
+    position: relative;
+    height: 240px; 
+    overflow: hidden;
+}
+
+.modern-tour-card__image img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    transition: transform 700ms cubic-bezier(.4,0,.2,1);
-}
-.cs-box__img-veil {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 0;
-    background: linear-gradient(180deg, rgba(241,181,59,0.55), rgba(224,158,44,0.7));
-    opacity: 0;
-    transition: height 500ms ease, opacity 400ms ease;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* ICÃ”NE ronde flottante centrée Ã  la jonction image/content
-   Image 150px + content overlap -38px â†’ boundary Ã  112px
-   Icône 56px â†’ top: 112 - 28 = 84px */
-.cs-box__icon {
+.modern-tour-card:hover .modern-tour-card__image img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+.modern-tour-card__badge {
     position: absolute;
-    top: 84px;
-    left: 50%;
-    transform: translateX(-50%) rotateY(0deg);
-    width: 56px; height: 56px;
+    top: 20px;
+    right: 20px;
+    background: #F1B53B;
+    color: #3E4F22;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #F1B53B 0%, #e09e2c 100%);
-    border: 4px solid #fff;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow:
-        0 0 0 1px rgba(241,181,59,0.18),
-        0 6px 14px rgba(241,181,59,0.4),
-        0 14px 30px rgba(13,51,32,0.18);
-    z-index: 10;
-    transform-style: preserve-3d;
-    transition: transform 600ms cubic-bezier(.4,0,.2,1),
-                background 400ms;
-}
-.cs-box__icon i {
-    color: #3E4F22;
-    font-size: 1.1rem;
-    transition: color 400ms;
-    backface-visibility: visible;
-}
-
-/* CONTENT card blanche â€” coins très arrondis (premium soft) */
-.cs-box__content {
-    position: relative;
-    z-index: 2;
-    background: #fff;
-    text-align: center;
-    padding: 38px 20px 20px;
-    border-radius: 22px;
-    margin: -38px 12px 0 12px;
-    box-shadow:
-        0 4px 12px rgba(13,51,32,0.06),
-        0 18px 40px rgba(13,51,32,0.10);
-    overflow: hidden;
-    transition: box-shadow 400ms ease;
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-/* Layer or qui monte derrière le texte */
-.cs-box__content::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, #F1B53B 0%, #e09e2c 100%);
-    transform: scaleY(0);
-    transform-origin: bottom center;
-    transition: transform 500ms cubic-bezier(.4,0,.2,1);
-    z-index: -1;
-    border-radius: 22px;
-}
-
-.cs-box__title {
-    color: #3E4F22;
-    font-size: 1rem;
-    font-weight: 800;
-    line-height: 1.25;
-    margin-bottom: 7px;
-    text-decoration: none;
-    display: inline-block;
-    transition: color 400ms;
-    letter-spacing: -0.01em;
-}
-.cs-box__content p {
-    color: #6c7c75;
-    font-size: 0.8rem;
-    line-height: 1.5;
-    margin-bottom: 12px;
-    transition: color 400ms;
-}
-
-/* âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"
-   BOUTON "En savoir plus" â€” pill segmentée signature
-   Label + chip ronde or avec flèche qui glisse
-   âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo" */
-.cs-box__more {
-    align-self: center;
-    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 5px 5px 5px 16px;
-    background: #ffffff;
-    border: 1.5px solid #556B2F;
-    border-radius: 100px;
-    color: #556B2F;
-    font-size: 0.76rem;
-    font-weight: 800;
-    text-decoration: none;
-    letter-spacing: 0.005em;
-    line-height: 1;
-    margin-top: auto;
-    position: relative;
-    overflow: hidden;
-    transition:
-        background 320ms ease,
-        color 320ms ease,
-        border-color 320ms ease,
-        box-shadow 320ms ease,
-        transform 320ms cubic-bezier(.4, 0, .2, 1);
-}
-.cs-box__more > span:first-child {
-    position: relative;
-    z-index: 1;
-    white-space: nowrap;
-}
-.cs-box__more-arrow {
-    flex-shrink: 0;
-    width: 26px;
-    height: 26px;
-    border-radius: 100px;
-    background: #F1B53B;
-    color: #3E4F22;
-    display: inline-grid;
-    place-items: center;
-    transition:
-        background 320ms ease,
-        color 320ms ease,
-        transform 380ms cubic-bezier(.4, 0, .2, 1);
-    position: relative;
-    z-index: 1;
-}
-.cs-box__more-arrow > i {
-    font-size: 0.7rem;
-    transition: transform 360ms cubic-bezier(.4, 0, .2, 1);
-}
-.cs-box__more::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: #556B2F;
-    transform: scaleX(0);
-    transform-origin: right center;
-    transition: transform 420ms cubic-bezier(.4, 0, .2, 1);
-    z-index: 0;
-    border-radius: 100px;
-}
-.cs-box__more:hover {
-    color: #ffffff;
-    border-color: #556B2F;
-    box-shadow: 0 8px 18px rgba(7, 90, 38, 0.28);
-    transform: translateY(-1px);
-}
-.cs-box__more:hover::before { transform: scaleX(1); transform-origin: left center; }
-.cs-box__more:hover .cs-box__more-arrow {
-    background: #F1B53B;
-    transform: translateX(2px);
-}
-.cs-box__more:hover .cs-box__more-arrow > i { transform: translateX(1px); }
-.cs-box__more:focus-visible {
-    outline: 2px solid #F1B53B;
-    outline-offset: 3px;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: 0 8px 20px rgba(241,181,59,0.4);
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s;
 }
 
-/* Surcharge : sur fond or (état hover du content), le bouton garde son identité */
-.cs-box:hover .cs-box__more {
-    background: rgba(13, 51, 32, 0.10);
-    border-color: rgba(13, 51, 32, 0.45);
-    color: #3E4F22;
-}
-.cs-box:hover .cs-box__more-arrow {
-    background: #3E4F22;
+.modern-tour-card:hover .modern-tour-card__badge {
+    transform: rotate(360deg) scale(1.1);
+    background: #fff;
     color: #F1B53B;
 }
 
-/* âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"
-   CTA BAS â€” version grande du bouton signature
-   âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo"âo" */
+.modern-tour-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,51,32,0.6) 0%, transparent 50%);
+    z-index: 1;
+    opacity: 0.6;
+    transition: opacity 0.4s;
+}
+
+.modern-tour-card:hover .modern-tour-card__overlay {
+    opacity: 0.8;
+}
+
+.modern-tour-card__content {
+    padding: 30px 25px 35px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.modern-tour-card__title {
+    color: #3E4F22;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+.modern-tour-card:hover .modern-tour-card__title {
+    color: #F1B53B;
+}
+
+.modern-tour-card__desc {
+    color: #6c7c75;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.modern-tour-card__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: #556B2F;
+    text-decoration: none;
+    font-size: 0.85rem;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    background: rgba(85,107,47,0.06);
+    border-radius: 100px;
+}
+
+.modern-tour-card__btn i {
+    transition: transform 0.3s ease;
+}
+
+.modern-tour-card:hover .modern-tour-card__btn {
+    color: #fff;
+    background: #F1B53B;
+    box-shadow: 0 4px 12px rgba(241,181,59,0.3);
+}
+
+.modern-tour-card:hover .modern-tour-card__btn i {
+    transform: translateX(4px);
+}
+
+/* ======================================================================
+   CTA BAS
+   ====================================================================== */
 .ab-cta {
     display: inline-flex;
     align-items: center;
@@ -452,34 +352,9 @@
 }
 
 @media (max-width: 768px) {
-    .senegal-excursions-about { padding: clamp(14px, 2vw, 26px) 0 clamp(18px, 2.5vw, 30px); }
-    .cs-box__img { height: 130px; border-radius: 18px; }
-    /* image 130 - content overlap -32 = boundary 98 - icone/2 25 = 73 */
-    .cs-box__icon { width: 50px; height: 50px; top: 73px; border-width: 3px; }
-    .cs-box__icon i { font-size: 0.95rem; }
-    .cs-box__content {
-        margin: -32px 10px 0 10px;
-        padding: 32px 16px 16px;
-        border-radius: 18px;
-    }
-    .cs-box__content::before { border-radius: 18px; }
-    .cs-box__title { font-size: 0.94rem; }
-    .cs-box__content p { font-size: 0.76rem; margin-bottom: 10px; }
-    .cs-box__more { font-size: 0.7rem; padding: 4px 4px 4px 13px; }
-    .cs-box__more-arrow { width: 24px; height: 24px; }
-    .ab-cta { font-size: 0.8rem; padding: 6px 6px 6px 16px; gap: 10px; }
-    .ab-cta__arrow { width: 28px; height: 28px; }
-}
-@media (max-width: 480px) {
-    .cs-box__img { height: 120px; }
-    .cs-box__icon { top: 67px; }
-    .cs-box__title { font-size: 0.9rem; }
-}
-@media (prefers-reduced-motion: reduce) {
-    .cs-box, .cs-box__img img, .cs-box__icon, .cs-box__content::before,
-    .cs-box__more, .cs-box__more::before, .cs-box__more-arrow,
-    .ab-cta, .ab-cta__arrow {
-        transition: none;
-    }
+    .modern-tour-card__image { height: 200px; }
+    .modern-tour-card__content { padding: 25px 20px; }
+    .modern-tour-card__title { font-size: 1.15rem; }
+    .modern-tour-card__badge { width: 40px; height: 40px; font-size: 1.1rem; }
 }
 </style>

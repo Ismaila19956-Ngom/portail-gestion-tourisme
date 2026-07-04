@@ -1,4 +1,4 @@
-/** Compatible Spring Boot 3.3+ VIA_DTO (page sub-object) ET ancien format plat */
+ï»¿/** Compatible Spring Boot 3.3+ VIA_DTO (page sub-object) ET ancien format plat */
 export interface Page<T> {
     content: T[];
     // Nouveau format Spring Data 3.3+ (VIA_DTO)
@@ -15,7 +15,7 @@ export interface Page<T> {
     size?: number;
 }
 
-/** Extrait les métadonnées de pagination quel que soit le format reçu */
+/** Extrait les mï¿½tadonnï¿½es de pagination quel que soit le format reï¿½u */
 export function pageInfo(p: Page<any>): { total: number; totalPages: number; page: number; size: number } {
     return {
         total:      p?.page?.totalElements ?? p?.totalElements ?? 0,
@@ -57,23 +57,23 @@ export interface Police {
     departement?: { code: string; libelle: string };
     commune?: { code: string; libelle: string };
     localite?: { code: string; libelle: string };
-    // Sous-entités produit
-    betail?: {
+    // Sous-entitï¿½s produit
+    circuit?: {
         valeurAssuree?: number; primeTotale?: number; nombreAnimaux?: number;
         typeGarantie?: string; franchiseTaux?: string; observations?: string;
         extensionTuberculose?: boolean; extensionOperation?: boolean; extensionVol?: boolean;
-        animaux?: AnimalBetail[]; membres?: any[];
+        animaux?: Animalcircuit[]; membres?: any[];
     };
-    aviculture?: {
+    aventure?: {
         nombreAnimaux?: number; prixUnitaire?: number;
         batiments?: any[]; membres?: any[];
     };
-    recolte?: {
+    excursion?: {
         campagne?: any; totalSuperficieAssureeHa?: number; totalMontantAssure?: number;
         totalPrimeNetteHT?: number; observationsGenerales?: string;
         parcelles?: any[]; membres?: any[];
     };
-    horticulture?: {
+    Culture?: {
         valeurAssureeTotale?: number; observationsGenerales?: string;
         parcelles?: any[]; membres?: any[];
     };
@@ -85,10 +85,10 @@ export interface Police {
     multirisques?: { valeurAssuree?: number; primeTotale?: number; nombreAnimaux?: number; lignes?: any[] };
     arboriculture?: { totalSuperficie?: number; totalMontantAssure?: number; parcelles?: any[] };
     stocks?: any[];
-    questionnaireBetail?: QuestionnaireBetail;
+    questionnairecircuit?: Questionnairecircuit;
 }
 
-export interface AnimalBetail {
+export interface Animalcircuit {
     id?: number;
     espece?: string;
     race?: string;
@@ -100,7 +100,7 @@ export interface AnimalBetail {
     valeurTotale?: number;
 }
 
-export interface QuestionnaireBetail {
+export interface Questionnairecircuit {
     id?: number;
     adresse?: string;
     qualite?: string;
@@ -127,18 +127,18 @@ export interface PevMarquage {
     hygiene?: string;
     vaccins?: string;
     observation?: string;
-    animaux?: AnimalBetail[];
+    animaux?: Animalcircuit[];
     police?: { id: number; numeroPolice: string };
 }
 
-export interface Sinistre {
+export interface Modification {
     id: number;
     numeroDossier: string;
     dateSurvenance: string;
     dateDeclaration: string;
     dateConstat?: string;
     montantEvalue?: number;
-    statut: any;   /* objet {name, description} côté backend */
+    statut: any;   /* objet {name, description} cï¿½tï¿½ backend */
     police?: Police;
 }
 
@@ -148,7 +148,7 @@ export interface Paiement {
     montantPaye: number;
     dateEmission: string;
     modePaiement?: any;   /* enum objet */
-    statut: any;           /* objet {name, description} côté backend */
+    statut: any;           /* objet {name, description} cï¿½tï¿½ backend */
     encaisse?: boolean;
     description?: string;
     police?: { id: number; numeroPolice: string };
@@ -156,7 +156,7 @@ export interface Paiement {
     nomPolice?: string;
 }
 
-export interface QuestionnaireAviculture {
+export interface Questionnaireaventure {
     id?: number;
     adresse?: string; qualite?: string;
     categorieChair?: { id: number; libelle: string };
@@ -168,10 +168,10 @@ export interface QuestionnaireAviculture {
     prixAchatPondeuses?: number; prixVenteChair?: number; prixVentePoulettes?: number;
     periodeChair?: number; periodePoulettes?: number; periodePondeuses?: number;
     commentaire?: string; declarationSincerite?: { id: number; libelle: string };
-    batiments?: QuestionnaireBatimentAviculture[];
+    batiments?: QuestionnaireBatimentaventure[];
 }
 
-export interface QuestionnaireBatimentAviculture {
+export interface QuestionnaireBatimentaventure {
     id?: number;
     numeroBande?: string;
     natureEspece?: { id: number; libelle: string };
@@ -183,29 +183,29 @@ export interface QuestionnaireBatimentAviculture {
     chargementMax?: number;
 }
 
-export interface QuestionnaireRecolte {
+export interface Questionnaireexcursion {
     id?: number;
     nomPrenomProfession?: string; adresseDomicile?: string; qualite?: string;
     telephone?: string; situationRisque?: string; dureeMois?: number;
     dateDebut?: string; superficieCultivee?: number; superficieAssuree?: number;
     speculation?: string; speculationAutre?: string;
     chargesProduction?: number; productionEscomptee?: number;
-    assurancePrecedente?: string; sinistrePrecedent?: string;
+    assurancePrecedente?: string; modificationPrecedent?: string;
     declarationSincerite?: any;
 }
 
-export interface QuestionnaireHorticulture {
+export interface QuestionnaireCulture {
     id?: number;
     nomPrenomProfession?: string; adresseDomicile?: string; qualite?: string;
     telephone?: string; situationRisque?: string; dureeMois?: number;
     dateDebut?: string; superficieCultivee?: number; superficieAssuree?: number;
     speculation?: string; speculationAutre?: string;
     chargesProduction?: number; productionEscomptee?: number;
-    assurancePrecedente?: string; sinistrePrecedent?: string;
+    assurancePrecedente?: string; modificationPrecedent?: string;
     declarationSincerite?: any;
 }
 
-export interface VisiteTechniqueAviculture {
+export interface VisiteTechniqueaventure {
     id?: number; dateVisite?: string; nomVeterinaire?: string;
     souscripteur?: string; situationRisque?: string;
     categorieVolaille?: any; souche?: any;
@@ -217,7 +217,7 @@ export interface VisiteTechniqueAviculture {
     batiments?: any[];
 }
 
-export interface VisiteTechniqueHorticulture {
+export interface VisiteTechniqueCulture {
     id?: number; dateVisite?: string; nomExpert?: string;
     souscripteur?: string; situationRisque?: string; campagne?: any;
     systemeIrrigationFonctionnel?: boolean; existenceCloture?: boolean;
@@ -257,10 +257,10 @@ export interface ClientSummary360 {
     client?: any;
     nombrePolices?: number;
     nombrePolicesActives?: number;
-    nombreSinistres?: number;
-    nombreSinistresClos?: number;
+    nombremodifications?: number;
+    nombremodificationsClos?: number;
     totalPrimesPayees?: number;
-    totalIndemnisations?: number;
+    totalremboursements?: number;
     polices?: Police[];
-    sinistres?: Sinistre[];
+    modifications?: Modification[];
 }

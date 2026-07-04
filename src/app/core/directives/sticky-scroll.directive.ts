@@ -10,6 +10,6 @@ export class StickyScrollDirective {
     @HostListener('window:scroll', [])
     onWindowScroll() {
         const scroll = window.scrollY || window.pageYOffset;
-        this.isSticky = scroll > 1;
+        this.isSticky = scroll > 120;
     }
 }

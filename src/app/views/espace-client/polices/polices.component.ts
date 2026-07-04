@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef, NgZone } from '@angular/core';
+﻿import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
@@ -606,11 +606,11 @@ export class PolicesComponent implements OnInit, OnDestroy {
             duree:         p.duree,
             dateEcheance:  p.dateEcheance  || '',
             expiringSoon:  diff > 0 && diff < 30 * 24 * 60 * 60 * 1000,
-            montantAssure: p.betail?.valeurAssuree ?? p.aviculture?.prixUnitaire
-                         ?? p.recolte?.totalMontantAssure ?? p.horticulture?.valeurAssureeTotale
+            montantAssure: p.circuit?.valeurAssuree ?? p.aventure?.prixUnitaire
+                         ?? p.excursion?.totalMontantAssure ?? p.Culture?.valeurAssureeTotale
                          ?? p.equipement?.montantAssureTotal ?? p.multirisques?.valeurAssuree
                          ?? p.montantAssure ?? 0,
-            primeTotale:   p.betail?.primeTotale ?? p.recolte?.totalPrimeNetteHT
+            primeTotale:   p.circuit?.primeTotale ?? p.excursion?.totalPrimeNetteHT
                          ?? p.equipement?.primeTotale ?? p.multirisques?.primeTotale
                          ?? p.primeTotale ?? p.primeNette ?? 0,
             montantEtat:   p.montantEtat,

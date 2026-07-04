@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -14,7 +14,7 @@ export interface ReseauSocialPortail {
   ordre: number;
 }
 
-/** Base URL normalis�e (sans trailing slash) — même pattern que cnaas-api.service.ts */
+/** Base URL normalis�e (sans trailing slash) — même pattern que tourisme-api.service.ts */
 const baseUrl = environment.apiUrl.endsWith('/') ? environment.apiUrl.slice(0, -1) : environment.apiUrl;
 const PUBLIC = `${baseUrl}/public`;
 

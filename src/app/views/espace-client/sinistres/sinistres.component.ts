@@ -1,10 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+﻿import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../services/auth.service';
 import { ClientPortalService } from '../../../services/client-portal.service';
-import { Sinistre, pageInfo } from '../../../models/client-portal.models';
+import { Modification, pageInfo } from '../../../models/client-portal.models';
 
-interface SinistreRow {
+interface ModificationRow {
     id: number;
     numeroDossier: string;
     policeNum: string;
@@ -19,7 +19,7 @@ interface SinistreRow {
 }
 
 @Component({
-    selector: 'app-sinistres',
+    selector: 'app-Modifications',
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [CommonModule],
@@ -31,14 +31,14 @@ interface SinistreRow {
             <div>
                 <h2 class="pg-title">
                     <i class="fa-solid fa-triangle-exclamation" style="color:#e67e22;"></i>
-                    Mes Sinistres
+                    Mes Modifications
                 </h2>
-                <p class="pg-sub">Suivi de vos déclarations de sinistres locaux Sénégal Excursions</p>
+                <p class="pg-sub">Suivi de vos déclarations de Modifications locaux Sénégal Excursions</p>
             </div>
             <div class="stats-row">
                 <div class="stat-chip">
                     <div class="stat-icon"><i class="fa-solid fa-triangle-exclamation" style="color:#e67e22;font-size:0.68rem;"></i></div>
-                    <div><div class="stat-val">{{ total }}</div><div class="stat-lbl">Sinistre(s)</div></div>
+                    <div><div class="stat-val">{{ total }}</div><div class="stat-lbl">Modification(s)</div></div>
                 </div>
                 <div class="stat-chip">
                     <div class="stat-icon"><i class="fa-solid fa-hourglass-half" style="color:#f0a500;font-size:0.68rem;"></i></div>
@@ -59,18 +59,18 @@ interface SinistreRow {
         <!-- ══ VIDE ══ -->
         <div *ngIf="!loading && !featuredRow" class="empty-box">
             <i class="fa-solid fa-check-circle" style="font-size:2rem;color:#27ae60;display:block;margin-bottom:10px;"></i>
-            <p style="color:#3E4F22;font-weight:700;font-size:0.88rem;margin:0 0 4px;">Aucun sinistre d�clar�</p>
+            <p style="color:#3E4F22;font-weight:700;font-size:0.88rem;margin:0 0 4px;">Aucun Modification d�clar�</p>
             <p style="color:#aaa;font-size:0.78rem;margin:0;">Continuez à prendre soin de votre exploitation !</p>
         </div>
 
         <ng-container *ngIf="!loading && featuredRow">
 
-            <!-- ══ SINISTRE LE PLUS R�CENT ══ -->
+            <!-- ══ Modification LE PLUS R�CENT ══ -->
             <div class="section">
                 <div class="section-head">
                     <div class="section-title">
                         <span class="pulse-dot"></span>
-                        Sinistre le plus r�cent
+                        Modification le plus r�cent
                         <span class="recent-tag">Derni�re déclaration</span>
                     </div>
                     <span class="sort-label"><i class="fa-solid fa-arrow-down-wide-short"></i> Tri�s par date de survenance</span>
@@ -129,7 +129,7 @@ interface SinistreRow {
                 <div class="section-head">
                     <div class="section-title">
                         <span class="section-dot"></span>
-                        Historique des sinistres
+                        Historique des Modifications
                         <span class="count-badge">{{ historyRows.length }}</span>
                     </div>
                     <span class="sort-label">Page {{ currentPage + 1 }} / {{ totalPages }}</span>
@@ -307,10 +307,10 @@ interface SinistreRow {
     </style>
     `,
 })
-export class SinistresComponent implements OnInit {
+export class ModificationsComponent implements OnInit {
 
-    featuredRow:  SinistreRow | null = null;
-    historyRows:  SinistreRow[]      = [];
+    featuredRow:  ModificationRow | null = null;
+    historyRows:  ModificationRow[]      = [];
     loading     = true;
     total       = 0;
     enCours     = 0;
@@ -331,7 +331,7 @@ export class SinistresComponent implements OnInit {
         if (!clientId) { this.loading = false; return; }
         this.loading = true;
         this.cdr.markForCheck();
-        this.portal.getPortalSinistres(clientId, page).subscribe({
+        this.portal.getPortalModifications(clientId, page).subscribe({
             next: res => {
                 const pageData = res?.page;
                 const pi = pageInfo(pageData);
@@ -357,7 +357,7 @@ export class SinistresComponent implements OnInit {
         });
     }
 
-    private _toRow(s: any): SinistreRow {
+    private _toRow(s: any): ModificationRow {
         const sN    = (s?.statut?.name || s?.statut || '').toUpperCase();
         const isOk  = sN === 'REGLER' || sN === 'PAYER' || sN === 'CLOTURER';
         const isKo  = sN === 'REFUSER';

@@ -6,8 +6,8 @@ import { MobileMenuComponent } from "../mobile-menu/mobile-menu.component";
 import { RouterLink, Router, NavigationEnd, RouterLinkActive } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { filter } from 'rxjs/operators';
-import { CnaasApiService } from '../../services/cnaas-api.service';
-import { Produit, CategorieProduit } from '../../models/cnaas.models';
+import { TourismeApiService } from '../../services/tourisme-api.service';
+import { Produit, CategorieProduit } from '../../models/tourisme.models';
 import { AuthService } from '../../services/auth.service';
 import { ReseauxSociauxService, ReseauSocialPortail } from '@core/services/reseaux-sociaux.service';
 
@@ -27,6 +27,22 @@ interface ProduitMenu {
     imports: [MobileMenuComponent, CommonModule, StickyScrollDirective, RouterLink, RouterLinkActive, FormsModule],
     templateUrl: './topbar.component.html',
     styles: [`
+        .sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(85,107,47,0.12);
+            animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 5px 0 !important;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
         .category-link {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
             position: relative;
@@ -181,7 +197,7 @@ export class TopbarComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private api: CnaasApiService,
+        private api: TourismeApiService,
         private authService: AuthService,
         private reseauxSvc: ReseauxSociauxService
     ) {
@@ -278,51 +294,51 @@ export class TopbarComponent implements OnInit {
 
     private getIcon(p: Produit): string {
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('r�colte') || n.includes('recolte')) return 'fa-solid fa-wheat-awn';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel')) return 'fa-solid fa-cow';
-        if (n.includes('avicul') || n.includes('volaille')) return 'fa-solid fa-egg';
-        if (n.includes('mat�riel') || n.includes('materiel') || n.includes('équipement') || n.includes('equipement')) return 'fa-solid fa-tractor';
-        if (n.includes('indiciel') || n.includes('pluie')) return 'fa-solid fa-satellite-dish';
-        if (n.includes('horticol') || n.includes('maraich') || n.includes('serre')) return 'fa-solid fa-seedling';
-        if (n.includes('arboricul')) return 'fa-solid fa-tree';
-        if (n.includes('stock')) return 'fa-solid fa-warehouse';
-        return 'fa-solid fa-shield-halved';
+        if (n.includes('cultur') || n.includes('histor') || n.includes('gorée') || n.includes('goree')) return 'fa-solid fa-landmark';
+        if (n.includes('safari') || n.includes('nature') || n.includes('faune') || n.includes('bandia')) return 'fa-solid fa-paw';
+        if (n.includes('plage') || n.includes('saly') || n.includes('mer') || n.includes('baln')) return 'fa-solid fa-umbrella-beach';
+        if (n.includes('gastronomie') || n.includes('culinaire') || n.includes('repas')) return 'fa-solid fa-utensils';
+        if (n.includes('aventure') || n.includes('randonnée') || n.includes('trek') || n.includes('casamance')) return 'fa-solid fa-person-hiking';
+        if (n.includes('circuit') || n.includes('multi') || n.includes('tour')) return 'fa-solid fa-route';
+        if (n.includes('pirogue') || n.includes('fleuve') || n.includes('saloum') || n.includes('croisière')) return 'fa-solid fa-sailboat';
+        if (n.includes('photo') || n.includes('art') || n.includes('atelier')) return 'fa-solid fa-camera';
+        return 'fa-solid fa-compass';
     }
 
     private getImage(p: Produit): string {
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('r�colte') || n.includes('recolte'))
-            return 'assets/images/produits/hf_20260311_162333_0b136c9f-1c67-4e61-978e-ab229d738d9d.jpeg';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel'))
-            return 'assets/images/produits/hf_20260311_162333_2c5dfd81-2a14-40ad-99fb-17207f71c1bb.jpeg';
-        if (n.includes('avicul') || n.includes('volaille'))
-            return 'assets/images/produits/hf_20260311_162333_01988b04-73a0-41b3-bffc-7087d47324a6.jpeg';
-        if (n.includes('mat�riel') || n.includes('materiel') || n.includes('équipement') || n.includes('equipement'))
-            return 'assets/images/produits/hf_20260311_162925_871036b1-9cf1-4fdb-8480-7b3ce42bf7a7.jpeg';
-        if (n.includes('indiciel') || n.includes('pluie'))
-            return 'assets/images/produits/hf_20260311_164048_86f66af8-95f1-4418-b76a-4b4735fea65e.jpeg';
-        if (n.includes('horticol') || n.includes('maraich') || n.includes('serre'))
-            return 'assets/images/produits/hf_20260311_164705_3142c799-0510-4f38-84df-c4c15d2279d9.jpeg';
-        return 'assets/images/produits/hf_20260311_171453_4c033777-5979-4867-81ed-1fbbb5c1b9bc.jpeg';
+        if (n.includes('cultur') || n.includes('histor') || n.includes('gorée') || n.includes('goree'))
+            return 'assets/images/tourisme/service_culture.png';
+        if (n.includes('safari') || n.includes('nature') || n.includes('faune') || n.includes('bandia'))
+            return 'assets/images/tourisme/service_safari.png';
+        if (n.includes('plage') || n.includes('saly') || n.includes('mer') || n.includes('baln'))
+            return 'assets/images/tourisme/service_plage.png';
+        if (n.includes('gastronomie') || n.includes('culinaire') || n.includes('repas'))
+            return 'assets/images/tourisme/service_gastro.png';
+        if (n.includes('aventure') || n.includes('randonnée') || n.includes('trek') || n.includes('casamance'))
+            return 'assets/images/tourisme/service_aventure.png';
+        if (n.includes('pirogue') || n.includes('fleuve') || n.includes('saloum') || n.includes('croisière'))
+            return 'assets/images/tourisme/hero_saloum.png';
+        return 'assets/images/tourisme/hero_dakar.png';
     }
 
     private getDesc(p: Produit): string {
         if (p.description) return p.description.slice(0, 50);
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('r�colte') || n.includes('recolte')) return 'Protection cultures';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel')) return 'Protection cheptel';
-        if (n.includes('avicul') || n.includes('volaille')) return 'Protection volailles';
-        if (n.includes('mat�riel') || n.includes('materiel') || n.includes('équipement')) return 'Protection mat�riels';
-        if (n.includes('indiciel')) return 'Indice pluviom�trique';
-        if (n.includes('horticol') || n.includes('maraich')) return 'Protection mara�chage';
-        if (n.includes('stock')) return 'Protection stocks';
-        return 'Assurance touristique Sénégal Excursions';
+        if (n.includes('cultur') || n.includes('histor') || n.includes('gorée')) return 'Découvrez la culture sénégalaise';
+        if (n.includes('safari') || n.includes('nature') || n.includes('faune')) return 'Partez à la rencontre de la faune';
+        if (n.includes('plage') || n.includes('saly') || n.includes('mer')) return 'Détente et sports nautiques';
+        if (n.includes('gastronomie') || n.includes('culinaire')) return 'Saveurs authentiques du Sénégal';
+        if (n.includes('aventure') || n.includes('randonnée') || n.includes('trek')) return 'Explorez les paysages sauvages';
+        if (n.includes('pirogue') || n.includes('fleuve') || n.includes('saloum')) return 'Naviguez dans les mangroves';
+        return 'Excursion au Sénégal avec Sénégal Excursions';
     }
 
     private getCategory(p: Produit): string {
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel') || n.includes('avicul') || n.includes('volaille')) return 'animal';
-        if (n.includes('r�colte') || n.includes('recolte') || n.includes('indiciel') || n.includes('horticol') || n.includes('maraich') || n.includes('arboricul')) return 'vegetaux';
+        if (n.includes('culture') || n.includes('historique') || n.includes('aventure')) return 'culture';
+        if (n.includes('safari') || n.includes('nature') || n.includes('faune')) return 'nature';
+        if (n.includes('plage') || n.includes('mer') || n.includes('pirogue')) return 'loisirs';
         return 'autres';
     }
 

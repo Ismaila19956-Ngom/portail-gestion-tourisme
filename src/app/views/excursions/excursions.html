@@ -1,15 +1,9 @@
-<section class="banner-area p-0">
-  <div id="excursionsCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#excursionsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#excursionsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#excursionsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    
-    <div class="carousel-inner" style="height: 400px;">
+<section class="excursions-hero position-relative vh-50">
+  <div id="excursionsCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
+    <div class="carousel-inner h-100">
       <!-- Slide 1 -->
       <div class="carousel-item active h-100">
-        <img src="assets/images/tourisme/senegal_hero_1781800514533.png" class="d-block w-100 h-100 object-fit-cover" alt="Sénégal" style="filter: brightness(0.6);">
+        <img src="assets/images/tourisme/excursion_saloum_1781800545237.png" class="d-block w-100 h-100 object-fit-cover" alt="Sine Saloum" style="filter: brightness(0.5);">
         <div class="carousel-caption d-flex flex-column justify-content-center h-100 text-center" style="top: 0; bottom: 0;">
           <h1 class="fw-bold display-4 text-white text-shadow-sm mb-3">Nos Excursions au Sénégal</h1>
           <p class="lead text-white text-shadow-sm fs-5">Découvrez des circuits d'excursion authentiques et réservez votre expérience inoubliable en ligne.</p>
@@ -46,34 +40,37 @@
   </div>
 </section>
 
-<section class="excursions-section py-5 bg-light">
+<section class="excursions-section py-5" style="background-color: #f8fbff;">
   <div class="container">
     <div class="row">
       <!-- Filtres Sidebar -->
       <div class="col-lg-3 mb-4">
-        <div class="card shadow-sm border-0">
-          <div class="card-body">
-            <h5 class="card-title fw-bold mb-4">Filtrer les excursions</h5>
+        <div class="sticky-sidebar">
+          <div class="filters-sidebar">
+            <h5 class="filters-sidebar__title">Filtrer les excursions</h5>
             
             <!-- Recherche par mot clé -->
-            <div class="mb-3">
-              <label for="search" class="form-label font-bold text-muted small">Mot-clé</label>
-              <input type="text" id="search" [(ngModel)]="searchQuery" (input)="applyFilters()" class="form-control" placeholder="Rechercher...">
+            <div class="mb-4">
+              <label for="search" class="filters-sidebar__label">Mot-clé</label>
+              <div class="position-relative">
+                <input type="text" id="search" [(ngModel)]="searchQuery" (input)="applyFilters()" class="filters-sidebar__input form-control" placeholder="Rechercher...">
+                <i class="fa-solid fa-magnifying-glass position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
+              </div>
             </div>
 
             <!-- Région -->
-            <div class="mb-3">
-              <label for="region" class="form-label font-bold text-muted small">Région</label>
-              <select id="region" [(ngModel)]="selectedRegion" (change)="applyFilters()" class="form-select">
+            <div class="mb-4">
+              <label for="region" class="filters-sidebar__label">Région</label>
+              <select id="region" [(ngModel)]="selectedRegion" (change)="applyFilters()" class="filters-sidebar__select form-select">
                 <option value="">Toutes les régions</option>
                 <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
               </select>
             </div>
 
             <!-- Durée -->
-            <div class="mb-3">
-              <label for="duration" class="form-label font-bold text-muted small">Durée</label>
-              <select id="duration" [(ngModel)]="selectedDuration" (change)="applyFilters()" class="form-select">
+            <div class="mb-4">
+              <label for="duration" class="filters-sidebar__label">Durée</label>
+              <select id="duration" [(ngModel)]="selectedDuration" (change)="applyFilters()" class="filters-sidebar__select form-select">
                 <option value="">Toutes les durées</option>
                 <option value="short">Demi-journée (<= 4h)</option>
                 <option value="medium">Journée (4h - 8h)</option>
@@ -83,11 +80,28 @@
 
             <!-- Prix Max -->
             <div class="mb-4">
-              <label for="price" class="form-label font-bold text-muted small">Prix maximum (FCFA)</label>
-              <input type="number" id="price" [(ngModel)]="maxPrice" (input)="applyFilters()" class="form-control" placeholder="Ex: 50000">
+              <label for="price" class="filters-sidebar__label">Prix maximum (FCFA)</label>
+              <input type="number" id="price" [(ngModel)]="maxPrice" (input)="applyFilters()" class="filters-sidebar__input form-control" placeholder="Ex: 50000">
             </div>
 
-            <button class="btn btn-outline-secondary w-100" (click)="resetFilters()">Réinitialiser</button>
+            <button class="filters-sidebar__btn-reset w-100" (click)="resetFilters()">
+              <i class="fa-solid fa-rotate-right me-2"></i> Réinitialiser
+            </button>
+          </div>
+
+          <!-- Animated Help Widget -->
+          <div class="help-widget mt-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="help-widget__blob"></div>
+            <div class="help-widget__content text-center">
+              <div class="help-widget__icon mb-3">
+                <i class="fa-solid fa-headset fa-bounce"></i>
+              </div>
+              <h5 class="help-widget__title">Besoin d'aide ?</h5>
+              <p class="help-widget__text">Nos conseillers sont disponibles 7j/7 pour vous aider à choisir l'excursion parfaite.</p>
+              <a href="tel:+221770000000" class="help-widget__btn">
+                <i class="fa-solid fa-phone me-2"></i> +221 77 000 00 00
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -95,71 +109,456 @@
       <!-- Liste des Excursions -->
       <div class="col-lg-9">
         <div *ngIf="loading" class="text-center py-5">
-          <div class="spinner-border text-success" role="status">
+          <div class="spinner-border" style="color: #F1B53B;" role="status">
             <span class="visually-hidden">Chargement...</span>
           </div>
         </div>
 
         <div *ngIf="!loading">
           <div class="row g-4" *ngIf="displayedExcursions.length > 0">
-            <div class="col-md-6" *ngFor="let ex of displayedExcursions">
-              <div class="card h-100 shadow-sm border-0 overflow-hidden excursion-card">
-                <div class="position-relative" style="height: 220px;">
-                  <img [src]="ex.imageUrl || 'assets/images/excursion-placeholder.jpg'" [alt]="ex.titre" class="w-100 h-100 object-fit-cover">
-                  <span class="badge bg-success position-absolute top-0 end-0 m-3 px-3 py-2 fs-6">
+            <div class="col-lg-6 col-md-6" *ngFor="let ex of displayedExcursions; let i = index">
+              <!-- Nouvelle Carte d'Excursion -->
+              <article class="modern-excursion-card" data-aos="fade-up" [attr.data-aos-delay]="(i % 2) * 150">
+                <div class="modern-excursion-card__media">
+                  <img [src]="ex.imageUrl || 'assets/images/excursion-placeholder.jpg'" [alt]="ex.titre" loading="lazy">
+                  <div class="modern-excursion-card__price">
                     {{ ex.prix | number }} FCFA
-                  </span>
+                  </div>
+                  <div class="modern-excursion-card__overlay"></div>
                 </div>
-                <div class="card-body d-flex flex-column">
-                  <h5 class="card-title fw-bold text-dark">{{ ex.titre }}</h5>
-                  <p class="text-muted small mb-2 d-flex gap-3">
-                    <span><i class="fa-solid fa-location-dot text-success"></i> {{ ex.localisation }}</span>
-                    <span><i class="fa-solid fa-clock text-success"></i> {{ ex.dureeHeures }} heures</span>
-                  </p>
-                  <p class="card-text text-secondary text-truncate-3 mb-3">
+
+                <div class="modern-excursion-card__body">
+                  <div class="modern-excursion-card__meta">
+                    <span class="meta-item"><i class="fa-solid fa-location-dot"></i> {{ ex.localisation }}</span>
+                    <span class="meta-item"><i class="fa-solid fa-clock"></i> {{ ex.dureeHeures }} heures</span>
+                  </div>
+
+                  <h3 class="modern-excursion-card__title">{{ ex.titre }}</h3>
+                  
+                  <p class="modern-excursion-card__desc">
                     {{ ex.description }}
                   </p>
 
-                  <!-- Section Guides -->
-                  <div class="mt-auto mb-3" *ngIf="ex.guides && ex.guides.length > 0">
-                    <p class="small fw-bold text-dark mb-2">Guides disponibles :</p>
-                    <div class="d-flex flex-wrap gap-2">
-                      <div *ngFor="let guide of ex.guides" class="d-flex align-items-center bg-light rounded-pill p-1 pe-3" style="font-size: 0.8rem;">
-                        <img [src]="guide.photoUrl" alt="{{ guide.nom }}" class="rounded-circle me-2" style="width: 24px; height: 24px; object-fit: cover;">
-                        <div>
-                          <span class="fw-semibold">{{ guide.nom }}</span>
-                          <span class="text-muted d-block" style="font-size: 0.7rem;">
-                            {{ guide.langues.join(', ') }}
-                          </span>
+                  <div class="modern-excursion-card__guides" *ngIf="ex.guides && ex.guides.length > 0">
+                    <span class="guides-label">Guides certifiés :</span>
+                    <div class="guides-list">
+                      <div class="guide-chip" *ngFor="let guide of ex.guides">
+                        <img [src]="guide.photoUrl" [alt]="guide.nom">
+                        <div class="guide-info">
+                          <span class="guide-name">{{ guide.nom }}</span>
+                          <span class="guide-lang">{{ guide.langues.join(', ') }}</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="mt-2 d-flex gap-2">
-                    <a [routerLink]="['/excursions/detail', ex.id]" class="btn btn-success flex-grow-1">
-                      Voir les détails
+                  <div class="modern-excursion-card__footer">
+                    <a [routerLink]="['/excursions/detail', ex.id]" class="modern-excursion-card__btn">
+                      Voir l'excursion <i class="fa-solid fa-arrow-right"></i>
                     </a>
                   </div>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
 
-          <div class="text-center mt-5" *ngIf="filteredExcursions.length > displayLimit">
-            <button class="btn btn-outline-success px-4 py-2" (click)="showMore()">
-              Voir plus d'excursions <i class="fa-solid fa-arrow-down ms-2"></i>
+          <!-- Pagination / Voir plus -->
+          <div class="text-center mt-5" *ngIf="filteredExcursions.length > displayLimit" data-aos="fade-up">
+            <button class="ab-cta" style="border: none;" (click)="showMore()">
+              <span class="ab-cta__label">Voir plus d'excursions</span>
+              <span class="ab-cta__arrow">
+                <i class="fa-solid fa-arrow-down"></i>
+              </span>
             </button>
           </div>
 
           <!-- Aucun résultat -->
-          <div *ngIf="filteredExcursions.length === 0" class="text-center py-5 bg-white rounded shadow-sm">
-            <i class="fa-solid fa-calendar-xmark text-muted fs-1 mb-3"></i>
-            <h5>Aucune excursion trouvée</h5>
-            <p class="text-secondary">Essayez de modifier vos critères de filtrage ou réinitialisez les filtres.</p>
+          <div *ngIf="filteredExcursions.length === 0" class="empty-state text-center py-5" data-aos="fade-in">
+            <div class="empty-icon mb-4"><i class="fa-solid fa-compass"></i></div>
+            <h4 class="empty-title">Oups, aucune excursion trouvée</h4>
+            <p class="empty-desc">Essayez de modifier vos critères de recherche ou réinitialisez les filtres.</p>
+            <button class="btn-primary-custom mt-3" (click)="resetFilters()">Voir toutes les excursions</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+/* ==========================================================================
+   FILTERS SIDEBAR
+   ========================================================================== */
+.filters-sidebar {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border: 1px solid rgba(85,107,47,0.08);
+}
+.filters-sidebar__title {
+    color: #3E4F22;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px dashed rgba(241,181,59,0.3);
+}
+.filters-sidebar__label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #556B2F;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.filters-sidebar__input,
+.filters-sidebar__select {
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: #333;
+    transition: all 0.3s;
+    background-color: #fcfcfc;
+}
+.filters-sidebar__input:focus,
+.filters-sidebar__select:focus {
+    border-color: #F1B53B;
+    box-shadow: 0 0 0 4px rgba(241,181,59,0.15);
+    background-color: #ffffff;
+}
+.filters-sidebar__btn-reset {
+    background: rgba(85,107,47,0.08);
+    color: #556B2F;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+.filters-sidebar__btn-reset:hover {
+    background: #556B2F;
+    color: #fff;
+}
+
+/* ==========================================================================
+   MODERN EXCURSION CARD
+   ========================================================================== */
+.modern-excursion-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(85,107,47,0.05);
+    position: relative;
+}
+
+.modern-excursion-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(13,51,32,0.12);
+}
+
+/* Media (Image top) */
+.modern-excursion-card__media {
+    position: relative;
+    height: 150px;
+    overflow: hidden;
+}
+.modern-excursion-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.modern-excursion-card:hover .modern-excursion-card__media img {
+    transform: scale(1.1) rotate(1deg);
+}
+
+.modern-excursion-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,51,32,0.7) 0%, transparent 60%);
+    opacity: 0.4;
+    transition: opacity 0.4s;
+    pointer-events: none;
+}
+.modern-excursion-card:hover .modern-excursion-card__overlay {
+    opacity: 0.7;
+}
+
+.modern-excursion-card__price {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #F1B53B;
+    color: #3E4F22;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-weight: 900;
+    font-size: 0.9rem;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(241,181,59,0.3);
+    transition: transform 0.3s;
+}
+.modern-excursion-card:hover .modern-excursion-card__price {
+    transform: scale(1.05);
+}
+
+.modern-excursion-card__body {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.modern-excursion-card__meta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.meta-item {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #556B2F;
+    background: rgba(85,107,47,0.08);
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.meta-item i { color: #F1B53B; }
+
+.modern-excursion-card__title {
+    color: #3E4F22;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    line-height: 1.2;
+    transition: color 0.3s;
+}
+.modern-excursion-card:hover .modern-excursion-card__title {
+    color: #F1B53B;
+}
+
+.modern-excursion-card__desc {
+    color: #6c7c75;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+/* Guides Section */
+.modern-excursion-card__guides {
+    margin-bottom: 12px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+.guides-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+.guides-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.guide-chip {
+    display: flex;
+    align-items: center;
+    background: #f8fbff;
+    border: 1px solid #eef2f6;
+    padding: 6px 12px 6px 6px;
+    border-radius: 50px;
+    transition: background 0.3s, border-color 0.3s;
+}
+.guide-chip:hover {
+    background: #fff;
+    border-color: #F1B53B;
+    box-shadow: 0 2px 8px rgba(241,181,59,0.15);
+}
+.guide-chip img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.guide-info {
+    display: flex;
+    flex-direction: column;
+}
+.guide-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #3E4F22;
+    line-height: 1.1;
+}
+.guide-lang {
+    font-size: 0.65rem;
+    color: #777;
+}
+
+/* Footer / Button */
+.modern-excursion-card__footer {
+    margin-top: auto;
+}
+.modern-excursion-card__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+    background: #ffffff;
+    border: 2px solid #556B2F;
+    color: #556B2F;
+    padding: 8px 15px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.modern-excursion-card:hover .modern-excursion-card__btn {
+    background: #3E4F22;
+    border-color: #3E4F22;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(62,79,34,0.3);
+}
+.modern-excursion-card:hover .modern-excursion-card__btn i {
+    transform: translateX(5px);
+    color: #F1B53B;
+}
+
+/* ==========================================================================
+   EMPTY STATE & BUTTONS
+   ========================================================================== */
+.empty-state {
+    background: #fff;
+    border-radius: 20px;
+    border: 2px dashed #ddd;
+}
+.empty-icon i {
+    font-size: 3rem;
+    color: #ddd;
+}
+.empty-title {
+    color: #3E4F22;
+    font-weight: 800;
+}
+.btn-primary-custom {
+    background: #F1B53B;
+    color: #3E4F22;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+.btn-primary-custom:hover {
+    background: #3E4F22;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   STICKY SIDEBAR & HELP WIDGET
+   ========================================================================== */
+.sticky-sidebar {
+    position: sticky;
+    top: 30px;
+    z-index: 10;
+}
+
+.help-widget {
+    background: linear-gradient(135deg, #3E4F22 0%, #2A3616 100%);
+    border-radius: 20px;
+    padding: 30px 20px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(13,51,32,0.2);
+    transition: transform 0.3s;
+}
+.help-widget:hover {
+    transform: translateY(-5px);
+}
+.help-widget__blob {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    background: #F1B53B;
+    border-radius: 50%;
+    opacity: 0.2;
+    filter: blur(20px);
+    animation: blobBounce 4s infinite alternate;
+}
+@keyframes blobBounce {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.5) translate(-20px, 20px); }
+}
+.help-widget__content {
+    position: relative;
+    z-index: 2;
+}
+.help-widget__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba(241,181,59,0.2);
+    color: #F1B53B;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    border: 2px solid rgba(241,181,59,0.5);
+}
+.help-widget__title {
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.help-widget__text {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.help-widget__btn {
+    display: inline-block;
+    background: #F1B53B;
+    color: #3E4F22;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(241,181,59,0.3);
+}
+.help-widget__btn:hover {
+    background: #fff;
+    color: #3E4F22;
+    transform: scale(1.05);
+}
+</style>

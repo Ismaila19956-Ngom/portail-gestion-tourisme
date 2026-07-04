@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
@@ -43,7 +43,7 @@ export class EtapeDetailComponent implements OnInit {
     this.loading = true;
     this.error = false;
     
-    // Utiliser les données statiques (tourisme) au lieu de l'API (CNAAS)
+    // Utiliser les données statiques (tourisme) au lieu de l'API (Senegal Excursions)
     this.mapEtapeData(workData, id);
   }
 

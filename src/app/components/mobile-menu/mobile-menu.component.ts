@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
+﻿import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { menuItems } from './data';
 import { MobileNavItemComponent } from "./mobile-nav-item/mobile-nav-item.component";
 import { RouterLink, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { CnaasApiService } from '../../services/cnaas-api.service';
+import { TourismeApiService } from '../../services/tourisme-api.service';
 import { ReseauxSociauxService, ReseauSocialPortail } from '@core/services/reseaux-sociaux.service';
 
 interface MenuItem {
@@ -22,7 +22,7 @@ interface MenuItem {
     styles: ``
 })
 export class MobileMenuComponent implements OnInit {
-    private api = inject(CnaasApiService);
+    private api = inject(TourismeApiService);
     private reseauxSvc = inject(ReseauxSociauxService);
     private router = inject(Router);
 

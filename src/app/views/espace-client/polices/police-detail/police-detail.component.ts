@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+﻿import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -7,9 +7,9 @@ import { AuthService } from '../../../../services/auth.service';
 import { environment } from '../../../../../environments/environment';
 import {
     Avenant, DocumentModule, Police, PevMarquage, Paiement,
-    QuestionnaireAviculture, QuestionnaireRecolte, QuestionnaireHorticulture,
-    QuestionnaireBatimentAviculture,
-    VisiteTechniqueAviculture, VisiteTechniqueHorticulture
+    Questionnaireaventure, Questionnaireexcursion, QuestionnaireCulture,
+    QuestionnaireBatimentaventure,
+    VisiteTechniqueaventure, VisiteTechniqueCulture
 } from '../../../../models/client-portal.models';
 
 type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paiements' | 'membres';
@@ -212,7 +212,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                         <td class="cp-lbl">Tacite reconduction</td>
                         <td class="cp-val">{{ police.taciteReconduction ? 'OUI' : 'NON' }}</td>
                         <td class="cp-lbl">Franchise</td>
-                        <td class="cp-val">{{ police.betail?.franchiseTaux || police.equipement?.franchiseTaux || '�' }}</td>
+                        <td class="cp-val">{{ police.circuit?.franchiseTaux || police.equipement?.franchiseTaux || '�' }}</td>
                     </tr>
                 </table>
 
@@ -339,9 +339,9 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 <ng-container *ngIf="!qLoading">
 
                 <!-- --------------------------------------------------
-                     AVICULTURE
+                     aventure
                 -------------------------------------------------- -->
-                <div *ngIf="qAviculture">
+                <div *ngIf="qaventure">
                     <!-- Header vert -->
                     <div style="background:linear-gradient(135deg,#538F6C,#3d7554);border-radius:12px;padding:14px 18px;margin-bottom:14px;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
                         <div style="display:flex;align-items:center;gap:14px;">
@@ -349,7 +349,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                 <i class="fa-solid fa-egg" style="font-size:1.2rem;"></i>
                             </div>
                             <div>
-                                <div style="font-weight:900;font-size:1rem;">Questionnaire Assurance Aviculture</div>
+                                <div style="font-weight:900;font-size:1rem;">Questionnaire Assurance aventure</div>
                                 <div style="opacity:0.75;font-size:0.76rem;margin-top:3px;">
                                     <i class="fa-solid fa-file-contract" style="margin-right:4px;"></i>Police N� {{ police?.numeroPolice }}
                                 </div>
@@ -372,23 +372,23 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                 <div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Le soussign�</div>
                                 <div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ clientNom() }}</div>
                             </div>
-                            <div *ngIf="qAviculture.adresse">
+                            <div *ngIf="qaventure.adresse">
                                 <div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Adresse</div>
-                                <div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qAviculture.adresse }}</div>
+                                <div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qaventure.adresse }}</div>
                             </div>
-                            <div *ngIf="qAviculture.qualite">
+                            <div *ngIf="qaventure.qualite">
                                 <div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Qualité</div>
-                                <div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qAviculture.qualite }}</div>
+                                <div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qaventure.qualite }}</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Section 2 : Bâtiments -->
-                    <div *ngIf="qAviculture.batiments && qAviculture.batiments.length > 0" style="margin-bottom:10px;">
+                    <div *ngIf="qaventure.batiments && qaventure.batiments.length > 0" style="margin-bottom:10px;">
                         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
                             <div style="width:26px;height:26px;background:#F1B53B;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.78rem;flex-shrink:0;">2</div>
                             <span style="font-weight:800;color:#3E4F22;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;white-space:nowrap;">Bâtiments d'�levage</span>
-                            <span style="background:#F1B53B22;color:#856404;font-size:0.7rem;font-weight:700;padding:2px 10px;border-radius:20px;">{{ qAviculture.batiments.length }} bâtiment(s)</span>
+                            <span style="background:#F1B53B22;color:#856404;font-size:0.7rem;font-weight:700;padding:2px 10px;border-radius:20px;">{{ qaventure.batiments.length }} bâtiment(s)</span>
                             <div style="flex:1;height:1.5px;background:linear-gradient(to right,#F1B53B44,transparent);"></div>
                         </div>
                         <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;overflow:hidden;">
@@ -407,7 +407,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let b of qAviculture.batiments; let even = even"
+                                        <tr *ngFor="let b of qaventure.batiments; let even = even"
                                             [style.background]="even ? '#fafffe' : '#fff'"
                                             style="border-bottom:1px solid #eef5f1;">
                                             <td style="padding:11px 14px;font-weight:800;color:#538F6C;font-family:monospace;">{{ b.numeroBande || '�' }}</td>
@@ -457,62 +457,62 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fafffe;">
                                         <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">1 � Catégorie(s) d'animaux �lev�s</td>
                                         <td style="padding:12px 16px;">
-                                            <div *ngIf="qAviculture.categorieChair?.libelle" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qAviculture.categorieChair?.libelle }}</strong></div>
-                                            <div *ngIf="qAviculture.categoriePoulettes?.libelle" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qAviculture.categoriePoulettes?.libelle }}</strong></div>
-                                            <div *ngIf="qAviculture.categoriePondeuses?.libelle" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qAviculture.categoriePondeuses?.libelle }}</strong></div>
-                                            <span *ngIf="!qAviculture.categorieChair && !qAviculture.categoriePoulettes && !qAviculture.categoriePondeuses" style="color:#aaa;">�</span>
+                                            <div *ngIf="qaventure.categorieChair?.libelle" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qaventure.categorieChair?.libelle }}</strong></div>
+                                            <div *ngIf="qaventure.categoriePoulettes?.libelle" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qaventure.categoriePoulettes?.libelle }}</strong></div>
+                                            <div *ngIf="qaventure.categoriePondeuses?.libelle" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qaventure.categoriePondeuses?.libelle }}</strong></div>
+                                            <span *ngIf="!qaventure.categorieChair && !qaventure.categoriePoulettes && !qaventure.categoriePondeuses" style="color:#aaa;">�</span>
                                         </td>
                                         <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[0] || '�' }}</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fff;">
                                         <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">2 � Nombre d'animaux par catégorie</td>
                                         <td style="padding:12px 16px;">
-                                            <div *ngIf="qAviculture.nbAnimauxChair != null" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qAviculture.nbAnimauxChair | number:'1.0-0' }}</strong></div>
-                                            <div *ngIf="qAviculture.nbAnimauxPoulettes != null" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qAviculture.nbAnimauxPoulettes | number:'1.0-0' }}</strong></div>
-                                            <div *ngIf="qAviculture.nbAnimauxPondeuses != null" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qAviculture.nbAnimauxPondeuses | number:'1.0-0' }}</strong></div>
+                                            <div *ngIf="qaventure.nbAnimauxChair != null" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qaventure.nbAnimauxChair | number:'1.0-0' }}</strong></div>
+                                            <div *ngIf="qaventure.nbAnimauxPoulettes != null" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qaventure.nbAnimauxPoulettes | number:'1.0-0' }}</strong></div>
+                                            <div *ngIf="qaventure.nbAnimauxPondeuses != null" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qaventure.nbAnimauxPondeuses | number:'1.0-0' }}</strong></div>
                                         </td>
                                         <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[1] || '�' }}</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fafffe;">
                                         <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">3 � Fr�quence de renouvellement (jours)</td>
                                         <td style="padding:12px 16px;">
-                                            <div *ngIf="qAviculture.frequenceChair != null" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qAviculture.frequenceChair }} j</strong></div>
-                                            <div *ngIf="qAviculture.frequencePoulettes != null" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qAviculture.frequencePoulettes }} j</strong></div>
-                                            <div *ngIf="qAviculture.frequencePondeuses != null" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qAviculture.frequencePondeuses }} j</strong></div>
+                                            <div *ngIf="qaventure.frequenceChair != null" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qaventure.frequenceChair }} j</strong></div>
+                                            <div *ngIf="qaventure.frequencePoulettes != null" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qaventure.frequencePoulettes }} j</strong></div>
+                                            <div *ngIf="qaventure.frequencePondeuses != null" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qaventure.frequencePondeuses }} j</strong></div>
                                         </td>
                                         <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[2] || '�' }}</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fff;">
                                         <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">4 � Numéro des bandes</td>
                                         <td style="padding:12px 16px;">
-                                            <div *ngIf="qAviculture.numeroBandesChair" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qAviculture.numeroBandesChair }}</strong></div>
-                                            <div *ngIf="qAviculture.numeroBandesPoulettes" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qAviculture.numeroBandesPoulettes }}</strong></div>
-                                            <div *ngIf="qAviculture.numeroBandesPondeuses" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qAviculture.numeroBandesPondeuses }}</strong></div>
+                                            <div *ngIf="qaventure.numeroBandesChair" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qaventure.numeroBandesChair }}</strong></div>
+                                            <div *ngIf="qaventure.numeroBandesPoulettes" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qaventure.numeroBandesPoulettes }}</strong></div>
+                                            <div *ngIf="qaventure.numeroBandesPondeuses" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qaventure.numeroBandesPondeuses }}</strong></div>
                                         </td>
                                         <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[3] || '�' }}</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fafffe;">
                                         <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">5 � Prix d'achat des pondeuses (FCFA)</td>
                                         <td style="padding:12px 16px;">
-                                            <span *ngIf="qAviculture.prixAchatPondeuses != null" style="color:#538F6C;font-weight:800;font-size:0.88rem;">{{ qAviculture.prixAchatPondeuses | number:'1.0-0' }} FCFA</span>
-                                            <span *ngIf="qAviculture.prixAchatPondeuses == null" style="color:#aaa;">�</span>
+                                            <span *ngIf="qaventure.prixAchatPondeuses != null" style="color:#538F6C;font-weight:800;font-size:0.88rem;">{{ qaventure.prixAchatPondeuses | number:'1.0-0' }} FCFA</span>
+                                            <span *ngIf="qaventure.prixAchatPondeuses == null" style="color:#aaa;">�</span>
                                         </td>
                                         <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[4] || '�' }}</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fff;">
                                         <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">6 � Prix de vente (FCFA)</td>
                                         <td style="padding:12px 16px;">
-                                            <div *ngIf="qAviculture.prixVenteChair != null" style="color:#333;font-size:0.8rem;">Chair : <strong style="color:#538F6C;">{{ qAviculture.prixVenteChair | number:'1.0-0' }} FCFA</strong></div>
-                                            <div *ngIf="qAviculture.prixVentePoulettes != null" style="color:#333;font-size:0.8rem;">Poulettes : <strong style="color:#538F6C;">{{ qAviculture.prixVentePoulettes | number:'1.0-0' }} FCFA</strong></div>
+                                            <div *ngIf="qaventure.prixVenteChair != null" style="color:#333;font-size:0.8rem;">Chair : <strong style="color:#538F6C;">{{ qaventure.prixVenteChair | number:'1.0-0' }} FCFA</strong></div>
+                                            <div *ngIf="qaventure.prixVentePoulettes != null" style="color:#333;font-size:0.8rem;">Poulettes : <strong style="color:#538F6C;">{{ qaventure.prixVentePoulettes | number:'1.0-0' }} FCFA</strong></div>
                                         </td>
                                         <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[5] || '�' }}</td>
                                     </tr>
                                     <tr style="border-bottom:1px solid #eef5f1;background:#fafffe;">
                                         <td style="padding:12px 16px;color:#3E4F22;font-weight:600;">7 � P�riode de production (semaines)</td>
                                         <td style="padding:12px 16px;">
-                                            <div *ngIf="qAviculture.periodeChair != null" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qAviculture.periodeChair }} sem.</strong></div>
-                                            <div *ngIf="qAviculture.periodePoulettes != null" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qAviculture.periodePoulettes }} sem.</strong></div>
-                                            <div *ngIf="qAviculture.periodePondeuses != null" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qAviculture.periodePondeuses }} sem.</strong></div>
+                                            <div *ngIf="qaventure.periodeChair != null" style="color:#333;font-size:0.8rem;">Chair : <strong>{{ qaventure.periodeChair }} sem.</strong></div>
+                                            <div *ngIf="qaventure.periodePoulettes != null" style="color:#333;font-size:0.8rem;">Poulettes : <strong>{{ qaventure.periodePoulettes }} sem.</strong></div>
+                                            <div *ngIf="qaventure.periodePondeuses != null" style="color:#333;font-size:0.8rem;">Pondeuses : <strong>{{ qaventure.periodePondeuses }} sem.</strong></div>
                                         </td>
                                         <td style="padding:12px 16px;color:#856404;font-style:italic;font-size:0.8rem;">{{ qAvicComments[6] || '�' }}</td>
                                     </tr>
@@ -525,14 +525,14 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 <!-- --------------------------------------------------
                      B�TAIL
                 -------------------------------------------------- -->
-                <div *ngIf="qBetail">
+                <div *ngIf="qcircuit">
                     <div style="background:linear-gradient(135deg,#538F6C,#3d7554);border-radius:12px;padding:14px 18px;margin-bottom:14px;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
                         <div style="display:flex;align-items:center;gap:14px;">
                             <div style="width:44px;height:44px;background:rgba(255,255,255,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                                 <i class="fa-solid fa-cow" style="font-size:1.2rem;"></i>
                             </div>
                             <div>
-                                <div style="font-weight:900;font-size:1rem;">Questionnaire Assurance Bétail</div>
+                                <div style="font-weight:900;font-size:1rem;">Questionnaire Assurance circuit</div>
                                 <div style="opacity:0.75;font-size:0.76rem;margin-top:3px;"><i class="fa-solid fa-file-contract" style="margin-right:4px;"></i>Police N� {{ police?.numeroPolice }}</div>
                             </div>
                         </div>
@@ -547,8 +547,8 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                         </div>
                         <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;padding:18px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
                             <div><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Le soussign�</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ clientNom() }}</div></div>
-                            <div *ngIf="qBetail.adresse"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Adresse</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.adresse }}</div></div>
-                            <div *ngIf="qBetail.qualite"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Qualité</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.qualite }}</div></div>
+                            <div *ngIf="qcircuit.adresse"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Adresse</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qcircuit.adresse }}</div></div>
+                            <div *ngIf="qcircuit.qualite"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Qualité</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qcircuit.qualite }}</div></div>
                         </div>
                     </div>
                     <!-- Section 2 : �levage -->
@@ -565,30 +565,30 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                     <th style="padding:11px 16px;font-weight:700;font-size:0.68rem;text-transform:uppercase;text-align:left;">R�ponse</th>
                                 </tr></thead>
                                 <tbody>
-                                    <tr *ngIf="qBetail.typeElevage?.libelle" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Type d'�levage</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.typeElevage?.libelle }}</td></tr>
-                                    <tr *ngIf="qBetail.modeElevage" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Mode d'�levage</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.modeElevage }}</td></tr>
-                                    <tr *ngIf="qBetail.dureeEmbouche" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Durée embouche</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.dureeEmbouche }}</td></tr>
-                                    <tr *ngIf="qBetail.productionLait" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Production de lait</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.productionLait }}</td></tr>
-                                    <tr *ngIf="qBetail.distanceDomicileExploitation" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Distance domicile / exploitation</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.distanceDomicileExploitation }}</td></tr>
-                                    <tr *ngIf="qBetail.elevageSimple" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">�levage simple</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qBetail.elevageSimple }}</td></tr>
+                                    <tr *ngIf="qcircuit.typeElevage?.libelle" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Type d'�levage</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qcircuit.typeElevage?.libelle }}</td></tr>
+                                    <tr *ngIf="qcircuit.modeElevage" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Mode d'�levage</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qcircuit.modeElevage }}</td></tr>
+                                    <tr *ngIf="qcircuit.dureeEmbouche" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Durée embouche</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qcircuit.dureeEmbouche }}</td></tr>
+                                    <tr *ngIf="qcircuit.productionLait" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Production de lait</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qcircuit.productionLait }}</td></tr>
+                                    <tr *ngIf="qcircuit.distanceDomicileExploitation" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Distance domicile / exploitation</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qcircuit.distanceDomicileExploitation }}</td></tr>
+                                    <tr *ngIf="qcircuit.elevageSimple" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">�levage simple</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ qcircuit.elevageSimple }}</td></tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <!-- Section 3 : V�t�rinaire -->
-                    <div *ngIf="qBetail.nomVeterinaire || qBetail.telephoneVeterinaire || qBetail.frequenceIntervention" style="margin-bottom:10px;">
+                    <div *ngIf="qcircuit.nomVeterinaire || qcircuit.telephoneVeterinaire || qcircuit.frequenceIntervention" style="margin-bottom:10px;">
                         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
                             <div style="width:26px;height:26px;background:#F1B53B;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.78rem;flex-shrink:0;">3</div>
                             <span style="font-weight:800;color:#3E4F22;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;">Suivi vétérinaire</span>
                             <div style="flex:1;height:1.5px;background:linear-gradient(to right,#F1B53B44,transparent);"></div>
                         </div>
                         <div style="background:#fff;border-radius:14px;border:1px solid #e8f4ec;padding:18px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
-                            <div *ngIf="qBetail.nomVeterinaire"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">V�t�rinaire</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.nomVeterinaire }}</div></div>
-                            <div *ngIf="qBetail.telephoneVeterinaire"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Téléphone</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.telephoneVeterinaire }}</div></div>
-                            <div *ngIf="qBetail.frequenceIntervention"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Fr�quence d'intervention</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qBetail.frequenceIntervention }}</div></div>
+                            <div *ngIf="qcircuit.nomVeterinaire"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">V�t�rinaire</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qcircuit.nomVeterinaire }}</div></div>
+                            <div *ngIf="qcircuit.telephoneVeterinaire"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Téléphone</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qcircuit.telephoneVeterinaire }}</div></div>
+                            <div *ngIf="qcircuit.frequenceIntervention"><div style="color:#aaa;font-size:0.67rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">Fr�quence d'intervention</div><div style="color:#3E4F22;font-weight:700;font-size:0.88rem;">{{ qcircuit.frequenceIntervention }}</div></div>
                         </div>
-                        <div *ngIf="qBetail.commentaireVeterinaire" style="background:#fff8e8;border-radius:10px;border:1px solid #f1e8c8;padding:12px 16px;margin-top:12px;font-size:0.83rem;color:#856404;font-style:italic;">
-                            <i class="fa-solid fa-comment-dots" style="margin-right:6px;"></i>{{ qBetail.commentaireVeterinaire }}
+                        <div *ngIf="qcircuit.commentaireVeterinaire" style="background:#fff8e8;border-radius:10px;border:1px solid #f1e8c8;padding:12px 16px;margin-top:12px;font-size:0.83rem;color:#856404;font-style:italic;">
+                            <i class="fa-solid fa-comment-dots" style="margin-right:6px;"></i>{{ qcircuit.commentaireVeterinaire }}
                         </div>
                     </div>
                 </div>
@@ -596,15 +596,15 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 <!-- --------------------------------------------------
                      R�COLTE
                 -------------------------------------------------- -->
-                <div *ngIf="qRecolte">
-                    <ng-container [ngTemplateOutlet]="qRecolteTpl" [ngTemplateOutletContext]="{q: qRecolte, titre: 'R�colte / C�r�ales', icon: 'fa-solid fa-wheat-awn'}"></ng-container>
+                <div *ngIf="qexcursion">
+                    <ng-container [ngTemplateOutlet]="qexcursionTpl" [ngTemplateOutletContext]="{q: qexcursion, titre: 'R�colte / C�r�ales', icon: 'fa-solid fa-wheat-awn'}"></ng-container>
                 </div>
 
                 <!-- --------------------------------------------------
-                     HORTICULTURE
+                     Culture
                 -------------------------------------------------- -->
-                <div *ngIf="qHorticulture">
-                    <ng-container [ngTemplateOutlet]="qRecolteTpl" [ngTemplateOutletContext]="{q: qHorticulture, titre: 'Horticulture / Mara�chage', icon: 'fa-solid fa-seedling'}"></ng-container>
+                <div *ngIf="qCulture">
+                    <ng-container [ngTemplateOutlet]="qexcursionTpl" [ngTemplateOutletContext]="{q: qCulture, titre: 'Culture / Mara�chage', icon: 'fa-solid fa-seedling'}"></ng-container>
                 </div>
 
                 <!-- --------------------------------------------------
@@ -636,7 +636,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 </div>
 
                 <!-- Aucun questionnaire -->
-                <div *ngIf="!qBetail && !qAviculture && !qRecolte && !qHorticulture && !qEquipement && !qMultirisques && !qStock"
+                <div *ngIf="!qcircuit && !qaventure && !qexcursion && !qCulture && !qEquipement && !qMultirisques && !qStock"
                      style="text-align:center;padding:64px;color:#aaa;">
                     <i class="fa-solid fa-clipboard" style="font-size:2.5rem;margin-bottom:16px;display:block;opacity:0.4;"></i>
                     <h4 style="color:#3E4F22;font-weight:700;margin-bottom:8px;">Questionnaire non rempli</h4>
@@ -645,8 +645,8 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
 
                 </ng-container>
 
-                <!-- Template R�colte / Horticulture partag� -->
-                <ng-template #qRecolteTpl let-q="q" let-titre="titre" let-icon="icon">
+                <!-- Template R�colte / Culture partag� -->
+                <ng-template #qexcursionTpl let-q="q" let-titre="titre" let-icon="icon">
                     <div style="background:linear-gradient(135deg,#538F6C,#3d7554);border-radius:12px;padding:14px 18px;margin-bottom:14px;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
                         <div style="display:flex;align-items:center;gap:14px;">
                             <div style="width:44px;height:44px;background:rgba(255,255,255,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -696,7 +696,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                     <tr *ngIf="q?.chargesProduction" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Charges de production</td><td style="padding:11px 16px;color:#538F6C;font-weight:800;">{{ q.chargesProduction | number:'1.0-0' }} FCFA</td></tr>
                                     <tr *ngIf="q?.productionEscomptee" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Production escompt�e</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.productionEscomptee }}</td></tr>
                                     <tr *ngIf="q?.assurancePrecedente" style="border-bottom:1px solid #eef5f1;background:#fafffe;"><td style="padding:11px 16px;color:#555;font-weight:600;">Assurance précédente</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.assurancePrecedente }}</td></tr>
-                                    <tr *ngIf="q?.sinistrePrecedent" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">Sinistre précédent</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.sinistrePrecedent }}</td></tr>
+                                    <tr *ngIf="q?.modificationPrecedent" style="border-bottom:1px solid #eef5f1;background:#fff;"><td style="padding:11px 16px;color:#555;font-weight:600;">modification précédent</td><td style="padding:11px 16px;color:#3E4F22;font-weight:700;">{{ q.modificationPrecedent }}</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -717,7 +717,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                 <ng-container *ngIf="!pevLoading">
 
                 <!-- Vide -->
-                <div *ngIf="pevs.length === 0 && visitesAviculture.length === 0 && visitesHort.length === 0"
+                <div *ngIf="pevs.length === 0 && visitesaventure.length === 0 && visitesHort.length === 0"
                      style="background:#fff;border-radius:18px;border:1px solid #e8f4ec;padding:72px 40px;text-align:center;">
                     <i class="fa-solid fa-clipboard-check" style="font-size:2.8rem;color:#d1e7dd;margin-bottom:10px;display:block;"></i>
                     <h4 style="color:#3E4F22;font-weight:800;margin-bottom:8px;">Aucune visite enregistr�e</h4>
@@ -736,7 +736,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             </div>
                             <div>
                                 <div style="color:#fff;font-weight:900;font-size:0.95rem;">Proc�s-verbaux de marquage</div>
-                                <div style="color:rgba(255,255,255,0.65);font-size:0.73rem;margin-top:3px;">Inspection vétérinaire � Bétail</div>
+                                <div style="color:rgba(255,255,255,0.65);font-size:0.73rem;margin-top:3px;">Inspection vétérinaire � circuit</div>
                             </div>
                         </div>
                         <span style="background:rgba(255,255,255,0.18);color:#fff;font-size:0.72rem;font-weight:800;padding:4px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.25);">
@@ -837,8 +837,8 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                     </div>
                 </div>
 
-                <!-- -- VISITES AVICULTURE -- -->
-                <div *ngIf="visitesAviculture.length > 0"
+                <!-- -- VISITES aventure -- -->
+                <div *ngIf="visitesaventure.length > 0"
                      style="background:#fff;border-radius:18px;border:1px solid #e8f4ec;overflow:hidden;box-shadow:0 2px 16px rgba(85,107,47,0.06);margin-bottom:20px;">
 
                     <!-- En-t�te page -->
@@ -848,17 +848,17 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                 <i class="fa-solid fa-egg" style="color:#fff;font-size:1.1rem;"></i>
                             </div>
                             <div>
-                                <div style="color:#fff;font-weight:900;font-size:0.95rem;">Visites techniques aviculture</div>
-                                <div style="color:rgba(255,255,255,0.65);font-size:0.73rem;margin-top:3px;">Inspection des bâtiments et du cheptel</div>
+                                <div style="color:#fff;font-weight:900;font-size:0.95rem;">Visites techniques aventure</div>
+                                <div style="color:rgba(255,255,255,0.65);font-size:0.73rem;margin-top:3px;">Inspection des bâtiments et du groupe</div>
                             </div>
                         </div>
                         <span style="background:rgba(255,255,255,0.18);color:#fff;font-size:0.72rem;font-weight:800;padding:4px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.25);">
-                            {{ visitesAviculture.length }} visite(s)
+                            {{ visitesaventure.length }} visite(s)
                         </span>
                     </div>
 
                     <!-- Liste visites -->
-                    <div *ngFor="let v of visitesAviculture; let i = index; let last = last"
+                    <div *ngFor="let v of visitesaventure; let i = index; let last = last"
                          [style.border-bottom]="!last ? '1px solid #eef5f1' : 'none'">
 
                         <!-- Bandeau visite -->
@@ -957,7 +957,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                     </div>
                 </div>
 
-                <!-- -- VISITES HORTICULTURE -- -->
+                <!-- -- VISITES Culture -- -->
                 <div *ngIf="visitesHort.length > 0"
                      style="background:#fff;border-radius:18px;border:1px solid #e8f4ec;overflow:hidden;box-shadow:0 2px 16px rgba(85,107,47,0.06);">
 
@@ -968,7 +968,7 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                 <i class="fa-solid fa-seedling" style="color:#fff;font-size:1.1rem;"></i>
                             </div>
                             <div>
-                                <div style="color:#fff;font-weight:900;font-size:0.95rem;">Visites de risque horticulture</div>
+                                <div style="color:#fff;font-weight:900;font-size:0.95rem;">Visites de risque Culture</div>
                                 <div style="color:rgba(255,255,255,0.65);font-size:0.73rem;margin-top:3px;">Inspection des parcelles et syst�mes d'irrigation</div>
                             </div>
                         </div>
@@ -1129,16 +1129,16 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                             <tr style="background:#538F6C;">
                                 <th style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">N�</th>
                                 <th style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">Nom du membre</th>
-                                <th *ngIf="isBetail" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">Catégorie</th>
-                                <th *ngIf="isBetail" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Nb animaux</th>
-                                <th *ngIf="isBetail" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Valeur totale</th>
-                                <th *ngIf="isBetail" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Prime</th>
-                                <th *ngIf="isAviculture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">N� Bâtiment</th>
-                                <th *ngIf="isAviculture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Nb animaux</th>
-                                <th *ngIf="isAviculture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Val. assur�e</th>
-                                <th *ngIf="isAviculture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Prime</th>
-                                <th *ngIf="isRecolte || isHorticulture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Superficie (ha)</th>
-                                <th *ngIf="isRecolte || isHorticulture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Prime</th>
+                                <th *ngIf="iscircuit" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">Catégorie</th>
+                                <th *ngIf="iscircuit" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Nb animaux</th>
+                                <th *ngIf="iscircuit" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Valeur totale</th>
+                                <th *ngIf="iscircuit" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Prime</th>
+                                <th *ngIf="isaventure" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:left;">N� Bâtiment</th>
+                                <th *ngIf="isaventure" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Nb animaux</th>
+                                <th *ngIf="isaventure" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Val. assur�e</th>
+                                <th *ngIf="isaventure" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Prime</th>
+                                <th *ngIf="isexcursion || isCulture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Superficie (ha)</th>
+                                <th *ngIf="isexcursion || isCulture" style="padding:11px 14px;color:#fff;font-weight:700;font-size:0.75rem;text-transform:uppercase;letter-spacing:.06em;text-align:right;">Prime</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1150,16 +1150,16 @@ type TabId = 'info' | 'questionnaire' | 'pev' | 'avenants' | 'documents' | 'paie
                                     <div *ngIf="m.prenom" style="color:#888;font-size:0.72rem;">{{ m.prenom }}</div>
                                     <div *ngIf="m.numeroCni" style="color:#aaa;font-size:0.7rem;font-family:monospace;">CNI : {{ m.numeroCni }}</div>
                                 </td>
-                                <td *ngIf="isBetail" style="padding:11px 14px;border-bottom:1px solid #eef5f0;">{{ m.categorieLibelle || '�' }}</td>
-                                <td *ngIf="isBetail" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;">{{ m.nombre ?? '�' }}</td>
-                                <td *ngIf="isBetail" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;white-space:nowrap;">{{ m.valeurTotale ? (m.valeurTotale | number:'1.0-0') + ' F' : '�' }}</td>
-                                <td *ngIf="isBetail" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;color:#538F6C;font-weight:700;white-space:nowrap;">{{ m.prime ? (m.prime | number:'1.0-0') + ' F' : '�' }}</td>
-                                <td *ngIf="isAviculture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;font-family:monospace;font-size:0.8rem;">{{ m.numeroBatiment || '�' }}</td>
-                                <td *ngIf="isAviculture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;">{{ m.nombreAnimaux ?? '�' }}</td>
-                                <td *ngIf="isAviculture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;white-space:nowrap;">{{ m.valeurAssuree ? (m.valeurAssuree | number:'1.0-0') + ' F' : '�' }}</td>
-                                <td *ngIf="isAviculture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;color:#538F6C;font-weight:700;white-space:nowrap;">{{ m.prime ? (m.prime | number:'1.0-0') + ' F' : '�' }}</td>
-                                <td *ngIf="isRecolte || isHorticulture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;">{{ m.superficie ?? '�' }}</td>
-                                <td *ngIf="isRecolte || isHorticulture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;color:#538F6C;font-weight:700;white-space:nowrap;">{{ m.prime ? (m.prime | number:'1.0-0') + ' F' : '�' }}</td>
+                                <td *ngIf="iscircuit" style="padding:11px 14px;border-bottom:1px solid #eef5f0;">{{ m.categorieLibelle || '�' }}</td>
+                                <td *ngIf="iscircuit" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;">{{ m.nombre ?? '�' }}</td>
+                                <td *ngIf="iscircuit" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;white-space:nowrap;">{{ m.valeurTotale ? (m.valeurTotale | number:'1.0-0') + ' F' : '�' }}</td>
+                                <td *ngIf="iscircuit" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;color:#538F6C;font-weight:700;white-space:nowrap;">{{ m.prime ? (m.prime | number:'1.0-0') + ' F' : '�' }}</td>
+                                <td *ngIf="isaventure" style="padding:11px 14px;border-bottom:1px solid #eef5f0;font-family:monospace;font-size:0.8rem;">{{ m.numeroBatiment || '�' }}</td>
+                                <td *ngIf="isaventure" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;">{{ m.nombreAnimaux ?? '�' }}</td>
+                                <td *ngIf="isaventure" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;white-space:nowrap;">{{ m.valeurAssuree ? (m.valeurAssuree | number:'1.0-0') + ' F' : '�' }}</td>
+                                <td *ngIf="isaventure" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;color:#538F6C;font-weight:700;white-space:nowrap;">{{ m.prime ? (m.prime | number:'1.0-0') + ' F' : '�' }}</td>
+                                <td *ngIf="isexcursion || isCulture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;">{{ m.superficie ?? '�' }}</td>
+                                <td *ngIf="isexcursion || isCulture" style="padding:11px 14px;border-bottom:1px solid #eef5f0;text-align:right;color:#538F6C;font-weight:700;white-space:nowrap;">{{ m.prime ? (m.prime | number:'1.0-0') + ' F' : '�' }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1476,21 +1476,21 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
 
     /* Visites / PV (selon produit) */
     pevs:              PevMarquage[]              = [];
-    visitesAviculture: VisiteTechniqueAviculture[] = [];
-    visitesHort:       VisiteTechniqueHorticulture[] = [];
+    visitesaventure: VisiteTechniqueaventure[] = [];
+    visitesHort:       VisiteTechniqueCulture[] = [];
 
     /* Questionnaires (selon produit) */
-    qBetail:       any = null;
-    qAviculture:   QuestionnaireAviculture    | null = null;
-    qRecolte:      QuestionnaireRecolte       | null = null;
-    qHorticulture: QuestionnaireHorticulture  | null = null;
+    qcircuit:       any = null;
+    qaventure:   Questionnaireaventure    | null = null;
+    qexcursion:      Questionnaireexcursion       | null = null;
+    qCulture: QuestionnaireCulture  | null = null;
     qEquipement:   any = null;
     qMultirisques: any = null;
     qStock:        any = null;
 
     avenants:          Avenant[]        = [];
     documents:         DocumentModule[] = [];
-    /* Commentaires aviculture pars�s (index 0=Q1 � 6=Q7) */
+    /* Commentaires aventure pars�s (index 0=Q1 � 6=Q7) */
     qAvicComments:     string[]         = [];
 
     loading           = true;
@@ -1503,10 +1503,10 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
     activeTab: TabId = 'info';
 
     /* Type du produit � calcul� une seule fois */
-    isBetail       = false;
-    isAviculture   = false;
-    isRecolte      = false;
-    isHorticulture = false;
+    iscircuit       = false;
+    isaventure   = false;
+    isexcursion      = false;
+    isCulture = false;
     isEquipement   = false;
     isMultirisques = false;
     isStock        = false;
@@ -1528,22 +1528,22 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
         const code = (this.police?.produit?.code || '').toLowerCase();
         const nom  = (this.police?.produit?.nom  || '').toLowerCase();
 
-        this.isBetail       = code.includes('bet') || code.includes('chep') || code.includes('bovin')
-                           || nom.includes('bétail') || nom.includes('betail') || nom.includes('cheptel');
-        this.isAviculture   = !this.isBetail
+        this.iscircuit       = code.includes('bet') || code.includes('chep') || code.includes('bovin')
+                           || nom.includes('circuit') || nom.includes('circuit') || nom.includes('groupe');
+        this.isaventure   = !this.iscircuit
                            && (code.includes('avi') || nom.includes('avicul') || nom.includes('volaille'));
-        this.isRecolte      = code.includes('recol') || nom.includes('r�colte') || nom.includes('recolte');
-        this.isHorticulture = code.includes('hort') || nom.includes('horticul') || nom.includes('maraich');
+        this.isexcursion      = code.includes('recol') || nom.includes('r�colte') || nom.includes('excursion');
+        this.isCulture = code.includes('hort') || nom.includes('horticul') || nom.includes('maraich');
         this.isEquipement   = code.includes('equip') || code.includes('mater') || nom.includes('équipement') || nom.includes('equipement');
         this.isMultirisques = code.includes('multi') || nom.includes('multirisque');
         this.isStock        = code.includes('stock') || nom.includes('stock');
 
         /* Labels des onglets */
-        this.pevTabLabel = this.isBetail ? 'PV de marquage' : 'Visite de risque';
-        if      (this.isBetail)       this.qTabLabel = 'Questionnaire bétail';
-        else if (this.isAviculture)   this.qTabLabel = 'Questionnaire aviculture';
-        else if (this.isRecolte)      this.qTabLabel = 'Questionnaire r�colte';
-        else if (this.isHorticulture) this.qTabLabel = 'Questionnaire horticulture';
+        this.pevTabLabel = this.iscircuit ? 'PV de marquage' : 'Visite de risque';
+        if      (this.iscircuit)       this.qTabLabel = 'Questionnaire circuit';
+        else if (this.isaventure)   this.qTabLabel = 'Questionnaire aventure';
+        else if (this.isexcursion)      this.qTabLabel = 'Questionnaire r�colte';
+        else if (this.isCulture) this.qTabLabel = 'Questionnaire Culture';
         else if (this.isEquipement)   this.qTabLabel = 'Questionnaire équipement';
         else if (this.isMultirisques) this.qTabLabel = 'Questionnaire multirisques';
         else if (this.isStock)        this.qTabLabel = 'Questionnaire stock';
@@ -1590,25 +1590,25 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
         this.qLoading = true;
         const done = () => { this.qLoading = false; };
 
-        if (this.isBetail) {
-            this.portal.getQuestionnaireBetail(policeId).subscribe({
-                next: q => { this.qBetail = q; done(); }, error: done
+        if (this.iscircuit) {
+            this.portal.getQuestionnairecircuit(policeId).subscribe({
+                next: q => { this.qcircuit = q; done(); }, error: done
             });
-        } else if (this.isAviculture) {
-            this.portal.getQuestionnaireAviculture(policeId).subscribe({
+        } else if (this.isaventure) {
+            this.portal.getQuestionnaireaventure(policeId).subscribe({
                 next: q => {
-                    this.qAviculture = q;
+                    this.qaventure = q;
                     this.qAvicComments = this.parseQComments(q?.commentaire, 7);
                     done();
                 }, error: done
             });
-        } else if (this.isRecolte) {
-            this.portal.getQuestionnaireRecolte(policeId).subscribe({
-                next: q => { this.qRecolte = q; done(); }, error: done
+        } else if (this.isexcursion) {
+            this.portal.getQuestionnaireexcursion(policeId).subscribe({
+                next: q => { this.qexcursion = q; done(); }, error: done
             });
-        } else if (this.isHorticulture) {
-            this.portal.getQuestionnaireHorticulture(policeId).subscribe({
-                next: q => { this.qHorticulture = q; done(); }, error: done
+        } else if (this.isCulture) {
+            this.portal.getQuestionnaireCulture(policeId).subscribe({
+                next: q => { this.qCulture = q; done(); }, error: done
             });
         } else if (this.isEquipement) {
             this.portal.getQuestionnaireEquipement(policeId).subscribe({
@@ -1629,18 +1629,18 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
 
     private loadVisites(policeId: number) {
         this.pevLoading = true;
-        if (this.isBetail) {
+        if (this.iscircuit) {
             this.portal.getPevMarquage(policeId).subscribe({
                 next: data => { this.pevs = data; this.pevLoading = false; },
                 error: ()   => { this.pevLoading = false; }
             });
-        } else if (this.isAviculture) {
-            this.portal.getVisitesAviculture(policeId).subscribe({
-                next: data => { this.visitesAviculture = data; this.pevLoading = false; },
+        } else if (this.isaventure) {
+            this.portal.getVisitesaventure(policeId).subscribe({
+                next: data => { this.visitesaventure = data; this.pevLoading = false; },
                 error: ()   => { this.pevLoading = false; }
             });
-        } else if (this.isHorticulture) {
-            this.portal.getVisitesHorticulture(policeId).subscribe({
+        } else if (this.isCulture) {
+            this.portal.getVisitesCulture(policeId).subscribe({
                 next: data => { this.visitesHort = data; this.pevLoading = false; },
                 error: ()   => { this.pevLoading = false; }
             });
@@ -1679,11 +1679,11 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
     /** Mappe le code produit vers le code catégorie document du backend */
     private docCategoryCode(productCode: string): string | undefined {
         const c = (productCode || '').toUpperCase();
-        if (c.includes('AVI'))                          return 'DOC_AVICULTURE';
-        if (c.includes('BET') || c.includes('CHEP'))   return 'DOC_BETAIL';
-        if (c.includes('RECOL'))                        return 'DOC_RECOLTE';
-        if (c.includes('HORT'))                        return 'DOC_RECOLTE';   // horticulture partage la catégorie r�colte si pas de catégorie propre
-        if (c.includes('INDIC'))                        return 'DOC_INDICIELLE';
+        if (c.includes('AVI'))                          return 'DOC_aventure';
+        if (c.includes('BET') || c.includes('CHEP'))   return 'DOC_circuit';
+        if (c.includes('RECOL'))                        return 'DOC_excursion';
+        if (c.includes('HORT'))                        return 'DOC_excursion';   // Culture partage la catégorie r�colte si pas de catégorie propre
+        if (c.includes('INDIC'))                        return 'DOC_garantie';
         if (c.includes('STOCK'))                        return 'DOC_STOCK';
         if (c.includes('EQUIP'))                        return '�QUIPEMENT_DOC';
         if (c.includes('ARBOR'))                        return 'DOC_ARBORICULTURE';
@@ -1726,10 +1726,10 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
      * Les membres sont inclus dans les sous-entit�s produit du DTO Police.
      */
     membres(): any[] {
-        if (this.isAviculture)   return this.police?.aviculture?.membres  ?? [];
-        if (this.isBetail)       return this.police?.betail?.membres       ?? [];
-        if (this.isRecolte)      return this.police?.recolte?.membres      ?? [];
-        if (this.isHorticulture) return this.police?.horticulture?.membres ?? [];
+        if (this.isaventure)   return this.police?.aventure?.membres  ?? [];
+        if (this.iscircuit)       return this.police?.circuit?.membres       ?? [];
+        if (this.isexcursion)      return this.police?.excursion?.membres      ?? [];
+        if (this.isCulture) return this.police?.Culture?.membres ?? [];
         if (this.isEquipement)   return this.police?.equipement?.membres   ?? [];
         return [];
     }
@@ -1740,18 +1740,18 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
         return `${this.apiUrl}/documents/${type}/${id}/${format}`;
     }
 
-    /** TypeDocument enum pour la police (ex: POLICE_AVICULTURE) selon le produit */
+    /** TypeDocument enum pour la police (ex: POLICE_aventure) selon le produit */
     policeDocType(): string {
         const c = (this.police?.produit?.code || '').toUpperCase();
-        if (c.includes('AVI'))                        return 'POLICE_AVICULTURE';
-        if (c.includes('BET') || c.includes('CHEP')) return 'POLICE_BETAIL';
-        if (c.includes('RECOL'))                      return 'POLICE_RECOLTE';
-        if (c.includes('HORT'))                       return 'POLICE_HORTICULTURE';
+        if (c.includes('AVI'))                        return 'POLICE_aventure';
+        if (c.includes('BET') || c.includes('CHEP')) return 'POLICE_circuit';
+        if (c.includes('RECOL'))                      return 'POLICE_excursion';
+        if (c.includes('HORT'))                       return 'POLICE_Culture';
         if (c.includes('EQUIP'))                      return 'POLICE_EQUIPEMENT';
         if (c.includes('STOCK'))                      return 'POLICE_STOCK';
         if (c.includes('ARBOR'))                      return 'POLICE_ARBORICULTURE';
-        if (c.includes('INDIC'))                      return 'POLICE_INDICIELLE';
-        return 'POLICE_AVICULTURE';
+        if (c.includes('INDIC'))                      return 'POLICE_garantie';
+        return 'POLICE_aventure';
     }
 
     /** Documents additionnels g�n�r�s (questionnaire, attestation, annexe�) selon le produit */
@@ -1759,20 +1759,20 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
         const c = (this.police?.produit?.code || '').toUpperCase();
         const docs: Array<{ type: string; label: string; icon: string }> = [];
         if (c.includes('AVI')) {
-            docs.push({ type: 'QUESTIONNAIRE_AVICULTURE', label: 'Questionnaire',  icon: 'fa-solid fa-clipboard-list' });
-            docs.push({ type: 'ATTESTATION_AVICULTURE',  label: 'Attestation',     icon: 'fa-solid fa-certificate' });
-            docs.push({ type: 'PROPOSITION_AVICULTURE',  label: 'Proposition',     icon: 'fa-solid fa-file-lines' });
+            docs.push({ type: 'QUESTIONNAIRE_aventure', label: 'Questionnaire',  icon: 'fa-solid fa-clipboard-list' });
+            docs.push({ type: 'ATTESTATION_aventure',  label: 'Attestation',     icon: 'fa-solid fa-certificate' });
+            docs.push({ type: 'PROPOSITION_aventure',  label: 'Proposition',     icon: 'fa-solid fa-file-lines' });
         } else if (c.includes('BET') || c.includes('CHEP')) {
-            docs.push({ type: 'QUESTIONNAIRE_BETAIL',    label: 'Questionnaire',   icon: 'fa-solid fa-clipboard-list' });
-            docs.push({ type: 'ATTESTATION_BETAIL',      label: 'Attestation',     icon: 'fa-solid fa-certificate' });
-            docs.push({ type: 'ANNEXE_BETAIL',           label: 'Annexe',          icon: 'fa-solid fa-paperclip' });
-            docs.push({ type: 'PV_MARQUAGE_BETAIL',      label: 'PV de marquage',  icon: 'fa-solid fa-stamp' });
+            docs.push({ type: 'QUESTIONNAIRE_circuit',    label: 'Questionnaire',   icon: 'fa-solid fa-clipboard-list' });
+            docs.push({ type: 'ATTESTATION_circuit',      label: 'Attestation',     icon: 'fa-solid fa-certificate' });
+            docs.push({ type: 'ANNEXE_circuit',           label: 'Annexe',          icon: 'fa-solid fa-paperclip' });
+            docs.push({ type: 'PV_MARQUAGE_circuit',      label: 'PV de marquage',  icon: 'fa-solid fa-stamp' });
         } else if (c.includes('RECOL')) {
-            docs.push({ type: 'QUESTIONNAIRE_RECOLTE',   label: 'Questionnaire',   icon: 'fa-solid fa-clipboard-list' });
-            docs.push({ type: 'PROPOSITION_RECOLTE',     label: 'Proposition',     icon: 'fa-solid fa-file-lines' });
-            docs.push({ type: 'ANNEXE_RECOLTE',          label: 'Annexe',          icon: 'fa-solid fa-paperclip' });
+            docs.push({ type: 'QUESTIONNAIRE_excursion',   label: 'Questionnaire',   icon: 'fa-solid fa-clipboard-list' });
+            docs.push({ type: 'PROPOSITION_excursion',     label: 'Proposition',     icon: 'fa-solid fa-file-lines' });
+            docs.push({ type: 'ANNEXE_excursion',          label: 'Annexe',          icon: 'fa-solid fa-paperclip' });
         } else if (c.includes('HORT')) {
-            docs.push({ type: 'PROPOSITION_HORTICULTURE', label: 'Proposition',    icon: 'fa-solid fa-file-lines' });
+            docs.push({ type: 'PROPOSITION_Culture', label: 'Proposition',    icon: 'fa-solid fa-file-lines' });
         } else if (c.includes('EQUIP')) {
             docs.push({ type: 'QUESTIONNAIRE_EQUIPEMENT', label: 'Questionnaire',  icon: 'fa-solid fa-clipboard-list' });
             docs.push({ type: 'PROPOSITION_EQUIPEMENT',  label: 'Proposition',     icon: 'fa-solid fa-file-lines' });
@@ -1782,20 +1782,20 @@ export class PoliceDetailComponent implements OnInit, OnDestroy {
         } else if (c.includes('ARBOR')) {
             docs.push({ type: 'PROPOSITION_ARBORICULTURE', label: 'Proposition',   icon: 'fa-solid fa-file-lines' });
         } else if (c.includes('INDIC')) {
-            docs.push({ type: 'PROPOSITION_INDICIELLE',  label: 'Proposition',     icon: 'fa-solid fa-file-lines' });
-            docs.push({ type: 'ANNEXE_INDICIELLE',       label: 'Annexe',          icon: 'fa-solid fa-paperclip' });
+            docs.push({ type: 'PROPOSITION_garantie',  label: 'Proposition',     icon: 'fa-solid fa-file-lines' });
+            docs.push({ type: 'ANNEXE_garantie',       label: 'Annexe',          icon: 'fa-solid fa-paperclip' });
         }
         return docs;
     }
 
     montantAssure(p: Police): number {
-        return p.betail?.valeurAssuree ?? p.aviculture?.prixUnitaire ?? p.recolte?.totalMontantAssure
-            ?? p.horticulture?.valeurAssureeTotale ?? p.equipement?.montantAssureTotal
+        return p.circuit?.valeurAssuree ?? p.aventure?.prixUnitaire ?? p.excursion?.totalMontantAssure
+            ?? p.Culture?.valeurAssureeTotale ?? p.equipement?.montantAssureTotal
             ?? p.multirisques?.valeurAssuree ?? p.montantAssure ?? 0;
     }
 
     primeTotale(p: Police): number {
-        return p.betail?.primeTotale ?? p.recolte?.totalPrimeNetteHT ?? p.equipement?.primeTotale
+        return p.circuit?.primeTotale ?? p.excursion?.totalPrimeNetteHT ?? p.equipement?.primeTotale
             ?? p.multirisques?.primeTotale ?? p.primeTotale ?? p.primeNette ?? 0;
     }
 

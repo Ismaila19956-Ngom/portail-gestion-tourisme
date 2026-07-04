@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
   styles: ``
 })
 export class AboutContentComponent {
-  // Données statiques tourisme - aucun appel CNAAS
+  // Données statiques tourisme - aucun appel Senegal Excursions
 }

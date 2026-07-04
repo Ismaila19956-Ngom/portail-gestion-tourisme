@@ -76,6 +76,46 @@ const MOCK_EXCURSIONS: Excursion[] = [
       { nom: 'Aminata', photoUrl: 'assets/img/all-images/team-img4.png', langues: ['Français', 'Allemand', 'Sérère'] },
       { nom: 'Cheikh', photoUrl: 'assets/img/all-images/team-img1.png', langues: ['Français', 'Anglais'] }
     ]
+  },
+  {
+    id: 4,
+    titre: 'Excursion au Lac Rose (Lac Retba)',
+    description: 'Découvrez l\'un des sites les plus célèbres du Sénégal. Connu pour sa couleur rose unique due à des micro-organismes, ce lac offre un spectacle naturel fascinant. Balade en barque et rencontre avec les récolteurs de sel.',
+    prix: 15000,
+    dureeHeures: 6,
+    localisation: 'Lac Rose',
+    imageUrl: 'assets/images/tourisme/excursion_lac_rose.png',
+    active: true,
+    guides: [
+      { nom: 'Mamadou', photoUrl: 'assets/images/tourisme/guide_mamadou.png', langues: ['Français', 'Anglais', 'Wolof'] }
+    ]
+  },
+  {
+    id: 5,
+    titre: 'Safari dans la Réserve de Bandia',
+    description: 'Vivez une expérience inoubliable au cœur du Sahel. Observez la faune sauvage africaine (girafes, rhinocéros, antilopes, singes) en toute liberté autour des majestueux baobabs de la réserve écologique de Bandia.',
+    prix: 35000,
+    dureeHeures: 5,
+    localisation: 'Bandia',
+    imageUrl: 'assets/images/tourisme/excursion_bandia.png',
+    active: true,
+    guides: [
+      { nom: 'Awa', photoUrl: 'assets/images/tourisme/guide_awa.png', langues: ['Français', 'Espagnol'] },
+      { nom: 'Ousmane', photoUrl: 'assets/images/tourisme/guide_homme_1_1783083919660.png', langues: ['Français', 'Anglais'] }
+    ]
+  },
+  {
+    id: 6,
+    titre: 'Saint-Louis, l\'Ancienne Capitale',
+    description: 'Plongez dans l\'histoire coloniale en visitant Saint-Louis, ville classée à l\'UNESCO. Admirez le célèbre pont Faidherbe, flânez en calèche dans ses ruelles colorées et découvrez la langue de Barbarie.',
+    prix: 45000,
+    dureeHeures: 12,
+    localisation: 'Saint-Louis',
+    imageUrl: 'assets/images/tourisme/excursion_saint_louis.png',
+    active: true,
+    guides: [
+      { nom: 'Cheikh', photoUrl: 'assets/images/tourisme/guide_homme_2_1783083936764.png', langues: ['Français', 'Anglais'] }
+    ]
   }
 ];
 

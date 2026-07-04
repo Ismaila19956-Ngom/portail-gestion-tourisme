@@ -58,6 +58,13 @@ export class Blog1Component {
             description: 'Monument de la Renaissance, marchés colorés et plages... Découvrez notre itinéraire express pour un week-end dakarois inoubliable.',
             date: '28 Janvier 2025',
             authorRole: 'Conseils de voyage'
+        },
+        {
+            image: 'assets/images/tourisme/excursion_saint_louis.png',
+            title: 'Top 5 des plats sénégalais à goûter absolument',
+            description: 'Découvrez les saveurs uniques du Sénégal avec notre sélection des meilleurs plats traditionnels à savourer lors de votre séjour, du célèbre Thiéboudienne au Yassa.',
+            date: '15 Janvier 2025',
+            authorRole: 'Conseils de voyage'
         }
     ];
 

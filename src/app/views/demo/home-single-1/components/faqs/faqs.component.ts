@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { CnaasApiService } from '../../../../../services/cnaas-api.service';
+import { TourismeApiService } from '../../../../../services/tourisme-api.service';
 
 @Component({
   selector: 'app-faqs',
@@ -15,7 +15,7 @@ export class FaqsComponent implements OnInit {
     faqData: any[] = [];
     loading = true;
 
-    constructor(private api: CnaasApiService) {}
+    constructor(private api: TourismeApiService) {}
 
     ngOnInit(): void {
         this.api.getAllFaqs().subscribe({

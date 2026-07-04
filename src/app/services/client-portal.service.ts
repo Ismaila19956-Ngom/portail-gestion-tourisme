@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, of, timeout } from 'rxjs';
 import { environment } from '../../environments/environment';
 import {
-    Avenant, ClientSummary360, DocumentModule, Page, Paiement, PevMarquage, Police, Sinistre,
-    QuestionnaireAviculture, QuestionnaireRecolte, QuestionnaireHorticulture,
-    VisiteTechniqueAviculture, VisiteTechniqueHorticulture
+    Avenant, ClientSummary360, DocumentModule, Page, Paiement, PevMarquage, Police, Modification,
+    Questionnaireaventure, Questionnaireexcursion, QuestionnaireCulture,
+    VisiteTechniqueaventure, VisiteTechniqueCulture
 } from '../models/client-portal.models';
 
 @Injectable({ providedIn: 'root' })
@@ -33,11 +33,11 @@ export class ClientPortalService {
         return this.http.get<Police>(`${environment.apiUrl}/polices/${id}`);
     }
 
-    getPortalSinistres(clientId: number, page = 0, size = 10): Observable<any> {
+    getPortalModifications(clientId: number, page = 0, size = 10): Observable<any> {
         const params = new HttpParams()
             .set('page', page)
             .set('size', size);
-        return this.http.get<any>(`${environment.apiUrl}/sinistres/portal/client/${clientId}`, { params });
+        return this.http.get<any>(`${environment.apiUrl}/modifications/portal/client/${clientId}`, { params });
     }
 
     getPaiements(clientId: number, page = 0, size = 10): Observable<Page<Paiement>> {
@@ -89,12 +89,12 @@ export class ClientPortalService {
     ───────────────────────────────────────────────────────────────── */
 
     /**
-     * Bétail : GET /api/betail/{policeId}/questionnaires  → Page<QuestionnaireBetail>
+     * circuit : GET /api/circuit/{policeId}/questionnaires  → Page<Questionnairecircuit>
      * On prend le premier �l�ment de la page.
      */
-    getQuestionnaireBetail(policeId: number): Observable<any | null> {
+    getQuestionnairecircuit(policeId: number): Observable<any | null> {
         return this.http.get<Page<any>>(
-            `${environment.apiUrl}/betail/${policeId}/questionnaires`
+            `${environment.apiUrl}/circuit/${policeId}/questionnaires`
         ).pipe(
             map(page => page?.content?.[0] ?? null),
             catchError(() => of(null))
@@ -102,12 +102,12 @@ export class ClientPortalService {
     }
 
     /**
-     * Aviculture : GET /api/polices/aviculture/{policeId}/questionnaires  → Page<QuestionnaireAviculture>
+     * aventure : GET /api/polices/aventure/{policeId}/questionnaires  → Page<Questionnaireaventure>
      * On prend le premier �l�ment.
      */
-    getQuestionnaireAviculture(policeId: number): Observable<QuestionnaireAviculture | null> {
-        return this.http.get<Page<QuestionnaireAviculture>>(
-            `${environment.apiUrl}/polices/aviculture/${policeId}/questionnaires`
+    getQuestionnaireaventure(policeId: number): Observable<Questionnaireaventure | null> {
+        return this.http.get<Page<Questionnaireaventure>>(
+            `${environment.apiUrl}/polices/aventure/${policeId}/questionnaires`
         ).pipe(
             map(page => page?.content?.[0] ?? null),
             catchError(() => of(null))
@@ -115,20 +115,20 @@ export class ClientPortalService {
     }
 
     /**
-     * R�colte : GET /api/recolte/{policeId}/questionnaire  → QuestionnaireRecolte (optional)
+     * R�colte : GET /api/excursion/{policeId}/questionnaire  → Questionnaireexcursion (optional)
      */
-    getQuestionnaireRecolte(policeId: number): Observable<QuestionnaireRecolte | null> {
-        return this.http.get<QuestionnaireRecolte>(
-            `${environment.apiUrl}/recolte/${policeId}/questionnaire`
+    getQuestionnaireexcursion(policeId: number): Observable<Questionnaireexcursion | null> {
+        return this.http.get<Questionnaireexcursion>(
+            `${environment.apiUrl}/excursion/${policeId}/questionnaire`
         ).pipe(catchError(() => of(null)));
     }
 
     /**
-     * Horticulture : GET /api/polices/horticulture/{policeId}/questionnaire  → QuestionnaireHorticulture (optional)
+     * Culture : GET /api/polices/Culture/{policeId}/questionnaire  → QuestionnaireCulture (optional)
      */
-    getQuestionnaireHorticulture(policeId: number): Observable<QuestionnaireHorticulture | null> {
-        return this.http.get<QuestionnaireHorticulture>(
-            `${environment.apiUrl}/polices/horticulture/${policeId}/questionnaire`
+    getQuestionnaireCulture(policeId: number): Observable<QuestionnaireCulture | null> {
+        return this.http.get<QuestionnaireCulture>(
+            `${environment.apiUrl}/polices/Culture/${policeId}/questionnaire`
         ).pipe(catchError(() => of(null)));
     }
 
@@ -164,15 +164,15 @@ export class ClientPortalService {
     }
 
     /* ─────────────────────────────────────────────────────────────────
-       VISITES TECHNIQUES  (aviculture et horticulture uniquement)
+       VISITES TECHNIQUES  (aventure et Culture uniquement)
     ───────────────────────────────────────────────────────────────── */
 
     /**
-     * Aviculture : GET /api/polices/aviculture/{policeId}/visites  → Page<VisiteTechniqueAviculture>
+     * aventure : GET /api/polices/aventure/{policeId}/visites  → Page<VisiteTechniqueaventure>
      */
-    getVisitesAviculture(policeId: number): Observable<VisiteTechniqueAviculture[]> {
-        return this.http.get<Page<VisiteTechniqueAviculture>>(
-            `${environment.apiUrl}/polices/aviculture/${policeId}/visites`
+    getVisitesaventure(policeId: number): Observable<VisiteTechniqueaventure[]> {
+        return this.http.get<Page<VisiteTechniqueaventure>>(
+            `${environment.apiUrl}/polices/aventure/${policeId}/visites`
         ).pipe(
             map(page => page?.content ?? []),
             catchError(() => of([]))
@@ -180,11 +180,11 @@ export class ClientPortalService {
     }
 
     /**
-     * Horticulture : GET /api/polices/horticulture/{policeId}/visites  → List<VisiteTechniqueHorticulture>
+     * Culture : GET /api/polices/Culture/{policeId}/visites  → List<VisiteTechniqueCulture>
      */
-    getVisitesHorticulture(policeId: number): Observable<VisiteTechniqueHorticulture[]> {
-        return this.http.get<VisiteTechniqueHorticulture[]>(
-            `${environment.apiUrl}/polices/horticulture/${policeId}/visites`
+    getVisitesCulture(policeId: number): Observable<VisiteTechniqueCulture[]> {
+        return this.http.get<VisiteTechniqueCulture[]>(
+            `${environment.apiUrl}/polices/Culture/${policeId}/visites`
         ).pipe(catchError(() => of([])));
     }
 }

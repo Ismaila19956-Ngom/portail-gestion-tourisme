@@ -8,50 +8,49 @@ import { MemberCardComponent } from "../../../components/cards/member-card/membe
     selector: 'app-our-team',
     imports: [BreadcrumbComponent, CommonModule, MemberCardComponent],
     templateUrl: './our-team.component.html',
-    styles: ``
+    styles: []
 })
 export class OurTeamComponent {
     teamMembers: MemberType[] = [
         {
             name: "Mouhamadou Moustapha Fall",
-            role: "Directeur Général",
-            image: "assets/images/produits/hf_20260311_171219_5b524bb6-6fdb-497a-aca4-a8f867462f52.jpeg",
+            role: "Guide Principal",
+            image: "assets/images/tourisme/guide_homme_1.png",
         },
         {
             name: "Dr. Fatoumata Kane",
-            role: "Directrice Technique",
-            image: "assets/images/produits/hf_20260311_164048_86f66af8-95f1-4418-b76a-4b4735fea65e.jpeg",
+            role: "Directrice RÃ©gionale",
+            image: "assets/images/tourisme/guide_femme_1.png",
         },
         {
             name: "Abdoulaye Diallo",
-            role: "D. Administratif & Financier",
-            image: "assets/images/produits/hf_20260311_162925_fa56a58b-89f5-4b10-93ac-243916e02792.jpeg",
+            role: "Expert Safari",
+            image: "assets/images/tourisme/guide_homme_2.png",
         },
         {
             name: "Aissatou Sow",
-            role: "Dir. Relations Publiques",
-            image: "assets/images/produits/hf_20260311_165624_de84638b-1839-484b-adfe-acebf00f9f55.jpeg",
+            role: "SpÃ©cialiste Gastronomie",
+            image: "assets/images/tourisme/guide_femme_2.png",
         },
         {
             name: "Amadou Bamba Diop",
-            role: "Chef du Département Sinistres",
-            image: "assets/images/produits/hf_20260311_162925_e9aeb871-2b45-44a0-9d8b-0e2923673b3d.jpeg",
+            role: "Guide Culturel",
+            image: "assets/images/tourisme/guide_homme_1.png",
         },
         {
             name: "Mariama Ba",
-            role: "Responsable Actuariat",
-            image: "assets/images/produits/hf_20260311_164048_ee881310-4c1c-4717-895a-fe275c17150c.jpeg",
+            role: "Coordinatrice Voyages",
+            image: "assets/images/tourisme/guide_femme_1.png",
         },
         {
             name: "Cheikh Tidiane Sy",
-            role: "Responsable Informatique",
-            image: "assets/images/produits/hf_20260311_165624_6dcc6b61-eda0-4493-a515-5573ce35ca6f.jpeg",
+            role: "Expert Nature",
+            image: "assets/images/tourisme/guide_homme_2.png",
         },
         {
             name: "Ousmane Sonko",
-            role: "Responsable Réassurance",
-            image: "assets/images/produits/hf_20260311_162925_871036b1-9cf1-4fdb-8480-7b3ce42bf7a7.jpeg",
+            role: "Responsable RÃ©servations",
+            image: "assets/images/tourisme/guide_femme_2.png",
         }
     ]
-
 }

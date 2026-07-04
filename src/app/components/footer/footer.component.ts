@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { CnaasApiService } from '../../services/cnaas-api.service';
+import { TourismeApiService } from '../../services/tourisme-api.service';
 import { ReseauxSociauxService, ReseauSocialPortail } from '@core/services/reseaux-sociaux.service';
 
 interface FooterProduit {
@@ -22,22 +22,22 @@ export class FooterComponent implements OnInit {
 
     produits: FooterProduit[] = [];
     infoContact: any = {
-        adresse: 'Sénégal Excursions, Dakar, Sénégal',
-        telephone: '(+221) 33 000 00 00',
+        adresse: 'Plateau, Avenue Léopold Sédar Senghor, Dakar, Sénégal',
+        telephone: '(+221) 77 000 00 00',
         email: 'contact@senegal-excursions.sn',
-        horaires: 'Lun – Ven : 8h00 – 17h00'
+        horaires: 'Lun - Ven : 8h00 - 17h00'
     };
     liensRapides: any[] = [
-        { nom: 'Facebook', url: 'https://www.facebook.com/Sénégal ExcursionsOFFICIELLE', icone: 'fa-brands fa-facebook-f' },
-        { nom: 'LinkedIn', url: 'https://www.linkedin.com/company/compagnie-nationale-d-assurance-touristique-du-s%C3%A9n%C3%A9gal/?originalSubdomain=sn', icone: 'fa-brands fa-linkedin-in' },
-        { nom: 'YouTube', url: 'https://www.youtube.com/@senegal-excursionsassurancelocauxene5540', icone: 'fa-brands fa-youtube' },
-        { nom: 'Instagram', url: 'https://www.instagram.com/senegalexcursions/', icone: 'fa-brands fa-instagram' }
+        { nom: 'Facebook', url: 'https://www.facebook.com/', icone: 'fa-brands fa-facebook-f' },
+        { nom: 'LinkedIn', url: 'https://www.linkedin.com/', icone: 'fa-brands fa-linkedin-in' },
+        { nom: 'YouTube', url: 'https://www.youtube.com/', icone: 'fa-brands fa-youtube' },
+        { nom: 'Instagram', url: 'https://www.instagram.com/', icone: 'fa-brands fa-instagram' }
     ];
 
     reseauxSociaux: ReseauSocialPortail[] = [];
 
     constructor(
-        private api: CnaasApiService,
+        @Inject(TourismeApiService) private api: TourismeApiService,
         private reseauxSvc: ReseauxSociauxService
     ) {}
 

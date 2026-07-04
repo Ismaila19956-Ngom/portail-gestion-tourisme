@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { BreadcrumbComponent } from "../../../components/breadcrumb/breadcrumb.component";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CnaasApiService } from '../../../services/cnaas-api.service';
+import { TourismeApiService } from '../../../services/tourisme-api.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
@@ -24,7 +24,7 @@ export class SouscriptionComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private cnaasApi: CnaasApiService,
+    private tourismeApi: TourismeApiService,
     private route: ActivatedRoute
   ) {}
 
@@ -60,7 +60,7 @@ export class SouscriptionComponent implements OnInit {
   }
 
   loadProduits(): void {
-    this.cnaasApi.getProduits().subscribe({
+    this.tourismeApi.getProduits().subscribe({
       next: (list) => {
         this.produits = list || [];
         
@@ -92,7 +92,7 @@ export class SouscriptionComponent implements OnInit {
   }
 
   loadObjetsDemande(): void {
-    this.cnaasApi.getReferentielValues('OBJET_CONTACT').subscribe({
+    this.tourismeApi.getReferentielValues('OBJET_CONTACT').subscribe({
       next: (data) => {
         this.objetsDemande = data || [];
         this.souscriptionOption = this.objetsDemande.find(o => 
@@ -106,24 +106,23 @@ export class SouscriptionComponent implements OnInit {
   }
 
   getProductImage(p: any): string {
-    if (!p) return 'assets/images/produits/hf_20260311_170823_a27f86bf-847a-4fd5-af9a-9404d583c16e.jpeg';
+    if (!p) return 'assets/images/tourisme/hero_dakar.png';
     if (p.imageUrl && p.imageUrl.trim() !== '') return p.imageUrl;
     
     const n = (p.nom || '').toLowerCase();
-    const b = (p.branche?.libelle || '').toLowerCase();
-    if (n.includes('r�colte') || n.includes('recolte') || b.includes('r�colte'))
-        return 'assets/images/produits/hf_20260311_162333_0b136c9f-1c67-4e61-978e-ab229d738d9d.jpeg';
-    if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel') || b.includes('betail'))
-        return 'assets/images/produits/hf_20260311_162333_2c5dfd81-2a14-40ad-99fb-17207f71c1bb.jpeg';
-    if (n.includes('avicul') || n.includes('volaille'))
-        return 'assets/images/produits/hf_20260311_162333_01988b04-73a0-41b3-bffc-7087d47324a6.jpeg';
-    if (n.includes('mat�riel') || n.includes('materiel') || n.includes('équipement'))
-        return 'assets/images/produits/hf_20260311_162925_871036b1-9cf1-4fdb-8480-7b3ce42bf7a7.jpeg';
-    if (n.includes('indiciel') || n.includes('pluie') || n.includes('indice'))
-        return 'assets/images/produits/hf_20260311_164048_86f66af8-95f1-4418-b76a-4b4735fea65e.jpeg';
-    if (n.includes('horticol') || n.includes('serre') || n.includes('maraich'))
-        return 'assets/images/produits/hf_20260311_164705_3142c799-0510-4f38-84df-c4c15d2279d9.jpeg';
-    return 'assets/images/produits/hf_20260311_171453_4c033777-5979-4867-81ed-1fbbb5c1b9bc.jpeg';
+    if (n.includes('cultur') || n.includes('histor') || n.includes('gorée'))
+        return 'assets/images/tourisme/service_culture.png';
+    if (n.includes('safari') || n.includes('nature') || n.includes('faune'))
+        return 'assets/images/tourisme/service_safari.png';
+    if (n.includes('plage') || n.includes('saly') || n.includes('mer'))
+        return 'assets/images/tourisme/service_plage.png';
+    if (n.includes('gastronomie') || n.includes('culinaire'))
+        return 'assets/images/tourisme/service_gastro.png';
+    if (n.includes('aventure') || n.includes('randonnée') || n.includes('trek'))
+        return 'assets/images/tourisme/service_aventure.png';
+    if (n.includes('pirogue') || n.includes('fleuve') || n.includes('saloum'))
+        return 'assets/images/tourisme/hero_saloum.png';
+    return 'assets/images/tourisme/hero_dakar.png';
   }
 
   onSubmit(): void {
@@ -161,7 +160,7 @@ export class SouscriptionComponent implements OnInit {
       payload.produitId = this.selectedProduit.id;
     }
 
-    this.cnaasApi.submitContact(payload).subscribe({
+    this.tourismeApi.submitContact(payload).subscribe({
       next: (res) => {
         this.isSubmitting = false;
         this.successMessage = 'Votre demande de devis a bien �t� envoy�e. Notre �quipe d\'experts vous recontactera bient�t.';

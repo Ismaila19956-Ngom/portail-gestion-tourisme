@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+﻿import { Component, Input, OnInit } from '@angular/core';
 import { ServiceCardComponent } from "@app/components/cards/service-card/service-card.component";
 import type { ServiceType } from '@/types';
 import { CommonModule } from '@angular/common';
-import { CnaasApiService } from '../../../../services/cnaas-api.service';
-import { Produit } from '../../../../models/cnaas.models';
+import { TourismeApiService } from '../../../../services/tourisme-api.service';
+import { Produit } from '../../../../models/tourisme.models';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -20,7 +20,7 @@ export class ViewServicesComponent implements OnInit {
     services: ServiceType[] = [];
     loading = true;
 
-    constructor(private api: CnaasApiService, private route: ActivatedRoute) {}
+    constructor(private api: TourismeApiService, private route: ActivatedRoute) {}
 
     ngOnInit(): void {
         /* R�cup�rer l'ID courant depuis la route si non pass� en @Input */
@@ -51,13 +51,13 @@ export class ViewServicesComponent implements OnInit {
 
     private getDefaultDesc(p: Produit): string {
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('r�colte') || n.includes('recolte')) return 'Prot�gez vos cultures contre les al�as climatiques s�v�res.';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel')) return 'Protection compl�te de votre cheptel contre mortalit� et maladies.';
-        if (n.includes('avicul') || n.includes('volaille')) return 'S�curisez vos �levages de volailles contre les risques.';
-        if (n.includes('mat�riel') || n.includes('materiel') || n.includes('équipement')) return 'Garantissez vos équipements contre dommages et vols.';
-        if (n.includes('indiciel')) return 'Indemnisation automatique bas�e sur des indices climatiques.';
-        if (n.includes('horticol') || n.includes('maraich')) return 'Couverture sp�cifique pour serres et cultures mara�ch�res.';
-        return 'Découvrez ce produit d\'assurance touristique Sénégal Excursions.';
+        if (n.includes('cultur') || n.includes('histor') || n.includes('gorée') || n.includes('goree')) return 'Plongez dans la richesse culturelle du Sénégal : Gorée, villages traditionnels, artisanat.';
+        if (n.includes('safari') || n.includes('nature') || n.includes('faune') || n.includes('bandia')) return 'Découvrez la faune sauvage du Sénégal : réserve de Bandia, Niokolo-Koba, oiseaux du Saloum.';
+        if (n.includes('plage') || n.includes('saly') || n.includes('mer') || n.includes('baln')) return 'Détente sur les plages paradisiaques de Saly et de Cap Skirring, sports nautiques inclus.';
+        if (n.includes('gastronomie') || n.includes('culinaire') || n.includes('repas')) return 'Dégustez le Thiéboudienne, Yassa et autres spécialités sénégalaises authentiques.';
+        if (n.includes('aventure') || n.includes('randonnée') || n.includes('trek') || n.includes('casamance')) return 'Explorez les forêts de Casamance, les dunes de Lompoul ou les chutes de Dindefelo.';
+        if (n.includes('pirogue') || n.includes('fleuve') || n.includes('saloum') || n.includes('croisière')) return 'Naviguez en pirogue dans les mangroves du delta du Sine-Saloum.';
+        return 'Découvrez cette excursion unique avec Sénégal Excursions.';
     }
 
     private getImage(p: Produit): string {
@@ -65,29 +65,30 @@ export class ViewServicesComponent implements OnInit {
             return (p as any).imageUrl.replace(/([^:]\/)\/+/g, "$1");
         }
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('r�colte') || n.includes('recolte'))
-            return 'assets/images/produits/hf_20260311_162333_0b136c9f-1c67-4e61-978e-ab229d738d9d.jpeg';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel'))
-            return 'assets/images/produits/hf_20260311_162333_2c5dfd81-2a14-40ad-99fb-17207f71c1bb.jpeg';
-        if (n.includes('avicul') || n.includes('volaille'))
-            return 'assets/images/produits/hf_20260311_162333_01988b04-73a0-41b3-bffc-7087d47324a6.jpeg';
-        if (n.includes('mat�riel') || n.includes('materiel') || n.includes('équipement') || n.includes('equipement'))
-            return 'assets/images/produits/hf_20260311_162925_871036b1-9cf1-4fdb-8480-7b3ce42bf7a7.jpeg';
-        if (n.includes('indiciel') || n.includes('pluie'))
-            return 'assets/images/produits/hf_20260311_164048_86f66af8-95f1-4418-b76a-4b4735fea65e.jpeg';
-        if (n.includes('horticol') || n.includes('maraich') || n.includes('serre'))
-            return 'assets/images/produits/hf_20260311_164705_3142c799-0510-4f38-84df-c4c15d2279d9.jpeg';
-        return 'assets/images/produits/hf_20260311_171453_4c033777-5979-4867-81ed-1fbbb5c1b9bc.jpeg';
+        if (n.includes('cultur') || n.includes('histor') || n.includes('gorée') || n.includes('goree'))
+            return 'assets/images/tourisme/service_culture.png';
+        if (n.includes('safari') || n.includes('nature') || n.includes('faune') || n.includes('bandia'))
+            return 'assets/images/tourisme/service_safari.png';
+        if (n.includes('plage') || n.includes('saly') || n.includes('mer') || n.includes('baln'))
+            return 'assets/images/tourisme/service_plage.png';
+        if (n.includes('gastronomie') || n.includes('culinaire') || n.includes('repas'))
+            return 'assets/images/tourisme/service_gastro.png';
+        if (n.includes('aventure') || n.includes('randonnée') || n.includes('trek') || n.includes('casamance'))
+            return 'assets/images/tourisme/service_aventure.png';
+        if (n.includes('pirogue') || n.includes('fleuve') || n.includes('saloum') || n.includes('croisière'))
+            return 'assets/images/tourisme/hero_saloum.png';
+        return 'assets/images/tourisme/hero_dakar.png';
     }
 
     private getIcon(p: Produit): string {
         const n = (p.nom || '').toLowerCase();
-        if (n.includes('r�colte') || n.includes('recolte')) return 'fa-solid fa-wheat-awn';
-        if (n.includes('bétail') || n.includes('betail') || n.includes('cheptel')) return 'fa-solid fa-cow';
-        if (n.includes('avicul') || n.includes('volaille')) return 'fa-solid fa-egg';
-        if (n.includes('mat�riel') || n.includes('materiel') || n.includes('équipement') || n.includes('equipement')) return 'fa-solid fa-tractor';
-        if (n.includes('indiciel') || n.includes('pluie')) return 'fa-solid fa-satellite-dish';
-        if (n.includes('horticol') || n.includes('maraich') || n.includes('serre')) return 'fa-solid fa-seedling';
-        return 'fa-solid fa-shield-halved';
+        if (n.includes('cultur') || n.includes('histor') || n.includes('gorée') || n.includes('goree')) return 'fa-solid fa-landmark';
+        if (n.includes('safari') || n.includes('nature') || n.includes('faune') || n.includes('bandia')) return 'fa-solid fa-paw';
+        if (n.includes('plage') || n.includes('saly') || n.includes('mer') || n.includes('baln')) return 'fa-solid fa-umbrella-beach';
+        if (n.includes('gastronomie') || n.includes('culinaire') || n.includes('repas')) return 'fa-solid fa-utensils';
+        if (n.includes('aventure') || n.includes('randonnée') || n.includes('trek') || n.includes('casamance')) return 'fa-solid fa-person-hiking';
+        if (n.includes('pirogue') || n.includes('fleuve') || n.includes('saloum') || n.includes('croisière')) return 'fa-solid fa-sailboat';
+        if (n.includes('circuit') || n.includes('multi') || n.includes('tour')) return 'fa-solid fa-route';
+        return 'fa-solid fa-compass';
     }
 }

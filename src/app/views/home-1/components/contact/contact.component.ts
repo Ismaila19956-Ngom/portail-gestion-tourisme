@@ -1,9 +1,9 @@
-import { serviceData } from '../data';
+﻿import { serviceData } from '../data';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { CnaasApiService } from '../../../../services/cnaas-api.service';
-import { Produit } from '../../../../models/cnaas.models';
+import { TourismeApiService } from '../../../../services/tourisme-api.service';
+import { Produit } from '../../../../models/tourisme.models';
 
 @Component({
   selector: 'app-contact',
@@ -22,7 +22,7 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private apiService: CnaasApiService
+    private apiService: TourismeApiService
   ) {}
 
   ngOnInit(): void {

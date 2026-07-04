@@ -1,11 +1,11 @@
 <!-- âo"âo"âo" IMAGE PRINCIPALE âo"âo"âo" -->
 <div style="border-radius: 16px; overflow: hidden; margin-bottom: 32px; box-shadow: 0 6px 28px rgba(0,0,0,0.11); position: relative;">
-    <img src="assets/images/produits/hf_20260311_171453_4c033777-5979-4867-81ed-1fbbb5c1b9bc.jpeg"
+    <img src="assets/images/tourisme/hero_dakar.png"
          alt="Assurance touristique Sénégal Excursions"
          style="width: 100%; height: 380px; object-fit: cover; display: block;">
     <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(13,51,32,0.75));"></div>
     <div style="position: absolute; bottom: 20px; left: 24px; right: 24px; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-        <span style="background: #F1B53B; color: #1a1a1a; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 6px 16px; border-radius: 20px;">Assurance Récolte</span>
+        <span style="background: #F1B53B; color: #1a1a1a; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 6px 16px; border-radius: 20px;">Excursion Premium</span>
         <div style="display: flex; gap: 3px;">
             @for (star of [1,2,3,4,5]; track star) {
             <i class="fa-solid fa-star" style="color: #F1B53B; font-size: 0.9rem;"></i>
@@ -186,7 +186,7 @@
             </div>
             <div>
                 <h3 style="color: #3E4F22; font-size: 1.2rem; font-weight: 800; margin: 0 0 2px;">
-                    Avis des assurés ({{ reviews.length }})
+                    Avis des voyageurs ({{ reviews.length }})
                 </h3>
                 <p style="color: #999; font-size: 0.8rem; margin: 0;">Note moyenne : {{ avgRating }}/5</p>
             </div>
@@ -246,7 +246,7 @@
             <h4 style="color: #fff; font-size: 1.12rem; font-weight: 800; margin: 0;">Donnez votre avis</h4>
         </div>
         <p style="color: rgba(255,255,255,0.6); font-size: 0.84rem; margin-bottom: 24px; padding-left: 58px; position: relative; z-index: 1;">
-            Partagez votre expérience avec ce produit Sénégal Excursions.
+            Partagez votre expérience de voyage avec Sénégal Excursions.
         </p>
 
         <!-- Message succès -->
@@ -308,7 +308,7 @@
                     <div style="position: relative;">
                         <i class="fa-solid fa-comment-dots" style="position:absolute;left:15px;top:16px;color:#F1B53B;font-size:.84rem;pointer-events:none;"></i>
                         <textarea [(ngModel)]="newReview.message" name="revMessage"
-                                  placeholder="Votre expérience avec ce produit *"
+                                  placeholder="Votre expérience de voyage *"
                                   rows="4"
                                   style="width:100%;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.15);color:#fff;border-radius:10px;padding:13px 16px 13px 42px;font-size:.9rem;outline:none;resize:vertical;transition:all .3s;"
                                   onfocus="this.style.borderColor='#F1B53B';this.style.background='rgba(255,255,255,0.13)'"

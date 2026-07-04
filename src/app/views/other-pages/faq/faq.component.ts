@@ -26,118 +26,86 @@ export class FaqComponent {
     searchQuery = '';
 
     categories = [
-        { id: 'tous',         label: 'Toutes les questions', icon: 'fa-solid fa-layer-group',          count: 15 },
-        { id: 'souscription', label: 'Souscription',         icon: 'fa-solid fa-file-signature',       count: 4  },
-        { id: 'produits',     label: 'Nos Produits',         icon: 'fa-solid fa-shield-halved',        count: 5  },
-        { id: 'sinistres',    label: 'Sinistres',            icon: 'fa-solid fa-triangle-exclamation', count: 3  },
-        { id: 'paiement',     label: 'Paiement & Primes',    icon: 'fa-solid fa-credit-card',          count: 3  },
+        { id: 'tous',         label: 'Toutes les questions', icon: 'fa-solid fa-layer-group',    count: 10 },
+        { id: 'reservations', label: 'Réservations',         icon: 'fa-solid fa-calendar-check', count: 2  },
+        { id: 'pratique',     label: 'Infos pratiques',      icon: 'fa-solid fa-suitcase',       count: 3  },
+        { id: 'voyage',       label: 'Voyage & Visas',       icon: 'fa-solid fa-passport',       count: 2  },
+        { id: 'securite',     label: 'Sécurité & Services',  icon: 'fa-solid fa-shield-halved',  count: 3  },
     ];
 
     faqs: FaqItem[] = [
-        /* ── SOUSCRIPTION ── */
+        /* ── RÉSERVATIONS ── */
         {
-            question: 'Comment puis-je souscrire aux produits de la Sénégal Excursions ?',
-            answer: "Vous pouvez souscrire directement via notre formulaire de contact en ligne, par téléphone au (+221) 33 869 78 00, ou en vous rendant dans l'une de nos agences r�parties dans les 14 r�gions du Sénégal. Un conseiller vous accompagnera dans le choix du produit le plus adapt� à votre exploitation.",
-            categoryId: 'souscription',
-            icon: 'fa-solid fa-file-signature',
-            link: '/contact-us',
-            linkLabel: 'Contacter un conseiller'
-        },
-        {
-            question: 'Quelle est la p�riode de souscription pour la campagne 2025 ?',
-            answer: "La p�riode de souscription pour la campagne hivernale 2025 est ouverte du 1er mars au 31 mai 2025. Pass� cette date, aucune nouvelle souscription ne pourra �tre accept�e pour la saison en cours. Nous vous encourageons à vous rapprocher rapidement d'un agent Sénégal Excursions.",
-            categoryId: 'souscription',
+            question: 'Comment réserver une excursion avec Sénégal Excursions ?',
+            answer: "Réserver une excursion est simple : utilisez notre formulaire de réservation en ligne, appelez-nous au (+221) 33 869 78 00 ou écrivez-nous par e-mail. Un conseiller confirmera votre réservation sous 24 heures et vous enverra tous les détails pratiques. Un acompte de 30 % est requis pour valider la réservation.",
+            categoryId: 'reservations',
             icon: 'fa-solid fa-calendar-check',
-        },
-        {
-            question: 'Quels documents sont n�cessaires pour souscrire ?',
-            answer: "Pour souscrire, vous aurez besoin : d'une pi�ce d'identit� valide (CNI ou passeport), de justificatifs de votre exploitation (titre foncier ou bail, superficie cultiv�e), d'une �valuation de la valeur de votre production et de votre numéro de téléphone mobile pour le paiement.",
-            categoryId: 'souscription',
-            icon: 'fa-solid fa-folder-open',
-        },
-        {
-            question: 'La Sénégal Excursions couvre-t-elle toutes les r�gions du Sénégal ?',
-            answer: "Oui, la Sénégal Excursions a pour mission de couvrir l'ensemble du monde rural s�n�galais. Nos agents sont pr�sents dans les 14 r�gions, des zones de culture pluviale du Bassin arachidier aux zones mara�ch�res du fleuve Sénégal, en passant par les zones sylvo-pastorales du nord et les r�gions foresti�res du sud.",
-            categoryId: 'souscription',
-            icon: 'fa-solid fa-map-location-dot',
-            link: '/agences',
-            linkLabel: 'Trouver une agence'
-        },
-
-        /* ── PRODUITS ── */
-        {
-            question: "Quels types de produits d'assurance proposez-vous ?",
-            answer: "La Sénégal Excursions propose une gamme compl�te : assurance multirisque r�colte, assurance bétail, assurance aviculture, assurance mat�riel touristique, assurance horticole/mara�ch�re, assurance indicielle climatique et assurance multi-risques. Chaque produit est con�u pour les r�alit�s du monde rural s�n�galais.",
-            categoryId: 'produits',
-            icon: 'fa-solid fa-shield-halved',
-            link: '/services/one',
-            linkLabel: 'Voir tous nos produits'
-        },
-        {
-            question: "Qu'est-ce que l'assurance indicielle et comment fonctionne-t-elle ?",
-            answer: "L'assurance indicielle est bas�e sur un indice objectif mesur� à distance (donn�es satellite ou relev�s pluviom�triques). Si cet indice tombe en dessous d'un seuil pr�d�fini (ex : d�ficit pluviom�trique de 30%), l'indemnisation est d�clench�e automatiquement, sans n�cessiter d'expertise terrain. Cela garantit rapidit� et neutralit�.",
-            categoryId: 'produits',
-            icon: 'fa-solid fa-satellite-dish',
-        },
-        {
-            question: "Quelles cultures sont �ligibles à l'assurance r�colte ?",
-            answer: "Nous couvrons les cultures strat�giques s�n�galaises : arachide, mil, sorgho, maïs, ni�b�, coton et riz pluvial. Des extensions sp�cifiques couvrent les cultures irrigu�es (riz paddy, tomate, oignon) dans les zones de Saint-Louis, Podor et Matam.",
-            categoryId: 'produits',
-            icon: 'fa-solid fa-wheat-awn',
-        },
-        {
-            question: "Les �leveurs peuvent-ils b�n�ficier de l'assurance bétail ?",
-            answer: "Oui, l'assurance bétail Sénégal Excursions couvre la mortalit� suite à des accidents, des maladies contagieuses r�pertori�es (fi�vre aphteuse, PPCB, charbon symptomatique, peste bovine) ou des catastrophes naturelles. Elle est disponible pour les bovins, ovins, caprins et camelins.",
-            categoryId: 'produits',
-            icon: 'fa-solid fa-cow',
-        },
-        {
-            question: "Comment est d�termin�e la valeur assur�e de mon exploitation ?",
-            answer: "La valeur assur�e est �tablie conjointement avec notre conseiller sur la base de : la superficie cultiv�e, les rendements moyens des 3 derni�res campagnes, le prix de march� des cultures et le coût des intrants investis. Un formulaire d'�valuation est compl�t� lors de la souscription.",
-            categoryId: 'produits',
-            icon: 'fa-solid fa-calculator',
-        },
-
-        /* ── SINISTRES ── */
-        {
-            question: 'Comment d�clarer un sinistre à la Sénégal Excursions ?',
-            answer: "En cas de sinistre, d�clarez-le dans les 72 heures suivant la constatation des dommages. Contactez votre agence Sénégal Excursions la plus proche ou appelez le (+221) 33 869 78 00. Un expert sera d�p�ch� sur votre exploitation pour �valuer les dommages de mani�re contradictoire.",
-            categoryId: 'sinistres',
-            icon: 'fa-solid fa-triangle-exclamation',
             link: '/contact-us',
-            linkLabel: 'D�clarer en ligne'
+            linkLabel: 'Réserver maintenant'
         },
         {
-            question: "Quel est le d�lai d'indemnisation apr�s un sinistre ?",
-            answer: "Apr�s validation de votre dossier par nos experts, l'indemnisation est vers�e dans un d�lai maximum de 30 jours. Pour l'assurance indicielle, l'indemnisation est d�clench�e automatiquement d�s que l'indice atteint le seuil pr�vu, sans visite d'expertise, ce qui r�duit consid�rablement les d�lais.",
-            categoryId: 'sinistres',
-            icon: 'fa-solid fa-clock-rotate-left',
-        },
-        {
-            question: "Quels documents fournir lors de la déclaration d'un sinistre ?",
-            answer: "Pour votre déclaration de sinistre, pr�parez : votre police d'assurance, une description des dommages avec dates et causes, des photos si possible et tout document attestant des pertes (bons d'achat d'intrants, factures). Notre conseiller vous guidera dans la constitution du dossier.",
-            categoryId: 'sinistres',
-            icon: 'fa-solid fa-folder-open',
+            question: "Quelle est la politique d'annulation si je ne peux pas venir ?",
+            answer: "Vous pouvez annuler gratuitement jusqu'à 72 heures avant le départ. Entre 72 h et 24 h avant la date, 50 % du montant total est retenu. Pour une annulation moins de 24 h avant le départ, la totalité du montant est due. Nous vous recommandons de souscrire une assurance voyage pour vous couvrir en cas d'imprévu.",
+            categoryId: 'reservations',
+            icon: 'fa-solid fa-ban',
         },
 
-        /* ── PAIEMENT ── */
+        /* ── INFOS PRATIQUES ── */
         {
-            question: 'Quelles sont les options de paiement disponibles ?',
-            answer: "Vous pouvez régler votre prime par virement bancaire, ch�que, esp�ces en agence ou via les solutions de mobile money : Wave, Orange Money et Free Money. Depuis 2024, la souscription et le paiement sont disponibles directement depuis votre téléphone.",
-            categoryId: 'paiement',
+            question: 'Vos excursions sont-elles encadrées par des guides professionnels ?',
+            answer: "Oui, toutes nos excursions sont animées par des guides certifiés, bilingues (français/anglais) et passionnés par le patrimoine sénégalais. Nos guides possèdent une licence professionnelle délivrée par le Ministère du Tourisme du Sénégal et une connaissance approfondie des sites visités : Gorée, le delta du Saloum, la Casamance et bien d'autres.",
+            categoryId: 'pratique',
+            icon: 'fa-solid fa-user-tie',
+        },
+        {
+            question: 'Que dois-je emporter pour une excursion au Sénégal ?',
+            answer: "Nous vous recommandons d'emporter : une crème solaire haute protection, un chapeau ou une casquette, de l'eau en quantité suffisante, des vêtements légers et respirants (couvrez épaules et genoux pour visiter les sites religieux), des chaussures confortables, un répulsif anti-moustiques et votre appareil photo. Pour les excursions en pirogue ou en mer, un gilet de sauvetage vous est fourni.",
+            categoryId: 'pratique',
+            icon: 'fa-solid fa-suitcase',
+        },
+        {
+            question: 'Quelle est la meilleure saison pour visiter le Sénégal ?',
+            answer: "La meilleure période pour visiter le Sénégal est la saison sèche, de novembre à mai. Les températures sont agréables (25–32 °C), le ciel est dégagé et les routes sont praticables. La saison des pluies (juin–octobre) offre des paysages verdoyants et moins de touristes, mais certaines excursions peuvent être ajustées. Nos conseillers vous orientent selon vos préférences.",
+            categoryId: 'pratique',
+            icon: 'fa-solid fa-sun',
+            link: '/contact-us',
+            linkLabel: 'Planifier mon séjour'
+        },
+
+        /* ── VOYAGE & VISAS ── */
+        {
+            question: "Les ressortissants européens ont-ils besoin d'un visa pour le Sénégal ?",
+            answer: "Les ressortissants de l'Union européenne, de la Suisse, du Canada et des États-Unis n'ont pas besoin de visa pour séjourner au Sénégal jusqu'à 90 jours. Un passeport valide 6 mois après la date de retour suffit. D'autres nationalités peuvent bénéficier d'un visa à l'arrivée. Nous vous conseillons de vérifier les exigences consulaires de votre pays avant le départ.",
+            categoryId: 'voyage',
+            icon: 'fa-solid fa-passport',
+        },
+        {
+            question: 'Quels moyens de paiement acceptez-vous ?',
+            answer: "Nous acceptons les paiements par carte bancaire (Visa, Mastercard), virement international, PayPal, ainsi que les solutions de mobile money locales : Wave, Orange Money et Free Money. Le paiement en espèces est accepté en agence. L'ensemble de nos prix est affiché en franc CFA (XOF) et en euros pour votre commodité.",
+            categoryId: 'voyage',
             icon: 'fa-solid fa-credit-card',
         },
+
+        /* ── SÉCURITÉ & SERVICES ── */
         {
-            question: "Comment sont calcul�es les primes d'assurance ?",
-            answer: "Les primes sont calcul�es selon : la valeur assur�e de votre production, le type de culture ou d'�levage, la zone g�ographique et le niveau de risque climatique local, le type de garantie choisi et vos ant�c�dents de sinistres. Notre conseiller vous proposera le tarif le plus adapt�.",
-            categoryId: 'paiement',
-            icon: 'fa-solid fa-calculator',
+            question: 'Le Sénégal est-il un pays sûr pour les touristes ?',
+            answer: "Le Sénégal est reconnu comme l'une des destinations les plus sûres d'Afrique de l'Ouest, avec une longue tradition d'hospitalité appelée « Teranga ». Les zones touristiques de Dakar, Saly, Saint-Louis et la Casamance accueillent des millions de visiteurs chaque année sans incident majeur. Nos guides restent à vos côtés tout au long des excursions pour assurer votre confort et votre sécurité.",
+            categoryId: 'securite',
+            icon: 'fa-solid fa-shield-halved',
         },
         {
-            question: "Peut-on payer la prime en plusieurs fois ?",
-            answer: "Oui, dans le cadre de nos programmes de facilitation d'accès, la Sénégal Excursions propose des facilit�s de paiement pour les petits exploitants. Un premier versement de 50% est requis à la souscription, le solde devant �tre r�gl� avant la fin de la p�riode de souscription. Renseignez-vous aupr�s de votre agence.",
-            categoryId: 'paiement',
-            icon: 'fa-solid fa-money-bill-wave',
+            question: "Les guides parlent-ils d'autres langues que le français ?",
+            answer: "Nos guides sont tous au minimum bilingues français/anglais. Plusieurs d'entre eux parlent également l'espagnol, l'italien, l'allemand ou le portugais. Si vous avez besoin d'un guide dans une langue spécifique, signalez-le lors de votre réservation et nous ferons notre possible pour vous l'attribuer.",
+            categoryId: 'securite',
+            icon: 'fa-solid fa-language',
+        },
+        {
+            question: 'Vos excursions sont-elles accessibles aux personnes à mobilité réduite ?',
+            answer: "Nous proposons des excursions adaptées aux personnes à mobilité réduite sur certains sites (Dakar, Saly, parties de Saint-Louis). Pour d'autres destinations comme l'île de Gorée ou la mangrove du Saloum, les conditions du terrain sont plus contraignantes. Contactez-nous avant de réserver et nous concevrons un itinéraire personnalisé selon vos besoins.",
+            categoryId: 'securite',
+            icon: 'fa-solid fa-wheelchair',
+            link: '/contact-us',
+            linkLabel: 'Nous contacter'
         },
     ];
 

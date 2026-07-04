@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+﻿import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterLink } from '@angular/router';
@@ -20,7 +20,7 @@ export class WorkComponent implements OnInit {
     constructor(private http: HttpClient) {}
 
     ngOnInit() {
-        // Force the use of static tourism data instead of fetching from the old CNAAS API
+        // Force the use of static tourism data instead of fetching from the old Senegal Excursions API
         this.tabs = workData;
     }
 

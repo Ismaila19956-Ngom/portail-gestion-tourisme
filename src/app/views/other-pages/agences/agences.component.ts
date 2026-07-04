@@ -1,8 +1,8 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ViewChildren, QueryList, ElementRef } from '@angular/core';
+﻿import { Component, OnInit, AfterViewInit, ViewChild, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { BreadcrumbComponent } from "../../../components/breadcrumb/breadcrumb.component";
 import { CommonModule } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
-import { CnaasApiService } from '../../../services/cnaas-api.service';
+import { TourismeApiService } from '../../../services/tourisme-api.service';
 import { GoogleMap, GoogleMapsModule, MapInfoWindow, MapMarker } from '@angular/google-maps';
 
 declare var google: any;
@@ -52,7 +52,7 @@ export class AgencesComponent implements OnInit, AfterViewInit {
 
   constructor(
     private sanitizer: DomSanitizer,
-    private api: CnaasApiService
+    private api: TourismeApiService
   ) {
   }
 

@@ -9,9 +9,10 @@ import { PricingPlansComponent } from "./components/pricing-plans/pricing-plans.
 import { ServicesComponent } from "./components/services/services.component";
 import { TestimonialComponent } from "./components/testimonial/testimonial.component";
 import { WorkComponent } from "./components/work/work.component";
+import { FleetComponent } from "./components/fleet/fleet.component";
 import { StatistiquesService, StatistiquesGlobalesDto } from '../../core/services/statistiques.service';
-import { CnaasApiService } from '../../services/cnaas-api.service';
-import { Partenaire } from '../../models/cnaas.models';
+import { TourismeApiService } from '../../services/tourisme-api.service';
+import { Partenaire } from '../../models/tourisme.models';
 
 @Component({
     selector: 'app-home-1',
@@ -21,6 +22,7 @@ import { Partenaire } from '../../models/cnaas.models';
         AboutComponent,
         ServicesComponent,
         WorkComponent,
+        FleetComponent,
         TestimonialComponent,
         FaqsComponent,
         ContactComponent,
@@ -32,7 +34,7 @@ import { Partenaire } from '../../models/cnaas.models';
 })
 export class Home1Component implements OnInit {
   stats: StatistiquesGlobalesDto = {
-    nbAgriculteurs: 15000,
+    nbvoyageurs: 15000,
     nbProduits: 10,
     nbRegions: 14,
     tauxSatisfaction: 98
@@ -42,7 +44,7 @@ export class Home1Component implements OnInit {
 
   constructor(
     private statistiquesService: StatistiquesService,
-    private apiService: CnaasApiService
+    private apiService: TourismeApiService
   ) {}
 
   ngOnInit(): void {

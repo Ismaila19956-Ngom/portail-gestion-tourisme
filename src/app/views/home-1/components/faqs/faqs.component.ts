@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { CnaasApiService } from '../../../../services/cnaas-api.service';
+import { TourismeApiService } from '../../../../services/tourisme-api.service';
 
 @Component({
   selector: 'app-faqs',

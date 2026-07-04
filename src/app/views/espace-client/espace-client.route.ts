@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+﻿import { Routes } from '@angular/router';
 import { ClientLayoutComponent } from '../../layouts/client-layout/client-layout.component';
 import { authGuard } from '../../core/guards/auth.guard';
 
@@ -25,7 +25,7 @@ export const ESPACE_CLIENT_ROUTES: Routes = [
             },
             {
                 path: 'sinistres',
-                loadComponent: () => import('./sinistres/sinistres.component').then(m => m.SinistresComponent),
+                loadComponent: () => import('./sinistres/sinistres.component').then(m => m.ModificationsComponent),
                 data: { title: 'Mes Sinistres - Sénégal Excursions' }
             },
             {

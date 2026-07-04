@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { BreadcrumbComponent } from "../../../components/breadcrumb/breadcrumb.component";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CnaasApiService } from '../../../services/cnaas-api.service';
+import { TourismeApiService } from '../../../services/tourisme-api.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ReseauxSociauxService, ReseauSocialPortail } from '@core/services/reseaux-sociaux.service';
@@ -24,12 +24,12 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   reseauxSociaux: ReseauSocialPortail[] = [];
 
   siege: any = {
-    nomAgence: 'Siège Social',
-    adresse: 'Immeuble Sénégal Excursions, Dakar, Sénégal',
+    nomAgence: 'Siège Social - Sénégal Excursions',
+    adresse: 'Plateau, Avenue Léopold Sédar Senghor, Dakar, Sénégal',
     email: 'contact@senegal-excursions.sn',
-    telephone: '(+221) 33 869 78 00',
-    horaires: 'Lun � Ven : 8h � 17h\nSamedi : 9h � 13h\nDimanche : Ferm�',
-    latitude: 14.7167, 
+    telephone: '(+221) 77 000 00 00',
+    horaires: 'Lun - Ven : 8h00 - 17h00\nSamedi : 9h00 - 13h00\nDimanche : Fermé',
+    latitude: 14.7167,
     longitude: -17.4677
   };
 
@@ -40,7 +40,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
 
   constructor(
     private fb: FormBuilder,
-    private cnaasApi: CnaasApiService,
+    private tourismeApi: TourismeApiService,
     private route: ActivatedRoute,
     private reseauxSvc: ReseauxSociauxService
   ) {
@@ -57,7 +57,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
     });
 
     /* Charger les infos de contact globales */
-    this.cnaasApi.getInformationContact().subscribe(data => {
+    this.tourismeApi.getInformationContact().subscribe(data => {
       if (data) {
         this.siege.adresse = data.adresse || this.siege.adresse;
         this.siege.telephone = data.telephone || this.siege.telephone;
@@ -69,7 +69,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
     });
 
     /* Charger le siège pour les coordonn�es GPS */
-    this.cnaasApi.getAgencesPubliques().subscribe({
+    this.tourismeApi.getAgencesPubliques().subscribe({
       next: (agences) => {
         if (agences && agences.length > 0) {
           const siegeAgence = agences.find((a: any) => 
@@ -116,7 +116,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   get f() { return this.contactForm.controls; }
 
   loadObjetsDemande(): void {
-    this.cnaasApi.getReferentielValues('OBJET_CONTACT').subscribe({
+    this.tourismeApi.getReferentielValues('OBJET_CONTACT').subscribe({
       next: (data) => {
         this.objetsDemande = data || [];
         this.souscriptionOption = this.objetsDemande.find(o => 
@@ -155,7 +155,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
       message: val.message
     };
 
-    this.cnaasApi.submitContact(payload).subscribe({
+    this.tourismeApi.submitContact(payload).subscribe({
       next: (res) => {
         this.isSubmitting = false;
         this.successMessage = 'Votre message a bien �t� envoy�. Notre �quipe vous recontactera bient�t.';

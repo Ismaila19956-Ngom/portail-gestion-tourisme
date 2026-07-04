@@ -110,6 +110,9 @@
 </style>
 -->
 
+<!-- SECTION NOTRE FLOTTE -->
+<app-fleet id="fleet"/>
+
 <!-- SECTION COMMENT SOUSCRIRE -->
 <app-work id="works"/>
 
@@ -129,7 +132,7 @@
                         <i class="fa-solid fa-users"></i>
                     </div>
                     <div class="stat-card__body">
-                        <h3 class="stat-card__num">{{ stats.nbAgriculteurs | number }}<span>+</span></h3>
+                        <h3 class="stat-card__num">{{ stats.nbvoyageurs | number }}<span>+</span></h3>
                         <p class="stat-card__label">Voyageurs satisfaits</p>
                     </div>
                 </div>
@@ -363,26 +366,26 @@
                 </ng-container>
             </ng-container>
 
-            <!-- Mode fallback (si API vide ou �choue) -->
+            <!-- Mode fallback (si API vide ou échoue) -->
             <ng-container *ngIf="partenaires.length === 0">
-                <!-- Premi�re s�rie -->
-                <div class="partner-item"><i class="fa-solid fa-building-columns"></i><span>Minist�re de l'tourisme</span></div>
-                <div class="partner-item"><i class="fa-solid fa-globe"></i><span>Banque Mondiale</span></div>
-                <div class="partner-item"><i class="fa-solid fa-seedling"></i><span>Sénégal D�couverte</span></div>
-                <div class="partner-item"><i class="fa-solid fa-coins"></i><span>BCEAO</span></div>
-                <div class="partner-item"><i class="fa-solid fa-handshake-angle"></i><span>USAID</span></div>
-                <div class="partner-item"><i class="fa-solid fa-leaf"></i><span>ANCAR</span></div>
-                <div class="partner-item"><i class="fa-solid fa-tractor"></i><span>SAED</span></div>
-                <div class="partner-item"><i class="fa-solid fa-wheat-awn"></i><span>UEMOA</span></div>
+                <!-- Première série -->
+                <div class="partner-item"><i class="fa-solid fa-building-columns"></i><span>Ministère du Tourisme</span></div>
+                <div class="partner-item"><i class="fa-solid fa-map-location-dot"></i><span>ASPT</span></div>
+                <div class="partner-item"><i class="fa-solid fa-compass"></i><span>Sénégal Découverte</span></div>
+                <div class="partner-item"><i class="fa-solid fa-plane"></i><span>Air Sénégal</span></div>
+                <div class="partner-item"><i class="fa-solid fa-hotel"></i><span>SPIHS</span></div>
+                <div class="partner-item"><i class="fa-solid fa-monument"></i><span>UNESCO</span></div>
+                <div class="partner-item"><i class="fa-solid fa-paw"></i><span>Réserve de Bandia</span></div>
+                <div class="partner-item"><i class="fa-solid fa-plane-departure"></i><span>AIBD</span></div>
                 <!-- Duplicata pour boucle infinie -->
-                <div class="partner-item"><i class="fa-solid fa-building-columns"></i><span>Minist�re de l'tourisme</span></div>
-                <div class="partner-item"><i class="fa-solid fa-globe"></i><span>Banque Mondiale</span></div>
-                <div class="partner-item"><i class="fa-solid fa-seedling"></i><span>Sénégal D�couverte</span></div>
-                <div class="partner-item"><i class="fa-solid fa-coins"></i><span>BCEAO</span></div>
-                <div class="partner-item"><i class="fa-solid fa-handshake-angle"></i><span>USAID</span></div>
-                <div class="partner-item"><i class="fa-solid fa-leaf"></i><span>ANCAR</span></div>
-                <div class="partner-item"><i class="fa-solid fa-tractor"></i><span>SAED</span></div>
-                <div class="partner-item"><i class="fa-solid fa-wheat-awn"></i><span>UEMOA</span></div>
+                <div class="partner-item"><i class="fa-solid fa-building-columns"></i><span>Ministère du Tourisme</span></div>
+                <div class="partner-item"><i class="fa-solid fa-map-location-dot"></i><span>ASPT</span></div>
+                <div class="partner-item"><i class="fa-solid fa-compass"></i><span>Sénégal Découverte</span></div>
+                <div class="partner-item"><i class="fa-solid fa-plane"></i><span>Air Sénégal</span></div>
+                <div class="partner-item"><i class="fa-solid fa-hotel"></i><span>SPIHS</span></div>
+                <div class="partner-item"><i class="fa-solid fa-monument"></i><span>UNESCO</span></div>
+                <div class="partner-item"><i class="fa-solid fa-paw"></i><span>Réserve de Bandia</span></div>
+                <div class="partner-item"><i class="fa-solid fa-plane-departure"></i><span>AIBD</span></div>
             </ng-container>
         </div>
     </div>

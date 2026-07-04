@@ -5,10 +5,11 @@ import aos from 'aos';
 import { filter, map, mergeMap } from 'rxjs';
 import { ScrollToTopComponent } from "./components/scroll-to-top/scroll-to-top.component";
 import { LoaderComponent } from "./components/loader/loader.component";
+import { ChatbotComponent } from "./components/chatbot/chatbot.component";
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet, ScrollToTopComponent, LoaderComponent],
+    imports: [RouterOutlet, ScrollToTopComponent, LoaderComponent, ChatbotComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
