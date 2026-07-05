@@ -6,7 +6,7 @@ export interface PaymentRequest {
   qty: number;
   montant: number;
   telephone: string;
-  methode: 'wave' | 'orange';
+  methode: 'wave' | 'orange' | 'bank';
 }
 
 export interface PaymentResponse {
@@ -36,6 +36,8 @@ export class PaymentService {
     let paymentUrl = '';
     if (request.methode === 'wave') {
       paymentUrl = `https://pay.wave.com/c/checkout/${txId}`;
+    } else if (request.methode === 'bank') {
+      paymentUrl = `https://bank-transfer.senegal-excursions.com/instructions/${txId}`;
     } else {
       paymentUrl = `https://api.orange.com/orange-money-webpay/dev/v1/webpayment/${txId}`;
     }

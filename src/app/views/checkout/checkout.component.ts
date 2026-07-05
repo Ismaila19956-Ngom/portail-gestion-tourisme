@@ -20,7 +20,8 @@ export class CheckoutComponent implements OnInit {
   // Formulaire et état
   quantity = 1;
   phoneNumber = '';
-  paymentMethod: 'wave' | 'orange' = 'wave';
+  emailAddress = '';
+  paymentMethod: 'wave' | 'orange' | 'bank' = 'wave';
   
   constructor(
     private route: ActivatedRoute,
@@ -70,14 +71,21 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-  selectMethod(method: 'wave' | 'orange'): void {
+  selectMethod(method: 'wave' | 'orange' | 'bank'): void {
     this.paymentMethod = method;
   }
 
   onSubmitPayment(): void {
-    if (!this.excursion || !this.phoneNumber || this.phoneNumber.length < 9) {
-      alert("Veuillez remplir correctement votre numéro de téléphone (sans le préfixe +221).");
-      return;
+    if (this.paymentMethod === 'bank') {
+      if (!this.excursion || !this.emailAddress || !this.emailAddress.includes('@')) {
+        alert("Veuillez renseigner une adresse email valide.");
+        return;
+      }
+    } else {
+      if (!this.excursion || !this.phoneNumber || this.phoneNumber.length < 9) {
+        alert("Veuillez remplir correctement votre numéro de téléphone (sans le préfixe +221).");
+        return;
+      }
     }
 
     this.processingPayment = true;
@@ -86,7 +94,7 @@ export class CheckoutComponent implements OnInit {
       excursionId: this.excursion.id!,
       qty: this.quantity,
       montant: this.totalAmount,
-      telephone: '+221' + this.phoneNumber,
+      telephone: this.paymentMethod === 'bank' ? this.emailAddress : '+221' + this.phoneNumber,
       methode: this.paymentMethod
     };
 
@@ -100,7 +108,11 @@ export class CheckoutComponent implements OnInit {
           // puis redirection interne vers une (future) page de confirmation.
           // window.open(response.payment_url, '_blank');
           
-          alert(`Paiement initialisé via ${this.paymentMethod.toUpperCase()} !\n\nURL générée (simulée) : ${response.payment_url}\n\nUne fois le paiement validé sur votre téléphone, votre réservation sera confirmée.`);
+          if (this.paymentMethod === 'bank') {
+            alert(`Demande de virement enregistrée !\n\nUn email contenant nos coordonnées bancaires (IBAN/SWIFT) a été envoyé à ${this.emailAddress}.\nVotre réservation sera confirmée à réception des fonds.`);
+          } else {
+            alert(`Paiement initialisé via ${this.paymentMethod.toUpperCase()} !\n\nURL générée (simulée) : ${response.payment_url}\n\nUne fois le paiement validé sur votre téléphone, votre réservation sera confirmée.`);
+          }
           this.router.navigate(['/excursions']); // Rediriger vers l'accueil ou confirmation
         }
         this.processingPayment = false;

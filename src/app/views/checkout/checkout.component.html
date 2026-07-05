@@ -73,56 +73,83 @@
           <!-- Moyen de Paiement -->
           <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
             <div class="card-body p-4 p-md-5">
-              <h4 class="fw-bold mb-4 border-bottom pb-3">Paiement Mobile</h4>
+              <h4 class="fw-bold mb-4 border-bottom pb-3">Mode de Paiement</h4>
               
-              <p class="mb-3 text-secondary">Choisissez votre opérateur pour effectuer le paiement en toute sécurité.</p>
+              <p class="mb-3 text-secondary">Choisissez votre méthode pour effectuer le paiement en toute sécurité.</p>
               
               <div class="row g-3 mb-4">
                 <!-- Carte Wave -->
-                <div class="col-sm-6">
-                  <div class="payment-card rounded-3 p-3 text-center cursor-pointer border" 
+                <div class="col-sm-4">
+                  <div class="payment-card rounded-3 p-3 text-center cursor-pointer border h-100 d-flex flex-column justify-content-center position-relative" 
                        [class.selected]="paymentMethod === 'wave'"
-                       (click)="selectMethod('wave')">
-                    <div class="check-indicator text-success mb-2" *ngIf="paymentMethod === 'wave'">
-                      <i class="fa-solid fa-circle-check fs-4"></i>
-                    </div>
-                    <div class="check-indicator text-muted mb-2 opacity-25" *ngIf="paymentMethod !== 'wave'">
-                      <i class="fa-regular fa-circle fs-4"></i>
+                       (click)="selectMethod('wave')"
+                       [style.border-color]="paymentMethod === 'wave' ? '#17c0eb' : ''"
+                       [style.background-color]="paymentMethod === 'wave' ? 'rgba(23, 192, 235, 0.05)' : ''">
+                    <div class="check-indicator text-primary mb-2 position-absolute top-0 end-0 p-2" *ngIf="paymentMethod === 'wave'">
+                      <i class="fa-solid fa-circle-check fs-5"></i>
                     </div>
                     <!-- Logo simulé pour Wave -->
-                    <div class="fs-1 text-primary mb-2 fw-bold" style="color: #17c0eb !important;">Wave</div>
-                    <span class="fw-semibold d-block">Payer avec Wave</span>
+                    <div class="fs-2 text-primary mb-2 fw-bold" style="color: #17c0eb !important;">Wave</div>
+                    <span class="fw-semibold d-block small">Payer avec Wave</span>
                   </div>
                 </div>
                 
                 <!-- Carte Orange Money -->
-                <div class="col-sm-6">
-                  <div class="payment-card rounded-3 p-3 text-center cursor-pointer border" 
+                <div class="col-sm-4">
+                  <div class="payment-card rounded-3 p-3 text-center cursor-pointer border h-100 d-flex flex-column justify-content-center position-relative" 
                        [class.selected]="paymentMethod === 'orange'"
-                       (click)="selectMethod('orange')">
-                    <div class="check-indicator text-success mb-2" *ngIf="paymentMethod === 'orange'">
-                      <i class="fa-solid fa-circle-check fs-4"></i>
-                    </div>
-                    <div class="check-indicator text-muted mb-2 opacity-25" *ngIf="paymentMethod !== 'orange'">
-                      <i class="fa-regular fa-circle fs-4"></i>
+                       (click)="selectMethod('orange')"
+                       [style.border-color]="paymentMethod === 'orange' ? '#ff6600' : ''"
+                       [style.background-color]="paymentMethod === 'orange' ? 'rgba(255, 102, 0, 0.05)' : ''">
+                    <div class="check-indicator mb-2 position-absolute top-0 end-0 p-2" style="color: #ff6600" *ngIf="paymentMethod === 'orange'">
+                      <i class="fa-solid fa-circle-check fs-5"></i>
                     </div>
                     <!-- Logo simulé pour Orange Money -->
-                    <div class="fs-1 mb-2 fw-bold" style="color: #ff6600 !important;">O<span class="fs-4">range</span> Money</div>
-                    <span class="fw-semibold d-block">Payer avec Orange</span>
+                    <div class="fs-4 mb-2 fw-bold" style="color: #ff6600 !important;">O<span class="fs-6">range</span> Money</div>
+                    <span class="fw-semibold d-block small">Payer avec Orange</span>
+                  </div>
+                </div>
+
+                <!-- Carte Virement Bancaire -->
+                <div class="col-sm-4">
+                  <div class="payment-card rounded-3 p-3 text-center cursor-pointer border h-100 d-flex flex-column justify-content-center position-relative" 
+                       [class.selected]="paymentMethod === 'bank'"
+                       (click)="selectMethod('bank')"
+                       [style.border-color]="paymentMethod === 'bank' ? '#556B2F' : ''"
+                       [style.background-color]="paymentMethod === 'bank' ? 'rgba(85, 107, 47, 0.05)' : ''">
+                    <div class="check-indicator text-success mb-2 position-absolute top-0 end-0 p-2" *ngIf="paymentMethod === 'bank'">
+                      <i class="fa-solid fa-circle-check fs-5"></i>
+                    </div>
+                    <div class="fs-2 text-secondary mb-2 fw-bold"><i class="fa-solid fa-building-columns"></i></div>
+                    <span class="fw-semibold d-block small">Virement Bancaire</span>
+                    <span class="d-block text-muted" style="font-size: 0.65rem;">Pour les étrangers</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Champ Téléphone -->
+              <!-- Champ Téléphone ou Email -->
               <div class="mb-4">
-                <label for="phone" class="form-label fw-bold">Numéro de téléphone de facturation</label>
-                <div class="input-group input-group-lg">
+                <label for="billingInfo" class="form-label fw-bold">
+                  {{ paymentMethod === 'bank' ? 'Adresse email de facturation' : 'Numéro de téléphone de facturation' }}
+                </label>
+                
+                <!-- Input Phone -->
+                <div class="input-group input-group-lg" *ngIf="paymentMethod !== 'bank'">
                   <span class="input-group-text bg-light border-end-0 fw-semibold text-dark">+221</span>
-                  <input type="tel" class="form-control border-start-0 ps-0" id="phone" 
+                  <input type="tel" class="form-control border-start-0 ps-0" id="billingInfo" 
                          placeholder="77 123 45 67" 
                          [(ngModel)]="phoneNumber" 
                          maxlength="9">
                 </div>
+                
+                <!-- Input Email -->
+                <div class="input-group input-group-lg" *ngIf="paymentMethod === 'bank'">
+                  <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-envelope text-muted"></i></span>
+                  <input type="email" class="form-control border-start-0 ps-0" id="billingInfoEmail" 
+                         placeholder="votre@email.com" 
+                         [(ngModel)]="emailAddress">
+                </div>
+
                 <div class="form-text text-muted mt-2"><i class="fa-solid fa-lock text-success me-1"></i> Vos données sont cryptées et sécurisées.</div>
               </div>
 
